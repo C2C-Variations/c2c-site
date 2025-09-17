@@ -1,0 +1,31 @@
+:root{
+  --bg:#000; --fg:#fff; --muted:#a7a7a7; --card:#0b0b0b; --line:#222; --accent:#ff8a3d; --wa:#25D366;
+}
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ margin:0; background:var(--bg); color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  padding-top:env(safe-area-inset-top); padding-bottom:env(safe-area-inset-bottom);
+}
+.container{ max-width:1100px; margin:0 auto; padding:20px;}
+h1,h2,h3{ letter-spacing:-.02em; margin:10px 0 8px;}
+h1{ font-weight:800; font-size:clamp(32px, 5vw, 56px);}
+h2{ font-weight:800; font-size:clamp(22px, 3.2vw, 28px);}
+.muted{ color:var(--muted);}
+.card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px;}
+.grid{ display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+a{ color:var(--accent); text-decoration:none;}
+a:focus,a:hover{ text-decoration:underline;}
+button,.btn,a{ -webkit-tap-highlight-color: rgba(255,255,255,.05); min-height:44px;}
+img{ max-width:100%; height:auto;}
+@media (max-width:768px){
+  .container{ padding:16px;}
+}
+/* Patch: shrink yearly buttons */
+.card .cta a {
+  width: auto;
+  min-width: 140px;
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
+}
