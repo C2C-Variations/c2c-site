@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Pricing — C2C Variations</title>
+<style>
+    /* Page-scoped styles (won't leak to other pages) */
+    body{background:#000;color:#ededed;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;margin:0}
+    a{color:#ff8a3d;text-decoration:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:#000;border-bottom:1px solid #222;z-index:10}
+    header .row{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;gap:16px;align-items:center}
+    header a{color:#ff8a3d}
+    h1{font-size:clamp(2rem,3vw,3rem);margin:18px 0 4px}
+    .muted{color:#a3a3a3;margin-bottom:22px}
+    /* 3 across desktop, 1 on mobile */
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+    @media(max-width:1024px){.grid{grid-template-columns:1fr}}
+    .card{background:#0f0f10;border:1px solid #1f1f21;border-radius:18px;padding:18px;display:flex;flex-direction:column;min-height:100%}
+    .price{font-size:44px;font-weight:900;margin:8px 0}
+    .features{flex:1 1 auto}
+    .actions{margin-top:auto;display:grid;gap:10px}
+    .btn{display:inline-block;width:100%;text-align:center;border-radius:14px;padding:12px 18px;font-weight:800;border:1px solid transparent}
+    /* C2C orange for primary (monthly) */
+    .btn-primary{background:#ff7a00;color:#111}
+    .btn-primary:hover{filter:brightness(1.05)}
+    /* Ghost/outline orange for annual */
+    .btn-ghost{background:transparent;color:#ff7a00;border-color:rgba(255,122,0,.7)}
+    .btn-ghost:hover{color:#ffa24d;border-color:#ffa24d}
+    small{font-size:12px;opacity:.85}
+  </style>
+<style>
+/* Inline patch: compact pricing buttons */
+.card .cta a {
+  width: auto !important;      /* override any width:100% */
+  min-width: 160px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+}
+</style><style>
+/* Scoped compact buttons for pricing only */
+.compact-btn {
+  width: auto !important;
+  min-width: 160px;
+  display: inline-block !important;
+  text-align: center;
+  margin: 0 auto !important;
+}
+</style><style>
+/* Center-align plan feature lists in pricing cards */
+.card ul, .card li {
+  text-align: center !important;
+}
+</style><style>
+/* Patch: center list block; keep text left so bullets look right */
+.card ul { 
+  display: inline-block !important;
+  text-align: left !important;
+  margin: 0 auto 16px !important;
+  padding-left: 1.2rem !important;
+  list-style-position: outside !important;
+}
+.card li { 
+  text-align: left !important; 
+}
+</style></head>
+<body>
+<header><div class="row">
+<a href="/" style="font-weight:800">Home</a>
+<nav style="margin-left:auto;display:flex;gap:16px">
+<a href="/pricing">Pricing</a><a href="/docs">Docs</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a>
+</nav>
+</div></header>
+<div class="wrap">
+<h1>Pick your plan</h1>
+<p class="muted">Fair pricing. Cancel anytime. All prices exclude GST.</p>
+<div class="grid">
+<!-- SOLO -->
+<article aria-label="Solo Plan" class="card">
+<div class="muted">Solo</div>
+<h2>Solo Plan</h2>
+<div class="price">A$29 <small>/mo + GST</small></div>
+<div class="features">
+<ul>
+<li>1 user</li>
+<li>Unlimited variations, quotes &amp; compliance docs</li>
+<li>WhatsApp-first workflow</li>
+</ul>
+</div>
+<div class="actions">
+<a class="btn btn-primary compact-btn" href="https://buy.stripe.com/28EdRagGJ7HE8WV1WK3VC08" rel="noopener" target="_blank">Get started</a>
+<a class="btn btn-ghost compact-btn" href="https://buy.stripe.com/8x27sMcqt6DA3CB7h43VC09" rel="noopener" target="_blank">Yearly – save 10% (+GST)</a>
+</div>
+</article>
+<!-- CREW -->
+<article aria-label="Crew Plan" class="card">
+<div class="muted">Crew</div>
+<h2>Crew Plan</h2>
+<div class="price">A$79 <small>/mo + GST</small></div>
+<div class="features">
+<ul>
+<li>Up to 5 users</li>
+<li>Shared templates &amp; history</li>
+<li>All Solo features</li>
+</ul>
+</div>
+<div class="actions">
+<a class="btn btn-primary compact-btn" href="https://buy.stripe.com/eVq6oI3TXgea6ON9pc3VC0a" rel="noopener" target="_blank">Get started</a>
+<a class="btn btn-ghost compact-btn" href="https://buy.stripe.com/9B68wQ0HL5zw7SR30O3VC0b" rel="noopener" target="_blank">Yearly – save 10% (+GST)</a>
+</div>
+</article>
+<!-- BUSINESS -->
+<article aria-label="Business Plan" class="card">
+<div class="muted">Business</div>
+<h2>Business Plan</h2>
+<div class="price">A$199 <small>/mo + GST</small></div>
+<div class="features">
+<ul>
+<li>Up to 15 users</li>
+<li>Full access to all C2C tools</li>
+<li>Priority responses</li>
+</ul>
+</div>
+<div class="actions">
+<a class="btn btn-primary compact-btn" href="https://buy.stripe.com/eVqaEYbmp3rofljeJw3VC0c" rel="noopener" target="_blank">Get started</a>
+<a class="btn btn-ghost compact-btn" href="https://buy.stripe.com/14AbJ2bmpgea8WV8l83VC0d" rel="noopener" target="_blank">Yearly – save 10% (+GST)</a>
+</div>
+</article>
+</div>
+</div>
+</body>
+</html>
