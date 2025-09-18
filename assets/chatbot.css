@@ -1,17 +1,26 @@
+/* Pricing page: lift chat button above sticky CTA */
+.page-pricing{
+  /* lifts the button ~120px to clear the plan cards & sticky CTA */
+  --c2c-chat-offset: 120px;
+}
+
 :root{
-  /* change this to your exact brand orange if needed */
-  --c2c-orange: #ff7a00;  /* hi-viz orange */
+  /* match our button orange */
+  --c2c-orange: #FF8A3D;
+  /* extra lift when a page needs it */
+  --c2c-chat-offset: 0px;
   --c2c-shadow: 0 12px 28px rgba(0,0,0,.35);
 }
 
 
 /* Floating Chat Button */
-#c2c-chatbot-button {
+
+.c2c-chatbot-button, #c2c-chatbot-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ff8a3d; /* hi-viz orange from your logo */
+  background: var(--c2c-orange);
   color: #fff;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px) + var(--c2c-chat-offset));
+  right: 18px;
   font-weight: 700;
   font-size: 16px;
   padding: 12px 20px;
@@ -21,11 +30,12 @@
   cursor: pointer;
   z-index: 99999;
   transition: transform .2s ease, background-color .2s ease;
+  /* No gradient or filter for exact color */
 }
 
-#c2c-chatbot-button:hover {
+.c2c-chatbot-button:hover, #c2c-chatbot-button:hover {
   transform: scale(1.05);
-  background: #ff7a00;
+  background: var(--c2c-orange);
 }
 
 /* If you want to keep the dot indicator, add this: */
