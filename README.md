@@ -14,24 +14,29 @@ This repo is your **source of truth** for the website. No more random ZIPs.
 - Create a new Pages project → **Connect to Git** → choose this repo.
 - **Build command:** (leave empty)
 - **Build output directory:** `site`
-- Save.
-Cloudflare will deploy previews for PRs and production on `main`.
+# C2C Site
 
-## Daily workflow
-1. Create a branch, make changes in `site/` (e.g., edit `docs.html`).
-2. Commit, open PR.
-3. CI runs: HTML lint + broken-link check + WhatsApp link sanity.
-4. If ✅, merge to main → Cloudflare auto-deploys.
-5. If ❌, fix and push again.
+This repository contains the C2C Variations website.
 
-## Files in this repo
-- `.github/workflows/ci.yml` — CI checks (HTMLHint + Linkinator)
-- `.github/PULL_REQUEST_TEMPLATE.md` — human checklist before merging
-- `.github/CODEOWNERS` — required reviewers
-- `.htmlhintrc` — HTML rules
-- `_redirects` — keeps pretty paths working on Cloudflare (served from `site/`)
+## Structure
+- index.html → main landing page
+- about.html → about page
+- pricing.html → service pricing
+- partners.html → partner/trust logos
+- docs.html → resources and documentation
+- privacy.html, terms.html → legal pages
+- testimonials.html → client reviews
+- 404.html → fallback error page
+- assets/ → images, CSS, and static files
+- site-mobile.css → mobile styles
+- _redirects → Cloudflare redirect rules
+- .gitignore → ignored files
+
+## Deployment
+- Hosted on Cloudflare Pages
+- Main branch = production
+- Feature branches = development
 
 ## Notes
-- Don’t put secrets in the repo.
-- WhatsApp numbers in templates: `61466873332` (update in one place if you change it).
-- Stripe links live only on the Pricing page; Docs Hub has **no billing** (subs cover docs).
+- Always commit changes on a feature branch first
+- Merge to main only after testing in Cloudflare preview
