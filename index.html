@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="page-topic" content="Home - C2C Variations: Docs done. Jobs won. National coverage, WhatsApp-first support, and compliant paperwork for trades.">
   <title>C2C Variations — Docs done. Jobs won.</title>
   <meta name="description" content="Docs that keep jobs moving and cashflow sane.">
   <link rel="icon" href="./favicon.ico">
@@ -68,6 +69,7 @@
   
   @media (max-width: 768px){ .ticker-track{ animation-duration:18s !important; } }
   </style>
+  <link rel="stylesheet" href="assets/chatbot.css">
 </head>
 <body>
   <header class="site-header">
@@ -138,18 +140,5 @@ document.addEventListener('click',function(e){
   el.scrollIntoView({behavior:'smooth', block:'start'});
 });
 </script>
-<!-- WhatsApp Floating Button -->
-<a id="wa-float" href="https://wa.me/61466873332" aria-label="Chat on WhatsApp">
-  💬 Chat on WhatsApp
-</a>
-<style>
-  #wa-float{
-    position:fixed; right:16px; bottom:16px; z-index:9999;
-    display:inline-block; padding:12px 14px; border-radius:999px;
-    text-decoration:none; font-weight:600; background:#25D366; color:#000;
-    box-shadow:0 6px 20px rgba(0,0,0,.2);
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  }
-  #wa-float:focus{ outline:3px solid #000; outline-offset:2px; }
-</style>
+<script src="assets/chatbot.js"></script>
 </body></html>
