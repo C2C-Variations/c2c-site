@@ -1,4 +1,26 @@
 (function(){
+  function toggleC2CChat(){
+    var p = document.getElementById('c2c-chat-panel');
+    if(!p) return;
+    p.style.display = (p.style.display === 'block') ? 'none' : 'block';
+  }
+  function closeC2CChat(){
+    var p = document.getElementById('c2c-chat-panel');
+    if(p) p.style.display = 'none';
+  }
+  // attach once the DOM is ready
+  document.addEventListener('DOMContentLoaded', function(){
+    var btn = document.getElementById('c2c-chat-toggle');
+    if(btn){ btn.addEventListener('click', toggleC2CChat); }
+    var x = document.getElementById('c2c-chat-close');
+    if(x){ x.addEventListener('click', closeC2CChat); }
+  });
+
+  // expose in case inline onclick ever needed
+  window.toggleC2CChat = toggleC2CChat;
+  window.closeC2CChat = closeC2CChat;
+})();
+(function(){
   // Derive topic from meta tag or filename
   function getTopic(){
     const m = document.querySelector('meta[name="page-topic"]');

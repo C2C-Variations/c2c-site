@@ -2,26 +2,23 @@
 <meta charset="utf-8">
 <meta name="page-topic" content="Test Page - C2C Variations: Deployment and integration test page.">
 <title>C2C deploy test</title>
-<link rel="stylesheet" href="assets/chatbot.css?v=3">
+<link rel="stylesheet" href="assets/chatbot.css?v=4">
+
 <h1>Deployment test</h1>
 <p>If you can see this page, GitHub → Cloudflare is working.</p>
-<div id="c2c-chatbot-button" role="button" aria-haspopup="dialog" aria-expanded="false" title="Open C2C chat" onclick="toggleC2CChat()">
-	💬 Chat with C2C
-</div>
 
-<div id="c2c-chatbot-container" role="dialog" aria-label="C2C Chat">
-	<iframe id="c2c-chatbot-frame" src="about:blank" loading="lazy"></iframe>
-</div>
-
-<script>
-	function toggleC2CChat(){
-		const panel=document.getElementById('c2c-chatbot-container');
-		const btn=document.getElementById('c2c-chatbot-button');
-		const open=panel.style.display==='block';
-		panel.style.display=open?'none':'block';
-		btn.setAttribute('aria-expanded', String(!open));
-		// TODO: set your real bot URL here once ready:
-		const f=document.getElementById('c2c-chatbot-frame');
-		if(!open && f && (!f.src || f.src==='about:blank')) f.src='https://your-chatbot-url.example';
-	}
-</script>
+<!-- C2C Chatbot Widget v4 -->
+<button id="c2c-chat-toggle" aria-controls="c2c-chat-panel" aria-expanded="false" aria-label="Chat with C2C">
+  <span class="dot" aria-hidden="true"></span> Chat with C2C
+</button>
+<section id="c2c-chat-panel" role="dialog" aria-modal="true" aria-labelledby="c2c-chat-title" style="display:none">
+  <header id="c2c-chat-header">
+    <div id="c2c-chat-title">C2C Assistant</div>
+    <button id="c2c-chat-close" aria-label="Close chat">✕</button>
+  </header>
+  <div id="c2c-chat-body">
+    <!-- hook your real chat iframe/app here -->
+    <iframe title="C2C Chat" src="about:blank" style="width:100%;height:320px;border:0;background:#111"></iframe>
+  </div>
+</section>
+<script src="assets/chatbot.js?v=4" defer></script>
