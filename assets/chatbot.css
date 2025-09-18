@@ -1,157 +1,101 @@
-/* Pricing page: lift chat button above sticky CTA */
-.page-pricing{
-  /* lifts the button ~120px to clear the plan cards & sticky CTA */
-  --c2c-chat-offset: 120px;
-}
 
-:root{
-  /* match our button orange */
-  --c2c-orange: #FF8A3D;
-  /* extra lift when a page needs it */
-  --c2c-chat-offset: 0px;
+/* --- C2C Chatbot Widget v5 --- */
+
+:root {
+  --c2c-orange: #ff8a3d;
+  --c2c-orange-hover: #e6782f;
   --c2c-shadow: 0 12px 28px rgba(0,0,0,.35);
 }
 
+.c2c-chatbot-wrapper {
+  margin-top: 2rem;
+  text-align: center;
+}
 
-/* Floating Chat Button */
-
-.c2c-chatbot-button, #c2c-chatbot-button {
-  position: fixed;
+#c2c-chatbot-button {
   background: var(--c2c-orange);
   color: #fff;
-  bottom: calc(18px + env(safe-area-inset-bottom, 0px) + var(--c2c-chat-offset));
-  right: 18px;
   font-weight: 700;
   font-size: 16px;
-  padding: 12px 20px;
-  border-radius: 9999px;
+  padding: 13px 26px;
+  border-radius: 50px;
   border: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   cursor: pointer;
-  z-index: 99999;
-  transition: transform .2s ease, background-color .2s ease;
-  /* No gradient or filter for exact color */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background 0.2s ease, transform 0.15s ease;
+  outline: none;
 }
 
-.c2c-chatbot-button:hover, #c2c-chatbot-button:hover {
+#c2c-chatbot-button:hover, #c2c-chatbot-button:focus {
+  background: var(--c2c-orange-hover);
   transform: scale(1.05);
-  background: var(--c2c-orange);
 }
 
-/* If you want to keep the dot indicator, add this: */
-#c2c-chatbot-button .dot {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: #fff; display:inline-block;
-  box-shadow: inset 0 -3px 0 rgba(0,0,0,.1);
-  margin-right: 8px;
+/* Chatbot Panel Styles */
+#c2c-chatbot-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: static;
+  width: 100%;
+  margin-top: 18px;
+  z-index: 1000;
 }
 
-/* Responsive for small screens */
-@media (max-width: 420px){
-  #c2c-chatbot-button{ padding:10px 14px; font-size:15px; }
-}
-
-#c2c-chat-panel{
-  position: fixed;
-  right: clamp(12px, 2.5vw, 24px);
-  bottom: clamp(72px, calc(env(safe-area-inset-bottom) + 72px), 88px);
-  width: min(420px, 92vw);
-  max-height: min(70vh, 640px);
-  background: #0f0f10;
+#c2c-chat-panel {
+  background: #18181b;
   color: #fff;
   border-radius: 16px;
   box-shadow: var(--c2c-shadow);
-  overflow: hidden;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
   display: none;
-  z-index: 2147483000;
-}
-#c2c-chat-header{
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 10px 14px; background:#18181b; border-bottom:1px solid rgba(255,255,255,.06);
-}
-#c2c-chat-title{ font-weight:700; font-size:14px; }
-#c2c-chat-close{
-  background: transparent; color: #fff; border:0; cursor:pointer;
-  font-size: 16px; line-height: 1; padding: 6px 8px; border-radius:8px;
-}
-#c2c-chat-close:hover{ background: rgba(255,255,255,.08); }
-#c2c-chat-body{
-  background:#0f0f10;
-  min-height: 260px;
-  max-height: calc(min(70vh, 640px) - 46px);
-  overflow: auto;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1001;
 }
 
-/* prevent overlap with page content on very small screens */
-@media (max-width: 420px){
-  #c2c-chat-toggle{ padding:12px 18px; font-size:15px; }
-}
-:root{
-  /* change this to your exact brand orange if needed */
-  --c2c-orange: #ff7a00;  /* hi-viz orange */
-  --c2c-shadow: 0 12px 28px rgba(0,0,0,.35);
-}
-
-#c2c-chat-toggle{
-  position: fixed;
-  right: clamp(16px, 3vw, 28px);
-  bottom: clamp(18px, env(safe-area-inset-bottom) + 18px, 28px);
-  padding: 13px 22px;
-  border-radius: 9999px;
-  background: var(--c2c-orange);
-  color: #fff;
-  font-weight: 800;
-  font-size: 16px;
-  line-height: 1;
-  display: inline-flex;
+#c2c-chat-header {
+  display: flex;
   align-items: center;
-  gap: 12px;
-  box-shadow: var(--c2c-shadow);
-  cursor: pointer;
-  z-index: 2147483000; /* above everything */
-  transform: translateZ(0);
-  -webkit-font-smoothing: antialiased;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: #232326;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-#c2c-chat-toggle .dot{
-  width: 14px; height: 14px; border-radius: 50%;
-  background: #fff; display:inline-block;
-  box-shadow: inset 0 -3px 0 rgba(0,0,0,.1);
-}
-#c2c-chat-toggle:hover{ filter: brightness(1.08); }
-#c2c-chat-toggle:active{ transform: translateY(1px); }
 
-#c2c-chat-panel{
-  position: fixed;
-  right: clamp(12px, 2.5vw, 24px);
-  bottom: clamp(72px, calc(env(safe-area-inset-bottom) + 72px), 88px);
-  width: min(420px, 92vw);
-  max-height: min(70vh, 640px);
-  background: #0f0f10;
+#c2c-chat-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+#c2c-chat-close {
+  background: transparent;
   color: #fff;
-  border-radius: 16px;
-  box-shadow: var(--c2c-shadow);
-  overflow: hidden;
-  display: none;
-  z-index: 2147483000;
+  border: 0;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.15s;
 }
-#c2c-chat-header{
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 10px 14px; background:#18181b; border-bottom:1px solid rgba(255,255,255,.06);
-}
-#c2c-chat-title{ font-weight:700; font-size:14px; }
-#c2c-chat-close{
-  background: transparent; color: #fff; border:0; cursor:pointer;
-  font-size: 16px; line-height: 1; padding: 6px 8px; border-radius:8px;
-}
-#c2c-chat-close:hover{ background: rgba(255,255,255,.08); }
-#c2c-chat-body{
-  background:#0f0f10;
-  min-height: 260px;
-  max-height: calc(min(70vh, 640px) - 46px);
-  overflow: auto;
+#c2c-chat-close:hover, #c2c-chat-close:focus {
+  background: rgba(255,255,255,0.10);
 }
 
-/* prevent overlap with page content on very small screens */
-@media (max-width: 420px){
-  #c2c-chat-toggle{ padding:12px 18px; font-size:15px; }
+#c2c-chat-body {
+  background: #18181b;
+  padding: 18px;
+  min-height: 180px;
+  max-height: 320px;
+  overflow-y: auto;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  #c2c-chat-panel {
+    max-width: 98vw;
+  }
 }
