@@ -1,0 +1,19 @@
+#c2c-chat-launch {
+  position:fixed; right:16px; bottom:16px; z-index:9999;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 12px; border-radius:999px; font-weight:600;
+  background:#111; color:#fff; text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.25); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+#c2c-chat-panel {
+  position:fixed; right:16px; bottom:70px; width:340px; max-width:92vw; height:480px; max-height:70vh;
+  background:#181818; color:#eee; border-radius:14px; box-shadow:0 16px 40px rgba(0,0,0,.35);
+  display:none; flex-direction:column; overflow:hidden; z-index:9999;
+}
+#c2c-chat-header{ padding:10px 12px; font-weight:700; background:#0f0f0f; border-bottom:1px solid #2a2a2a;}
+#c2c-chat-body{ padding:10px 12px; overflow:auto; font-size:14px; line-height:1.4;}
+#c2c-chat-close{ margin-left:auto; cursor:pointer; font-weight:700;}
+#c2c-chat-input{ display:flex; gap:8px; padding:10px; border-top:1px solid #2a2a2a; background:#0f0f0f;}
+#c2c-chat-input input{ flex:1; padding:8px 10px; border-radius:8px; border:1px solid #333; background:#111; color:#eee;}
+#c2c-chat-input button{ padding:8px 12px; border-radius:8px; border:none; background:#ff7a00; color:#000; font-weight:700; cursor:pointer;}
+@media (max-width:640px){ #c2c-chat-launch{ bottom:12px; right:12px; padding:8px 10px; } }
