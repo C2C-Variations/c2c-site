@@ -67,7 +67,7 @@
   .footer{padding:30px 0;color:#a7a7a7;border-top:1px solid var(--outline);margin-top:34px}
   .footer a{color:#ff8a3d;text-decoration:none}
   </style>
-  <link rel="stylesheet" href="assets/chatbot.css">
+  <link rel="stylesheet" href="assets/chatbot.css?v=3">
 </head>
 <body>
   <header class="site-header">
@@ -90,5 +90,27 @@
       <span style="display:flex;gap:16px"><a href="./pricing.html">See plans</a><a href="./about.html">About</a><a href="./testimonials.html">Testimonials</a><a href="./partners.html">Partners</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></span>
     </div>
   </footer>
-<script src="assets/chatbot.js"></script>
+
+<link rel="stylesheet" href="assets/chatbot.css?v=3">
+
+<div id="c2c-chatbot-button" role="button" aria-haspopup="dialog" aria-expanded="false" title="Open C2C chat" onclick="toggleC2CChat()">
+  💬 Chat with C2C
+</div>
+
+<div id="c2c-chatbot-container" role="dialog" aria-label="C2C Chat">
+  <iframe id="c2c-chatbot-frame" src="about:blank" loading="lazy"></iframe>
+</div>
+
+<script>
+  function toggleC2CChat(){
+    const panel=document.getElementById('c2c-chatbot-container');
+    const btn=document.getElementById('c2c-chatbot-button');
+    const open=panel.style.display==='block';
+    panel.style.display=open?'none':'block';
+    btn.setAttribute('aria-expanded', String(!open));
+    // TODO: set your real bot URL here once ready:
+    const f=document.getElementById('c2c-chatbot-frame');
+    if(!open && f && (!f.src || f.src==='about:blank')) f.src='https://your-chatbot-url.example';
+  }
+</script>
 </body></html>
