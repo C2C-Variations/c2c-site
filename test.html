@@ -2,19 +2,20 @@
 <meta charset="utf-8">
 <meta name="page-topic" content="Test Page - C2C Variations: Deployment and integration test page.">
 <title>C2C deploy test</title>
-<link rel="stylesheet" href="assets/chatbot.css?v=5">
+<link rel="stylesheet" href="assets/chatbot.css?v=4">
 
 <h1>Deployment test</h1>
 <p>If you can see this page, GitHub → Cloudflare is working.</p>
 
-<div id="c2c-chatbot-container" style="display:none;">
-	<!-- Replace iframe src with your chatbot backend / service -->
-	<iframe 
-		src="https://your-chat-service.com/embed" 
-		width="100%" 
-		height="100%" 
+<div id="c2c-chatbot-container" hidden>
+	<!-- TODO: replace this src with your real chat UI when ready -->
+	<iframe
+		src="about:blank"
+		width="100%"
+		height="100%"
 		frameborder="0"
-		style="border:0">
-	</iframe>
+		style="border:0"
+		title="C2C Chat"
+	></iframe>
 </div>
-<script src="assets/chatbot.js?v=5" defer></script>
+<script src="assets/chatbot.js?v=4" defer></script>

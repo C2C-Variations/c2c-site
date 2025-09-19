@@ -1,160 +1,48 @@
-/* Header chat button and fixed panel styles */
-#c2c-chatbot-button {
-  background: #ff8a3d; /* exact hi-viz orange */
-  color: #fff;
-  font-weight: 700;
-  font-size: 15px;
-  padding: 8px 18px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  margin-left: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: background-color .2s ease, transform .1s ease;
-}
-
-#c2c-chatbot-button:hover {
-  background: #e67628; /* darker orange on hover */
-  transform: scale(1.05);
-}
-
-#c2c-chatbot-container {
-  display: none;
-  position: fixed;
-  top: 70px; /* just below header */
-  right: 20px;
-  width: 350px;
-  height: 500px;
-  background: #fff;
-  border: 2px solid #ff8a3d;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-  z-index: 2147483647;
-  overflow: hidden;
-}
-/* Header placement */
-#c2c-chatbot-header {
-  display: inline-block;
-  margin-left: 20px; /* spacing from last menu item */
-  vertical-align: middle;
-}
-
-/* Button styling */
-#c2c-chatbot-button {
-  background: #ff8a3d; /* hi-viz orange */
-  color: #fff;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 8px 18px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-/* Hover effect */
-#c2c-chatbot-button:hover {
-  background: #e67628; /* darker orange */
-  transform: scale(1.05);
-}
-
-/* --- C2C Chatbot Widget v5 --- */
-
+/* Button: use brand orange via variable with safe fallback */
 :root {
-  --c2c-orange: #ff8a3d;
-  --c2c-orange-hover: #e6782f;
-  --c2c-shadow: 0 12px 28px rgba(0,0,0,.35);
+  /* If your site already defines --c2c-orange, this uses it. Otherwise uses fallback. */
+  --c2c-orange: var(--c2c-orange, #ff8a3d);
+  --c2c-orange-darker: color-mix(in srgb, var(--c2c-orange) 85%, #000 15%);
 }
 
-.c2c-chatbot-wrapper {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-#c2c-chatbot-button {
+/* Header CTA look to match your other pill buttons */
+.c2c-chat-cta {
   background: var(--c2c-orange);
   color: #fff;
   font-weight: 700;
   font-size: 16px;
-  padding: 13px 26px;
-  border-radius: 50px;
+  line-height: 1;
+  padding: 12px 18px;
+  border-radius: 999px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: background 0.2s ease, transform 0.15s ease;
-  outline: none;
-}
-
-#c2c-chatbot-button:hover, #c2c-chatbot-button:focus {
-  background: var(--c2c-orange-hover);
-  transform: scale(1.05);
-}
-
-/* Chatbot Panel Styles */
-#c2c-chatbot-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  position: static;
-  width: 100%;
-  margin-top: 18px;
-  z-index: 1000;
-}
-
-#c2c-chat-panel {
-  background: #18181b;
-  color: #fff;
-  border-radius: 16px;
-  box-shadow: var(--c2c-shadow);
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  z-index: 1001;
-}
-
-#c2c-chat-header {
-  display: flex;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  transition: transform .08s ease, background-color .2s ease;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 18px;
-  background: #232326;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  gap: 10px;
+  white-space: nowrap;
+}
+.c2c-chat-cta:hover { background: var(--c2c-orange-darker); transform: translateY(-1px); }
+.c2c-chat-cta:active { transform: translateY(0); }
+
+/* Space it a bit from the WhatsApp button */
+.c2c-chat-cta { margin-left: 16px; }
+
+/* Chat container: tidy panel under header, top-right */
+#c2c-chatbot-container {
+  position: fixed;
+  top: clamp(64px, 8vh, 96px);
+  right: 20px;
+  width: min(360px, 92vw);
+  height: min(560px, 80vh);
+  background: #101010;
+  border: 2px solid var(--c2c-orange);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  z-index: 2147483647;
+  overflow: hidden;
 }
 
-#c2c-chat-title {
-  font-weight: 700;
-  font-size: 15px;
-}
-
-#c2c-chat-close {
-  background: transparent;
-  color: #fff;
-  border: 0;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1;
-  padding: 6px 10px;
-  border-radius: 8px;
-  transition: background 0.15s;
-}
-#c2c-chat-close:hover, #c2c-chat-close:focus {
-  background: rgba(255,255,255,0.10);
-}
-
-#c2c-chat-body {
-  background: #18181b;
-  padding: 18px;
-  min-height: 180px;
-  max-height: 320px;
-  overflow-y: auto;
-  font-size: 15px;
-}
-
-@media (max-width: 600px) {
-  #c2c-chat-panel {
-    max-width: 98vw;
-  }
-}
+/* When [hidden] is removed by JS, it shows */
+#c2c-chatbot-container[hidden] { display: none !important; }

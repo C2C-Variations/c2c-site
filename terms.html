@@ -22,7 +22,7 @@
     .btn-wa{background:var(--wa);color:#0b321a;}
     @media (max-width:768px){.wrap{padding:16px;}}
   </style>
-  <link rel="stylesheet" href="assets/chatbot.css?v=5">
+  <link rel="stylesheet" href="assets/chatbot.css?v=4">
 </head>
 <body>
 <header style="position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid #222;">
@@ -34,7 +34,7 @@
       <a href="/about" style="color:#ff8a3d;text-decoration:none">About</a>
       <a href="/privacy" style="color:#ff8a3d;text-decoration:none">Privacy</a>
       <a href="/terms" style="color:#ff8a3d;text-decoration:none">Terms</a>
-      <button id="c2c-chatbot-button" onclick="toggleC2CChat()">💬 Chat with C2C</button>
+  <button id="c2c-chatbot-button" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
     </nav>
   </div>
 </header>
@@ -74,16 +74,17 @@
 <!-- C2C:TERMS:END -->
   </div>
 
-  <div id="c2c-chatbot-container" style="display:none;">
-    <!-- Replace iframe src with your chatbot backend / service -->
-    <iframe 
-      src="https://your-chat-service.com/embed" 
-      width="100%" 
-      height="100%" 
+  <div id="c2c-chatbot-container" hidden>
+    <!-- TODO: replace this src with your real chat UI when ready -->
+    <iframe
+      src="about:blank"
+      width="100%"
+      height="100%"
       frameborder="0"
-      style="border:0">
-    </iframe>
+      style="border:0"
+      title="C2C Chat"
+    ></iframe>
   </div>
-  <script src="assets/chatbot.js?v=5" defer></script>
+  <script src="assets/chatbot.js?v=4" defer></script>
 </body>
 </html>
