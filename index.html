@@ -1,14 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="page-topic" content="Home - C2C Variations: Docs done. Jobs won. National coverage, WhatsApp-first support, and compliant paperwork for trades.">
-  <title>C2C Variations — Docs done. Jobs won.</title>
-  <meta name="description" content="Docs that keep jobs moving and cashflow sane.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Docs done. Jobs won. Lock scope changes, clear approvals, and time-stamped PDFs. C2C Variations — national coverage and same-day setup.">
+  <link rel="canonical" href="https://www.c2cvariations.com.au/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="C2C Variations">
+  <meta property="og:title" content="Docs done. Jobs won. | C2C Variations">
+  <meta property="og:description" content="Lock scope changes, clear approvals, and time-stamped PDFs. Same-day setup across Australia.">
+  <meta property="og:url" content="https://www.c2cvariations.com.au/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Docs done. Jobs won. | C2C Variations">
+  <meta name="twitter:description" content="Lock scope changes, clear approvals, and time-stamped PDFs. Same-day setup across Australia.">
   <link rel="icon" href="./favicon.ico">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <meta name="theme-color" content="#000000">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="site-mobile.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="site-mobile.css"></noscript>
   <style>
   :root{--bg:#000;--card:#0b0b0b;--muted:#c9c9c9;--text:#fff;--orange:#ff6a00;--orange-2:#ff8a3d;--outline:#222;--wa:#25D366}
   *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
@@ -70,6 +80,10 @@
   @media (max-width: 768px){ .ticker-track{ animation-duration:18s !important; } }
   </style>
   <link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
+
+  <!-- Cloudflare Web Analytics (enable when token is issued)
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"TODO-CF-ANALYTICS-TOKEN"}'></script>
+  -->
 </head>
 <body>
   <header class="site-header">
@@ -78,8 +92,8 @@
         <img class="icon" src="./assets/logo-icon.jpg" alt="C2C icon">
       </a>
       <nav class="nav" role="navigation" aria-label="Main">
-        <a href="./index.html">Home</a><a href="./pricing.html">Pricing</a><a href="./about.html">About</a><a href="./docs.html">Docs</a>
-        <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">WhatsApp</a>
+  <a href="./index.html">Home</a><a href="./pricing.html">Pricing</a><a href="./about.html">About</a><a href="./docs.html">Docs</a>
+  <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
   <button id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
       </nav>
     </div>
@@ -95,9 +109,9 @@
 <p class="hero"><strong>Lock in every variation, quote and agreement — same day.</strong> No disputes, no unpaid jobs, no bullshit.</p>
 <p style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary" href="#how-it-works">Get started in minutes</a><a class="btn btn-ghost" href="#how-it-works">See how it works</a></p>
 <div class="trust-badges" aria-label="Trust signals">
-  <div class="trust-item"><img src="./assets/badge-shield.png" alt="Shield icon"><div><span>Trusted by trades</span><div class="muted">Across all Australian states & territories</div></div></div>
-  <div class="trust-item"><img src="./assets/badge-check.png" alt="Check icon"><div><span>10,000+ docs generated</span><div class="muted">Variations, quotes, SWMS, agreements</div></div></div>
-  <div class="trust-item"><img src="./assets/badge-pdf.png" alt="PDF icon"><div><span>Compliant, ready-to-sign</span><div class="muted">Time‑stamped approvals & tidy trails</div></div></div>
+  <div class="trust-item"><img src="./assets/badge-shield.png" alt="Shield icon" loading="lazy" decoding="async"><div><span>Trusted by trades</span><div class="muted">Across all Australian states & territories</div></div></div>
+  <div class="trust-item"><img src="./assets/badge-check.png" alt="Check icon" loading="lazy" decoding="async"><div><span>10,000+ docs generated</span><div class="muted">Variations, quotes, SWMS, agreements</div></div></div>
+  <div class="trust-item"><img src="./assets/badge-pdf.png" alt="PDF icon" loading="lazy" decoding="async"><div><span>Compliant, ready-to-sign</span><div class="muted">Timestamped approvals & tidy trails</div></div></div>
 </div>
 <p class="hero-quote">“This saved a $15k variation I would’ve lost. Signed in minutes — no arguments.” <span class="name">— Site Supervisor, Melbourne</span>  <a class="link" href="./testimonials.html">Read more</a></p>
 <div class="divider"></div>
@@ -113,7 +127,7 @@
     <p style="margin-top:12px"><a class="btn btn-outline" href="./docs.html">Browse templates</a></p>
   </div>
   <div>
-    <img src="./assets/flow-mock.png" alt="WhatsApp to signed PDF flow mock">
+    <img src="./assets/flow-mock.png" alt="WhatsApp to signed PDF flow mock" loading="lazy" decoding="async">
   </div>
 </section>
 <div class="divider"></div>
@@ -126,7 +140,7 @@
   <footer class="footer">
     <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
       <span>© C2C Variations</span>
-      <span style="display:flex;gap:16px"><a href="./pricing.html">See plans</a><a href="./about.html">About</a><a href="./testimonials.html">Testimonials</a><a href="./partners.html">Partners</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></span>
+  <span style="display:flex;gap:16px"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/testimonials">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
     </div>
   </footer>
 
@@ -157,5 +171,26 @@ document.addEventListener('click',function(e){
     </div>
   </div>
   <script src="assets/chatbot.v6.js?v=1" defer></script>
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "C2C Variations",
+  "url": "https://www.c2cvariations.com.au/",
+  "logo": "https://www.c2cvariations.com.au/assets/logo-icon.jpg",
+  "description": "Docs done. Jobs won. Lock scope changes, clear approvals, and time-stamped PDFs. C2C Variations — national coverage and same-day setup.",
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+61-466-873-332",
+    "contactType": "customer support",
+    "areaServed": "AU",
+    "availableLanguage": ["English"]
+  }],
+  "sameAs": [
+    "https://wa.me/61466873332"
+  ]
+}
+</script>
 </body>
 </html>
