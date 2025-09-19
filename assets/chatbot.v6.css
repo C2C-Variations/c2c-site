@@ -1,3 +1,16 @@
+/* Brand orange variables and chat CTA focus styles */
+:root{
+  --c2c-orange:#FF7A00;
+  --c2c-orange-hover:#E46E00; /* slightly darker for hover */
+}
+
+.c2c-chat-cta{
+  vertical-align:middle!important; /* aligns with WhatsApp pill */
+  outline:0!important;
+}
+.c2c-chat-cta:focus-visible{
+  box-shadow:0 0 0 3px rgba(255,122,0,.35)!important; /* accessible focus ring */
+}
 :root{
   --c2c-orange:#FF7A00;
   --c2c-orange-hover:#E56F00;
