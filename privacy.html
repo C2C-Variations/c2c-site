@@ -55,55 +55,87 @@
 
   <div class="wrap">
     <h1>Privacy Policy</h1>
-<!-- C2C:PRIVACY:START -->
-<div class="card">
-  <p><strong>Last updated:</strong> September 13, 2025</p>
-  <p>This Policy explains how C2C Variations (“C2C”, “we”, “us”) handles personal information under the <em>Privacy Act 1988 (Cth)</em> and the Australian Privacy Principles (APPs).</p>
-  <h2>What we collect</h2>
-  <ul>
-    <li>Account details (name, business name, email, phone, ABN)</li>
-    <li>Document inputs (job details, scope, prices, client names/emails)</li>
-    <li>Usage data (pages viewed, device/browser info, approximate location)</li>
-    <li>Support communications (including WhatsApp messages)</li>
-  </ul>
-  <h2>How we use it</h2>
-  <ul>
-    <li>Provide and improve services (generate documents, store history, support)</li>
-    <li>Communicate with you (service messages, updates)</li>
-    <li>Comply with law and manage risk (audit logs, disputes)</li>
-    <li>With consent, showcase testimonials or case studies</li>
-  </ul>
-  <h2>Legal basis</h2>
-  <p>Consent, performance of a contract, or legal obligation.</p>
-  <h2>Third‑party services</h2>
-  <p>We use third parties (e.g., WhatsApp, Stripe, analytics, hosting/CDN). Your information may be processed by them under their own terms and privacy policies.</p>
-  <h2>WhatsApp</h2>
-  <p>Our WhatsApp‑first workflow means some information you send is handled by WhatsApp (Meta). Avoid sending sensitive information in chat. If you do, you accept WhatsApp’s terms and privacy policy.</p>
-  <h2>Cookies & analytics</h2>
-  <p>We may use cookies and analytics to understand usage and improve the product. You can block cookies in your browser, but parts of the site may not function properly.</p>
-  <h2>Storage, security & retention</h2>
-  <p>We use reasonable safeguards (encryption in transit, access controls). No method is 100% secure. We keep information only as long as needed for the purposes above or as required by law.</p>
-  <h2>Overseas disclosures</h2>
-  <p>Some providers may store/process data outside Australia. Where practicable, we use providers with strong security and privacy controls.</p>
-  <h2>Your rights</h2>
-  <ul>
-    <li>Access and correct your personal information</li>
-    <li>Opt out of non‑essential communications</li>
-    <li>Lodge a complaint with us or the OAIC</li>
-  </ul>
-  <h2>Contact</h2>
-  <p>Message us on WhatsApp: <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></p>
-  <h2>Complaints</h2>
-  <p>Office of the Australian Information Commissioner (OAIC): <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a></p>
-</div>
-<!-- C2C:PRIVACY:END -->
-  </div>
+<!-- CTA HOTFIX v10 -->
+<style>
+:root { --c2c-orange:#FF7A00; }
 
-  <div id="c2c-chat-overlay" hidden></div>
-  <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
-    <header class="c2c-chat-header">
-      <strong>C2C Chat</strong>
-      <button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
+/* Header and floating pills (Chat/WA) */
+header a.btn-wa,
+header #c2c-chat-cta,
+#c2c-chat-cta.floating,
+<!-- CTA HOTFIX v10 -->
+<style>
+:root { --c2c-orange:#FF7A00; }
+
+/* Header and floating pills (Chat/WA) */
+header a.btn-wa,
+header #c2c-chat-cta,
+#c2c-chat-cta.floating,
+a.btn-wa.floating,
+#c2c-chat-cta[style*="fixed"],
+a.btn-wa[style*="fixed"],
+#c2c-chat-cta[style*="position:fixed"],
+a.btn-wa[style*="position:fixed"] {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height:46px !important;
+  padding:0 18px !important;
+  border-radius:999px !important;
+  font-weight:800 !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  box-shadow:0 4px 16px rgba(0,0,0,.28) !important;
+}
+header a.btn-wa,
+a.btn-wa.floating,
+a.btn-wa[style*="fixed"],
+a.btn-wa[style*="position:fixed"] {
+  background:#25D366 !important; color:#fff !important;
+}
+header #c2c-chat-cta,
+#c2c-chat-cta.floating,
+#c2c-chat-cta[style*="fixed"],
+#c2c-chat-cta[style*="position:fixed"] {
+  background:var(--c2c-orange) !important; color:#fff !important; cursor:pointer !important;
+}
+
+/* Content & footer buttons — compact (never giant) */
+main a.btn-wa,
+main #c2c-chat-cta,
+footer a.btn-wa,
+footer #c2c-chat-cta,
+main .btn, footer .btn {
+  display:inline-block !important;
+  width:auto !important;
+  min-width:unset !important;
+  height:auto !important;
+  padding:10px 14px !important;
+  border-radius:10px !important;
+  font-weight:700 !important;
+  font-size:14px !important;
+  box-shadow:none !important;
+}
+
+/* Pricing: compact & centered under each plan */
+.plan-card .btn,
+.plan-card .btn-wa {
+  width:auto !important;
+  display:inline-block !important;
+  margin:0 auto !important;
+}
+</style>
+<!-- END CTA HOTFIX v10 -->
+.plan-card .btn,
+.plan-card .btn-wa {
+  width:auto !important;
+  display:inline-block !important;
+  margin:0 auto !important;
+}
+</style>
+<!-- END CTA HOTFIX v10 -->
     </header>
     <div class="c2c-chat-body">
       <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>

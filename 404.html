@@ -124,23 +124,68 @@
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "C2C Variations",
-  "url": "https://www.c2cvariations.com.au/",
-  "logo": "https://www.c2cvariations.com.au/assets/logo-icon.jpg",
-  "description": "Docs done. Jobs won. Lock scope changes, clear approvals, and time-stamped PDFs. C2C Variations — national coverage and same-day setup.",
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": "+61-466-873-332",
-    "contactType": "customer support",
-    "areaServed": "AU",
-    "availableLanguage": ["English"]
-  }],
-  "sameAs": [
-    "https://wa.me/61466873332"
-  ]
+<!-- CTA HOTFIX v10 -->
+<style>
+:root { --c2c-orange:#FF7A00; }
+
+/* Header and floating pills (Chat/WA) */
+header a.btn-wa,
+header #c2c-chat-cta,
+#c2c-chat-cta.floating,
+a.btn-wa.floating,
+#c2c-chat-cta[style*="fixed"],
+a.btn-wa[style*="fixed"],
+#c2c-chat-cta[style*="position:fixed"],
+a.btn-wa[style*="position:fixed"] {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height:46px !important;
+  padding:0 18px !important;
+  border-radius:999px !important;
+  font-weight:800 !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  box-shadow:0 4px 16px rgba(0,0,0,.28) !important;
 }
-</script>
-</body>
-</html>
+header a.btn-wa,
+a.btn-wa.floating,
+a.btn-wa[style*="fixed"],
+a.btn-wa[style*="position:fixed"] {
+  background:#25D366 !important; color:#fff !important;
+}
+header #c2c-chat-cta,
+#c2c-chat-cta.floating,
+#c2c-chat-cta[style*="fixed"],
+#c2c-chat-cta[style*="position:fixed"] {
+  background:var(--c2c-orange) !important; color:#fff !important; cursor:pointer !important;
+}
+
+/* Content & footer buttons — compact (never giant) */
+main a.btn-wa,
+main #c2c-chat-cta,
+footer a.btn-wa,
+footer #c2c-chat-cta,
+main .btn, footer .btn {
+  display:inline-block !important;
+  width:auto !important;
+  min-width:unset !important;
+  height:auto !important;
+  padding:10px 14px !important;
+  border-radius:10px !important;
+  font-weight:700 !important;
+  font-size:14px !important;
+  box-shadow:none !important;
+}
+
+/* Pricing: compact & centered under each plan */
+.plan-card .btn,
+.plan-card .btn-wa {
+  width:auto !important;
+  display:inline-block !important;
+  margin:0 auto !important;
+}
+</style>
+<!-- END CTA HOTFIX v10 -->

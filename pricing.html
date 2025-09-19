@@ -1,52 +1,68 @@
-<!DOCTYPE html>
+<!-- CTA HOTFIX v10 -->
+<style>
+:root { --c2c-orange:#FF7A00; }
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="Docs done. Jobs won. Lock scope changes, clear approvals, and time-stamped PDFs. C2C Variations — national coverage and same-day setup.">
-<link rel="canonical" href="https://www.c2cvariations.com.au/pricing">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="C2C Variations">
-<meta property="og:title" content="Docs done. Jobs won. | C2C Variations">
-<meta property="og:description" content="Lock scope changes, clear approvals, and time-stamped PDFs. Same-day setup across Australia.">
-<meta property="og:url" content="https://www.c2cvariations.com.au/pricing">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Docs done. Jobs won. | C2C Variations">
-<meta name="twitter:description" content="Lock scope changes, clear approvals, and time-stamped PDFs. Same-day setup across Australia.">
-<style>
-    /* Page-scoped styles (won't leak to other pages) */
-    body{background:#000;color:#ededed;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;margin:0}
-    a{color:#ff8a3d;text-decoration:none}
-    .wrap{max-width:1200px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;background:#000;border-bottom:1px solid #222;z-index:10}
-    header .row{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;gap:16px;align-items:center}
-    header a{color:#ff8a3d}
-    h1{font-size:clamp(2rem,3vw,3rem);margin:18px 0 4px}
-    .muted{color:#a3a3a3;margin-bottom:22px}
-    /* 3 across desktop, 1 on mobile */
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-    @media(max-width:1024px){.grid{grid-template-columns:1fr}}
-    .card{background:#0f0f10;border:1px solid #1f1f21;border-radius:18px;padding:18px;display:flex;flex-direction:column;min-height:100%}
-    .price{font-size:44px;font-weight:900;margin:8px 0}
-    .features{flex:1 1 auto}
-    .actions{margin-top:auto;display:grid;gap:10px}
-    .btn{display:inline-block;width:100%;text-align:center;border-radius:14px;padding:12px 18px;font-weight:800;border:1px solid transparent}
-    /* C2C orange for primary (monthly) */
-    .btn-primary{background:#ff7a00;color:#111}
-    .btn-primary:hover{filter:brightness(1.05)}
-    /* Ghost/outline orange for annual */
-    .btn-ghost{background:transparent;color:#ff7a00;border-color:rgba(255,122,0,.7)}
-    .btn-ghost:hover{color:#ffa24d;border-color:#ffa24d}
-    small{font-size:12px;opacity:.85}
-  </style>
-<style>
-/* Inline patch: compact pricing buttons */
-.card .cta a {
-  width: auto !important;      /* override any width:100% */
-  min-width: 160px;
-  display: inline-block;
-  text-align: center;
+/* Header and floating pills (Chat/WA) */
+header a.btn-wa,
+header #c2c-chat-cta,
+#c2c-chat-cta.floating,
+a.btn-wa.floating,
+#c2c-chat-cta[style*="fixed"],
+a.btn-wa[style*="fixed"],
+#c2c-chat-cta[style*="position:fixed"],
+a.btn-wa[style*="position:fixed"] {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height:46px !important;
+  padding:0 18px !important;
+  border-radius:999px !important;
+  font-weight:800 !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  box-shadow:0 4px 16px rgba(0,0,0,.28) !important;
+}
+header a.btn-wa,
+a.btn-wa.floating,
+a.btn-wa[style*="fixed"],
+a.btn-wa[style*="position:fixed"] {
+  background:#25D366 !important; color:#fff !important;
+}
+header #c2c-chat-cta,
+#c2c-chat-cta.floating,
+#c2c-chat-cta[style*="fixed"],
+#c2c-chat-cta[style*="position:fixed"] {
+  background:var(--c2c-orange) !important; color:#fff !important; cursor:pointer !important;
+}
+
+/* Content & footer buttons — compact (never giant) */
+main a.btn-wa,
+main #c2c-chat-cta,
+footer a.btn-wa,
+footer #c2c-chat-cta,
+main .btn, footer .btn {
+  display:inline-block !important;
+  width:auto !important;
+  min-width:unset !important;
+  height:auto !important;
+  padding:10px 14px !important;
+  border-radius:10px !important;
+  font-weight:700 !important;
+  font-size:14px !important;
+  box-shadow:none !important;
+}
+
+/* Pricing: compact & centered under each plan */
+.plan-card .btn,
+.plan-card .btn-wa {
+  width:auto !important;
+  display:inline-block !important;
+  margin:0 auto !important;
+}
+</style>
+<!-- END CTA HOTFIX v10 -->
   margin: 0 auto;
 }
 </style><style>

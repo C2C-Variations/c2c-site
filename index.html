@@ -132,55 +132,71 @@
 </section>
 <div class="divider"></div>
 <div class="cards">
-  <div class="card"><span class="pill">No more unpaid work</span><h3>Variations signed first</h3><p>Lock scope changes before tools hit the job. Clear approvals, zero confusion.</p></div>
-  <div class="card"><span class="pill">Your brand, ready fast</span><h3>Setup today</h3><p>Logo, ABN and templates switched on. We match your look and get you rolling.</p></div>
-  <div class="card"><span class="pill">Win disputes</span><h3>Proof that sticks</h3><p>Time‑stamped PDFs and tidy trails that shut down “he said / she said”.</p></div>
-</div>
-  </main>
-  <footer class="footer">
-    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-      <span>© C2C Variations</span>
-  <span style="display:flex;gap:16px"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/testimonials">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
-    </div>
-  </footer>
+<!-- CTA HOTFIX v10 -->
+<style>
+:root { --c2c-orange:#FF7A00; }
 
-<script id="c2c_smooth_scroll">
-document.addEventListener('click',function(e){
-  const a=e.target.closest('a[href^="#"]');
-  if(!a) return;
-  const id=a.getAttribute('href').slice(1);
-  const el=document.getElementById(id);
-  if(!el) return;
-  e.preventDefault();
-  el.scrollIntoView({behavior:'smooth', block:'start'});
-});
-</script>
+/* Header and floating pills (Chat/WA) */
+header a.btn-wa,
+header #c2c-chat-cta,
+#c2c-chat-cta.floating,
+a.btn-wa.floating,
+#c2c-chat-cta[style*="fixed"],
+a.btn-wa[style*="fixed"],
+#c2c-chat-cta[style*="position:fixed"],
+a.btn-wa[style*="position:fixed"] {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height:46px !important;
+  padding:0 18px !important;
+  border-radius:999px !important;
+  font-weight:800 !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  box-shadow:0 4px 16px rgba(0,0,0,.28) !important;
+}
+header a.btn-wa,
+a.btn-wa.floating,
+a.btn-wa[style*="fixed"],
+a.btn-wa[style*="position:fixed"] {
+  background:#25D366 !important; color:#fff !important;
+}
+header #c2c-chat-cta,
+#c2c-chat-cta.floating,
+#c2c-chat-cta[style*="fixed"],
+#c2c-chat-cta[style*="position:fixed"] {
+  background:var(--c2c-orange) !important; color:#fff !important; cursor:pointer !important;
+}
 
-  <div id="c2c-chat-overlay" hidden></div>
-  <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
-    <header class="c2c-chat-header">
-      <strong>C2C Chat</strong>
-      <button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
-    </header>
-    <div class="c2c-chat-body">
-      <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
-      <p>
-        <a class="c2c-chat-link" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">Chat on WhatsApp</a><br>
-        <a class="c2c-chat-link" href="mailto:info@c2cvariations.com.au">info@c2cvariations.com.au</a>
-      </p>
-    </div>
-  </div>
-  <script src="assets/chatbot.v6.js?v=1" defer></script>
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "C2C Variations",
-  "url": "https://www.c2cvariations.com.au/",
-  "logo": "https://www.c2cvariations.com.au/assets/logo-icon.jpg",
-  "description": "Docs done. Jobs won. Lock scope changes, clear approvals, and time-stamped PDFs. C2C Variations — national coverage and same-day setup.",
-  "contactPoint": [{
+/* Content & footer buttons — compact (never giant) */
+main a.btn-wa,
+main #c2c-chat-cta,
+footer a.btn-wa,
+footer #c2c-chat-cta,
+main .btn, footer .btn {
+  display:inline-block !important;
+  width:auto !important;
+  min-width:unset !important;
+  height:auto !important;
+  padding:10px 14px !important;
+  border-radius:10px !important;
+  font-weight:700 !important;
+  font-size:14px !important;
+  box-shadow:none !important;
+}
+
+/* Pricing: compact & centered under each plan */
+.plan-card .btn,
+.plan-card .btn-wa {
+  width:auto !important;
+  display:inline-block !important;
+  margin:0 auto !important;
+}
+</style>
+<!-- END CTA HOTFIX v10 -->
     "@type": "ContactPoint",
     "telephone": "+61-466-873-332",
     "contactType": "customer support",
