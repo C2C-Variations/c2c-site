@@ -18,87 +18,55 @@
   <style>
     :root{--bg:#000;--fg:#fff;--muted:#a7a7a7;--card:#0d0d0f;--line:#222;--accent:#ff8a3d;--wa:#25D366;}
     html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
-  <!-- CTA HOTFIX v10 -->
-  <style>
-  :root { --c2c-orange:#FF7A00; }
-
-  /* Header and floating pills (Chat/WA) */
-  header a.btn-wa,
-  header #c2c-chat-cta,
-  #c2c-chat-cta.floating,
-  <!-- CTA HOTFIX v10 -->
-  <style>
-  :root { --c2c-orange:#FF7A00; }
-
-  /* Header and floating pills (Chat/WA) */
-  header a.btn-wa,
-  header #c2c-chat-cta,
-  #c2c-chat-cta.floating,
-  a.btn-wa.floating,
-  #c2c-chat-cta[style*="fixed"],
-  a.btn-wa[style*="fixed"],
-  #c2c-chat-cta[style*="position:fixed"],
-  a.btn-wa[style*="position:fixed"] {
-    display:inline-flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    height:46px !important;
-    padding:0 18px !important;
-    border-radius:999px !important;
-    font-weight:800 !important;
-    font-size:16px !important;
-    line-height:1 !important;
-    white-space:nowrap !important;
-    border:0 !important;
-    box-shadow:0 4px 16px rgba(0,0,0,.28) !important;
-  }
-  header a.btn-wa,
-  a.btn-wa.floating,
-  a.btn-wa[style*="fixed"],
-  a.btn-wa[style*="position:fixed"] {
-    background:#25D366 !important; color:#fff !important;
-  }
-  header #c2c-chat-cta,
-  #c2c-chat-cta.floating,
-  #c2c-chat-cta[style*="fixed"],
-  #c2c-chat-cta[style*="position:fixed"] {
-    background:var(--c2c-orange) !important; color:#fff !important; cursor:pointer !important;
-  }
-
-  /* Content & footer buttons — compact (never giant) */
-  main a.btn-wa,
-  main #c2c-chat-cta,
-  footer a.btn-wa,
-  footer #c2c-chat-cta,
-  main .btn, footer .btn {
-    display:inline-block !important;
-    width:auto !important;
-    min-width:unset !important;
-    height:auto !important;
-    padding:10px 14px !important;
-    border-radius:10px !important;
-    font-weight:700 !important;
-    font-size:14px !important;
-    box-shadow:none !important;
-  }
-
-  /* Pricing: compact & centered under each plan */
-  .plan-card .btn,
-  .plan-card .btn-wa {
-    width:auto !important;
-    display:inline-block !important;
-    margin:0 auto !important;
-  }
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility; padding-top:env(safe-area-inset-top);}
+    .wrap{max-width:1100px;margin:0 auto;padding:20px;}
+    h1{font-weight:800;font-size:clamp(32px,5vw,56px);margin:10px 0 8px;}
+    h2{font-weight:800;color:var(--accent);margin:16px 0 8px;}
+    .muted{color:var(--muted);}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:800;text-decoration:none;min-height:44px;}
+    .btn-wa{background:var(--wa);color:#0b321a;}
+    @media (max-width:768px){.wrap{padding:16px;}}
   </style>
-  <!-- END CTA HOTFIX v10 -->
-  .plan-card .btn,
-  .plan-card .btn-wa {
-    width:auto !important;
-    display:inline-block !important;
-    margin:0 auto !important;
-  }
-  </style>
-  <!-- END CTA HOTFIX v10 -->
+  <link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
+
+  <!-- Cloudflare Web Analytics (enable when token is issued)
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"TODO-CF-ANALYTICS-TOKEN"}'></script>
+  -->
+</head>
+<body>
+<header style="position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid #222;">
+  <div style="max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;gap:16px;align-items:center;">
+    <a href="/" style="font-weight:800;color:#ff8a3d;text-decoration:none">Home</a>
+    <nav style="display:flex;gap:16px;margin-left:auto">
+  <a href="/pricing" style="color:#ff8a3d;text-decoration:none">Pricing</a>
+  <a href="/docs" style="color:#ff8a3d;text-decoration:none">Docs</a>
+  <a href="/about" style="color:#ff8a3d;text-decoration:none">About</a>
+  <a href="/privacy" style="color:#ff8a3d;text-decoration:none">Privacy</a>
+  <a href="/terms" style="color:#ff8a3d;text-decoration:none">Terms</a>
+  <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+  <button id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
+    </nav>
+  </div>
+</header>
+
+  <div class="wrap">
+    <h1>Terms of Service</h1>
+<!-- C2C:TERMS:START -->
+<div class="card">
+  <p><strong>Last updated:</strong> September 13, 2025</p>
+  <h2>1. Who we are</h2>
+  <p>C2C Variations (“C2C”, “we”, “us”) provides tools to generate business and safety documentation for trades in Australia.</p>
+  <h2>2. Your agreement</h2>
+  <p>By using our site or services, you agree to these Terms and our Privacy Policy.</p>
+  <h2>3. Service description</h2>
+  <p>We provide document templates and generation tools (e.g. Variations, Quotes, SWMS, Agreements). Some features are delivered via integrations (e.g. WhatsApp, Stripe). Templates are general and may need professional review.</p>
+  <h2>4. Accounts & eligibility</h2>
+  <p>You must provide accurate information, keep your account secure, and be authorised to act for your business.</p>
+  <h2>5. Acceptable use</h2>
+  <ul><li>No unlawful content or misuse</li><li>No interfering with systems or other users</li><li>No infringing or misleading content</li></ul>
   <h2>6. Pricing & payments</h2>
   <p>Plans are posted on our Pricing page. Charges are in AUD + GST. Payments handled by Stripe or as otherwise agreed.</p>
   <h2>7. Cancellations & refunds</h2>
