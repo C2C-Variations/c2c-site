@@ -1,3 +1,62 @@
+/* Header chat button and fixed panel styles */
+#c2c-chatbot-button {
+  background: #ff8a3d; /* exact hi-viz orange */
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color .2s ease, transform .1s ease;
+}
+
+#c2c-chatbot-button:hover {
+  background: #e67628; /* darker orange on hover */
+  transform: scale(1.05);
+}
+
+#c2c-chatbot-container {
+  display: none;
+  position: fixed;
+  top: 70px; /* just below header */
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: #fff;
+  border: 2px solid #ff8a3d;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  z-index: 2147483647;
+  overflow: hidden;
+}
+/* Header placement */
+#c2c-chatbot-header {
+  display: inline-block;
+  margin-left: 20px; /* spacing from last menu item */
+  vertical-align: middle;
+}
+
+/* Button styling */
+#c2c-chatbot-button {
+  background: #ff8a3d; /* hi-viz orange */
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+#c2c-chatbot-button:hover {
+  background: #e67628; /* darker orange */
+  transform: scale(1.05);
+}
 
 /* --- C2C Chatbot Widget v5 --- */
 

@@ -78,6 +78,7 @@
       <nav class="nav" role="navigation" aria-label="Main">
         <a href="./index.html">Home</a><a href="./pricing.html">Pricing</a><a href="./about.html">About</a><a href="./docs.html">Docs</a>
         <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">WhatsApp</a>
+        <button id="c2c-chatbot-button" onclick="toggleC2CChat()">💬 Chat with C2C</button>
       </nav>
     </div>
   </header>
@@ -91,10 +92,16 @@
     </div>
   </footer>
 
-  <div class="c2c-chatbot-wrapper">
-    <button id="c2c-chatbot-button" onclick="toggleC2CChat()">💬 Chat with C2C</button>
+  <div id="c2c-chatbot-container" style="display:none;">
+    <!-- Replace iframe src with your chatbot backend / service -->
+    <iframe 
+      src="https://your-chat-service.com/embed" 
+      width="100%" 
+      height="100%" 
+      frameborder="0"
+      style="border:0">
+    </iframe>
   </div>
-  <div id="c2c-chatbot-container"></div>
-  <script src="assets/chatbot.js" defer></script>
+  <script src="assets/chatbot.js?v=5" defer></script>
 </body>
 </html>

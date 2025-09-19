@@ -34,6 +34,7 @@
       <a href="/about" style="color:#ff8a3d;text-decoration:none">About</a>
       <a href="/privacy" style="color:#ff8a3d;text-decoration:none">Privacy</a>
       <a href="/terms" style="color:#ff8a3d;text-decoration:none">Terms</a>
+      <button id="c2c-chatbot-button" onclick="toggleC2CChat()">💬 Chat with C2C</button>
     </nav>
   </div>
 </header>
@@ -84,10 +85,16 @@
 <!-- C2C:PRIVACY:END -->
   </div>
 
-  <div class="c2c-chatbot-wrapper">
-    <button id="c2c-chatbot-button" onclick="toggleC2CChat()">💬 Chat with C2C</button>
+  <div id="c2c-chatbot-container" style="display:none;">
+    <!-- Replace iframe src with your chatbot backend / service -->
+    <iframe 
+      src="https://your-chat-service.com/embed" 
+      width="100%" 
+      height="100%" 
+      frameborder="0"
+      style="border:0">
+    </iframe>
   </div>
-  <div id="c2c-chatbot-container"></div>
-  <script src="assets/chatbot.js" defer></script>
+  <script src="assets/chatbot.js?v=5" defer></script>
 </body>
 </html>
