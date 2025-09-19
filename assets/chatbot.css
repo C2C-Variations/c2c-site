@@ -1,3 +1,38 @@
+/* FORCE HEADER BUTTONS TO PILL STYLE */
+header .btn-wa,
+header #c2c-chat-cta {
+  background: #25D366 !important; /* WhatsApp green */
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  padding: 12px 24px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 140px !important;
+  height: 48px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25) !important;
+}
+
+/* CHAT BUTTON ORANGE */
+header #c2c-chat-cta {
+  background: #FF7A00 !important; /* Brand orange */
+  margin-left: 12px !important;
+}
+
+/* RESET CONTENT + FOOTER BUTTONS TO SMALLER */
+main .btn-wa,
+main #c2c-chat-cta,
+footer .btn-wa,
+footer #c2c-chat-cta {
+  font-size: 14px !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  min-width: auto !important;
+  height: auto !important;
+  box-shadow: none !important;
+}
 /* Button: use brand orange via variable with safe fallback */
 :root {
   /* If your site already defines --c2c-orange, this uses it. Otherwise uses fallback. */
