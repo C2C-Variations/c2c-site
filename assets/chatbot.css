@@ -1,3 +1,68 @@
+/* v9 — header CTA size clamp + safe defaults */
+:root{
+  --c2c-orange:#FF7A00;        /* your brand orange */
+  --cta-h:44px;
+  --cta-fz:18px;
+  --cta-pad-x:20px;
+}
+
+/* HEADER / NAV ONLY — force pill size & layout */
+header a.btn-wa,
+nav a.btn-wa,
+header #c2c-chat-cta,
+nav #c2c-chat-cta{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  height:var(--cta-h) !important;
+  padding:0 var(--cta-pad-x) !important;
+  border-radius:9999px !important;
+  font-size:var(--cta-fz) !important;
+  line-height:normal !important;
+  white-space:nowrap !important;
+  box-sizing:border-box !important;
+}
+
+/* colors (no change in look, just explicit) */
+header a.btn-wa,
+nav a.btn-wa{
+  background:#25D366 !important; /* WhatsApp green */
+  color:#fff !important;
+  text-decoration:none !important;
+}
+header #c2c-chat-cta,
+nav #c2c-chat-cta{
+  background:var(--c2c-orange) !important;
+  color:#fff !important;
+}
+
+/* EVERYWHERE ELSE — keep buttons compact */
+main a.btn-wa,
+main #c2c-chat-cta,
+.content a.btn-wa,
+.content #c2c-chat-cta,
+section a.btn-wa,
+section #c2c-chat-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:auto !important;
+  padding:10px 16px !important;
+  border-radius:9999px;
+  font-size:16px !important;
+  line-height:normal !important;
+  white-space:nowrap;
+}
+
+/* kill any legacy scaling/transform that caused giant pills */
+a.btn-wa, #c2c-chat-cta{
+  transform:none !important;
+}
+
+/* simple mobile guard so header pills don’t balloon */
+@media (max-width: 640px){
+  :root{ --cta-h:40px; --cta-fz:16px; --cta-pad-x:16px; }
+}
 /* FORCE HEADER BUTTONS TO PILL STYLE */
 header .btn-wa,
 header #c2c-chat-cta {
