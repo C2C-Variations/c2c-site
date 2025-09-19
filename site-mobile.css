@@ -29,3 +29,87 @@ img{ max-width:100%; height:auto;}
   margin: 0 auto;
   display: inline-block;
 }
+
+/* ===== C2C HOTFIX v8 — header vs content CTAs ===== */
+:root { --c2c-orange:#FF7A00; }
+
+/* Header pills ONLY */
+header a.btn-wa,
+header #c2c-chat-cta,
+.site-header a.btn-wa,
+.site-header #c2c-chat-cta,
+#site-nav a.btn-wa,
+#site-nav #c2c-chat-cta{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height:46px !important;
+  padding:0 18px !important;
+  border-radius:999px !important;
+  font-weight:800 !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  box-shadow:0 4px 16px rgba(0,0,0,.28) !important;
+}
+header a.btn-wa,
+.site-header a.btn-wa,
+#site-nav a.btn-wa{
+  background:#25D366 !important; /* WA green */
+  color:#fff !important;
+}
+header #c2c-chat-cta,
+.site-header #c2c-chat-cta,
+#site-nav #c2c-chat-cta{
+  background:var(--c2c-orange) !important;
+  color:#fff !important;
+  cursor:pointer !important;
+}
+
+/* Content & footer buttons — compact (never giant) */
+main a.btn-wa,
+main #c2c-chat-cta,
+.content a.btn-wa,
+.content #c2c-chat-cta,
+footer a.btn-wa,
+footer #c2c-chat-cta,
+main .btn,
+.content .btn,
+footer .btn{
+  display:inline-block !important;
+  width:auto !important;
+  min-width:unset !important;
+  height:auto !important;
+  padding:10px 14px !important;
+  border-radius:10px !important;
+  font-weight:700 !important;
+  font-size:14px !important;
+  box-shadow:none !important;
+}
+
+/* Kill any rogue full-width rule */
+.btn, .btn-primary, .btn-wa, #c2c-chat-cta { width:auto !important; }
+
+/* Pricing: keep CTAs compact & centered under each card */
+.plan-card .btn,
+.plan-card .btn-wa{
+  width:auto !important;
+  display:inline-block !important;
+  margin:0 auto !important;
+}
+
+/* Responsive header sizing */
+@media (max-width:900px){
+  header a.btn-wa, header #c2c-chat-cta,
+  .site-header a.btn-wa, .site-header #c2c-chat-cta{
+    height:42px !important; padding:0 14px !important; font-size:15px !important;
+  }
+}
+@media (max-width:600px){
+  header a.btn-wa, header #c2c-chat-cta,
+  .site-header a.btn-wa, .site-header #c2c-chat-cta{
+    height:38px !important; padding:0 12px !important; font-size:14px !important;
+  }
+}
+/* ===== end HOTFIX v8 ===== */
