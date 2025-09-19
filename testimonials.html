@@ -67,7 +67,7 @@
   .footer{padding:30px 0;color:#a7a7a7;border-top:1px solid var(--outline);margin-top:34px}
   .footer a{color:#ff8a3d;text-decoration:none}
   </style>
-  <link rel="stylesheet" href="assets/chatbot.v5.css?v=8">
+  <link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
 </head>
 <body>
   <header class="site-header">
@@ -78,7 +78,7 @@
       <nav class="nav" role="navigation" aria-label="Main">
         <a href="./index.html">Home</a><a href="./pricing.html">Pricing</a><a href="./about.html">About</a><a href="./docs.html">Docs</a>
         <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">WhatsApp</a>
-  <button id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-overlay" aria-expanded="false" aria-haspopup="dialog">💬 Chat with C2C</button>
+  <button id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
       </nav>
     </div>
   </header>
@@ -101,17 +101,20 @@
     </div>
   </footer>
 
-  <!-- C2C Chat Overlay -->
-  <div id="c2c-chatbot-overlay" class="c2c-chatbot-overlay" role="dialog" aria-modal="true" aria-labelledby="c2c-chatbot-title" hidden>
-    <div class="c2c-chatbot-panel" tabindex="-1">
-      <header class="c2c-chatbot-header">
-        <span id="c2c-chatbot-title" class="c2c-chatbot-title">Chat with C2C</span>
-        <button type="button" class="c2c-chatbot-close" id="c2c-chatbot-close" aria-label="Close chat">×</button>
-      </header>
-      <iframe src="about:blank" title="C2C Chat" class="c2c-chatbot-iframe" frameborder="0"></iframe>
+  <div id="c2c-chat-overlay" hidden></div>
+  <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
+    <header class="c2c-chat-header">
+      <strong>C2C Chat</strong>
+      <button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
+    </header>
+    <div class="c2c-chat-body">
+      <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
+      <p>
+        <a class="c2c-chat-link" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">Chat on WhatsApp</a><br>
+        <a class="c2c-chat-link" href="mailto:info@c2cvariations.com.au">info@c2cvariations.com.au</a>
+      </p>
     </div>
-    <div class="c2c-chatbot-backdrop" tabindex="-1" aria-hidden="true"></div>
   </div>
-  <script src="assets/chatbot.v5.js?v=8" defer></script>
+  <script src="assets/chatbot.v6.js?v=1" defer></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+:root{
+  --c2c-orange:#FF7A00;
+  --c2c-orange-hover:#E56F00;
+  --c2c-bg:#0F0F0F;
+  --c2c-border:#1e1e1e;
+  --c2c-text:#ffffff;
+}
+.c2c-chat-cta{
+  background:var(--c2c-orange)!important;color:#fff!important;font-weight:700!important;
+  font-size:16px!important;padding:12px 18px!important;border-radius:999px!important;border:0!important;
+  cursor:pointer!important;box-shadow:0 2px 10px rgba(0,0,0,.25)!important;display:inline-flex!important;
+  align-items:center!important;gap:10px!important;margin-left:16px!important;
+  transition:transform .08s ease,background-color .2s ease!important;
+}
+.c2c-chat-cta:hover{background:var(--c2c-orange-hover)!important;transform:translateY(-1px)!important;}
+
+#c2c-chat-overlay{position:fixed!important;inset:0!important;background:rgba(0,0,0,.55)!important;z-index:2147483646!important;}
+#c2c-chat-overlay[hidden]{display:none!important;}
+
+#c2c-chatbot-container{
+  position:fixed!important;top:96px!important;right:20px!important;
+  width:min(380px,92vw)!important;height:min(600px,85vh)!important;
+  background:var(--c2c-bg)!important;color:var(--c2c-text)!important;
+  border:2px solid var(--c2c-orange)!important;border-radius:14px!important;
+  box-shadow:0 16px 40px rgba(0,0,0,.45)!important;overflow:hidden!important;z-index:2147483647!important;
+}
+#c2c-chatbot-container[hidden]{display:none!important;}
+
+.c2c-chat-header{
+  height:52px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;
+  padding:0 12px!important;background:#131313!important;border-bottom:1px solid var(--c2c-border)!important;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;
+}
+.c2c-chat-header strong{font-weight:700!important;font-size:15px!important;}
+.c2c-chat-close{background:transparent!important;color:#fff!important;border:0!important;font-size:18px!important;cursor:pointer!important;}
+
+.c2c-chat-body{
+  height:calc(100% - 52px)!important;overflow:auto!important;padding:16px!important;
+  font:14px system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;color:#eee!important;
+}
+.c2c-chat-intro{margin:0 0 10px!important;}
+.c2c-chat-link{color:var(--c2c-orange)!important;text-decoration:none!important;}
+.c2c-chat-link:hover{text-decoration:underline!important;}
+
+@media (max-width:700px){
+  #c2c-chatbot-container{
+    top:0!important;right:0!important;left:0!important;bottom:0!important;width:100vw!important;height:100vh!important;
+    border-radius:0!important;border-width:0!important;
+  }
+}
