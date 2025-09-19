@@ -1,3 +1,50 @@
+
+:root{
+  --c2c-orange:#FF7A00;
+  --c2c-orange-hover:#E56F00;
+  --c2c-bg:#0F0F0F;
+  --c2c-border:#1e1e1e;
+}
+
+/* Overlay that disables background */
+#c2c-chat-overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,.55);
+  z-index:2147483646; /* under the panel */
+}
+#c2c-chat-overlay[hidden]{ display:none !important; }
+
+/* Panel shell */
+#c2c-chatbot-container{
+  position:fixed; top:96px; right:20px;
+  width:min(380px, 92vw); height:min(600px, 85vh);
+  background:var(--c2c-bg); color:#fff; border:2px solid var(--c2c-orange);
+  border-radius:14px; box-shadow:0 16px 40px rgba(0,0,0,.45);
+  overflow:hidden; z-index:2147483647;
+}
+#c2c-chatbot-container[hidden]{ display:none !important; }
+
+/* Panel header */
+.c2c-chat-header{
+  height:52px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 12px; background:#131313; border-bottom:1px solid var(--c2c-border);
+}
+.c2c-chat-header strong{ font:700 15px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+.c2c-chat-close{
+  background:transparent; color:#fff; border:0; font-size:18px; cursor:pointer;
+}
+
+/* Panel iframe fills */
+#c2c-chatbot-container iframe{
+  display:block; width:100%; height:calc(100% - 52px); border:0;
+}
+
+/* Mobile: full screen */
+@media (max-width: 700px){
+  #c2c-chatbot-container{
+    top:0; right:0; left:0; bottom:0;
+    width:100vw; height:100vh; border-radius:0; border-width:0 0 0 0;
+  }
+}
 #
  .c2c-chat-cta,
  a#c2c-chat-cta,
