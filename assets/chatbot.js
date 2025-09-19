@@ -1,100 +1,109 @@
 (function () {
-  const BTN_ID = "c2c-chatbot-button";
+  const BTN_ID = "c2c-chat-cta";
   const PANEL_ID = "c2c-chatbot-container";
 
-  function getEl(id) {
-    return document.getElementById(id);
+  const $ = sel => document.querySelector(sel);
+  const byId = id => document.getElementById(id);
+
+  function headerHeight(){
+    // Try a few common header containers
+    const header = $('header') || $('.site-header') || $('.header') || $('.nav') || $('.site-nav');
+    if (!header) return 80; // safe default
+    const rect = header.getBoundingClientRect();
+    // Consider a second row (like your orange tabs) if immediately below
+    // Grab element at y = rect.bottom+1 to see if there's a bar underneath
+    let extra = 0;
+    const elBelow = document.elementFromPoint(Math.min(window.innerWidth-1, 10), Math.min(rect.bottom+1, window.innerHeight-1));
+    if (elBelow && elBelow !== header) {
+      const belowRect = elBelow.getBoundingClientRect();
+      if (belowRect.top >= rect.bottom && belowRect.height < 120) {
+        extra = belowRect.height; // treat as second row height
+      }
+    }
+    return Math.round(rect.bottom + extra + 12); // +12px breathing room
   }
 
-  function showPanel(show) {
-    const panel = getEl(PANEL_ID);
-    const btn = getEl(BTN_ID);
-    if (!panel || !btn) return;
+  function placePanel(){
+    const panel = byId(PANEL_ID);
+    if (!panel) return;
+    panel.style.top = headerHeight() + 'px';
+  }
 
-    if (show) {
-      panel.removeAttribute("hidden");
-      btn.setAttribute("aria-expanded", "true");
-    } else {
-      panel.setAttribute("hidden", "");
-      btn.setAttribute("aria-expanded", "false");
+  function showPanel(show){
+    const panel = byId(PANEL_ID);
+    const btn = byId(BTN_ID);
+    if (!panel || !btn) return;
+    if (show){
+      panel.removeAttribute('hidden');
+      btn.setAttribute('aria-expanded','true');
+      placePanel();
+    }else{
+      panel.setAttribute('hidden','');
+      btn.setAttribute('aria-expanded','false');
     }
   }
 
-  function togglePanel() {
-    const panel = getEl(PANEL_ID);
+  function togglePanel(){
+    const panel = byId(PANEL_ID);
     if (!panel) return;
-    const isHidden = panel.hasAttribute("hidden");
-    showPanel(isHidden);
+    showPanel(panel.hasAttribute('hidden'));
   }
 
-  // Close when clicking outside
-  function onDocClick(e) {
-    const panel = getEl(PANEL_ID);
-    const btn = getEl(BTN_ID);
+  function onDocClick(e){
+    const panel = byId(PANEL_ID);
+    const btn   = byId(BTN_ID);
     if (!panel || !btn) return;
-    const open = !panel.hasAttribute("hidden");
+    const open = !panel.hasAttribute('hidden');
     if (!open) return;
-
-    if (!panel.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+    if (!panel.contains(e.target) && e.target !== btn && !btn.contains(e.target)){
       showPanel(false);
     }
   }
 
-  // Close with Escape
-  function onKeyDown(e) {
-    if (e.key === "Escape") showPanel(false);
+  function onKeyDown(e){
+    if (e.key === 'Escape') showPanel(false);
   }
 
-  // Wire up once DOM is ready (no inline JS → CSP-safe)
-  window.addEventListener("DOMContentLoaded", () => {
-    const btn = getEl(BTN_ID);
-    const panel = getEl(PANEL_ID);
-    if (!btn || !panel) return;
-
-    btn.addEventListener("click", togglePanel);
-    document.addEventListener("click", onDocClick);
-    document.addEventListener("keydown", onKeyDown);
-
-    // Optional: prime iframe with a neutral page until your backend is ready
-    const iframe = panel.querySelector("iframe");
-    if (iframe && iframe.src === "about:blank") {
+  function ensureIframe(){
+    const panel = byId(PANEL_ID);
+    if (!panel) return;
+    const iframe = panel.querySelector('iframe');
+    if (iframe && (iframe.src === '' || iframe.src === 'about:blank')){
+      // TEMP placeholder; replace with your live chat endpoint when ready
       iframe.srcdoc = `
         <style>
-          body{margin:0;background:#0f0f0f;color:#fff;font:14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;display:grid;place-items:center;height:100%}
-          .card{max-width:80%;text-align:center;opacity:.85}
-          .pill{display:inline-block;padding:.2rem .6rem;border-radius:999px;background:#1d1d1d;border:1px solid #333;color:#aaa;margin-top:.5rem}
+          html,body{height:100%;margin:0;background:#0f0f0f;color:#fff;font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;display:grid;place-items:center}
+          .card{max-width:84%;text-align:center;opacity:.88}
+          .pill{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:#1d1d1d;border:1px solid #333;color:#aaa;margin-top:.5rem}
         </style>
         <div class="card">
-          <div>👋 The C2C chat will appear here.</div>
-          <div class="pill">Backend connect coming next</div>
+          <div>👋 The C2C chat loads here.</div>
+          <div class="pill">Backend connect next step</div>
         </div>`;
     }
-
-    console.log("[C2C] chat wired (CSP-safe).");
-  });
-})();
-
-
-function toggleC2CChat() {
-  const chatbot = document.getElementById("c2c-chatbot-container");
-  if (!chatbot) return;
-  chatbot.style.display =
-    chatbot.style.display === "block" ? "none" : "block";
-}
-
-// Close if user clicks outside the chat
-document.addEventListener("click", function (e) {
-  const chatbot = document.getElementById("c2c-chatbot-container");
-  const button = document.getElementById("c2c-chatbot-button");
-  if (!chatbot || !button) return;
-
-  if (
-    chatbot.style.display === "block" &&
-    !chatbot.contains(e.target) &&
-    e.target !== button
-  ) {
-    chatbot.style.display = "none";
   }
-});
 
-console.log("C2C Chatbot script loaded sitewide");
+  function bind(){
+    const btn = byId(BTN_ID);
+    const panel = byId(PANEL_ID);
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', togglePanel, { once:false });
+    document.addEventListener('click', onDocClick, { passive:true });
+    document.addEventListener('keydown', onKeyDown);
+
+    ensureIframe();
+    placePanel();
+    window.addEventListener('resize', placePanel);
+    window.addEventListener('scroll', placePanel, { passive:true });
+
+    console.log('[C2C] chat wired (v5)');
+  }
+
+
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', bind);
+  }else{
+    bind();
+  }
+})();
