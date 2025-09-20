@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>C2C Variations — Docs done. Jobs won.</title>
+  <meta name="description" content="Lock in every variation, quote and agreement — same day. No disputes, no unpaid jobs, no bullshit.">
+  <link rel="icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="canonical" href="https://www.c2cvariations.com.au/">
+  <link rel="preload" href="site-mobile.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="site-mobile.css?v=8"></noscript>
+  <link rel="stylesheet" href="assets/nav-cta.hotfix.css?v=9">
+  <link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
+  <style>
+    :root{--bg:#000;--card:#0b0b0b;--muted:#c9c9c9;--text:#fff;--orange:#ff7a00;--orange-2:#ff8a3d;--outline:#222;--wa:#25D366}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
+    body::before{content:"";position:fixed;inset:0;background:
+      radial-gradient(1200px 600px at 20% -10%, rgba(255,106,0,0.08), transparent 60%),
+      linear-gradient(transparent 0 29px, rgba(255,255,255,0.04) 30px),
+      linear-gradient(90deg, transparent 0 29px, rgba(255,255,255,0.04) 30px);
+      background-size:100% 100%, 30px 30px, 30px 30px;pointer-events:none;z-index:-2}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    main.container{padding-top:8px}
+    .site-header{position:sticky;top:0;background:rgba(0,0,0,.9);border-bottom:1px solid var(--outline);backdrop-filter:blur(8px);z-index:50}
+    .nav-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand img.icon{width:56px;height:56px;border-radius:10px;display:block}
+    @media (max-width:900px){.brand img.icon{width:48px;height:48px}}
+    .nav{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .nav a{color:var(--text);text-decoration:none;opacity:.9}.nav a:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:12px 18px;font-weight:800;text-decoration:none;cursor:pointer;border:1px solid var(--outline);transition:transform .12s ease, box-shadow .12s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,106,0,0.12)}
+    .btn-primary{background:var(--orange);color:#000;border-color:var(--orange)}
+    .btn-ghost{background:#0b0b0b;color:var(--text);border-color:#2a2a2a}
+    .btn-outline{background:transparent;color:var(--orange);border-color:var(--orange)}
+    .btn-wa{background:var(--wa);color:#000;border-color:var(--wa)}
+    .link{color:var(--orange-2);text-decoration:none}
+    h1{margin:12px 0 8px;font-size:52px}.hero{font-size:1.2rem;color:#f3f3f3}.muted{color:var(--muted)}
+    .divider{height:1px;background:var(--outline);margin:26px 0}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px}
+    .card{background:var(--card);border-radius:16px;padding:18px;border:1px solid var(--outline);transition:transform .12s ease, box-shadow .12s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.35)}
+    .pill{display:inline-block;background:#111;border:1px solid #222;padding:4px 10px;border-radius:999px;font-size:.8rem;color:#cfcfcf;margin-bottom:8px}
+    /* Ticker */
+    .ticker{position:relative;background:#0a0a0a;border:1px solid var(--outline);border-radius:10px;padding:0 8px;margin:0 0 26px;overflow:hidden}
+    .ticker-viewport{overflow:hidden;white-space:nowrap}
+    .ticker-track{display:inline-block;padding:8px 0;animation:scroll 12s linear infinite;will-change:transform}
+    .ticker span{color:var(--orange);padding:0 18px;font-weight:800}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    /* Trust badges */
+    .trust-badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:18px 0}
+    .trust-item{display:flex;align-items:center;gap:12px;background:#0b0b0b;border:1px solid var(--outline);border-radius:14px;padding:12px}
+    .trust-item img{width:36px;height:36px}
+    .trust-item span{color:#ff8a3d;font-weight:800}
+    /* How it works */
+    .how{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;margin:30px 0}
+    .how img{width:100%;border-radius:16px;border:1px solid var(--outline)}
+    .how h3{margin:0 0 10px}
+    .how ul{margin:0;padding-left:18px;color:#e7e7e7}
+    /* Testimonials grid page */
+    .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:10px 0}
+    .quote{background:#0b0b0b;border:1px solid var(--outline);border-radius:16px;padding:16px}
+    .quote .name{color:#ff8a3d;font-weight:800;margin-top:8px}
+    .partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:10px 0}
+    .partners img{width:100%;border-radius:16px;border:1px solid var(--outline)}
+    .footer{padding:30px 0;color:#a7a7a7;border-top:1px solid var(--outline);margin-top:34px}
+    .footer a{color:#ff8a3d;text-decoration:none}
+    /* mobile menu */
+    .nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:44px;height:44px;background:none;border:none;cursor:pointer;z-index:100;margin-left:8px}
+    .nav-hamburger-bar{width:28px;height:4px;background:#fff;border-radius:2px;margin:3px 0;transition:all .3s;display:block}
+    @media (max-width: 768px){
+      .nav-hamburger{display:flex}
+      .nav-row{gap:8px}
+      .nav{position:absolute;top:64px;right:0;left:0;background:rgba(0,0,0,.98);flex-direction:column;align-items:flex-start;gap:0;padding:0 0 12px;border-bottom:1px solid var(--outline);z-index:99;transform:translateY(-120%);opacity:0;pointer-events:none;transition:transform .25s,opacity .25s}
+      .nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+      .nav a,.nav .btn,.nav #c2c-chat-cta{width:100%;text-align:left;padding:14px 24px;border-radius:0;font-size:1.1rem;border:none;background:none;margin:0;box-shadow:none}
+      .nav .btn,.nav #c2c-chat-cta{margin-top:6px}
+    }
+    /* ensure anchors & overlays behave */
+    a[href^='https://buy.stripe.com']{position:relative;z-index:9999;pointer-events:auto !important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+    .backdrop,.overlay,.modal-backdrop,.menu-backdrop,.click-shield{pointer-events:none !important}
+  </style>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="container nav-row">
+    <a class="brand" href="./index.html" aria-label="C2C Variations home">
+      <img class="icon" src="./assets/logo-icon.jpg" alt="C2C icon">
+    </a>
+    <nav class="nav" id="main-nav" role="navigation" aria-label="Main">
+      <a href="./index.html" aria-current="page">Home</a>
+      <a href="./pricing.html">Pricing</a>
+      <a href="./about.html">About</a>
+      <a href="./docs.html">Docs</a>
+      <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+      <button id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
+    </nav>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false">
+    <span class="nav-hamburger-bar"></span>
+    <span class="nav-hamburger-bar"></span>
+    <span class="nav-hamburger-bar"></span>
+  </button>
+</header>
+
+<main class="container">
+  <div class="ticker"><div class="ticker-viewport">
+    <div class="ticker-track">
+      <span>Same‑day setup</span><span>WhatsApp‑first support</span><span>National coverage</span><span>Docs that win disputes</span>
+      <span>Same‑day setup</span><span>WhatsApp‑first support</span><span>National coverage</span><span>Docs that win disputes</span>
+    </div>
+  </div></div>
+
+  <h1>Docs done. Jobs won.</h1>
+  <p class="hero"><strong>Lock in every variation, quote and agreement — same day.</strong> No disputes, no unpaid jobs, no bullshit.</p>
+  <p style="display:flex;gap:10px;flex-wrap:wrap">
+    <a class="btn btn-primary" href="#how-it-works">Get started in minutes</a>
+    <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
+  </p>
+
+  <div class="trust-badges" aria-label="Trust signals">
+    <div class="trust-item"><img src="./assets/badge-shield.png" alt="Shield icon" loading="lazy" decoding="async"><div><span>Trusted by trades</span><div class="muted">Across all Australian states & territories</div></div></div>
+    <div class="trust-item"><img src="./assets/badge-check.png" alt="Check icon" loading="lazy" decoding="async"><div><span>10,000+ docs generated</span><div class="muted">Variations, quotes, SWMS, agreements</div></div></div>
+    <div class="trust-item"><img src="./assets/badge-pdf.png" alt="PDF icon" loading="lazy" decoding="async"><div><span>Compliant, ready-to-sign</span><div class="muted">Time‑stamped approvals & tidy trails</div></div></div>
+  </div>
+
+  <p class="hero-quote">“This saved a $15k variation I would’ve lost. Signed in minutes — no arguments.” <span class="name">— Site Supervisor, Melbourne</span>  <a class="link" href="./testimonials.html">Read more</a></p>
+  <div class="divider"></div>
+
+  <section id="how-it-works" class="how">
+    <div>
+      <h3>How it works</h3>
+      <ul>
+        <li>Reply in WhatsApp with scope and price.</li>
+        <li>Tap “Send Variation”.</li>
+        <li>Client approves — we generate a signed PDF.</li>
+        <li>All docs auto‑filed so nothing goes missing.</li>
+      </ul>
+      <p style="margin-top:12px"><a class="btn btn-outline" href="./docs.html">Browse templates</a></p>
+    </div>
+    <div>
+      <img src="./assets/flow-mock.png" alt="WhatsApp to signed PDF flow mock" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <div class="divider"></div>
+  <div class="cards">
+    <div class="card"><span class="pill">No more unpaid work</span><h3>Variations signed first</h3><p>Lock scope changes before tools hit the job. Clear approvals, zero confusion.</p></div>
+    <div class="card"><span class="pill">Your brand, ready fast</span><h3>Setup today</h3><p>Logo, ABN and templates switched on. We match your look and get you rolling.</p></div>
+    <div class="card"><span class="pill">Win disputes</span><h3>Proof that sticks</h3><p>Time‑stamped PDFs and tidy trails that shut down “he said / she said”.</p></div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-links-row" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+    <span>© C2C Variations</span>
+    <span class="footer-links"><a href="./pricing.html">See plans</a><a href="./about.html">About</a><a href="./testimonials.html">Testimonials</a><a href="./partners.html">Partners</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<!-- Smooth scroll for anchors -->
+<script>
+document.addEventListener('click',function(e){
+  const a=e.target.closest && e.target.closest('a[href^="#"]');
+  if(!a) return;
+  const id=a.getAttribute('href').slice(1);
+  const el=document.getElementById(id);
+  if(!el) return;
+  e.preventDefault();
+  el.scrollIntoView({behavior:'smooth', block:'start'});
+});
+</script>
+
+<!-- Chat UI (unchanged) -->
+<div id="c2c-chat-overlay" hidden></div>
+<div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
+  <header class="c2c-chat-header">
+    <strong>C2C Chat</strong>
+    <button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
+  </header>
+  <div class="c2c-chat-body">
+    <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
+    <p>
+      <a class="c2c-chat-link" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">Chat on WhatsApp</a><br>
+      <a class="c2c-chat-link" href="mailto:info@c2cvariations.com.au">info@c2cvariations.com.au</a>
+    </p>
+  </div>
+</div>
+<script src="assets/chatbot.v6.js?v=1" defer></script>
+
+<!-- Final, robust hamburger + Stripe link enforcement -->
+<script>
+(function(){
+  var hamburger=document.getElementById('nav-hamburger');
+  var nav=document.getElementById('main-nav');
+  if(hamburger&&nav){
+    hamburger.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=nav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'||e.target.classList.contains('btn')||e.target.id==='c2c-chat-cta'){
+        nav.classList.remove('open'); hamburger.setAttribute('aria-expanded','false');
+      }
+    });
+    document.addEventListener('click',function(e){
+      if(window.innerWidth>768) return;
+      if(!nav.classList.contains('open')) return;
+      if(!nav.contains(e.target) && e.target!==hamburger){
+        nav.classList.remove('open'); hamburger.setAttribute('aria-expanded','false');
+      }
+    });
+    window.addEventListener('resize',function(){
+      if(window.innerWidth>768){ nav.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); }
+    });
+  }
+  // Defensive: if any overlay exists, disable pointer events
+  var style=document.createElement('style');
+  style.textContent='.backdrop,.overlay,.modal-backdrop,.menu-backdrop,.click-shield{pointer-events:none !important}';
+  document.head.appendChild(style);
+})();
+</script>
+</body>
+</html>
