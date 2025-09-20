@@ -1,3 +1,59 @@
+/* --- Strictly mobile-only overrides --- */
+@media (max-width: 600px) {
+  .cards,
+  .partners,
+  .testimonials,
+  .how {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+  .cards .card,
+  .partners .card,
+  .testimonials .card,
+  .how .card {
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+  .partners img,
+  .testimonials img {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  .how > div {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+  /* --- Force payment buttons to be clickable on mobile --- */
+  .btn, .btn-primary, .compact-btn {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 1000 !important;
+  }
+}
+
+/* --- Force desktop grid with high specificity and !important --- */
+@media (min-width: 601px) {
+  .cards, .partners, .testimonials, .how {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 16px !important;
+    align-items: initial !important;
+    justify-items: initial !important;
+  }
+  .how {
+    grid-template-columns: 1.1fr .9fr !important;
+    align-items: center !important;
+    margin: 30px 0 !important;
+  }
+}
 /* --- Restore desktop grid for homepage --- */
 .cards, .partners, .testimonials, .how {
   display: grid;
