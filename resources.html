@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C2C Variations — Resources</title>
+<meta name="description" content="All the C2C resources: guides, templates, calculators, checklists, legal notes, videos and FAQs — searchable, filterable, and downloadable.">
+<link rel="icon" href="./favicon.ico">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<style>
+/* ---------- C2C Resources (scoped) ---------- */
+:root{--c2c-bg:#000;--c2c-card:#0b0b0b;--c2c-muted:#bdbdbd;--c2c-text:#fff;--c2c-orange:#ff7a00;--c2c-orange-2:#ff8a3d;--c2c-outline:#222;--c2c-wa:#25D366;--c2c-green:#66d37e;--c2c-red:#ff4d4d}
+#resource-app{color:var(--c2c-text);background:var(--c2c-bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.45}
+#resource-app *{box-sizing:border-box}
+#resource-app a{color:var(--c2c-orange-2);text-decoration:none}
+#resource-app .muted{color:var(--c2c-muted)}
+#resource-app .container{max-width:1200px;margin:0 auto;padding:24px}
+#resource-app .surface{background:var(--c2c-card);border:1px solid var(--c2c-outline);border-radius:16px}
+#resource-app .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:10px 14px;font-weight:800;text-decoration:none;cursor:pointer;border:1px solid var(--c2c-outline);transition:transform .12s ease, box-shadow .12s ease;background:#101010;color:var(--c2c-text)}
+#resource-app .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,122,0,.15)}
+#resource-app .btn-primary{background:var(--c2c-orange);color:#000;border-color:var(--c2c-orange)}
+#resource-app .btn-outline{background:transparent;color:var(--c2c-orange);border-color:var(--c2c-orange)}
+#resource-app .btn-ghost{background:#0b0b0b;border-color:#2a2a2a;color:var(--c2c-text)}
+#resource-app .btn-small{padding:8px 10px;border-radius:10px;font-weight:700}
+#resource-app h1{margin:8px 0 0;font-size:42px}
+#resource-app h2{margin:24px 0 10px;font-size:28px}
+#resource-app h3{margin:14px 0 8px;font-size:20px}
+#resource-app .pill{display:inline-flex;align-items:center;gap:8px;background:#0f0f0f;border:1px solid var(--c2c-outline);padding:5px 10px;border-radius:999px;font-size:.9rem;color:#e7e7e7}
+#resource-app .chip{display:inline-flex;align-items:center;gap:6px;background:#101010;border:1px solid var(--c2c-outline);padding:6px 10px;border-radius:999px;font-size:.9rem;color:#e7e7e7;cursor:pointer}
+#resource-app .chip.active{background:var(--c2c-orange);color:#000;border-color:var(--c2c-orange)}
+#resource-app .row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+#resource-app .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+#resource-app .left{grid-column:span 9}
+#resource-app .right{grid-column:span 3;position:sticky;top:70px;height:max-content}
+#resource-app .card{padding:16px;border-radius:16px;background:var(--c2c-card);border:1px solid var(--c2c-outline)}
+#resource-app .card:hover{box-shadow:0 16px 30px rgba(0,0,0,.35)}
+#resource-app .resource-card{display:grid;grid-template-columns:72px 1fr;gap:14px}
+#resource-app .resource-card .icon{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#151515,#0a0a0a);border:1px solid var(--c2c-outline);display:flex;align-items:center;justify-content:center;font-weight:900;color:#ffb580;letter-spacing:.5px}
+#resource-app .resource-card .title{font-size:18px;margin:0 0 6px}
+#resource-app .resource-card .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+#resource-app .resource-card .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+#resource-app .section{margin:22px 0}
+#resource-app .kbd{display:inline-block;border:1px solid #444;border-bottom-width:3px;border-radius:8px;padding:0 7px;margin:0 2px;background:#111;font-weight:800}
+#resource-app .toc a{display:block;padding:8px 10px;border-radius:10px;color:#eaeaea;border:1px solid transparent}
+#resource-app .toc a:hover{border-color:#333}
+#resource-app .toc .active{background:#101010;border-color:#222;color:#fff}
+#resource-app .searchbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#resource-app input[type="search"], #resource-app input[type="text"], #resource-app select{background:#0b0b0b;border:1px solid #2a2a2a;border-radius:12px;color:#fff;padding:10px 12px;font-size:15px}
+#resource-app input[type="number"]{background:#0b0b0b;border:1px solid #2a2a2a;border-radius:10px;color:#fff;padding:8px 10px;width:110px}
+#resource-app label{font-size:.95rem;color:#e6e6e6}
+#resource-app .divider{height:1px;background:var(--c2c-outline);margin:18px 0}
+#resource-app .kbd-row{font-size:.95rem}
+#resource-app .taglist{display:flex;gap:10px;flex-wrap:wrap}
+#resource-app .notice{padding:10px 12px;border-radius:10px;border:1px solid #333;background:#0d0d0d;color:#ddd}
+#resource-app .success{border-color:#1f532a;background:#0b2011;color:#a7eebb}
+#resource-app .warn{border-color:#704c00;background:#1f1500;color:#ffd28a}
+#resource-app .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+#resource-app .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+#resource-app .faq dt{background:#0c0c0c;border:1px solid #2a2a2a;padding:12px;border-radius:12px;cursor:pointer}
+#resource-app .faq dd{margin:0 0 12px;padding:10px 12px;border-left:3px solid #2a2a2a}
+#resource-app .floating-top{position:fixed;right:16px;bottom:18px;z-index:40}
+#resource-app .kbd-help{position:fixed;right:16px;bottom:70px;z-index:40}
+#resource-app .empty{padding:30px;border:1px dashed #333;border-radius:14px;text-align:center;color:#ddd}
+/* Print tweaks */
+@media print{
+  #resource-app .right, #resource-app .floating-top, #resource-app .kbd-help, #resource-app .searchbar{display:none!important}
+  #resource-app .container{padding:0}
+  #resource-app .card{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<main id="resource-app" class="container">
+  <header class="row" style="justify-content:space-between;align-items:flex-start">
+    <div>
+      <div class="pill">New section</div>
+      <h1>Resources</h1>
+      <p class="muted">Everything in one place: guides, templates, calculators, checklists, legal notes, integration helpers, videos, and FAQs. Search, filter, save, and download.</p>
+      <div class="row searchbar">
+        <input id="ra-search" type="search" placeholder="Search guides, templates, laws, FAQs…" aria-label="Search resources">
+        <select id="ra-sort" aria-label="Sort">
+          <option value="new">Newest</option>
+          <option value="popular">Popular</option>
+          <option value="az">A → Z</option>
+        </select>
+        <button class="btn btn-ghost btn-small" id="ra-clear">Clear</button>
+        <button class="btn btn-primary btn-small" id="ra-save-export">Export My Saved</button>
+        <div class="kbd-row muted">Tips: press <span class="kbd">/</span> to focus search • <span class="kbd">?</span> for shortcuts</div>
+      </div>
+      <div class="taglist" id="ra-filters"></div>
+    </div>
+  </header>
+
+  <section class="grid" style="margin-top:12px">
+    <div class="left">
+      <section id="featured" class="section">
+        <h2>Featured</h2>
+        <div id="ra-featured" class="list"></div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section id="all" class="section">
+        <h2>All resources</h2>
+        <div id="ra-results" class="list"></div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section id="calculators" class="section">
+        <h2>Calculators</h2>
+        <div class="calc-grid">
+          <div class="card surface">
+            <h3>GST Calculator (AU 10%)</h3>
+            <label>Amount (excl. GST)</label><br>
+            <input type="number" id="gst-base" value="100">
+            <div class="row" style="margin-top:10px">
+              <button class="btn btn-primary btn-small" id="gst-calc">Calculate</button>
+              <div id="gst-out" class="pill">GST: A$10.00 • Total: A$110.00</div>
+            </div>
+          </div>
+          <div class="card surface">
+            <h3>Variation Quote Estimator</h3>
+            <label>Materials (A$)</label><br><input type="number" id="vq-mat" value="250">
+            <label style="margin-left:8px">Labour hours</label><br><input type="number" id="vq-hours" value="4">
+            <label style="margin-left:8px">Hourly rate (A$)</label><br><input type="number" id="vq-rate" value="95">
+            <label style="margin-left:8px">Markup %</label><br><input type="number" id="vq-markup" value="15">
+            <div class="row" style="margin-top:10px">
+              <button class="btn btn-primary btn-small" id="vq-calc">Estimate</button>
+              <div id="vq-out" class="pill">Quote: A$??</div>
+            </div>
+          </div>
+          <div class="card surface">
+            <h3>Day-rate Calculator</h3>
+            <label>Hours per day</label><br><input type="number" id="dr-hours" value="8">
+            <label style="margin-left:8px">Hourly rate</label><br><input type="number" id="dr-rate" value="95">
+            <div class="row" style="margin-top:10px">
+              <button class="btn btn-primary btn-small" id="dr-calc">Calculate</button>
+              <div id="dr-out" class="pill">Day rate: A$760</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section id="faqs" class="section">
+        <h2>FAQs</h2>
+        <dl class="faq" id="faq-list"></dl>
+      </section>
+
+      <div class="divider"></div>
+
+      <section id="videos" class="section">
+        <h2>Videos</h2>
+        <div class="list" id="video-list"></div>
+      </section>
+    </div>
+
+    <aside class="right">
+      <div class="card surface">
+        <h3>Quick links</h3>
+        <div class="row" style="gap:8px;flex-wrap:wrap">
+          <a class="btn btn-ghost btn-small" href="#featured">Featured</a>
+          <a class="btn btn-ghost btn-small" href="#all">All</a>
+          <a class="btn btn-ghost btn-small" href="#calculators">Calculators</a>
+          <a class="btn btn-ghost btn-small" href="#faqs">FAQs</a>
+          <a class="btn btn-ghost btn-small" href="#videos">Videos</a>
+        </div>
+      </div>
+      <div class="card surface" style="margin-top:12px">
+        <h3>Table of contents</h3>
+        <nav class="toc" id="ra-toc"></nav>
+      </div>
+      <div class="card surface" style="margin-top:12px">
+        <h3>My saved</h3>
+        <div id="ra-saved" class="list"></div>
+        <div id="ra-saved-empty" class="empty">Save any item — it will appear here.</div>
+      </div>
+      <div class="card surface" style="margin-top:12px">
+        <h3>Need help?</h3>
+        <p class="muted">Ping us on WhatsApp. We’ll jump in.</p>
+        <a class="btn" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20need%20help%20with%20Resources" target="_blank" rel="noopener">WhatsApp us</a>
+      </div>
+    </aside>
+  </section>
+
+  <div class="floating-top">
+    <button id="ra-top" class="btn btn-primary btn-small">↑ Top</button>
+  </div>
+  <div class="kbd-help">
+    <button id="ra-help" class="btn btn-ghost btn-small">? Shortcuts</button>
+  </div>
+</main>
+
+<script>
+// ------------- Data -------------
+const RA_TAGS = ["template","guide","legal","calculator","checklist","video","faq","integration","pricing","compliance","victoria","australia","pdf","stripe","whatsapp","email","brand","setup"];
+
+const RA_ITEMS = [
+  {id:"tmpl-variation", title:"Variation template (PDF + DOCX)", type:"template", tags:["template","pdf","victoria","australia"], href:"/assets/resources/Variation-Template.pdf", desc:"Lock scope changes before work starts. Ready-to-sign template with space for price and scope.", icon:"T", featured:true, popular:98, added:"2025-09-01"},
+  {id:"tmpl-quote", title:"Quote template (fast reply)", type:"template", tags:["template","pdf"], href:"/assets/resources/Quote-Template.pdf", desc:"Short form quote designed for WhatsApp replies. Converts to signed PDF.", icon:"T", popular:75, added:"2025-09-05"},
+  {id:"tmpl-agreement", title:"Service agreement (plain‑english)", type:"template", tags:["template","pdf","compliance"], href:"/assets/resources/Service-Agreement.pdf", desc:"Keep it simple and enforceable. Includes variation clause language.", icon:"T", popular:64, added:"2025-08-28"},
+  {id:"guide-whatsapp", title:"WhatsApp-first workflow", type:"guide", tags:["guide","whatsapp"], href:"#", desc:"Reply with scope + price → tap Send Variation → signed PDF. Screenshots and tips.", icon:"G", featured:true, popular:81, added:"2025-09-02"},
+  {id:"guide-brand", title:"Brand setup: logos, colours, receipts", type:"guide", tags:["guide","brand","setup"], href:"#", desc:"Add your logo and brand colours across receipts and checkout.", icon:"G", popular:43, added:"2025-08-25"},
+  {id:"legal-vic", title:"Victoria: variation rules snapshot", type:"legal", tags:["legal","victoria","australia","compliance"], href:"#", desc:"Plain-English summary of variation requirements for VIC. Not legal advice.", icon:"L", featured:true, popular:53, added:"2025-08-15"},
+  {id:"legal-au", title:"Australia-wide: signatures & timestamps", type:"legal", tags:["legal","australia","compliance"], href:"#", desc:"What counts as approval, record-keeping, and audit trails.", icon:"L", popular:61, added:"2025-08-12"},
+  {id:"chk-prestart", title:"Pre-start site checklist", type:"checklist", tags:["checklist","victoria"], href:"#", desc:"Quick pre-start punch list to avoid disputes later.", icon:"C", popular:52, added:"2025-08-29"},
+  {id:"calc-gst", title:"GST calculator", type:"calculator", tags:["calculator","pricing","australia"], href:"#calculators", desc:"10% GST maths — totals and reverse.", icon:"Σ", popular:70, added:"2025-09-06"},
+  {id:"calc-variation", title:"Variation quote estimator", type:"calculator", tags:["calculator","pricing"], href:"#calculators", desc:"Materials + labour + markup. Ready in seconds.", icon:"Σ", popular:67, added:"2025-09-06"},
+  {id:"video-overview", title:"Video: C2C in 90 seconds", type:"video", tags:["video"], href:"https://player.vimeo.com/video/0000001", desc:"High-level walk-through with real examples.", icon:"▶", popular:40, added:"2025-08-22"},
+  {id:"video-send", title:"Video: Send a variation", type:"video", tags:["video","whatsapp"], href:"https://player.vimeo.com/video/0000002", desc:"From message to signed PDF, step by step.", icon:"▶", popular:46, added:"2025-08-23"},
+  {id:"faq-billing", title:"Do you charge GST?", type:"faq", tags:["faq","pricing"], href:"#faqs", desc:"Yes, GST applies to AU customers. Stripe receipts show tax breakdown.", icon:"?", popular:33, added:"2025-08-18"},
+  {id:"faq-legal", title:"Are signatures legally valid?", type:"faq", tags:["faq","legal"], href:"#faqs", desc:"Yes — approvals are timestamped; PDFs are immutable and stored.", icon:"?", popular:41, added:"2025-08-18"},
+  {id:"int-stripe", title:"Stripe: Payment Links tips", type:"integration", tags:["integration","stripe","pricing"], href:"#", desc:"Best practices: product names, branding, receipts, refunds.", icon:"S", featured:true, popular:72, added:"2025-08-30"},
+  {id:"int-email", title:"Email receipts: what can be customised", type:"integration", tags:["integration","email","brand"], href:"#", desc:"Colours, logo, support address, and custom domains.", icon:"S", popular:36, added:"2025-08-30"},
+  {id:"tmpl-safety", title:"Basic SWMS template", type:"template", tags:["template","pdf","compliance"], href:"/assets/resources/SWMS-Basic.pdf", desc:"Simple SWMS outline with common risks and controls.", icon:"T", popular:51, added:"2025-08-27"},
+  {id:"guide-disputes", title:"Docs that win disputes", type:"guide", tags:["guide","legal","compliance"], href:"#", desc:"How to build a tidy trail that shuts down arguments.", icon:"G", featured:true, popular:89, added:"2025-09-07"},
+  {id:"chk-handover", title:"Handover checklist", type:"checklist", tags:["checklist"], href:"#", desc:"Final checks and sign-off items to prevent callbacks.", icon:"C", popular:34, added:"2025-08-27"},
+  {id:"tmpl-invoice", title:"Invoice template (GST)", type:"template", tags:["template","pdf","pricing"], href:"/assets/resources/Invoice-Template.pdf", desc:"AUS GST-friendly invoice layout with ABN & line items.", icon:"T", popular:55, added:"2025-08-20"},
+  {id:"guide-comms", title:"Write messages that get 'yes'", type:"guide", tags:["guide","whatsapp"], href:"#", desc:"Prompts and phrasing that move jobs forward fast.", icon:"G", popular:62, added:"2025-08-19"},
+  {id:"legal-records", title:"Record-keeping & retention", type:"legal", tags:["legal","compliance","australia"], href:"#", desc:"How long to keep docs, and where.", icon:"L", popular:27, added:"2025-08-09"},
+  {id:"guide-sameday", title:"Same‑day setup playbook", type:"guide", tags:["guide","setup"], href:"#", desc:"From logo to first signed PDF — same day.", icon:"G", popular:73, added:"2025-09-05"},
+  {id:"faq-cancel", title:"Can I cancel anytime?", type:"faq", tags:["faq","pricing"], href:"#faqs", desc:"Yes. Plans are month‑to‑month; annual has a discount.", icon:"?", popular:29, added:"2025-08-17"},
+  {id:"tmpl-quote-email", title:"Email template: send a quote", type:"template", tags:["template","email"], href:"/assets/resources/Email-Quote.txt", desc:"Copy‑paste email with placeholders for scope and totals.", icon:"T", popular:31, added:"2025-08-28"},
+  {id:"tmpl-variation-wa", title:"WhatsApp text: send a variation", type:"template", tags:["template","whatsapp"], href:"/assets/resources/WA-Variation.txt", desc:"Paste, tweak, send — makes approvals frictionless.", icon:"T", popular:45, added:"2025-09-01"}
+];
+
+const RA_FAQS = [
+  {q:"How do I get a signed PDF?", a:"Reply with scope + price, tap *Send Variation*, client approves, PDF is generated and stored. Time‑stamped, immutable."},
+  {q:"Will this work in Victoria?", a:"Yes. The templates and flows are built for AU — including VIC — and are designed to support clean approvals and tidy trails."},
+  {q:"Can I add my logo?", a:"Yes. Branding (logo and colours) appears on checkout and receipts. Use *Branding → Email receipts / Checkout & Payment Links*."},
+  {q:"Where are my PDFs stored?", a:"Securely in our storage with redundant backups. You can also download and save locally."}
+];
+
+const RA_VIDEOS = [
+  {title:"Overview", url:"https://player.vimeo.com/video/0000001", length:"1:30"},
+  {title:"Send a variation", url:"https://player.vimeo.com/video/0000002", length:"2:10"},
+  {title:"Brand your receipts", url:"https://player.vimeo.com/video/0000003", length:"1:20"}
+];
+
+// ------------- Helpers -------------
+const $ = (sel, root=document) => root.querySelector(sel);
+const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+const fmtA = n => 'A$'+n.toFixed(2);
+
+function uniqueTags(items){ const s=new Set(); items.forEach(r=>r.tags.forEach(t=>s.add(t))); return Array.from(s).sort(); }
+function parseQS(){ const p=new URLSearchParams(location.search); return { q:p.get('q')||'', tag:p.get('tag')||'', sort:p.get('sort')||'new' }; }
+function updateQS(state){ const p=new URLSearchParams(); if(state.q) p.set('q', state.q); if(state.tag) p.set('tag', state.tag); if(state.sort!=='new') p.set('sort', state.sort); history.replaceState(null,'','?'+p.toString()); }
+
+function cardHTML(r){
+  const tagHTML = r.tags.map(t=>`<span class="chip" data-chip="${t}">${t}</span>`).join(' ');
+  const save = isSaved(r.id);
+  return `<article class="card resource-card" data-id="${r.id}" data-type="${r.type}" data-tags="${r.tags.join(',')}">
+    <div class="icon">${r.icon||'R'}</div>
+    <div>
+      <h3 class="title">${r.title}</h3>
+      <p class="muted" style="margin:0">${r.desc}</p>
+      <div class="meta">${tagHTML}</div>
+      <div class="actions">
+        ${r.href ? `<a class="btn btn-primary btn-small" href="${r.href}" target="${r.href.startsWith('http')? '_blank' : '_self'}" rel="noopener">Open</a>` : ''}
+        <button class="btn btn-ghost btn-small ra-copy" data-id="${r.id}">Copy link</button>
+        <button class="btn btn-ghost btn-small ra-save" data-id="${r.id}">${save?'★ Saved':'☆ Save'}</button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderList(listEl, items){
+  listEl.innerHTML = items.map(cardHTML).join('');
+}
+
+function searchItems(q, tag, sort){
+  q = (q||'').toLowerCase().trim();
+  let arr = RA_ITEMS.slice();
+  if(q){
+    arr = arr.filter(r => (r.title+' '+r.desc+' '+r.tags.join(' ')).toLowerCase().includes(q));
+  }
+  if(tag){
+    arr = arr.filter(r => r.tags.includes(tag));
+  }
+  if(sort==='az'){ arr.sort((a,b)=>a.title.localeCompare(b.title)); }
+  else if(sort==='popular'){ arr.sort((a,b)=>b.popular-a.popular); }
+  else { // new
+    arr.sort((a,b)=> (b.added||'').localeCompare(a.added||''));
+  }
+  return arr;
+}
+
+// saved list
+function getSaved(){ try{ return JSON.parse(localStorage.getItem('ra_saved')||'[]'); }catch(e){ return []; } }
+function setSaved(ids){ localStorage.setItem('ra_saved', JSON.stringify(ids)); }
+function isSaved(id){ return getSaved().includes(id); }
+function toggleSaved(id){
+  let s=getSaved();
+  if(s.includes(id)){ s = s.filter(x=>x!==id); }
+  else{ s.push(id); }
+  setSaved(s); renderSaved();
+}
+function renderSaved(){
+  const s = getSaved();
+  const wrap = $('#ra-saved');
+  const empty = $('#ra-saved-empty');
+  if(!s.length){ wrap.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display='none';
+  renderList(wrap, RA_ITEMS.filter(r=>s.includes(r.id)));
+}
+
+function buildToc(){
+  const toc = $('#ra-toc');
+  const sec = ['featured','all','calculators','faqs','videos'];
+  toc.innerHTML = sec.map(id=>`<a href="#${id}" data-toc="${id}">${id[0].toUpperCase()+id.slice(1)}</a>`).join('');
+  function update(){
+    let active = sec[0];
+    for(const id of sec){
+      const el = document.getElementById(id);
+      const rect = el.getBoundingClientRect();
+      if(rect.top < 120) active = id;
+    }
+    $$('#ra-toc a').forEach(a=>a.classList.toggle('active', a.getAttribute('data-toc')===active));
+  }
+  document.addEventListener('scroll', update, {passive:true});
+  update();
+}
+
+// ------------- Init -------------
+(function init(){
+  // Filters (chips)
+  const tags = uniqueTags(RA_ITEMS.concat(RA_TAGS.map(t=>({tags:[t]}))));
+  const filterWrap = $('#ra-filters');
+  filterWrap.innerHTML = tags.map(t=>`<span class="chip" data-filter="${t}">${t}</span>`).join('');
+  filterWrap.addEventListener('click', (e)=>{
+    const chip = e.target.closest('[data-filter]'); if(!chip) return;
+    const tag = chip.getAttribute('data-filter');
+    if(state.tag===tag){ state.tag=''; } else { state.tag = tag; }
+    update();
+  });
+
+  // Featured
+  renderList($('#ra-featured'), RA_ITEMS.filter(r=>r.featured));
+
+  // All
+  const qs = parseQS();
+  const stateDefault = { q: qs.q, tag: qs.tag, sort: qs.sort };
+  window.state = stateDefault;
+
+  const search = $('#ra-search');
+  const sort = $('#ra-sort');
+  search.value = state.q;
+  sort.value = state.sort;
+
+  function doSearch(){ renderList($('#ra-results'), searchItems(state.q, state.tag, state.sort)); }
+  function markFilter(){ $$('#ra-filters .chip').forEach(c=>c.classList.toggle('active', c.getAttribute('data-filter')===state.tag)); }
+
+  window.update = function(){
+    updateQS(state);
+    search.value = state.q; sort.value = state.sort;
+    doSearch(); markFilter(); renderSaved();
+  }
+
+  update();
+
+  // events
+  search.addEventListener('input', ()=>{ state.q = search.value; doSearch(); });
+  sort.addEventListener('change', ()=>{ state.sort = sort.value; doSearch(); });
+  $('#ra-clear').addEventListener('click', ()=>{ state = { q:'', tag:'', sort:'new' }; update(); });
+
+  // copy + save
+  document.addEventListener('click', (e)=>{
+    const copyBtn = e.target.closest('.ra-copy');
+    const saveBtn = e.target.closest('.ra-save');
+    if(copyBtn){
+      const id = copyBtn.getAttribute('data-id');
+      const url = location.origin + location.pathname + '?' + new URLSearchParams({ q: '', tag:'', sort:'new' }).toString() + '#'+id;
+      navigator.clipboard.writeText(url).then(()=>{ copyBtn.textContent='Copied!'; setTimeout(()=>copyBtn.textContent='Copy link',1200); });
+    }
+    if(saveBtn){
+      const id = saveBtn.getAttribute('data-id');
+      toggleSaved(id);
+      saveBtn.textContent = isSaved(id) ? '★ Saved' : '☆ Save';
+    }
+  });
+
+  // calculators
+  $('#gst-calc').addEventListener('click', ()=>{
+    const base = parseFloat($('#gst-base').value||0);
+    const gst = base * 0.10, total = base + gst;
+    $('#gst-out').textContent = `GST: ${fmtA(gst)} • Total: ${fmtA(total)}`;
+  });
+  $('#vq-calc').addEventListener('click', ()=>{
+    const mat = parseFloat($('#vq-mat').value||0);
+    const hrs = parseFloat($('#vq-hours').value||0);
+    const rate = parseFloat($('#vq-rate').value||0);
+    const mu = parseFloat($('#vq-markup').value||0)/100;
+    const labour = hrs*rate;
+    const sub = mat + labour;
+    const quote = sub * (1+mu);
+    $('#vq-out').textContent = `Quote: ${fmtA(quote)} (excl. GST)`;
+  });
+  $('#dr-calc').addEventListener('click', ()=>{
+    const hrs = parseFloat($('#dr-hours').value||0);
+    const rate = parseFloat($('#dr-rate').value||0);
+    const day = hrs*rate;
+    $('#dr-out').textContent = `Day rate: ${fmtA(day)}`;
+  });
+
+  // FAQ
+  const faqWrap = $('#faq-list');
+  faqWrap.innerHTML = RA_FAQS.map((f,i)=>`<dt data-faq="${i}">${f.q}</dt><dd>${f.a}</dd>`).join('');
+  faqWrap.addEventListener('click',(e)=>{
+    const dt = e.target.closest('dt[data-faq]'); if(!dt) return;
+    const dd = dt.nextElementSibling;
+    dd.style.display = (dd.style.display==='none') ? 'block' : 'none';
+  });
+  // collapse all by default
+  $$('#faq-list dd').forEach(dd=>dd.style.display='none');
+
+  // Videos
+  const v = $('#video-list');
+  v.innerHTML = RA_VIDEOS.map(x=>`<div class="card"><h3>${x.title} <span class="muted">(${x.length})</span></h3><div class="muted">Embed placeholder — replace URL when ready.</div></div>`).join('');
+
+  // TOC
+  buildToc();
+
+  // buttons
+  $('#ra-top').addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+  $('#ra-help').addEventListener('click', ()=>alert(`Keyboard shortcuts:
+  /   Focus search
+  ?   This help
+  Esc Clear search`));
+
+  // shortcuts
+  window.addEventListener('keydown', (e)=>{
+    if(e.key==='/'){ e.preventDefault(); $('#ra-search').focus(); $('#ra-search').select(); }
+    if(e.key==='?'){ e.preventDefault(); $('#ra-help').click(); }
+    if(e.key==='Escape'){ $('#ra-clear').click(); }
+  });
+
+  // Deep-link to item by ID (hash)
+  if(location.hash){
+    const id = location.hash.slice(1);
+    const el = document.querySelector('[data-id="'+id+'"]');
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  renderSaved();
+})();
+
+// Export saved as CSV
+$('#ra-save-export').addEventListener('click', ()=>{
+  const ids = getSaved();
+  if(!ids.length){ alert('No saved items yet.'); return; }
+  const rows = [['id','title','type','href']].concat(
+    RA_ITEMS.filter(r=>ids.includes(r.id)).map(r=>[r.id,r.title,r.type,r.href||''])
+  );
+  const csv = rows.map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = Object.assign(document.createElement('a'), {href:URL.createObjectURL(blob), download:'c2c-resources.csv'});
+  document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 100);
+});
+</script>
+</body>
+</html>
