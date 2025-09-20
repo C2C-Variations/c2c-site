@@ -1,11 +1,9 @@
 export default {
   async fetch(request, env, ctx) {
-    // Serve your existing static site first
     const res = await env.ASSETS.fetch(request);
     const ct = res.headers.get("content-type") || "";
     if (!ct.includes("text/html")) return res;
 
-    // --- Fix Pack (inline) ---
     const css = `:root{--c2c-orange:#FF7A00}
 a[href^="https://buy.stripe.com"]{position:relative;z-index:9999;pointer-events:auto !important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .backdrop,.overlay,.modal-backdrop,.menu-backdrop,.click-shield{pointer-events:none !important}
@@ -13,49 +11,89 @@ a[href^="https://buy.stripe.com"]{position:relative;z-index:9999;pointer-events:
 header[role="banner"].is-fixed+main{padding-top:72px}`;
 
     const js = `(function(){
-  // Verification marker
-  try{ window.__C2C_FIXPACK = true; }catch(e){}
-  // 1) Hamburger toggle (support multiple patterns)
-  function bindMenu(btn, menu){
-    if(!btn || !menu) return;
-    if(!menu.id) menu.id = 'c2c-nav';
-    btn.setAttribute('aria-controls', menu.id);
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      const open = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }, {passive:false});
-  }
-  const buttons = Array.from(document.querySelectorAll('[data-nav-toggle], .hamburger, .menu-toggle, #menu-toggle, button[aria-label="Menu"]'));
-  const menus   = Array.from(document.querySelectorAll('[data-nav], nav .nav-menu, #nav, #mobile-menu, .nav-menu'));
-  if(buttons.length && menus.length){ bindMenu(buttons[0], menus[0]); }
+  // MOBILE MENU (targets your ids first)
+  var hamburger = document.getElementById('nav-hamburger') 
+               || document.querySelector('[data-nav-toggle], .hamburger, .menu-toggle, #menu-toggle, button[aria-label="Menu"]');
+  var nav = document.getElementById('main-nav')
+         || document.querySelector('[data-nav], nav .nav-menu, #nav, #mobile-menu, .nav-menu');
 
-  // 2) Force navigation for Stripe Payment Links
-  function go(h){ if(!h) return; location.assign(h); }
+  if (hamburger && nav) {
+    if(!nav.id) nav.id = 'c2c-nav';
+    hamburger.setAttribute('aria-controls', nav.id);
+    hamburger.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var open = nav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }, {passive:false});
+
+    nav.addEventListener('click', function(e){
+      var t=e.target; 
+      if(t && (t.tagName==='A' || t.classList.contains('btn') || t.id==='c2c-chat-cta')){
+        nav.classList.remove('open'); hamburger.setAttribute('aria-expanded','false');
+      }
+    });
+
+    document.addEventListener('click', function(e){
+      if (window.innerWidth>768) return;
+      if (!nav.classList.contains('open')) return;
+      if (!nav.contains(e.target) && e.target!==hamburger){
+        nav.classList.remove('open'); hamburger.setAttribute('aria-expanded','false');
+      }
+    });
+    window.addEventListener('resize', function(){
+      if (window.innerWidth>768){
+        nav.classList.remove('open'); hamburger.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  // STRIPE: handle <a>, <button>, data-href and inline onclick
+  var STRIPE = 'https://buy.stripe.com';
+  function go(href){ if(href) location.assign(href); }
+
   document.addEventListener('click', function(e){
-    const a = e.target.closest && e.target.closest('a[href^="https://buy.stripe.com"]');
-    if(a){ e.preventDefault(); e.stopPropagation(); go(a.href); }
-  }, true); // capture phase
+    // normal anchors
+    var el = e.target.closest && e.target.closest('a[href^="'+STRIPE+'"]');
+    // buttons or custom elements
+    if(!el) el = e.target.closest('[data-stripe],[data-href^="'+STRIPE+'"],[onclick*="buy.stripe.com"]');
+
+    if(!el) return;
+    e.preventDefault(); e.stopPropagation();
+
+    var href = el.getAttribute && (el.getAttribute('href') || el.getAttribute('data-href') || el.getAttribute('data-stripe'));
+    if(!href){
+      var oc = el.getAttribute && el.getAttribute('onclick');
+      if(oc){
+        var m = oc.match(/https?:\/\/buy\\.stripe\\.com[^'"]+/);
+        if(m) href = m[0];
+      }
+    }
+    go(href);
+  }, true);
 
   document.addEventListener('keydown', function(e){
     if(e.key!=='Enter' && e.key!==' ') return;
-    const el = document.activeElement;
-    const a = el && el.closest && el.closest('a[href^="https://buy.stripe.com"]');
-    if(a){ e.preventDefault(); e.stopPropagation(); go(a.href); }
+    var el=document.activeElement;
+    if(!el) return;
+    var a=el.closest && (el.closest('a[href^="'+STRIPE+'"]') || el.closest('[data-stripe],[data-href^="'+STRIPE+'"],[onclick*="buy.stripe.com"]'));
+    if(!a) return;
+    e.preventDefault(); e.stopPropagation();
+    var href=a.getAttribute('href')||a.getAttribute('data-href')||a.getAttribute('data-stripe');
+    if(!href){
+      var oc=a.getAttribute('onclick'); 
+      if(oc){ var m=oc.match(/https?:\/\/buy\\.stripe\\.com[^'"]+/); if(m) href=m[0]; }
+    }
+    go(href);
   }, true);
 })();`;
 
-    // Inject meta for easy verification
-    const headInject = `<meta name="c2c-fixpack" content="on"><style>${css}</style>`;
-    const bodyInject = `<script>${js}</script>`;
+    const headers = new Headers(res.headers); headers.delete("content-length");
+    const head = `<meta name="c2c-fixpack" content="on"><style>${css}</style>`;
+    const body = `<script>${js}</script>`;
 
-    const headers = new Headers(res.headers);
-    headers.delete("content-length");
-
-    const rewriter = new HTMLRewriter()
-      .on("head", { element(el){ el.append(headInject, { html: true }); } })
-      .on("body", { element(el){ el.append(bodyInject, { html: true }); } });
-
-    return rewriter.transform(new Response(res.body, { status: res.status, headers }));
+    return new HTMLRewriter()
+      .on("head", { element(el){ el.append(head, { html:true }); }})
+      .on("body", { element(el){ el.append(body, { html:true }); }})
+      .transform(new Response(res.body, { status: res.status, headers }));
   }
 };
