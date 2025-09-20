@@ -98,7 +98,7 @@
   <button id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
       </nav>
     </div>
-      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false" tabindex="0">
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false" tabindex="0" style="z-index:10000;position:relative;">
         <span class="nav-hamburger-bar"></span>
         <span class="nav-hamburger-bar"></span>
         <span class="nav-hamburger-bar"></span>
@@ -274,23 +274,22 @@ document.addEventListener('click',function(e){
   </div>
   <script src="assets/chatbot.v6.js?v=1" defer></script>
   <script>
-    // Hamburger nav toggle for mobile
-    (function(){
+    // Hamburger nav toggle for mobile (robust, final)
+    document.addEventListener('DOMContentLoaded', function() {
       var hamburger = document.getElementById('nav-hamburger');
       var nav = document.getElementById('main-nav');
       if (!hamburger || !nav) return;
-      hamburger.addEventListener('click', function(){
+      hamburger.addEventListener('click', function(e){
+        e.stopPropagation();
         var open = nav.classList.toggle('open');
         hamburger.setAttribute('aria-expanded', open);
       });
-      // Close nav on link click (for a11y)
       nav.addEventListener('click', function(e){
         if(e.target.tagName==='A'||e.target.classList.contains('btn')||e.target.id==='c2c-chat-cta'){
           nav.classList.remove('open');
           hamburger.setAttribute('aria-expanded','false');
         }
       });
-      // Optional: close on outside click
       document.addEventListener('click', function(e){
         if(window.innerWidth>768) return;
         if(!nav.classList.contains('open')) return;
@@ -299,14 +298,19 @@ document.addEventListener('click',function(e){
           hamburger.setAttribute('aria-expanded','false');
         }
       });
-      // Optional: close on resize
       window.addEventListener('resize', function(){
         if(window.innerWidth>768){
           nav.classList.remove('open');
           hamburger.setAttribute('aria-expanded','false');
         }
       });
-    })();
+    });
+      window.addEventListener('resize', function(){
+        if(window.innerWidth>768){
+          nav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded','false');
+        }
+      });
   </script>
 </script>
 <script type="application/ld+json">
