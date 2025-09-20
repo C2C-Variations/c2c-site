@@ -157,35 +157,37 @@ footer .btn{
     text-align: center !important;
   }
 
-  /* Mobile grid/card layout fixes */
-  .cards,
-  .partners,
-  .testimonials,
-  .how {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 18px !important;
-    align-items: stretch !important;
-  }
-  .cards .card,
-  .partners .card,
-  .testimonials .card,
-  .how .card {
-    min-width: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    margin: 0 !important;
-  }
-  .partners img,
-  .testimonials img {
-    max-width: 100% !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    display: block !important;
-  }
-  .how > div {
-    width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
+  /* Mobile grid/card layout fixes (strictly mobile only) */
+  @media (max-width: 600px) {
+    .cards,
+    .partners,
+    .testimonials,
+    .how {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 18px !important;
+      align-items: stretch !important;
+    }
+    .cards .card,
+    .partners .card,
+    .testimonials .card,
+    .how .card {
+      min-width: 0 !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+    }
+    .partners img,
+    .testimonials img {
+      max-width: 100% !important;
+      height: auto !important;
+      margin: 0 auto !important;
+      display: block !important;
+    }
+    .how > div {
+      width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+    }
   }
 }
