@@ -50,7 +50,12 @@
 <header style="position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid #222;">
 <div style="max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;gap:16px;align-items:center;">
 <a href="/" style="font-weight:800;color:#ff8a3d;text-decoration:none">Home</a>
-<nav style="display:flex;gap:16px;margin-left:auto">
+<button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false" tabindex="0" style="margin-left:auto;">
+  <span class="nav-hamburger-bar"></span>
+  <span class="nav-hamburger-bar"></span>
+  <span class="nav-hamburger-bar"></span>
+</button>
+<nav id="main-nav" style="display:flex;gap:16px;margin-left:auto" role="navigation" aria-label="Main">
 <a href="/pricing" style="color:#ff8a3d;text-decoration:none">Pricing</a>
 <a href="/docs" style="color:#ff8a3d;text-decoration:none">Docs</a>
 <a href="/about" style="color:#ff8a3d;text-decoration:none">About</a>
@@ -60,6 +65,101 @@
   <button id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
 </nav>
 </div>
+  <style>
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 100;
+      margin-left: 8px;
+    }
+    .nav-hamburger-bar {
+      width: 28px;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      margin: 3px 0;
+      transition: all 0.3s;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex !important; }
+      #main-nav {
+        position: absolute;
+        top: 64px;
+        right: 0;
+        left: 0;
+        background: rgba(0,0,0,0.98);
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0 !important;
+        padding: 0 0 12px 0 !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        border-bottom: 1px solid #222;
+        z-index: 99;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.25s, opacity 0.25s;
+      }
+      #main-nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #main-nav a, #main-nav .btn, #main-nav #c2c-chat-cta {
+        width: 100%;
+        text-align: left;
+        padding: 14px 24px;
+        border-radius: 0;
+        font-size: 1.1rem;
+        border: none;
+        background: none;
+        margin: 0;
+        box-shadow: none;
+      }
+      #main-nav .btn, #main-nav #c2c-chat-cta {
+        margin-top: 6px;
+      }
+    }
+  </style>
+  <script>
+    (function(){
+      var hamburger = document.getElementById('nav-hamburger');
+      var nav = document.getElementById('main-nav');
+      if (!hamburger || !nav) return;
+      hamburger.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open);
+      });
+      nav.addEventListener('click', function(e){
+        if(e.target.tagName==='A'||e.target.classList.contains('btn')||e.target.id==='c2c-chat-cta'){
+          nav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded','false');
+        }
+      });
+      document.addEventListener('click', function(e){
+        if(window.innerWidth>768) return;
+        if(!nav.classList.contains('open')) return;
+        if(!nav.contains(e.target) && e.target!==hamburger){
+          nav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded','false');
+        }
+      });
+      window.addEventListener('resize', function(){
+        if(window.innerWidth>768){
+          nav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+  </script>
 </header>
 <div class="wrap">
 <h1>Docs Hub</h1>
@@ -160,10 +260,32 @@
     </div>
   </div>
   <footer class="footer">
-    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <div class="container footer-links-row">
       <span>© C2C Variations</span>
-      <span style="display:flex;gap:16px"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/testimonials">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
+      <span class="footer-links"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/testimonials">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
     </div>
+  <style>
+    @media (max-width: 600px) {
+      .footer-links-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+      .footer-links {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px 0 !important;
+        flex-direction: column !important;
+        width: 100%;
+      }
+      .footer-links a {
+        padding: 10px 0 !important;
+        font-size: 1.1rem !important;
+        display: block !important;
+        width: 100%;
+      }
+    }
+  </style>
   </footer>
   <script src="assets/chatbot.v6.js?v=1" defer></script>
 </script>

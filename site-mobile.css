@@ -113,3 +113,79 @@ footer .btn{
   }
 }
 /* ===== end HOTFIX v8 ===== */
+
+/* CTA spacing and alignment for mobile */
+@media (max-width: 600px) {
+  header .btn,
+  header .btn-wa,
+  header #c2c-chat-cta,
+  .site-header .btn,
+  .site-header .btn-wa,
+  .site-header #c2c-chat-cta {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    min-width: 44px !important;
+    width: auto !important;
+    max-width: 100%;
+    display: inline-flex !important;
+  }
+  main .btn,
+  main .btn-wa,
+  main #c2c-chat-cta,
+  .content .btn,
+  .content .btn-wa,
+  .content #c2c-chat-cta {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    min-width: 44px !important;
+    width: 100% !important;
+    max-width: 100%;
+    display: block !important;
+    text-align: center !important;
+  }
+  .footer .btn,
+  .footer .btn-wa,
+  .footer #c2c-chat-cta {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    min-width: 44px !important;
+    width: 100% !important;
+    max-width: 100%;
+    display: block !important;
+    text-align: center !important;
+  }
+
+  /* Mobile grid/card layout fixes */
+  .cards,
+  .partners,
+  .testimonials,
+  .how {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+  .cards .card,
+  .partners .card,
+  .testimonials .card,
+  .how .card {
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+  .partners img,
+  .testimonials img {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  .how > div {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+}
