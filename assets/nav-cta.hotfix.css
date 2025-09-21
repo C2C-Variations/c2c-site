@@ -107,3 +107,26 @@ a.btn-wa, #c2c-chat-cta{
 @media (max-width: 640px){
   :root{ --cta-h:40px; --cta-fz:16px; --cta-pad-x:16px; }
 }
+
+/* Footer layout & spacing (desktop) */
+.footer-links-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+}
+
+.footer-links {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 6px 20px !important;
+}
+
+.footer-links a {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 4px 0 !important;
+  white-space: nowrap !important;
+}
