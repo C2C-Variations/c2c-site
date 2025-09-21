@@ -40,3 +40,28 @@ This repository contains the C2C Variations website.
 ## Notes
 - Always commit changes on a feature branch first
 - Merge to main only after testing in Cloudflare preview
+
+```
+{
+  "scripts": {
+    "linkcheck": "node scripts/link_check.mjs --base=https://www.c2cvariations.com.au --json=data/resources.json --html=resources.html"
+  }
+}
+```
+
+### Resources link validation (manual)
+
+You can validate all outbound links listed in `data/resources.json` (and any hard-coded links in `resources.html`) with a manual GitHub Action:
+
+1. Go to **Actions → Resources link check → Run workflow**.
+2. (Optional) Change the inputs:
+   - **base_url** – used to resolve any relative links (default: `https://www.c2cvariations.com.au`)
+   - **json_path** – path to the JSON (default: `data/resources.json`)
+   - **html_path** – path to the HTML (default: `resources.html`)
+   - **timeout_ms**, **concurrency** – network tuning
+3. Click **Run workflow**. When it finishes, download the `link_audit` artifact – it contains `link_audit.csv` with:  
+   `original_url, final_url, method_used, status, ok, error`
+
+Notes:
+- HEAD is tried first; if blocked, the checker falls back to GET and follows redirects.
+- Script is dependency-free (Node 20+ only).

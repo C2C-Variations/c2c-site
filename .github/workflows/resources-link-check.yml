@@ -1,0 +1,55 @@
+name: Resources link check
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "Optional base URL to resolve relative links"
+        required: false
+        default: "https://www.c2cvariations.com.au"
+      json_path:
+        description: "Path to resources JSON"
+        required: false
+        default: "data/resources.json"
+      html_path:
+        description: "Path to resources HTML"
+        required: false
+        default: "resources.html"
+      timeout_ms:
+        description: "Per-request timeout (ms)"
+        required: false
+        default: "15000"
+      concurrency:
+        description: "Max concurrent requests"
+        required: false
+        default: "10"
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    container:
+      image: node:20-bullseye
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run link checker
+        run: >
+          node scripts/link_check.mjs
+          --base "${{ github.event.inputs.base_url }}"
+          --json "${{ github.event.inputs.json_path }}"
+          --html "${{ github.event.inputs.html_path }}"
+          --timeout "${{ github.event.inputs.timeout_ms }}"
+          --concurrency "${{ github.event.inputs.concurrency }}"
+        env:
+          # Optional: base URL via env if input is blank
+          BASE_URL: ${{ github.event.inputs.base_url }}
+
+      - name: Upload CSV artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: link_audit
+          path: link_audit.csv
+          if-no-files-found: error
