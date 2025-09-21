@@ -20,6 +20,7 @@ This repository contains the C2C Variations website.
 
 ## Structure
 - index.html → main landing page
+- archive/ → retired landing page variants kept for reference (not served)
 - about.html → about page
 - pricing.html → service pricing
 - partners.html → partner/trust logos
@@ -40,6 +41,8 @@ This repository contains the C2C Variations website.
 ## Notes
 - Always commit changes on a feature branch first
 - Merge to main only after testing in Cloudflare preview
+- Legacy landing page variants (`index2.html`, `index.homefix.html`, `index (1).html`) were archived in `/archive/` after confirming
+  they are not referenced by `_redirects`, the Cloudflare worker, or campaign collateral.
 
 ```
 {
