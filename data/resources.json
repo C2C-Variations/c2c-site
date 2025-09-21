@@ -1,0 +1,79 @@
+{
+  "shortcuts": [
+    {"label": "BOM National Warnings", "url": "https://www.bom.gov.au/australia/warnings/", "tags": ["weather", "alerts", "national"]},
+    {"label": "GA Earthquakes", "url": "https://earthquakes.ga.gov.au/", "tags": ["geohazard", "earthquake", "national"]},
+    {"label": "ARPANSA UV Index", "url": "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation", "tags": ["uv", "radiation", "national"]},
+    {"label": "Live Traffic NSW", "url": "https://www.livetraffic.com/", "tags": ["traffic", "nsw"]},
+    {"label": "VicTraffic", "url": "https://traffic.vicroads.vic.gov.au/", "tags": ["traffic", "vic"]},
+    {"label": "QLD Traffic", "url": "https://qldtraffic.qld.gov.au/", "tags": ["traffic", "qld"]},
+    {"label": "Emergency WA", "url": "https://www.emergency.wa.gov.au/", "tags": ["emergency", "wa"]},
+    {"label": "TasALERT", "url": "https://alert.tas.gov.au/", "tags": ["emergency", "tas"]},
+    {"label": "ESA ACT Incidents", "url": "https://esa.act.gov.au/", "tags": ["emergency", "act"]},
+    {"label": "Healthdirect Service Finder", "url": "https://www.healthdirect.gov.au/australian-health-services", "tags": ["health", "national"]},
+    {"label": "BYDA 1100 Before You Dig", "url": "https://www.byda.com.au/", "tags": ["utilities", "compliance", "national"]}
+  ],
+  "by_state": {
+    "VIC": {
+      "Emergency & Hazards": [["Emergency VIC Warnings", "https://emergency.vic.gov.au/respond/"], ["BOM Victoria Warnings", "https://www.bom.gov.au/vic/warnings/"], ["Vic SES Flood & Storm", "https://www.ses.vic.gov.au/" ]],
+      "Traffic & Transport": [["VicTraffic", "https://traffic.vicroads.vic.gov.au/"], ["Public Transport Disruptions", "https://www.ptv.vic.gov.au/footer/about-ptv/digital-products/live-travel-updates/" ]],
+      "Utilities & Outages": [["AusNet Services Outages", "https://www.ausnetservices.com.au/en/electricity/power-outages/outage-map"], ["Powercor Outages", "https://powercor.com.au/outages/"], ["CitiPower Outages", "https://citipower.com.au/outages/"], ["United Energy Outages", "https://www.unitedenergy.com.au/outages/" ]],
+      "Health & Services": [["Healthdirect Victoria Finder", "https://www.healthdirect.gov.au/australian-health-services/results/vic"], ["VicEmergency Relief", "https://www.vic.gov.au/relief-services" ]],
+      "Planning & Councils": [["Find My Council (VIC)", "https://www.localgovernment.vic.gov.au/councils-and-communities/find-your-local-council"], ["VicSmart Planning", "https://www.planning.vic.gov.au/permits-and-applications/vicsmart" ]]
+    },
+    "NSW": {
+      "Emergency & Hazards": [["NSW Incidents & Warnings", "https://www.nsw.gov.au/emergency"], ["BOM New South Wales Warnings", "https://www.bom.gov.au/nsw/warnings/"], ["NSW SES Flood & Storm", "https://www.ses.nsw.gov.au/" ]],
+      "Traffic & Transport": [["Live Traffic NSW", "https://www.livetraffic.com/"], ["Transport NSW Service Alerts", "https://transportnsw.info/alerts" ]],
+      "Utilities & Outages": [["Ausgrid Outages", "https://www.ausgrid.com.au/Outages"], ["Endeavour Energy Outages", "https://www.endeavourenergy.com.au/outages"], ["Essential Energy Outages", "https://www.essentialenergy.com.au/outages" ]],
+      "Health & Services": [["Healthdirect NSW Finder", "https://www.healthdirect.gov.au/australian-health-services/results/nsw"], ["NSW Health Alerts", "https://www.health.nsw.gov.au/Infectious/alerts/Pages/default.aspx" ]],
+      "Planning & Councils": [["NSW Councils Directory", "https://www.nsw.gov.au/nsw-government/councils"], ["NSW Planning Portal", "https://www.planningportal.nsw.gov.au/" ]]
+    },
+    "QLD": {
+      "Emergency & Hazards": [["QLD Alerts", "https://www.qld.gov.au/alerts"], ["BOM Queensland Warnings", "https://www.bom.gov.au/qld/warnings/"], ["QLD SES", "https://www.qfes.qld.gov.au/prepare" ]],
+      "Traffic & Transport": [["QLDTraffic", "https://qldtraffic.qld.gov.au/"], ["TransLink Service Updates", "https://translink.com.au/service-updates" ]],
+      "Utilities & Outages": [["Energex Outage Finder", "https://www.energex.com.au/home/power-outages/outage-finder"], ["Ergon Energy Outages", "https://www.ergon.com.au/network/outages"], ["Powerlink QLD Network", "https://www.powerlink.com.au/network/data-and-reporting/outage-information" ]],
+      "Health & Services": [["Healthdirect QLD Finder", "https://www.healthdirect.gov.au/australian-health-services/results/qld"], ["QLD Health Alerts", "https://www.health.qld.gov.au/news-events/doh-media-releases" ]],
+      "Planning & Councils": [["QLD Local Government Directory", "https://www.dlgrma.qld.gov.au/local-government-directory"], ["Development.i Planning", "https://developmenti.information.qld.gov.au/" ]]
+    },
+    "SA": {
+      "Emergency & Hazards": [["Alert SA", "https://alert.sa.gov.au/"], ["BOM South Australia Warnings", "https://www.bom.gov.au/sa/warnings/"], ["SA SES", "https://www.ses.sa.gov.au/" ]],
+      "Traffic & Transport": [["Traffic SA", "https://traffic.sa.gov.au/"], ["Adelaide Metro Service Updates", "https://www.adelaidemetro.com.au/about-us/service-updates" ]],
+      "Utilities & Outages": [["SA Power Networks Outages", "https://www.sapowernetworks.com.au/outages/"], ["Essential Water SA", "https://www.sawater.com.au/outages" ]],
+      "Health & Services": [["Healthdirect SA Finder", "https://www.healthdirect.gov.au/australian-health-services/results/sa"], ["SA Health Alerts", "https://www.sahealth.sa.gov.au/wps/wcm/connect/Public+Content/SA+Health+Internet/" ]],
+      "Planning & Councils": [["SA Council Directory", "https://www.lga.sa.gov.au/sa-councils/councils-listing"], ["PlanSA Portal", "https://plan.sa.gov.au/" ]]
+    },
+    "WA": {
+      "Emergency & Hazards": [["Emergency WA", "https://www.emergency.wa.gov.au/"], ["BOM Western Australia Warnings", "https://www.bom.gov.au/wa/warnings/"], ["DFES Alerts", "https://www.dfes.wa.gov.au/alerts" ]],
+      "Traffic & Transport": [["Main Roads Travel Map", "https://travelmap.mainroads.wa.gov.au/"], ["Transperth Service Updates", "https://www.transperth.wa.gov.au/Service-Updates" ]],
+      "Utilities & Outages": [["Western Power Outages", "https://www.westernpower.com.au/power-outages/"], ["Water Corporation Alerts", "https://www.watercorporation.com.au/Outages" ]],
+      "Health & Services": [["Healthdirect WA Finder", "https://www.healthdirect.gov.au/australian-health-services/results/wa"], ["HealthyWA Alerts", "https://www.healthywa.wa.gov.au/Articles/A_E/Alerts" ]],
+      "Planning & Councils": [["WA Local Government Directory", "https://walga.asn.au/about-local-government/council-map"], ["WA Planning Hub", "https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage" ]]
+    },
+    "TAS": {
+      "Emergency & Hazards": [["TasALERT", "https://alert.tas.gov.au/"], ["BOM Tasmania Warnings", "https://www.bom.gov.au/tas/warnings/"], ["Tasmania SES", "https://www.ses.tas.gov.au/" ]],
+      "Traffic & Transport": [["Tasmania Police Road Closures", "https://www.police.tas.gov.au/community-alerts/"], ["Metro Tasmania Updates", "https://www.metrotas.com.au/category/service-updates/" ]],
+      "Utilities & Outages": [["TasNetworks Outages", "https://www.tasnetworks.com.au/outages"], ["TasWater Alerts", "https://www.taswater.com.au/outages" ]],
+      "Health & Services": [["Healthdirect TAS Finder", "https://www.healthdirect.gov.au/australian-health-services/results/tas"], ["Public Health Alerts Tasmania", "https://www.health.tas.gov.au/health-topics/public-health" ]],
+      "Planning & Councils": [["Tasmania Councils", "https://www.stategrowth.tas.gov.au/local-government/list_of_councils"], ["Tasmanian Planning", "https://planningreform.tas.gov.au/" ]]
+    },
+    "NT": {
+      "Emergency & Hazards": [["SecureNT", "https://securent.nt.gov.au/"], ["BOM Northern Territory Warnings", "https://www.bom.gov.au/nt/warnings/"], ["NT Fire & Emergency", "https://pfes.nt.gov.au/emergency-service" ]],
+      "Traffic & Transport": [["NT Road Report", "https://roadreport.nt.gov.au/"], ["Darwin Public Transport", "https://www.nt.gov.au/driving/public-transport-cycling/public-transport-in-the-nt" ]],
+      "Utilities & Outages": [["Power and Water NT Outages", "https://www.powerwater.com.au/customers/power-outages"], ["Jacana Energy Interruptions", "https://www.jacanaenergy.com.au/customer-service/power-outages" ]],
+      "Health & Services": [["Healthdirect NT Finder", "https://www.healthdirect.gov.au/australian-health-services/results/nt"], ["NT Health Alerts", "https://health.nt.gov.au/" ]],
+      "Planning & Councils": [["NT Councils Directory", "https://www.dlghcd.nt.gov.au/local-government/directory"], ["NT Planning System", "https://nt.gov.au/property/land-planning-and-development" ]]
+    },
+    "ACT": {
+      "Emergency & Hazards": [["ESA Incidents", "https://esa.act.gov.au/"], ["BOM ACT Warnings", "https://www.bom.gov.au/act/warnings/"], ["ACT Health Emergencies", "https://www.health.act.gov.au/public-health-alerts" ]],
+      "Traffic & Transport": [["ACT Road Closures", "https://www.cityservices.act.gov.au/roads-and-paths/road-closures"], ["Transport Canberra Alerts", "https://www.transport.act.gov.au/news" ]],
+      "Utilities & Outages": [["Evoenergy Outages", "https://www.evoenergy.com.au/outages"], ["Icon Water Outages", "https://www.iconwater.com.au/monitor-and-report/outages.aspx" ]],
+      "Health & Services": [["Healthdirect ACT Finder", "https://www.healthdirect.gov.au/australian-health-services/results/act"], ["Canberra Connect Services", "https://www.act.gov.au/access-cbr" ]],
+      "Planning & Councils": [["City Services ACT", "https://www.cityservices.act.gov.au/"], ["ACT Planning System", "https://www.planning.act.gov.au/" ]]
+    }
+  },
+  "other_categories": {
+    "Telecom status": [["NBN Network Status", "https://www.nbnco.com.au/support/network-status"], ["Telstra Outages", "https://outages.telstra.com/"], ["Optus Network Status", "https://www.optus.com.au/about/network/service-status" ]],
+    "Standards & Compliance": [["Safe Work Australia Model Codes", "https://www.safeworkaustralia.gov.au/resources-publications/model-codes-practice"], ["ABCB National Construction Code", "https://www.abcb.gov.au/ncc"], ["ABCB WaterMark", "https://www.abcb.gov.au/resources/watermark-certification-scheme"], ["Product Safety Australia Recalls", "https://www.productsafety.gov.au/recalls" ]],
+    "Geohazards & UV": [["BOM National Warnings", "https://www.bom.gov.au/australia/warnings/"], ["Geoscience Australia Earthquakes", "https://earthquakes.ga.gov.au/"], ["JATWC Tsunami Warnings", "https://www.bom.gov.au/tsunami/"], ["ARPANSA UV Radiation", "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation" ]],
+    "Councils & Planning": [["Find My Council (National)", "https://www.australia.gov.au/information-and-services/government-and-parliament/local-government"], ["NSW Planning Portal", "https://www.planningportal.nsw.gov.au/"], ["VIC Planning", "https://www.planning.vic.gov.au/"], ["QLD Development.i", "https://developmenti.information.qld.gov.au/"], ["SA PlanSA", "https://plan.sa.gov.au/"], ["ACT Planning", "https://www.planning.act.gov.au/" ]]
+  }
+}

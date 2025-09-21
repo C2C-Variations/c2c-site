@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>C2C Variations — Resources</title>
-  <meta name="description" content="Guides, calculators, generators and FAQs for C2C customers. Save the bits you need for later and download ready-to-send paperwork.">
+  <title>C2C Variations — Resource Hub</title>
+  <meta name="description" content="Official Australian emergency, traffic, health, council and compliance resources grouped by state and category.">
   <link rel="icon" href="./favicon.ico">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="preload" href="site-mobile.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -13,67 +13,235 @@
   <link rel="stylesheet" href="assets/nav-cta.hotfix.css?v=9">
   <link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
   <style>
-    body{margin:0;background:#000;color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-    a{color:#ff8a3d;text-decoration:none}
-    a:hover,a:focus{text-decoration:underline}
-    #c2c-resources{max-width:1100px;margin:0 auto;padding:24px}
-    #c2c-resources .res-hero{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
-    #c2c-resources .res-pill{display:inline-flex;align-items:center;gap:8px;background:#101010;border:1px solid #222;border-radius:999px;padding:6px 14px;font-size:.9rem;color:#f2f2f2;width:max-content}
-    #c2c-resources h1{margin:0;font-size:clamp(36px,5vw,56px)}
-    #c2c-resources p{margin:0;color:#cccccc}
-    #c2c-resources .res-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(240px,1fr);gap:24px;align-items:start}
-    #c2c-resources .res-section{margin-bottom:32px}
-    #c2c-resources .res-section h2{margin:0 0 12px;font-size:28px}
-    #c2c-resources .res-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    #c2c-resources .res-card{background:#0b0b0b;border:1px solid #222;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px}
-    #c2c-resources label{display:block;font-size:.95rem;color:#e2e2e2;margin-bottom:6px}
-    #c2c-resources input[type="text"],
-    #c2c-resources input[type="number"],
-    #c2c-resources textarea{width:100%;background:#111;border:1px solid #2a2a2a;border-radius:10px;color:#fff;padding:10px;font-size:.95rem}
-    #c2c-resources textarea{min-height:120px;resize:vertical}
-    #c2c-resources .res-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-    #c2c-resources button.res-btn,
-    #c2c-resources a.res-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:12px;font-weight:700;border:1px solid #2a2a2a;background:#151515;color:#fff;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease}
-    #c2c-resources button.res-btn:hover,
-    #c2c-resources a.res-btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.35)}
-    #c2c-resources button.res-primary{background:#ff7a00;color:#000;border-color:#ff7a00}
-    #c2c-resources .res-output{padding:10px 12px;border-radius:12px;background:#111;border:1px solid #262626;color:#dcdcdc;font-size:.95rem}
-    #c2c-resources .res-preview{background:#0e0e0e;border:1px solid #262626;border-radius:12px;padding:12px;color:#eaeaea;font-family:"SF Mono",Menlo,monospace;white-space:pre-wrap;min-height:110px}
-    #c2c-resources .res-generator{display:flex;flex-direction:column;gap:12px}
-    #c2c-resources .res-generator legend{font-weight:700;margin-bottom:6px}
-    #c2c-resources .res-guide-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-    #c2c-resources .res-guide{background:#0b0b0b;border:1px solid #222;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px}
-    #c2c-resources .res-guide h3{margin:0;font-size:20px}
-    #c2c-resources .res-tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:#161616;border:1px solid #333;padding:4px 10px;font-size:.8rem;color:#cfcfcf}
-    #c2c-resources .res-sidebar{display:flex;flex-direction:column;gap:16px}
-    #c2c-resources .res-panel{background:#0b0b0b;border:1px solid #222;border-radius:16px;padding:16px}
-    #c2c-resources .res-panel h2{margin:0 0 10px;font-size:20px}
-    #c2c-resources .res-quick-links{display:flex;flex-wrap:wrap;gap:8px}
-    #c2c-resources .res-quick-links a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;background:#131313;border:1px solid #2a2a2a;color:#e9e9e9;text-decoration:none;font-size:.9rem}
-    #c2c-resources .res-quick-links a:hover{border-color:#ff7a00;color:#ffb97a}
-    #c2c-resources .res-toc{display:flex;flex-direction:column;gap:6px}
-    #c2c-resources .res-toc a{padding:6px 10px;border-radius:10px;border:1px solid transparent;color:#e9e9e9;text-decoration:none;font-size:.9rem}
-    #c2c-resources .res-toc a.active{border-color:#ff7a00;background:#1b1204;color:#ffb97a}
-    #c2c-resources .res-saved{display:flex;flex-direction:column;gap:8px}
-    #c2c-resources .res-saved-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 12px;border-radius:10px;background:#111;border:1px solid #262626;color:#e9e9e9;font-size:.9rem}
-    #c2c-resources .res-empty{margin:0;color:#a6a6a6;font-size:.9rem}
-    #c2c-resources .res-link-button{background:none;border:none;padding:0;color:#ff8a3d;font-size:.85rem;cursor:pointer;text-decoration:underline}
-    #c2c-resources .res-faqs details{background:#0c0c0c;border:1px solid #222;border-radius:14px;margin-bottom:10px;padding:12px}
-    #c2c-resources .res-faqs summary{cursor:pointer;font-weight:600;color:#f4f4f4}
-    #c2c-resources .res-faqs p{margin-top:10px;color:#d4d4d4}
-    .res-footer{margin:40px 0 0;padding:24px;background:#050505;border-top:1px solid #1c1c1c}
-    .res-footer-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;color:#b5b5b5;font-size:.9rem}
-    .res-footer-links{display:flex;flex-wrap:wrap;gap:12px}
-    .res-footer-links a{text-decoration:none;color:#ff8a3d}
-    .res-footer-links a[aria-current]{font-weight:700}
-    @media (max-width:960px){
-      #c2c-resources{padding:20px}
-      #c2c-resources .res-layout{grid-template-columns:1fr}
-      #c2c-resources .res-sidebar{order:-1}
+    :root {
+      color-scheme: dark;
     }
-    @media (prefers-reduced-motion:reduce){
-      #c2c-resources button.res-btn,
-      #c2c-resources a.res-btn{transition:none}
+    body {
+      margin: 0;
+      background: #050505;
+      color: #f5f5f5;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a {
+      color: #ff9966;
+    }
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 48px) 20px 80px;
+    }
+    .hero {
+      display: grid;
+      gap: 14px;
+      margin-bottom: clamp(32px, 6vw, 64px);
+    }
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(255, 153, 102, 0.12);
+      color: #ffb48c;
+      border: 1px solid rgba(255, 153, 102, 0.4);
+      width: max-content;
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 3.4rem);
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 720px;
+      color: #d7d7d7;
+      line-height: 1.6;
+    }
+    .search-panel {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .search-panel label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+    }
+    .search-input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1rem;
+      border-radius: 14px;
+      border: 1px solid #2a2a2a;
+      background: #0f0f0f;
+      color: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: rgba(255, 153, 102, 0.75);
+      box-shadow: 0 0 0 3px rgba(255, 153, 102, 0.2);
+    }
+    .layout {
+      display: grid;
+      gap: clamp(32px, 4vw, 48px);
+    }
+    .shortcuts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .shortcuts li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 14px;
+      background: #111;
+      border: 1px solid #262626;
+      color: #f9f9f9;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+    .shortcuts li a:hover,
+    .shortcuts li a:focus {
+      transform: translateY(-1px);
+      border-color: rgba(255, 153, 102, 0.7);
+      background: #171717;
+    }
+    section h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      letter-spacing: -0.01em;
+    }
+    details.resource-group {
+      background: #0b0b0b;
+      border: 1px solid #1f1f1f;
+      border-radius: 16px;
+      padding: 0 0 6px;
+      transition: border-color 0.2s ease;
+    }
+    details.resource-group + details.resource-group {
+      margin-top: 14px;
+    }
+    details.resource-group[open] {
+      border-color: rgba(255, 153, 102, 0.5);
+    }
+    details.resource-group summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    details.resource-group summary::-webkit-details-marker {
+      display: none;
+    }
+    details.resource-group summary span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #9f9f9f;
+    }
+    .resource-columns {
+      display: grid;
+      gap: 22px;
+      padding: 0 20px 20px;
+    }
+    .category {
+      background: #111;
+      border: 1px solid #1f1f1f;
+      border-radius: 14px;
+      padding: 16px 18px;
+      display: grid;
+      gap: 12px;
+    }
+    .category h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0;
+      color: #ffb48c;
+    }
+    .category ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .category li {
+      line-height: 1.5;
+      font-size: 0.98rem;
+    }
+    .category li a {
+      color: #f3f3f3;
+      text-decoration: none;
+    }
+    .category li a:hover,
+    .category li a:focus {
+      text-decoration: underline;
+    }
+    .category li .url-hint {
+      display: block;
+      font-size: 0.8rem;
+      color: #8f8f8f;
+      word-break: break-all;
+    }
+    .other-groups {
+      display: grid;
+      gap: 16px;
+    }
+    .status {
+      font-size: 0.85rem;
+      color: #9f9f9f;
+    }
+    .empty-state {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #bfbfbf;
+      display: none;
+    }
+    @media (max-width: 720px) {
+      details.resource-group summary {
+        padding: 16px;
+      }
+      .resource-columns {
+        padding: 0 16px 16px;
+      }
+      .category {
+        padding: 14px 16px;
+      }
+      .category li .url-hint {
+        font-size: 0.75rem;
+      }
+    }
+    @media (max-width: 480px) {
+      main {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .hero p {
+        font-size: 0.95rem;
+      }
+      .category li {
+        font-size: 0.92rem;
+      }
     }
   </style>
 </head>
@@ -99,422 +267,183 @@
       </nav>
     </div>
   </header>
-
-  <main id="c2c-resources">
-    <section class="res-hero" id="overview">
-      <div class="res-pill">Resources hub</div>
-      <h1>Tools, templates & answers</h1>
-      <p>Estimate jobs, generate paperwork, skim guides and stash the bits you need for later. Everything lives in one place so crews can keep moving.</p>
+  <main>
+    <section class="hero">
+      <span class="hero-label">Resource hub</span>
+      <h1>Official Australian field intel</h1>
+      <p>Quickly access government warnings, outages, traffic updates, council tools and compliance references. Filter everything with one search and open links in new tabs so crews can keep moving.</p>
     </section>
 
-    <div class="res-layout">
-      <div class="res-main">
-        <section id="res-calculators" class="res-section" data-section>
-          <h2>Calculators</h2>
-          <div class="res-card-grid">
-            <article class="res-card" aria-labelledby="gst-heading">
-              <h3 id="gst-heading">GST (10%)</h3>
-              <label for="res-gst-base">Amount excluding GST</label>
-              <input type="number" id="res-gst-base" value="100" min="0" step="0.01">
-              <label for="res-gst-total">Amount including GST</label>
-              <input type="number" id="res-gst-total" value="110" min="0" step="0.01">
-              <div class="res-buttons">
-                <button type="button" class="res-btn res-primary" data-gst="from-base">From ex GST</button>
-                <button type="button" class="res-btn" data-gst="from-total">From inc GST</button>
-              </div>
-              <div class="res-output" id="res-gst-output">GST: A$10.00 • Total: A$110.00</div>
-            </article>
-            <article class="res-card" aria-labelledby="day-heading">
-              <h3 id="day-heading">Day-rate calculator</h3>
-              <label for="res-day-hours">Hours per day</label>
-              <input type="number" id="res-day-hours" value="8" min="0" step="0.5">
-              <label for="res-day-rate">Hourly rate (A$)</label>
-              <input type="number" id="res-day-rate" value="95" min="0" step="0.01">
-              <div class="res-buttons">
-                <button type="button" class="res-btn res-primary" id="res-day-calc">Calculate</button>
-              </div>
-              <div class="res-output" id="res-day-output">Day rate: A$760.00</div>
-            </article>
-            <article class="res-card" aria-labelledby="variation-heading">
-              <h3 id="variation-heading">Variation estimator</h3>
-              <label for="res-var-materials">Materials (A$)</label>
-              <input type="number" id="res-var-materials" value="250" min="0" step="0.01">
-              <label for="res-var-hours">Labour hours</label>
-              <input type="number" id="res-var-hours" value="4" min="0" step="0.1">
-              <label for="res-var-rate">Hourly rate (A$)</label>
-              <input type="number" id="res-var-rate" value="95" min="0" step="0.01">
-              <label for="res-var-markup">Markup %</label>
-              <input type="number" id="res-var-markup" value="15" min="0" step="1">
-              <div class="res-buttons">
-                <button type="button" class="res-btn res-primary" id="res-var-calc">Estimate</button>
-              </div>
-              <div class="res-output" id="res-var-output">Quote: A$0.00 (ex GST)</div>
-            </article>
-          </div>
-        </section>
+    <section class="search-panel" aria-label="Search resources">
+      <label for="resource-search">Search resources</label>
+      <input id="resource-search" class="search-input" type="search" placeholder="Search by name, topic or region" autocomplete="off" spellcheck="false">
+      <div class="status" id="search-status" role="status" aria-live="polite"></div>
+    </section>
 
-        <section id="res-generators" class="res-section" data-section>
-          <h2>Generators</h2>
-          <div class="res-card-grid">
-            <article class="res-card">
-              <h3>Claim intake form</h3>
-              <form class="res-generator" data-generator="claim">
-                <label>Client name<input type="text" name="client" required placeholder="Client / company"></label>
-                <label>Job address<input type="text" name="address" required placeholder="Where is the work?"></label>
-                <label>Issue summary<textarea name="issue" required placeholder="Short description"></textarea></label>
-                <label>Contact number<input type="text" name="contact" placeholder="Optional contact"></label>
-                <div class="res-buttons">
-                  <button type="button" class="res-btn res-primary" data-action="preview">Preview</button>
-                  <button type="button" class="res-btn" data-action="download" disabled>Download</button>
-                </div>
-                <pre class="res-preview" aria-live="polite"></pre>
-              </form>
-            </article>
-            <article class="res-card">
-              <h3>Variation agreement</h3>
-              <form class="res-generator" data-generator="variation">
-                <label>Client / approver<input type="text" name="client" required placeholder="Who signs off?"></label>
-                <label>Variation details<textarea name="details" required placeholder="Scope, reason and price"></textarea></label>
-                <label>Quoted amount (A$)<input type="number" name="amount" min="0" step="0.01" required value="0"></label>
-                <label>Requested completion date<input type="text" name="date" placeholder="Optional"></label>
-                <div class="res-buttons">
-                  <button type="button" class="res-btn res-primary" data-action="preview">Preview</button>
-                  <button type="button" class="res-btn" data-action="download" disabled>Download</button>
-                </div>
-                <pre class="res-preview" aria-live="polite"></pre>
-              </form>
-            </article>
-            <article class="res-card">
-              <h3>VIC plumbing compliance</h3>
-              <form class="res-generator" data-generator="vic">
-                <label>Licence number<input type="text" name="licence" required placeholder="e.g. 12345"></label>
-                <label>Site address<input type="text" name="address" required placeholder="Where was the work?"></label>
-                <label>Compliance summary<textarea name="notes" required placeholder="Work completed / standards met"></textarea></label>
-                <label>Date completed<input type="text" name="date" placeholder="dd/mm/yyyy"></label>
-                <div class="res-buttons">
-                  <button type="button" class="res-btn res-primary" data-action="preview">Preview</button>
-                  <button type="button" class="res-btn" data-action="download" disabled>Download</button>
-                </div>
-                <pre class="res-preview" aria-live="polite"></pre>
-              </form>
-            </article>
-          </div>
-        </section>
+    <section aria-labelledby="shortcut-heading">
+      <h2 id="shortcut-heading">Quick shortcuts</h2>
+      <ul class="shortcuts" id="shortcut-list"></ul>
+    </section>
 
-        <section id="res-guides" class="res-section" data-section>
-          <h2>Guides & playbooks</h2>
-          <div class="res-guide-list" id="res-guides-list"></div>
-        </section>
-
-        <section id="res-faqs" class="res-section" data-section>
-          <h2>FAQs</h2>
-          <div class="res-faqs" id="res-faqs-list"></div>
-        </section>
+    <section class="layout" aria-labelledby="states-heading">
+      <div>
+        <h2 id="states-heading">State &amp; Territory tools</h2>
+        <div id="state-groups"></div>
       </div>
-
-      <aside class="res-sidebar">
-        <section class="res-panel">
-          <h2>Quick links</h2>
-          <div class="res-quick-links">
-            <a href="#res-calculators">Calculators</a>
-            <a href="#res-generators">Generators</a>
-            <a href="#res-guides">Guides</a>
-            <a href="#res-faqs">FAQs</a>
-          </div>
-        </section>
-        <section class="res-panel">
-          <h2>Table of contents</h2>
-          <nav class="res-toc" id="res-toc"></nav>
-        </section>
-        <section class="res-panel">
-          <div class="res-panel-header" style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
-            <h2 style="margin:0">Save for later</h2>
-            <button type="button" class="res-link-button" id="res-clear-saved">Clear</button>
-          </div>
-          <div id="res-saved-list" class="res-saved"></div>
-          <p id="res-saved-empty" class="res-empty">Tap “Save” on any guide to pin it here.</p>
-        </section>
-      </aside>
-    </div>
+      <div>
+        <h2 id="other-heading">National &amp; industry tools</h2>
+        <div class="other-groups" id="other-groups"></div>
+      </div>
+      <p class="empty-state" id="empty-state" aria-live="assertive">No resources match your search yet. Try another term such as “outage”, “council” or “UV”.</p>
+    </section>
   </main>
 
-  <footer class="res-footer">
-    <div class="res-footer-inner">
-      <span>© C2C Variations</span>
-      <nav class="res-footer-links" aria-label="Footer">
-        <a href="./pricing.html">Pricing</a>
-        <a href="./about.html">About</a>
-        <a href="./resources.html" aria-current="page">Resources</a>
-        <a href="./testimonials.html">Testimonials</a>
-        <a href="./partners.html">Partners</a>
-        <a href="./privacy.html">Privacy</a>
-        <a href="./terms.html">Terms</a>
-      </nav>
-    </div>
-  </footer>
-
-  <div id="c2c-chat-overlay" hidden></div>
-  <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
-    <header class="c2c-chat-header">
-      <strong>C2C Chat</strong>
-      <button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
-    </header>
-    <div class="c2c-chat-body">
-      <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
-      <p>
-        <a class="c2c-chat-link" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">Chat on WhatsApp</a><br>
-        <a class="c2c-chat-link" href="mailto:info@c2cvariations.com.au">info@c2cvariations.com.au</a>
-      </p>
-    </div>
-  </div>
-
-  <script>
-  (function(){
-    const currency = (value) => 'A$' + value.toFixed(2);
-
-    const guides = [
-      { id: 'guide-setup', title: 'Same-day setup playbook', summary: 'From WhatsApp message to signed PDF in a single shift.', tag: 'Coming soon' },
-      { id: 'guide-claim', title: 'Claim intake checklist', summary: 'Capture scope, evidence and approvals before crews roll.', tag: 'Drafting' },
-      { id: 'guide-compliance', title: 'VIC plumbing compliance snapshot', summary: 'Paperwork, timelines and storage obligations.', tag: 'Research' }
-    ];
-
-    const faqs = [
-      { q: 'Do I need a new app to use this?', a: 'No — C2C lives in WhatsApp. The guides show how to capture approvals without switching tools.' },
-      { q: 'Can I download the generated text?', a: 'Yes. Use the download buttons in each generator to grab a ready-to-edit TXT file.' },
-      { q: 'Will these templates work outside Victoria?', a: 'Most guides are national, but we flag VIC-specific compliance where it matters.' }
-    ];
-
-    const toc = [
-      { id: 'res-calculators', label: 'Calculators' },
-      { id: 'res-generators', label: 'Generators' },
-      { id: 'res-guides', label: 'Guides' },
-      { id: 'res-faqs', label: 'FAQs' }
-    ];
-
-    const savedKey = 'c2c_resource_saved';
-
-    const tocNav = document.getElementById('res-toc');
-    tocNav.innerHTML = toc.map(item => `<a href="#${item.id}" data-toc="${item.id}">${item.label}</a>`).join('');
-
-    function highlightTOC(entries){
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          const active = entry.target.id;
-          tocNav.querySelectorAll('a').forEach(link => {
-            link.classList.toggle('active', link.getAttribute('data-toc') === active);
-          });
-        }
-      });
-    }
-
-    const observer = new IntersectionObserver(highlightTOC, { rootMargin: '-40% 0px -55% 0px', threshold: [0, 0.5, 1] });
-    toc.forEach(item => {
-      const section = document.getElementById(item.id);
-      if(section){ observer.observe(section); }
-    });
-
-    // Calculators
-    const gstBase = document.getElementById('res-gst-base');
-    const gstTotal = document.getElementById('res-gst-total');
-    const gstOut = document.getElementById('res-gst-output');
-    document.querySelectorAll('[data-gst]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const mode = btn.getAttribute('data-gst');
-        if(mode === 'from-base'){
-          const base = parseFloat(gstBase.value || '0');
-          const gst = base * 0.10;
-          const total = base + gst;
-          gstTotal.value = total.toFixed(2);
-          gstOut.textContent = `GST: ${currency(gst)} • Total: ${currency(total)}`;
-        } else {
-          const total = parseFloat(gstTotal.value || '0');
-          const base = total / 1.10;
-          const gst = total - base;
-          gstBase.value = base.toFixed(2);
-          gstOut.textContent = `GST: ${currency(gst)} • Ex GST: ${currency(base)}`;
-        }
-      });
-    });
-
-    document.getElementById('res-day-calc').addEventListener('click', () => {
-      const hours = parseFloat(document.getElementById('res-day-hours').value || '0');
-      const rate = parseFloat(document.getElementById('res-day-rate').value || '0');
-      const dayRate = hours * rate;
-      document.getElementById('res-day-output').textContent = `Day rate: ${currency(dayRate)}`;
-    });
-
-    document.getElementById('res-var-calc').addEventListener('click', () => {
-      const materials = parseFloat(document.getElementById('res-var-materials').value || '0');
-      const hours = parseFloat(document.getElementById('res-var-hours').value || '0');
-      const rate = parseFloat(document.getElementById('res-var-rate').value || '0');
-      const markup = parseFloat(document.getElementById('res-var-markup').value || '0') / 100;
-      const labour = hours * rate;
-      const subtotal = materials + labour;
-      const quote = subtotal * (1 + markup);
-      document.getElementById('res-var-output').textContent = `Quote: ${currency(quote)} (ex GST)`;
-    });
-
-    // Generators
-    const generators = {
-      claim: {
-        filename(data){
-          const slug = (data.client || 'claim').toLowerCase().replace(/[^a-z0-9]+/g,'-');
-          return `claim-intake-${slug || 'draft'}.txt`;
-        },
-        template(data){
-          return `Claim Intake\nClient: ${data.client}\nJob address: ${data.address}\nContact: ${data.contact || 'n/a'}\n\nIssue\n${data.issue}\n\nCaptured via C2C.`;
-        }
-      },
-      variation: {
-        filename(data){
-          const slug = (data.client || 'variation').toLowerCase().replace(/[^a-z0-9]+/g,'-');
-          return `variation-agreement-${slug || 'draft'}.txt`;
-        },
-        template(data){
-          const amount = parseFloat(data.amount || '0');
-          return `Variation Agreement\nClient: ${data.client}\nAmount: ${currency(amount)}\nCompletion date: ${data.date || 'TBC'}\n\nVariation details\n${data.details}\n\nPlease reply APPROVED to lock scope.`;
-        }
-      },
-      vic: {
-        filename(data){
-          const slug = (data.address || 'compliance').toLowerCase().replace(/[^a-z0-9]+/g,'-');
-          return `vic-compliance-${slug || 'draft'}.txt`;
-        },
-        template(data){
-          return `VIC Plumbing Compliance\nLicence: ${data.licence}\nSite: ${data.address}\nCompleted: ${data.date || 'TBC'}\n\nSummary\n${data.notes}\n\nKeep this on file with your compliance certificates.`;
-        }
-      }
-    };
-
-    document.querySelectorAll('.res-generator').forEach(form => {
-      const previewEl = form.querySelector('.res-preview');
-      const downloadBtn = form.querySelector('[data-action="download"]');
-      const type = form.getAttribute('data-generator');
-      const config = generators[type];
-      let lastContent = '';
-
-      form.addEventListener('click', (event) => {
-        const action = event.target.getAttribute('data-action');
-        if(!action) return;
-        event.preventDefault();
-        const data = Object.fromEntries(new FormData(form).entries());
-        if(action === 'preview'){
-          if(!config) return;
-          try {
-            lastContent = config.template(data);
-            previewEl.textContent = lastContent;
-            downloadBtn.disabled = false;
-          } catch(err){
-            previewEl.textContent = 'Unable to build preview — check your inputs.';
-            downloadBtn.disabled = true;
-          }
-        }
-        if(action === 'download'){
-          if(!lastContent){
-            previewEl.textContent = 'Generate a preview first.';
-            return;
-          }
-          const blob = new Blob([lastContent], { type: 'text/plain' });
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = config ? config.filename(data) : 'generator-output.txt';
-          document.body.appendChild(a);
-          a.click();
-          setTimeout(() => {
-            URL.revokeObjectURL(a.href);
-            a.remove();
-          }, 100);
-        }
-      });
-    });
-
-    // Guides & saves
-    const guidesWrap = document.getElementById('res-guides-list');
-    const savedList = document.getElementById('res-saved-list');
-    const savedEmpty = document.getElementById('res-saved-empty');
-    const clearBtn = document.getElementById('res-clear-saved');
-
-    function getSaved(){
-      try{ return JSON.parse(localStorage.getItem(savedKey) || '[]'); }
-      catch(e){ return []; }
-    }
-    function setSaved(ids){ localStorage.setItem(savedKey, JSON.stringify(ids)); }
-
-    function renderGuides(){
-      const saved = new Set(getSaved());
-      guidesWrap.innerHTML = guides.map(guide => {
-        const active = saved.has(guide.id);
-        return `<article class="res-guide" data-guide="${guide.id}">
-          <h3>${guide.title}</h3>
-          <p>${guide.summary}</p>
-          <span class="res-tag">${guide.tag}</span>
-          <div class="res-buttons">
-            <button type="button" class="res-btn" data-save="${guide.id}">${active ? '★ Saved' : '☆ Save'}</button>
-          </div>
-        </article>`;
-      }).join('');
-    }
-
-    function renderSaved(){
-      const saved = getSaved();
-      if(!saved.length){
-        savedList.innerHTML = '';
-        savedEmpty.style.display = 'block';
-        return;
-      }
-      savedEmpty.style.display = 'none';
-      savedList.innerHTML = saved.map(id => {
-        const guide = guides.find(g => g.id === id);
-        const label = guide ? guide.title : id;
-        return `<div class="res-saved-item">
-          <span>${label}</span>
-          <button type="button" class="res-link-button" data-remove="${id}">Remove</button>
-        </div>`;
-      }).join('');
-    }
-
-    guidesWrap.addEventListener('click', (event) => {
-      const btn = event.target.closest('[data-save]');
-      if(!btn) return;
-      const id = btn.getAttribute('data-save');
-      const saved = new Set(getSaved());
-      if(saved.has(id)){ saved.delete(id); }
-      else { saved.add(id); }
-      setSaved(Array.from(saved));
-      renderGuides();
-      renderSaved();
-    });
-
-    savedList.addEventListener('click', (event) => {
-      const removeBtn = event.target.closest('[data-remove]');
-      if(!removeBtn) return;
-      const id = removeBtn.getAttribute('data-remove');
-      const saved = getSaved().filter(item => item !== id);
-      setSaved(saved);
-      renderGuides();
-      renderSaved();
-    });
-
-    clearBtn.addEventListener('click', () => {
-      localStorage.removeItem(savedKey);
-      renderGuides();
-      renderSaved();
-    });
-
-    renderGuides();
-    renderSaved();
-
-    // FAQs
-    const faqWrap = document.getElementById('res-faqs-list');
-    faqWrap.innerHTML = faqs.map(item => `
-      <details>
-        <summary>${item.q}</summary>
-        <p>${item.a}</p>
-      </details>
-    `).join('');
-  })();
-  </script>
   <script src="assets/site-nav.js?v=1" defer></script>
-  <script src="assets/chatbot.v6.js?v=1" defer></script>
+  <script src="assets/chatbot.v6.js" defer></script>
+  <script>
+    (function() {
+      const searchInput = document.getElementById('resource-search');
+      const statusEl = document.getElementById('search-status');
+      const shortcutsList = document.getElementById('shortcut-list');
+      const stateGroups = document.getElementById('state-groups');
+      const otherGroups = document.getElementById('other-groups');
+      const emptyState = document.getElementById('empty-state');
+      const allSearchItems = [];
+
+      function createLinkItem(title, url, meta) {
+        const li = document.createElement('li');
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.textContent = title;
+        li.appendChild(anchor);
+        const hint = document.createElement('span');
+        hint.className = 'url-hint';
+        hint.textContent = new URL(url).hostname.replace('www.', '');
+        li.appendChild(hint);
+        li.dataset.searchText = [title, url, meta].join(' ').toLowerCase();
+        allSearchItems.push(li);
+        return li;
+      }
+
+      function createCategory(name, entries, meta) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'category';
+        const heading = document.createElement('h3');
+        heading.textContent = name;
+        wrapper.appendChild(heading);
+        const list = document.createElement('ul');
+        entries.forEach(entry => {
+          const [title, url] = entry;
+          list.appendChild(createLinkItem(title, url, meta + ' ' + name));
+        });
+        wrapper.appendChild(list);
+        wrapper.dataset.categoryName = name;
+        return wrapper;
+      }
+
+      function createStateGroup(state, categories) {
+        const details = document.createElement('details');
+        details.className = 'resource-group';
+        details.setAttribute('data-state', state);
+        const summary = document.createElement('summary');
+        summary.innerHTML = `<span>${state}</span>`;
+        const count = document.createElement('span');
+        count.textContent = `${Object.values(categories).reduce((sum, list) => sum + list.length, 0)} links`;
+        summary.appendChild(count);
+        details.appendChild(summary);
+        const body = document.createElement('div');
+        body.className = 'resource-columns';
+        Object.entries(categories).forEach(([categoryName, entries]) => {
+          body.appendChild(createCategory(categoryName, entries, state));
+        });
+        details.appendChild(body);
+        return details;
+      }
+
+      function renderOtherGroups(groups) {
+        Object.entries(groups).forEach(([groupName, entries]) => {
+          const category = createCategory(groupName, entries, groupName);
+          otherGroups.appendChild(category);
+        });
+      }
+
+      function renderShortcuts(shortcuts) {
+        shortcuts.forEach(shortcut => {
+          const li = document.createElement('li');
+          const anchor = document.createElement('a');
+          anchor.href = shortcut.url;
+          anchor.target = '_blank';
+          anchor.rel = 'noopener noreferrer';
+          anchor.textContent = shortcut.label;
+          li.dataset.searchText = [shortcut.label, shortcut.url, (shortcut.tags || []).join(' ')].join(' ').toLowerCase();
+          allSearchItems.push(li);
+          li.appendChild(anchor);
+          shortcutsList.appendChild(li);
+        });
+      }
+
+      function updateVisibility(query) {
+        const q = query.trim().toLowerCase();
+        let matchCount = 0;
+
+        allSearchItems.forEach(item => {
+          const isMatch = !q || item.dataset.searchText.includes(q);
+          item.style.display = isMatch ? '' : 'none';
+          if (isMatch) {
+            matchCount += 1;
+          }
+        });
+
+        // Toggle categories based on child visibility
+        document.querySelectorAll('.category').forEach(category => {
+          const visible = Array.from(category.querySelectorAll('li')).some(li => li.style.display !== 'none');
+          category.style.display = visible ? '' : 'none';
+        });
+
+        // Toggle state groups
+        Array.from(stateGroups.querySelectorAll('details.resource-group')).forEach(details => {
+          const visible = Array.from(details.querySelectorAll('li')).some(li => li.style.display !== 'none');
+          details.style.display = visible ? '' : 'none';
+          if (q) {
+            details.open = visible;
+          } else {
+            details.open = false;
+          }
+        });
+
+        // Toggle other groups wrapper categories already handled
+        const othersVisible = Array.from(otherGroups.querySelectorAll('.category')).some(cat => cat.style.display !== 'none');
+        document.getElementById('other-heading').style.display = othersVisible ? '' : 'none';
+
+        const statesVisible = Array.from(stateGroups.children).some(child => child.style.display !== 'none');
+        document.getElementById('states-heading').style.display = statesVisible ? '' : 'none';
+
+        emptyState.style.display = matchCount === 0 ? 'block' : 'none';
+        statusEl.textContent = q ? `${matchCount} link${matchCount === 1 ? '' : 's'} match “${query.trim()}”` : '';
+      }
+
+      fetch('./data/resources.json')
+        .then(resp => resp.ok ? resp.json() : Promise.reject(new Error('Failed to load resources')))
+        .then(data => {
+          renderShortcuts(data.shortcuts || []);
+          Object.entries(data.by_state || {}).forEach(([state, categories]) => {
+            stateGroups.appendChild(createStateGroup(state, categories));
+          });
+          renderOtherGroups(data.other_categories || {});
+          updateVisibility('');
+        })
+        .catch(error => {
+          emptyState.style.display = 'block';
+          emptyState.textContent = 'Resources failed to load. Please refresh to try again.';
+          console.error(error);
+        });
+
+      searchInput.addEventListener('input', (event) => {
+        updateVisibility(event.target.value || '');
+      });
+    })();
+  </script>
 </body>
 </html>
