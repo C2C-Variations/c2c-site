@@ -1,0 +1,14 @@
+{
+  "name": "c2c-e2e-tests",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Playwright E2E tests for C2C site (resources.html and basic nav checks).",
+  "scripts": {
+    "test:e2e": "BASE_URL=${BASE_URL:-http://localhost:8788} playwright test --reporter=list",
+    "test:ui": "BASE_URL=${BASE_URL:-http://localhost:8788} playwright test --ui",
+    "postinstall": "playwright install --with-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.2"
+  }
+}
