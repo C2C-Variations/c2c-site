@@ -11,6 +11,7 @@
     let section = 'Home';
     if (path.includes('pricing')) section = 'Pricing';
     else if (path.includes('docs')) section = 'Docs';
+      else if (path.includes('resources')) section = 'Resources';
     else if (path.includes('about')) section = 'About';
     else if (path.includes('partners')) section = 'Partners';
     else if (path.includes('privacy')) section = 'Privacy';
@@ -71,3 +72,4 @@
   };
 
 })();
+

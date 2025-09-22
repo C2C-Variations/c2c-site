@@ -66,6 +66,13 @@
       color: #d7d7d7;
       line-height: 1.6;
     }
+    .resource-summary {
+      margin: 6px 0 28px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #f0f0f0;
+      letter-spacing: 0.01em;
+    }
     .search-panel {
       display: grid;
       gap: 10px;
@@ -274,6 +281,8 @@
       <p>Quickly access government warnings, outages, traffic updates, council tools and compliance references. Filter everything with one search and open links in new tabs so crews can keep moving.</p>
     </section>
 
+    <div class="resource-summary" id="resource-summary" role="status" aria-live="polite"></div>
+
     <section class="search-panel" aria-label="Search resources">
       <label for="resource-search">Search resources</label>
       <input id="resource-search" class="search-input" type="search" placeholder="Search by name, topic or region" autocomplete="off" spellcheck="false">
@@ -308,7 +317,32 @@
       const stateGroups = document.getElementById('state-groups');
       const otherGroups = document.getElementById('other-groups');
       const emptyState = document.getElementById('empty-state');
+      const summaryEl = document.getElementById('resource-summary');
       const allSearchItems = [];
+      let totalResources = 0;
+      let totalCategories = 0;
+
+      function readHashQuery() {
+        const hash = location.hash.startsWith('#') ? location.hash.slice(1) : location.hash;
+        if (!hash) {
+          return '';
+        }
+        const params = new URLSearchParams(hash);
+        return (params.get('q') || '').trim();
+      }
+
+      function writeHashQuery(value) {
+        const hash = location.hash.startsWith('#') ? location.hash.slice(1) : location.hash;
+        const params = new URLSearchParams(hash);
+        if (value) {
+          params.set('q', value);
+        } else {
+          params.delete('q');
+        }
+        const nextHash = params.toString();
+        const nextUrl = nextHash ? `${location.pathname}${location.search}#${nextHash}` : `${location.pathname}${location.search}`;
+        history.replaceState(null, '', nextUrl);
+      }
 
       function createLinkItem(title, url, meta) {
         const li = document.createElement('li');
@@ -336,7 +370,7 @@
         const list = document.createElement('ul');
         entries.forEach(entry => {
           const [title, url] = entry;
-          list.appendChild(createLinkItem(title, url, meta + ' ' + name));
+          list.appendChild(createLinkItem(title, url, `${meta} ${name}`));
         });
         wrapper.appendChild(list);
         wrapper.dataset.categoryName = name;
@@ -396,32 +430,48 @@
           }
         });
 
-        // Toggle categories based on child visibility
         document.querySelectorAll('.category').forEach(category => {
           const visible = Array.from(category.querySelectorAll('li')).some(li => li.style.display !== 'none');
           category.style.display = visible ? '' : 'none';
         });
 
-        // Toggle state groups
         Array.from(stateGroups.querySelectorAll('details.resource-group')).forEach(details => {
           const visible = Array.from(details.querySelectorAll('li')).some(li => li.style.display !== 'none');
           details.style.display = visible ? '' : 'none';
-          if (q) {
-            details.open = visible;
-          } else {
-            details.open = false;
-          }
+          details.open = q ? visible : false;
         });
 
-        // Toggle other groups wrapper categories already handled
         const othersVisible = Array.from(otherGroups.querySelectorAll('.category')).some(cat => cat.style.display !== 'none');
         document.getElementById('other-heading').style.display = othersVisible ? '' : 'none';
 
         const statesVisible = Array.from(stateGroups.children).some(child => child.style.display !== 'none');
         document.getElementById('states-heading').style.display = statesVisible ? '' : 'none';
 
+        const visibleCategories = Array.from(document.querySelectorAll('.category')).filter(category => {
+          if (category.style.display === 'none') {
+            return false;
+          }
+          const parentGroup = category.closest('details.resource-group');
+          return !(parentGroup && parentGroup.style.display === 'none');
+        }).length;
+
+        if (summaryEl) {
+          if (totalResources) {
+            const resourceLabel = totalResources === 1 ? 'resource' : 'resources';
+            if (q) {
+              const categoryLabel = visibleCategories === 1 ? 'category' : 'categories';
+              summaryEl.textContent = `Showing ${matchCount} of ${totalResources} ${resourceLabel} • ${visibleCategories} ${categoryLabel}`;
+            } else {
+              const categoryLabel = totalCategories === 1 ? 'category' : 'categories';
+              summaryEl.textContent = `${totalResources} ${resourceLabel} • ${totalCategories} ${categoryLabel}`;
+            }
+          } else {
+            summaryEl.textContent = '';
+          }
+        }
+
         emptyState.style.display = matchCount === 0 ? 'block' : 'none';
-        statusEl.textContent = q ? `${matchCount} link${matchCount === 1 ? '' : 's'} match “${query.trim()}”` : '';
+        statusEl.textContent = q ? `${matchCount} resource${matchCount === 1 ? '' : 's'} match "${query.trim()}"` : '';
       }
 
       fetch('./data/resources.json')
@@ -432,16 +482,35 @@
             stateGroups.appendChild(createStateGroup(state, categories));
           });
           renderOtherGroups(data.other_categories || {});
-          updateVisibility('');
+          totalResources = allSearchItems.length;
+          totalCategories = document.querySelectorAll('.category').length;
+          const initialQuery = readHashQuery();
+          if (initialQuery) {
+            searchInput.value = initialQuery;
+          }
+          updateVisibility(initialQuery || '');
         })
         .catch(error => {
           emptyState.style.display = 'block';
           emptyState.textContent = 'Resources failed to load. Please refresh to try again.';
+          if (summaryEl) {
+            summaryEl.textContent = 'Resources are unavailable right now.';
+          }
           console.error(error);
         });
 
-      searchInput.addEventListener('input', (event) => {
-        updateVisibility(event.target.value || '');
+      searchInput.addEventListener('input', event => {
+        const value = event.target.value || '';
+        writeHashQuery(value.trim());
+        updateVisibility(value);
+      });
+
+      window.addEventListener('hashchange', () => {
+        const nextQuery = readHashQuery();
+        if (nextQuery !== searchInput.value) {
+          searchInput.value = nextQuery;
+          updateVisibility(nextQuery);
+        }
       });
     })();
   </script>
@@ -451,3 +520,4 @@
 <!-- codex smoke test -->
 <!-- codex smoke test -->
 <!-- codex-smoke: write-ok -->
+
