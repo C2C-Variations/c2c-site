@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>C2C Variations — Resource Hub</title>
-  <meta name="description" content="Official Australian emergency, traffic, health, council and compliance resources grouped by state and category.">
+  <title>C2C Variations — Resources</title>
+  <meta name="description" content="Browse featured government, council and compliance resources. Filter everything in real time and keep your search in the URL for easy sharing.">
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/site-mobile.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -16,6 +16,7 @@
     :root {
       color-scheme: dark;
     }
+
     body {
       margin: 0;
       background: #050505;
@@ -24,23 +25,19 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-    a {
-      color: #ff9966;
-    }
-    a:hover,
-    a:focus {
-      text-decoration: underline;
-    }
+
     main {
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: clamp(24px, 5vw, 48px) 20px 80px;
+      padding: clamp(24px, 5vw, 64px) 24px 96px;
     }
+
     .hero {
       display: grid;
-      gap: 14px;
-      margin-bottom: clamp(32px, 6vw, 64px);
+      gap: 16px;
+      margin-bottom: clamp(32px, 5vw, 56px);
     }
+
     .hero-label {
       display: inline-flex;
       align-items: center;
@@ -51,40 +48,41 @@
       color: #ffb48c;
       border: 1px solid rgba(255, 153, 102, 0.4);
       width: max-content;
-      font-size: 0.9rem;
-      letter-spacing: 0.01em;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
+
     h1 {
       margin: 0;
-      font-size: clamp(2.5rem, 6vw, 3.4rem);
+      font-size: clamp(2.8rem, 6vw, 3.8rem);
       letter-spacing: -0.02em;
     }
+
     .hero p {
       margin: 0;
-      max-width: 720px;
+      max-width: 680px;
       color: #d7d7d7;
       line-height: 1.6;
     }
-    .resource-summary {
-      margin: 6px 0 28px;
-      font-weight: 600;
-      font-size: 1rem;
-      color: #f0f0f0;
-      letter-spacing: 0.01em;
-    }
-    .search-panel {
-      display: grid;
-      gap: 10px;
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
       margin-bottom: 32px;
     }
-    .search-panel label {
+
+    .toolbar label {
       font-weight: 600;
       font-size: 0.95rem;
       color: #f0f0f0;
     }
+
     .search-input {
-      width: 100%;
+      flex: 1 1 260px;
+      min-width: 220px;
       padding: 14px 16px;
       font-size: 1rem;
       border-radius: 14px;
@@ -93,161 +91,160 @@
       color: inherit;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
+
     .search-input:focus {
       outline: none;
       border-color: rgba(255, 153, 102, 0.75);
       box-shadow: 0 0 0 3px rgba(255, 153, 102, 0.2);
     }
-    .layout {
-      display: grid;
-      gap: clamp(32px, 4vw, 48px);
+
+    .summary {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #cfcfcf;
     }
-    .shortcuts {
+
+    section h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      letter-spacing: -0.01em;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .resource-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #0b0b0b;
+      border: 1px solid #1f1f1f;
+      border-radius: 18px;
+      padding: 20px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .resource-card:hover,
+    .resource-card:focus-within {
+      border-color: rgba(255, 153, 102, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .resource-card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .resource-card p {
+      margin: 0;
+      color: #b9b9b9;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #181818;
+      color: #f4f4f4;
+      border: 1px solid #2f2f2f;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: max-content;
+    }
+
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
+      margin-top: auto;
     }
-    .shortcuts li a {
+
+    .actions a,
+    .actions button {
+      flex: 1 1 100px;
       display: inline-flex;
+      justify-content: center;
       align-items: center;
       gap: 8px;
-      padding: 10px 16px;
-      border-radius: 14px;
-      background: #111;
-      border: 1px solid #262626;
-      color: #f9f9f9;
-      text-decoration: none;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 600;
       font-size: 0.95rem;
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-    }
-    .shortcuts li a:hover,
-    .shortcuts li a:focus {
-      transform: translateY(-1px);
-      border-color: rgba(255, 153, 102, 0.7);
-      background: #171717;
-    }
-    section h2 {
-      margin: 0 0 18px;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      letter-spacing: -0.01em;
-    }
-    details.resource-group {
-      background: #0b0b0b;
-      border: 1px solid #1f1f1f;
-      border-radius: 16px;
-      padding: 0 0 6px;
-      transition: border-color 0.2s ease;
-    }
-    details.resource-group + details.resource-group {
-      margin-top: 14px;
-    }
-    details.resource-group[open] {
-      border-color: rgba(255, 153, 102, 0.5);
-    }
-    details.resource-group summary {
-      list-style: none;
+      border: 1px solid #2a2a2a;
+      background: #111;
+      color: #fdfdfd;
       cursor: pointer;
-      padding: 18px 20px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
     }
-    details.resource-group summary::-webkit-details-marker {
-      display: none;
+
+    .actions a:hover,
+    .actions a:focus,
+    .actions button:hover,
+    .actions button:focus {
+      border-color: rgba(255, 153, 102, 0.65);
+      background: #171717;
+      outline: none;
     }
-    details.resource-group summary span {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #9f9f9f;
-    }
-    .resource-columns {
-      display: grid;
-      gap: 22px;
-      padding: 0 20px 20px;
-    }
-    .category {
-      background: #111;
-      border: 1px solid #1f1f1f;
-      border-radius: 14px;
-      padding: 16px 18px;
-      display: grid;
-      gap: 12px;
-    }
-    .category h3 {
-      margin: 0;
-      font-size: 1.05rem;
-      letter-spacing: 0;
-      color: #ffb48c;
-    }
-    .category ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-    .category li {
-      line-height: 1.5;
-      font-size: 0.98rem;
-    }
-    .category li a {
-      color: #f3f3f3;
+
+    .actions a[href] {
       text-decoration: none;
     }
-    .category li a:hover,
-    .category li a:focus {
-      text-decoration: underline;
+
+    .actions .primary {
+      background: linear-gradient(135deg, rgba(255, 153, 102, 0.2), rgba(255, 94, 58, 0.25));
+      border: 1px solid rgba(255, 153, 102, 0.5);
     }
-    .category li .url-hint {
-      display: block;
-      font-size: 0.8rem;
-      color: #8f8f8f;
-      word-break: break-all;
+
+    .actions .saved {
+      border-color: rgba(140, 232, 168, 0.6);
+      background: rgba(31, 82, 55, 0.35);
     }
-    .other-groups {
-      display: grid;
-      gap: 16px;
-    }
-    .status {
-      font-size: 0.85rem;
-      color: #9f9f9f;
-    }
+
     .empty-state {
-      margin-top: 12px;
-      font-size: 0.95rem;
-      color: #bfbfbf;
       display: none;
+      margin-top: 32px;
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px dashed rgba(255, 153, 102, 0.45);
+      background: rgba(255, 153, 102, 0.07);
+      color: #f3c7b0;
+      font-size: 1rem;
     }
+
+    .toast {
+      position: fixed;
+      inset-inline-end: 24px;
+      inset-block-end: 24px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(15, 15, 15, 0.92);
+      border: 1px solid rgba(255, 153, 102, 0.45);
+      color: #ffd7c4;
+      font-size: 0.9rem;
+      display: none;
+      z-index: 4000;
+    }
+
     @media (max-width: 720px) {
-      details.resource-group summary {
-        padding: 16px;
+      .actions a,
+      .actions button {
+        flex: 1 1 100%;
       }
-      .resource-columns {
-        padding: 0 16px 16px;
-      }
-      .category {
-        padding: 14px 16px;
-      }
-      .category li .url-hint {
-        font-size: 0.75rem;
-      }
-    }
-    @media (max-width: 480px) {
+
       main {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-      .hero p {
-        font-size: 0.95rem;
-      }
-      .category li {
-        font-size: 0.92rem;
+        padding-inline: 16px;
       }
     }
   </style>
@@ -274,59 +271,204 @@
       </nav>
     </div>
   </header>
+
   <main>
     <section class="hero">
       <span class="hero-label">Resource hub</span>
       <h1>Resources</h1>
-      <p>Quickly access government warnings, outages, traffic updates, council tools and compliance references. Filter everything with one search and open links in new tabs so crews can keep moving.</p>
+      <p>Featured government warnings, council tools and compliance references — filtered in real time so field teams and schedulers can open, copy or save the links they need without breaking stride.</p>
     </section>
 
-    <div class="resource-summary" id="resource-summary" role="status" aria-live="polite"></div>
-
-    <section class="search-panel" aria-label="Search resources">
+    <div class="toolbar" aria-live="polite" aria-atomic="true">
       <label for="resource-search">Search resources</label>
       <input id="resource-search" class="search-input" type="search" placeholder="Search by name, topic or region" autocomplete="off" spellcheck="false">
-      <div class="status" id="search-status" role="status" aria-live="polite"></div>
+      <div class="summary" id="resource-summary">Loading resources…</div>
+    </div>
+
+    <section aria-labelledby="featured-heading" id="featured-section">
+      <h2 id="featured-heading">Featured</h2>
+      <ul class="card-grid" id="featured-list"></ul>
     </section>
 
-    <section aria-labelledby="shortcut-heading">
-      <h2 id="shortcut-heading">Quick shortcuts</h2>
-      <ul class="shortcuts" id="shortcut-list"></ul>
+    <section aria-labelledby="all-heading" style="margin-top:48px;">
+      <h2 id="all-heading">All resources</h2>
+      <ul class="card-grid" id="resource-grid"></ul>
     </section>
 
-    <section class="layout" aria-labelledby="states-heading">
-      <div>
-        <h2 id="states-heading">State &amp; Territory tools</h2>
-        <div id="state-groups"></div>
-      </div>
-      <div>
-        <h2 id="other-heading">National &amp; industry tools</h2>
-        <div class="other-groups" id="other-groups"></div>
-      </div>
-      <p class="empty-state" id="empty-state" aria-live="assertive">No resources match your search yet. Try another term such as “outage”, “council” or “UV”.</p>
-    </section>
+    <div class="empty-state" id="empty-state" role="status">No resources match that search yet. Try another term such as <strong>outage</strong>, <strong>council</strong> or <strong>traffic</strong>.</div>
   </main>
+
+  <div class="toast" id="resource-toast" role="status" aria-live="polite"></div>
 
   <script src="/assets/site-nav.js?v=1" defer></script>
   <script src="/assets/chatbot.v6.js" defer></script>
   <script>
     (function() {
       const searchInput = document.getElementById('resource-search');
-      const statusEl = document.getElementById('search-status');
-      const shortcutsList = document.getElementById('shortcut-list');
-      const stateGroups = document.getElementById('state-groups');
-      const otherGroups = document.getElementById('other-groups');
-      const emptyState = document.getElementById('empty-state');
       const summaryEl = document.getElementById('resource-summary');
-      const allSearchItems = [];
-      let totalResources = 0;
-      let totalCategories = 0;
+      const featuredList = document.getElementById('featured-list');
+      const featuredSection = document.getElementById('featured-section');
+      const resourceGrid = document.getElementById('resource-grid');
+      const emptyState = document.getElementById('empty-state');
+      const toast = document.getElementById('resource-toast');
+      const allCards = [];
+      const FEATURE_TAG = 'featured';
+      let totalCount = 0;
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.style.display = 'block';
+        clearTimeout(showToast.timer);
+        showToast.timer = setTimeout(() => {
+          toast.style.display = 'none';
+        }, 2400);
+      }
+
+      function savedSet() {
+        try {
+          return new Set(JSON.parse(localStorage.getItem('c2c-saved-resources') || '[]'));
+        } catch (error) {
+          console.error(error);
+          return new Set();
+        }
+      }
+
+      function persistSaved(set) {
+        try {
+          localStorage.setItem('c2c-saved-resources', JSON.stringify(Array.from(set)));
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      function createActionButton(label) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = label;
+        return btn;
+      }
+
+      function createCard(resource, isFeatured) {
+        const li = document.createElement('li');
+        li.className = 'resource-card';
+        li.dataset.searchText = [
+          resource.title,
+          resource.url,
+          resource.group || '',
+          resource.category || '',
+          (resource.tags || []).join(' ')
+        ].join(' ').toLowerCase();
+        li.dataset.section = isFeatured ? FEATURE_TAG : 'catalogue';
+
+        const badge = document.createElement('span');
+        badge.className = 'badge';
+        badge.textContent = resource.group || (isFeatured ? 'Featured' : 'Resource');
+        li.appendChild(badge);
+
+        const heading = document.createElement('h3');
+        heading.textContent = resource.title;
+        li.appendChild(heading);
+
+        if (resource.description) {
+          const desc = document.createElement('p');
+          desc.textContent = resource.description;
+          li.appendChild(desc);
+        }
+
+        if (!resource.description && resource.tags && resource.tags.length) {
+          const desc = document.createElement('p');
+          desc.textContent = resource.tags.join(' • ');
+          li.appendChild(desc);
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+
+        const open = document.createElement('a');
+        open.href = resource.url;
+        open.target = '_blank';
+        open.rel = 'noopener noreferrer';
+        open.textContent = 'Open';
+        open.classList.add('primary');
+        actions.appendChild(open);
+
+        const copy = createActionButton('Copy link');
+        copy.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(resource.url);
+            showToast('Link copied to clipboard');
+          } catch (error) {
+            console.error(error);
+            showToast('Copy failed — open the link and share it manually.');
+          }
+        });
+        actions.appendChild(copy);
+
+        const saveBtn = createActionButton('Save');
+        const saved = savedSet();
+        if (saved.has(resource.url)) {
+          saveBtn.classList.add('saved');
+          saveBtn.textContent = 'Saved';
+        }
+        saveBtn.addEventListener('click', () => {
+          const set = savedSet();
+          if (set.has(resource.url)) {
+            set.delete(resource.url);
+            saveBtn.classList.remove('saved');
+            saveBtn.textContent = 'Save';
+            showToast('Removed from saved resources');
+          } else {
+            set.add(resource.url);
+            saveBtn.classList.add('saved');
+            saveBtn.textContent = 'Saved';
+            showToast('Saved for this browser');
+          }
+          persistSaved(set);
+        });
+        actions.appendChild(saveBtn);
+
+        li.appendChild(actions);
+        return li;
+      }
+
+      function updateVisibility(query) {
+        const q = query.trim().toLowerCase();
+        let visibleCount = 0;
+        let featuredVisible = 0;
+
+        allCards.forEach(card => {
+          const match = !q || card.dataset.searchText.includes(q);
+          card.style.display = match ? '' : 'none';
+          if (match) {
+            visibleCount += 1;
+            if (card.dataset.section === FEATURE_TAG) {
+              featuredVisible += 1;
+            }
+          }
+        });
+
+        if (featuredSection) {
+          featuredSection.style.display = featuredVisible ? '' : 'none';
+        }
+
+        const allSection = resourceGrid ? resourceGrid.parentElement : null;
+        if (allSection) {
+          const catalogueVisible = visibleCount - featuredVisible;
+          allSection.style.display = catalogueVisible ? '' : 'none';
+        }
+
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+
+        if (summaryEl && totalCount) {
+          const resourceLabel = visibleCount === 1 ? 'resource' : 'resources';
+          summaryEl.textContent = `Showing ${visibleCount} of ${totalCount} ${resourceLabel}`;
+        }
+      }
 
       function readHashQuery() {
         const hash = location.hash.startsWith('#') ? location.hash.slice(1) : location.hash;
-        if (!hash) {
-          return '';
-        }
+        if (!hash) return '';
         const params = new URLSearchParams(hash);
         return (params.get('q') || '').trim();
       }
@@ -344,146 +486,69 @@
         history.replaceState(null, '', nextUrl);
       }
 
-      function createLinkItem(title, url, meta) {
-        const li = document.createElement('li');
-        const anchor = document.createElement('a');
-        anchor.href = url;
-        anchor.target = '_blank';
-        anchor.rel = 'noopener noreferrer';
-        anchor.textContent = title;
-        li.appendChild(anchor);
-        const hint = document.createElement('span');
-        hint.className = 'url-hint';
-        hint.textContent = new URL(url).hostname.replace('www.', '');
-        li.appendChild(hint);
-        li.dataset.searchText = [title, url, meta].join(' ').toLowerCase();
-        allSearchItems.push(li);
-        return li;
-      }
+      function flattenResources(data) {
+        const items = [];
+        const featured = [];
 
-      function createCategory(name, entries, meta) {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'category';
-        const heading = document.createElement('h3');
-        heading.textContent = name;
-        wrapper.appendChild(heading);
-        const list = document.createElement('ul');
-        entries.forEach(entry => {
-          const [title, url] = entry;
-          list.appendChild(createLinkItem(title, url, `${meta} ${name}`));
-        });
-        wrapper.appendChild(list);
-        wrapper.dataset.categoryName = name;
-        return wrapper;
-      }
-
-      function createStateGroup(state, categories) {
-        const details = document.createElement('details');
-        details.className = 'resource-group';
-        details.setAttribute('data-state', state);
-        const summary = document.createElement('summary');
-        summary.innerHTML = `<span>${state}</span>`;
-        const count = document.createElement('span');
-        count.textContent = `${Object.values(categories).reduce((sum, list) => sum + list.length, 0)} links`;
-        summary.appendChild(count);
-        details.appendChild(summary);
-        const body = document.createElement('div');
-        body.className = 'resource-columns';
-        Object.entries(categories).forEach(([categoryName, entries]) => {
-          body.appendChild(createCategory(categoryName, entries, state));
-        });
-        details.appendChild(body);
-        return details;
-      }
-
-      function renderOtherGroups(groups) {
-        Object.entries(groups).forEach(([groupName, entries]) => {
-          const category = createCategory(groupName, entries, groupName);
-          otherGroups.appendChild(category);
-        });
-      }
-
-      function renderShortcuts(shortcuts) {
-        shortcuts.forEach(shortcut => {
-          const li = document.createElement('li');
-          const anchor = document.createElement('a');
-          anchor.href = shortcut.url;
-          anchor.target = '_blank';
-          anchor.rel = 'noopener noreferrer';
-          anchor.textContent = shortcut.label;
-          li.dataset.searchText = [shortcut.label, shortcut.url, (shortcut.tags || []).join(' ')].join(' ').toLowerCase();
-          allSearchItems.push(li);
-          li.appendChild(anchor);
-          shortcutsList.appendChild(li);
-        });
-      }
-
-      function updateVisibility(query) {
-        const q = query.trim().toLowerCase();
-        let matchCount = 0;
-
-        allSearchItems.forEach(item => {
-          const isMatch = !q || item.dataset.searchText.includes(q);
-          item.style.display = isMatch ? '' : 'none';
-          if (isMatch) {
-            matchCount += 1;
-          }
+        (data.shortcuts || []).forEach(shortcut => {
+          const tags = shortcut.tags || [];
+          featured.push({
+            title: shortcut.label,
+            url: shortcut.url,
+            description: tags.length ? tags.join(' • ') : 'Featured quick link',
+            group: 'Shortcut',
+            tags
+          });
         });
 
-        document.querySelectorAll('.category').forEach(category => {
-          const visible = Array.from(category.querySelectorAll('li')).some(li => li.style.display !== 'none');
-          category.style.display = visible ? '' : 'none';
+        Object.entries(data.by_state || {}).forEach(([state, categories]) => {
+          Object.entries(categories).forEach(([categoryName, entries]) => {
+            entries.forEach(([title, url]) => {
+              items.push({
+                title,
+                url,
+                group: state,
+                category: categoryName,
+                tags: [state, categoryName]
+              });
+            });
+          });
         });
 
-        Array.from(stateGroups.querySelectorAll('details.resource-group')).forEach(details => {
-          const visible = Array.from(details.querySelectorAll('li')).some(li => li.style.display !== 'none');
-          details.style.display = visible ? '' : 'none';
-          details.open = q ? visible : false;
+        Object.entries(data.other_categories || {}).forEach(([categoryName, entries]) => {
+          entries.forEach(([title, url]) => {
+            items.push({
+              title,
+              url,
+              group: 'National',
+              category: categoryName,
+              tags: [categoryName]
+            });
+          });
         });
 
-        const othersVisible = Array.from(otherGroups.querySelectorAll('.category')).some(cat => cat.style.display !== 'none');
-        document.getElementById('other-heading').style.display = othersVisible ? '' : 'none';
-
-        const statesVisible = Array.from(stateGroups.children).some(child => child.style.display !== 'none');
-        document.getElementById('states-heading').style.display = statesVisible ? '' : 'none';
-
-        const visibleCategories = Array.from(document.querySelectorAll('.category')).filter(category => {
-          if (category.style.display === 'none') {
-            return false;
-          }
-          const parentGroup = category.closest('details.resource-group');
-          return !(parentGroup && parentGroup.style.display === 'none');
-        }).length;
-
-        if (summaryEl) {
-          if (totalResources) {
-            const resourceLabel = totalResources === 1 ? 'resource' : 'resources';
-            if (q) {
-              const categoryLabel = visibleCategories === 1 ? 'category' : 'categories';
-              summaryEl.textContent = `Showing ${matchCount} of ${totalResources} ${resourceLabel} • ${visibleCategories} ${categoryLabel}`;
-            } else {
-              const categoryLabel = totalCategories === 1 ? 'category' : 'categories';
-              summaryEl.textContent = `${totalResources} ${resourceLabel} • ${totalCategories} ${categoryLabel}`;
-            }
-          } else {
-            summaryEl.textContent = '';
-          }
-        }
-
-        emptyState.style.display = matchCount === 0 ? 'block' : 'none';
-        statusEl.textContent = q ? `${matchCount} resource${matchCount === 1 ? '' : 's'} match "${query.trim()}"` : '';
+        return { featured, items };
       }
 
       fetch('/data/resources.json')
         .then(resp => resp.ok ? resp.json() : Promise.reject(new Error('Failed to load resources')))
         .then(data => {
-          renderShortcuts(data.shortcuts || []);
-          Object.entries(data.by_state || {}).forEach(([state, categories]) => {
-            stateGroups.appendChild(createStateGroup(state, categories));
+          const { featured, items } = flattenResources(data);
+
+          featured.forEach(resource => {
+            const card = createCard(resource, true);
+            allCards.push(card);
+            featuredList.appendChild(card);
           });
-          renderOtherGroups(data.other_categories || {});
-          totalResources = allSearchItems.length;
-          totalCategories = document.querySelectorAll('.category').length;
+
+          items.forEach(resource => {
+            const card = createCard(resource, false);
+            allCards.push(card);
+            resourceGrid.appendChild(card);
+          });
+
+          totalCount = allCards.length;
+
           const initialQuery = readHashQuery();
           if (initialQuery) {
             searchInput.value = initialQuery;
@@ -491,12 +556,14 @@
           updateVisibility(initialQuery || '');
         })
         .catch(error => {
-          emptyState.style.display = 'block';
-          emptyState.textContent = 'Resources failed to load. Please refresh to try again.';
-          if (summaryEl) {
-            summaryEl.textContent = 'Resources are unavailable right now.';
-          }
           console.error(error);
+          emptyState.style.display = 'block';
+          emptyState.textContent = 'Resources failed to load. Refresh to try again.';
+          featuredSection.style.display = 'none';
+          resourceGrid.parentElement.style.display = 'none';
+          if (summaryEl) {
+            summaryEl.textContent = 'Resources are currently unavailable.';
+          }
         });
 
       searchInput.addEventListener('input', event => {
@@ -506,19 +573,13 @@
       });
 
       window.addEventListener('hashchange', () => {
-        const nextQuery = readHashQuery();
-        if (nextQuery !== searchInput.value) {
-          searchInput.value = nextQuery;
-          updateVisibility(nextQuery);
+        const next = readHashQuery();
+        if (next !== searchInput.value) {
+          searchInput.value = next;
+          updateVisibility(next);
         }
       });
     })();
   </script>
 </body>
 </html>
-
-<!-- codex smoke test -->
-<!-- codex smoke test -->
-<!-- codex-smoke: write-ok -->
-
-
