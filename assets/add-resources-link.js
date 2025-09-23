@@ -1,7 +1,7 @@
 (function () {
   const NAV_SELECTOR = '[data-nav-menu]';
   const NAV_LINK_TEXT = 'Resources';
-  const NAV_HREF = './resources.html';
+  const NAV_HREF = '/resources.html';
 
   function hasLink(container) {
     return Array.from(container.querySelectorAll('a')).some(link => link.textContent.trim() === NAV_LINK_TEXT);
@@ -37,3 +37,4 @@
     init();
   }
 })();
+
