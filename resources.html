@@ -2013,24 +2013,8 @@
       rebuildCards(resources);
       updateVisibility(initialQuery || '');
 
-      try {
-        fetch('/data/resources.json', { cache: 'no-store' })
-          .then(resp => resp.ok ? resp.json() : Promise.reject(new Error(`HTTP ${resp.status}`)))
-          .then(payload => {
-            const extra = flattenFromJson(payload);
-            if (extra.length) {
-              resources = mergeResources(resources, normaliseList(extra));
-              rebuildCards(resources);
-              updateVisibility(searchInput ? searchInput.value : '');
-            }
-          })
-          .catch(error => {
-            console.warn('Resource JSON fallback triggered', error);
-          });
-      } catch (error) {
-        console.warn('Resource JSON fetch unavailable', error);
-      }
-
+      // Resources already rendered from inline dataset.
+      // Optional remote merges removed for deterministic builds.
       if (searchInput) {
         searchInput.addEventListener('input', event => {
           const value = event.target.value || '';
