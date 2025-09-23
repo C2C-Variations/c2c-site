@@ -104,6 +104,10 @@
       color: #cfcfcf;
     }
 
+    .muted {
+      color: #9f9f9f;
+    }
+
     section h2 {
       margin: 0 0 18px;
       font-size: clamp(1.6rem, 4vw, 2.3rem);
@@ -285,12 +289,14 @@
       <div class="summary" id="resource-summary">Loading resources…</div>
     </div>
 
+    <p class="muted" id="resource-empty-global" hidden>No resources available yet.</p>
+
     <section aria-labelledby="featured-heading" id="featured-section">
       <h2 id="featured-heading">Featured</h2>
       <ul class="card-grid" id="featured-list"></ul>
     </section>
 
-    <section aria-labelledby="all-heading" style="margin-top:48px;">
+    <section aria-labelledby="all-heading" id="all-section" style="margin-top:48px;">
       <h2 id="all-heading">All resources</h2>
       <ul class="card-grid" id="resource-grid"></ul>
     </section>
@@ -302,17 +308,21 @@
 
   <script src="/assets/site-nav.js?v=1" defer></script>
   <script src="/assets/chatbot.v6.js" defer></script>
+  <script src="/assets/resources.data.js"></script>
   <script>
     (function() {
       const searchInput = document.getElementById('resource-search');
       const summaryEl = document.getElementById('resource-summary');
-      const featuredList = document.getElementById('featured-list');
       const featuredSection = document.getElementById('featured-section');
+      const featuredList = document.getElementById('featured-list');
+      const allSection = document.getElementById('all-section');
       const resourceGrid = document.getElementById('resource-grid');
       const emptyState = document.getElementById('empty-state');
+      const emptyDataNotice = document.getElementById('resource-empty-global');
       const toast = document.getElementById('resource-toast');
       const allCards = [];
-      const FEATURE_TAG = 'featured';
+      const savedKey = 'c2c-saved-resources';
+      let resources = [];
       let totalCount = 0;
 
       function showToast(message) {
@@ -325,9 +335,9 @@
         }, 2400);
       }
 
-      function savedSet() {
+      function getSavedSet() {
         try {
-          return new Set(JSON.parse(localStorage.getItem('c2c-saved-resources') || '[]'));
+          return new Set(JSON.parse(localStorage.getItem(savedKey) || '[]'));
         } catch (error) {
           console.error(error);
           return new Set();
@@ -336,7 +346,7 @@
 
       function persistSaved(set) {
         try {
-          localStorage.setItem('c2c-saved-resources', JSON.stringify(Array.from(set)));
+          localStorage.setItem(savedKey, JSON.stringify(Array.from(set)));
         } catch (error) {
           console.error(error);
         }
@@ -349,9 +359,10 @@
         return btn;
       }
 
-      function createCard(resource, isFeatured) {
+      function createCard(resource) {
         const li = document.createElement('li');
         li.className = 'resource-card';
+        li.dataset.section = resource.featured ? 'featured' : 'catalogue';
         li.dataset.searchText = [
           resource.title,
           resource.url,
@@ -359,24 +370,22 @@
           resource.category || '',
           (resource.tags || []).join(' ')
         ].join(' ').toLowerCase();
-        li.dataset.section = isFeatured ? FEATURE_TAG : 'catalogue';
 
         const badge = document.createElement('span');
         badge.className = 'badge';
-        badge.textContent = resource.group || (isFeatured ? 'Featured' : 'Resource');
+        badge.textContent = resource.group || (resource.featured ? 'Featured' : 'Resource');
         li.appendChild(badge);
 
         const heading = document.createElement('h3');
         heading.textContent = resource.title;
         li.appendChild(heading);
 
-        if (resource.description) {
+        const details = resource.description || resource.category;
+        if (details) {
           const desc = document.createElement('p');
-          desc.textContent = resource.description;
+          desc.textContent = details;
           li.appendChild(desc);
-        }
-
-        if (!resource.description && resource.tags && resource.tags.length) {
+        } else if (resource.tags && resource.tags.length) {
           const desc = document.createElement('p');
           desc.textContent = resource.tags.join(' • ');
           li.appendChild(desc);
@@ -406,13 +415,13 @@
         actions.appendChild(copy);
 
         const saveBtn = createActionButton('Save');
-        const saved = savedSet();
+        const saved = getSavedSet();
         if (saved.has(resource.url)) {
           saveBtn.classList.add('saved');
           saveBtn.textContent = 'Saved';
         }
         saveBtn.addEventListener('click', () => {
-          const set = savedSet();
+          const set = getSavedSet();
           if (set.has(resource.url)) {
             set.delete(resource.url);
             saveBtn.classList.remove('saved');
@@ -433,7 +442,23 @@
       }
 
       function updateVisibility(query) {
-        const q = query.trim().toLowerCase();
+        if (!totalCount) {
+          if (summaryEl) {
+            summaryEl.textContent = '';
+          }
+          if (emptyState) {
+            emptyState.style.display = 'none';
+          }
+          if (featuredSection) {
+            featuredSection.style.display = 'none';
+          }
+          if (allSection) {
+            allSection.style.display = 'none';
+          }
+          return;
+        }
+
+        const q = (query || '').trim().toLowerCase();
         let visibleCount = 0;
         let featuredVisible = 0;
 
@@ -442,7 +467,7 @@
           card.style.display = match ? '' : 'none';
           if (match) {
             visibleCount += 1;
-            if (card.dataset.section === FEATURE_TAG) {
+            if (card.dataset.section === 'featured') {
               featuredVisible += 1;
             }
           }
@@ -452,18 +477,166 @@
           featuredSection.style.display = featuredVisible ? '' : 'none';
         }
 
-        const allSection = resourceGrid ? resourceGrid.parentElement : null;
         if (allSection) {
           const catalogueVisible = visibleCount - featuredVisible;
           allSection.style.display = catalogueVisible ? '' : 'none';
         }
 
-        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
-
-        if (summaryEl && totalCount) {
-          const resourceLabel = visibleCount === 1 ? 'resource' : 'resources';
-          summaryEl.textContent = `Showing ${visibleCount} of ${totalCount} ${resourceLabel}`;
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
         }
+
+        if (summaryEl) {
+          const label = visibleCount === 1 ? 'resource' : 'resources';
+          summaryEl.textContent = `Showing ${visibleCount} of ${totalCount} ${label}`;
+        }
+      }
+
+      function normaliseResource(item) {
+        if (!item) return null;
+        const title = (item.title || '').trim();
+        const url = (item.url || '').trim();
+        if (!title || !url) return null;
+        const normalised = {
+          id: item.id || url,
+          title,
+          url,
+          tags: Array.isArray(item.tags) ? item.tags.filter(Boolean) : [],
+          group: item.group || '',
+          category: item.category || '',
+          description: item.description || '',
+          featured: Boolean(item.featured)
+        };
+        return normalised;
+      }
+
+      function normaliseList(list) {
+        if (!Array.isArray(list)) return [];
+        return list.map(normaliseResource).filter(Boolean);
+      }
+
+      function mergeResources(base, extra) {
+        const map = new Map();
+        base.forEach(resource => {
+          const key = (resource.url || resource.id || '').toLowerCase();
+          if (!key) return;
+          map.set(key, { ...resource });
+        });
+        extra.forEach(resource => {
+          if (!resource) return;
+          const key = (resource.url || resource.id || '').toLowerCase();
+          if (!key) return;
+          if (map.has(key)) {
+            const existing = map.get(key);
+            existing.featured = existing.featured || resource.featured;
+            if (!existing.description && resource.description) {
+              existing.description = resource.description;
+            }
+            if (!existing.group && resource.group) {
+              existing.group = resource.group;
+            }
+            if (!existing.category && resource.category) {
+              existing.category = resource.category;
+            }
+            const combinedTags = new Set([...(existing.tags || []), ...(resource.tags || [])]);
+            existing.tags = Array.from(combinedTags);
+            map.set(key, existing);
+          } else {
+            map.set(key, { ...resource });
+          }
+        });
+        return Array.from(map.values());
+      }
+
+      function flattenFromJson(payload) {
+        if (!payload || typeof payload !== 'object') return [];
+        const flattened = [];
+        const shortcuts = Array.isArray(payload.shortcuts) ? payload.shortcuts : [];
+        shortcuts.forEach((shortcut, index) => {
+          flattened.push(normaliseResource({
+            id: shortcut && (shortcut.id || `shortcut-${index}`),
+            title: shortcut && shortcut.label,
+            url: shortcut && shortcut.url,
+            tags: shortcut && shortcut.tags,
+            group: 'Shortcut',
+            category: 'Featured',
+            description: 'Shortcut link',
+            featured: true
+          }));
+        });
+
+        const byState = payload.by_state || {};
+        Object.entries(byState).forEach(([state, categories]) => {
+          Object.entries(categories || {}).forEach(([category, entries]) => {
+            (entries || []).forEach(entry => {
+              if (!Array.isArray(entry) || entry.length < 2) return;
+              const [title, url] = entry;
+              flattened.push(normaliseResource({
+                title,
+                url,
+                tags: [state, category],
+                group: state,
+                category
+              }));
+            });
+          });
+        });
+
+        const otherCategories = payload.other_categories || {};
+        Object.entries(otherCategories).forEach(([category, entries]) => {
+          (entries || []).forEach(entry => {
+            if (!Array.isArray(entry) || entry.length < 2) return;
+            const [title, url] = entry;
+            flattened.push(normaliseResource({
+                title,
+                url,
+                tags: [category, 'national'],
+                group: 'National',
+                category
+            }));
+          });
+        });
+
+        return flattened.filter(Boolean);
+      }
+
+      function rebuildCards(list) {
+        featuredList.innerHTML = '';
+        resourceGrid.innerHTML = '';
+        allCards.length = 0;
+        totalCount = Array.isArray(list) ? list.length : 0;
+
+        if (emptyDataNotice) {
+          emptyDataNotice.hidden = totalCount !== 0;
+        }
+
+        if (!totalCount) {
+          if (featuredSection) featuredSection.style.display = 'none';
+          if (allSection) allSection.style.display = 'none';
+          if (summaryEl) summaryEl.textContent = '';
+          if (emptyState) emptyState.style.display = 'none';
+          return;
+        }
+
+        list.forEach(resource => {
+          const card = createCard(resource);
+          allCards.push(card);
+          if (resource.featured) {
+            featuredList.appendChild(card);
+          } else {
+            resourceGrid.appendChild(card);
+          }
+        });
+
+        if (featuredSection) {
+          featuredSection.style.display = featuredList.children.length ? '' : 'none';
+        }
+
+        if (allSection) {
+          allSection.style.display = resourceGrid.children.length ? '' : 'none';
+        }
+
+        updateVisibility(searchInput ? searchInput.value : '');
       }
 
       function readHashQuery() {
@@ -486,98 +659,47 @@
         history.replaceState(null, '', nextUrl);
       }
 
-      function flattenResources(data) {
-        const items = [];
-        const featured = [];
-
-        (data.shortcuts || []).forEach(shortcut => {
-          const tags = shortcut.tags || [];
-          featured.push({
-            title: shortcut.label,
-            url: shortcut.url,
-            description: tags.length ? tags.join(' • ') : 'Featured quick link',
-            group: 'Shortcut',
-            tags
-          });
-        });
-
-        Object.entries(data.by_state || {}).forEach(([state, categories]) => {
-          Object.entries(categories).forEach(([categoryName, entries]) => {
-            entries.forEach(([title, url]) => {
-              items.push({
-                title,
-                url,
-                group: state,
-                category: categoryName,
-                tags: [state, categoryName]
-              });
-            });
-          });
-        });
-
-        Object.entries(data.other_categories || {}).forEach(([categoryName, entries]) => {
-          entries.forEach(([title, url]) => {
-            items.push({
-              title,
-              url,
-              group: 'National',
-              category: categoryName,
-              tags: [categoryName]
-            });
-          });
-        });
-
-        return { featured, items };
+      const builtIn = normaliseList(window.C2C_RESOURCES || []);
+      if (searchInput) {
+        const initialQuery = readHashQuery();
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+        }
       }
 
-      fetch('/data/resources.json')
-        .then(resp => resp.ok ? resp.json() : Promise.reject(new Error('Failed to load resources')))
-        .then(data => {
-          const { featured, items } = flattenResources(data);
+      resources = mergeResources([], builtIn);
+      rebuildCards(resources);
 
-          featured.forEach(resource => {
-            const card = createCard(resource, true);
-            allCards.push(card);
-            featuredList.appendChild(card);
-          });
-
-          items.forEach(resource => {
-            const card = createCard(resource, false);
-            allCards.push(card);
-            resourceGrid.appendChild(card);
-          });
-
-          totalCount = allCards.length;
-
-          const initialQuery = readHashQuery();
-          if (initialQuery) {
-            searchInput.value = initialQuery;
+      fetch('/data/resources.json', { cache: 'no-store' })
+        .then(resp => resp.ok ? resp.json() : Promise.reject(new Error(`HTTP ${resp.status}`)))
+        .then(payload => {
+          const extra = flattenFromJson(payload);
+          if (extra.length) {
+            resources = mergeResources(resources, extra);
+            rebuildCards(resources);
           }
-          updateVisibility(initialQuery || '');
         })
         .catch(error => {
-          console.error(error);
-          emptyState.style.display = 'block';
-          emptyState.textContent = 'Resources failed to load. Refresh to try again.';
-          featuredSection.style.display = 'none';
-          resourceGrid.parentElement.style.display = 'none';
-          if (summaryEl) {
-            summaryEl.textContent = 'Resources are currently unavailable.';
+          console.warn('Resource JSON fallback triggered', error);
+          if (!resources.length) {
+            rebuildCards([]);
           }
         });
 
-      searchInput.addEventListener('input', event => {
-        const value = event.target.value || '';
-        writeHashQuery(value.trim());
-        updateVisibility(value);
-      });
+      if (searchInput) {
+        searchInput.addEventListener('input', event => {
+          const value = event.target.value || '';
+          writeHashQuery(value.trim());
+          updateVisibility(value);
+        });
+      }
 
       window.addEventListener('hashchange', () => {
         const next = readHashQuery();
-        if (next !== searchInput.value) {
+        if (searchInput && next !== searchInput.value) {
           searchInput.value = next;
-          updateVisibility(next);
         }
+        updateVisibility(next);
       });
     })();
   </script>
