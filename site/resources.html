@@ -1,0 +1,2052 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>C2C Variations — Resources</title>
+  <meta name="description" content="Browse featured government, council and compliance resources. Filter everything in real time and keep your search in the URL for easy sharing.">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/site-mobile.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/site-mobile.css?v=8"></noscript>
+  <link rel="stylesheet" href="/assets/site-nav.css?v=1">
+  <link rel="stylesheet" href="/assets/nav-cta.hotfix.css?v=9">
+  <link rel="stylesheet" href="/assets/chatbot.v6.css?v=1">
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      background: #050505;
+      color: #f5f5f5;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 64px) 24px 96px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 16px;
+      margin-bottom: clamp(32px, 5vw, 56px);
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(255, 153, 102, 0.12);
+      color: #ffb48c;
+      border: 1px solid rgba(255, 153, 102, 0.4);
+      width: max-content;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 6vw, 3.8rem);
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 680px;
+      color: #d7d7d7;
+      line-height: 1.6;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .toolbar label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+    }
+
+    .search-input {
+      flex: 1 1 260px;
+      min-width: 220px;
+      padding: 14px 16px;
+      font-size: 1rem;
+      border-radius: 14px;
+      border: 1px solid #2a2a2a;
+      background: #0f0f0f;
+      color: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: rgba(255, 153, 102, 0.75);
+      box-shadow: 0 0 0 3px rgba(255, 153, 102, 0.2);
+    }
+
+    .summary {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #cfcfcf;
+      min-height: 1.2em;
+    }
+
+    .muted {
+      color: #9f9f9f;
+    }
+
+    section h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      letter-spacing: -0.01em;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .resource-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #0b0b0b;
+      border: 1px solid #1f1f1f;
+      border-radius: 18px;
+      padding: 20px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .resource-card:hover,
+    .resource-card:focus-within {
+      border-color: rgba(255, 153, 102, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .resource-card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .resource-card p {
+      margin: 0;
+      color: #b9b9b9;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #181818;
+      color: #f4f4f4;
+      border: 1px solid #2f2f2f;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: max-content;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .actions a,
+    .actions button {
+      flex: 1 1 100px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid #2a2a2a;
+      background: #111;
+      color: #fdfdfd;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    .actions a:hover,
+    .actions a:focus,
+    .actions button:hover,
+    .actions button:focus {
+      border-color: rgba(255, 153, 102, 0.65);
+      background: #171717;
+      outline: none;
+    }
+
+    .actions a[href] {
+      text-decoration: none;
+    }
+
+    .actions .primary {
+      background: linear-gradient(135deg, rgba(255, 153, 102, 0.2), rgba(255, 94, 58, 0.25));
+      border: 1px solid rgba(255, 153, 102, 0.5);
+    }
+
+    .actions .saved {
+      border-color: rgba(140, 232, 168, 0.6);
+      background: rgba(31, 82, 55, 0.35);
+    }
+
+    .empty-state {
+      display: none;
+      margin-top: 32px;
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px dashed rgba(255, 153, 102, 0.45);
+      background: rgba(255, 153, 102, 0.07);
+      color: #f3c7b0;
+      font-size: 1rem;
+    }
+
+    .toast {
+      position: fixed;
+      inset-inline-end: 24px;
+      inset-block-end: 24px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(15, 15, 15, 0.92);
+      border: 1px solid rgba(255, 153, 102, 0.45);
+      color: #ffd7c4;
+      font-size: 0.9rem;
+      display: none;
+      z-index: 4000;
+    }
+
+    @media (max-width: 720px) {
+      .actions a,
+      .actions button {
+        flex: 1 1 100%;
+      }
+
+      main {
+        padding-inline: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" data-nav-root>
+    <div class="container nav-row">
+      <a class="brand" href="/index.html" aria-label="C2C Variations home">
+        <img class="icon" src="/assets/logo-icon.jpg" alt="C2C icon">
+      </a>
+      <button class="nav-hamburger" type="button" data-nav-toggle aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
+        <span class="nav-hamburger-bar"></span>
+        <span class="nav-hamburger-bar"></span>
+        <span class="nav-hamburger-bar"></span>
+      </button>
+      <nav class="nav site-nav" id="main-nav" role="navigation" aria-label="Main" data-nav-menu>
+        <a href="/index.html">Home</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/about.html">About</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/resources.html" aria-current="page">Resources</a>
+        <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+        <button type="button" id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="hero-label">Resource hub</span>
+      <h1>Resources</h1>
+      <p>Featured government warnings, council tools and compliance references — filtered in real time so field teams and schedulers can open, copy or save the links they need without breaking stride.</p>
+    </section>
+
+    <div class="toolbar" aria-live="polite" aria-atomic="true">
+      <label for="resource-search">Search resources</label>
+      <input id="resource-search" class="search-input" type="search" placeholder="Search by name, topic or region" autocomplete="off" spellcheck="false">
+      <div class="summary" id="resource-summary"></div>
+    </div>
+
+    <p class="muted" id="resource-empty-global" hidden>No resources available yet.</p>
+
+    <section aria-labelledby="featured-heading" id="featured-section">
+      <h2 id="featured-heading">Featured</h2>
+      <ul class="card-grid" id="featured-list"></ul>
+    </section>
+
+    <section aria-labelledby="all-heading" id="all-section" style="margin-top:48px;">
+      <h2 id="all-heading">All resources</h2>
+      <ul class="card-grid" id="resource-grid"></ul>
+    </section>
+
+    <div class="empty-state" id="empty-state" role="status">No resources match that search yet. Try another term such as <strong>outage</strong>, <strong>council</strong> or <strong>traffic</strong>.</div>
+  </main>
+
+  <div class="toast" id="resource-toast" role="status" aria-live="polite"></div>
+
+  <script src="/assets/site-nav.js?v=1" defer></script>
+  <script src="/assets/chatbot.v6.js" defer></script>
+  <script>
+    window.C2C_RESOURCES = [
+  {
+    "id": "var-template",
+    "title": "Variation template (PDF + DOCX)",
+    "tags": [
+      "template",
+      "pdf",
+      "victoria",
+      "australia"
+    ],
+    "url": "/docs/variation-template.pdf",
+    "group": "Template",
+    "category": "Documents",
+    "description": "Editable variation templates for Victorian projects.",
+    "featured": true
+  },
+  {
+    "id": "swms-basic",
+    "title": "Basic SWMS template",
+    "tags": [
+      "template",
+      "swms",
+      "safety"
+    ],
+    "url": "/docs/swms-basic.docx",
+    "group": "Template",
+    "category": "Safety",
+    "featured": true
+  },
+  {
+    "id": "gst-calculator",
+    "title": "GST calculator",
+    "tags": [
+      "calculator",
+      "pricing"
+    ],
+    "url": "/tools/gst.html",
+    "group": "Tool",
+    "category": "Pricing",
+    "featured": true
+  },
+  {
+    "id": "quote-reply",
+    "title": "Quote template (chat reply)",
+    "tags": [
+      "template",
+      "quote"
+    ],
+    "url": "/docs/quote-reply.txt",
+    "group": "Template",
+    "category": "Messaging",
+    "featured": true
+  },
+  {
+    "id": "shortcut-0",
+    "title": "BOM National Warnings",
+    "url": "https://www.bom.gov.au/australia/warnings/",
+    "tags": [
+      "weather",
+      "alerts",
+      "national"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-1",
+    "title": "GA Earthquakes",
+    "url": "https://earthquakes.ga.gov.au/",
+    "tags": [
+      "geohazard",
+      "earthquake",
+      "national"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-2",
+    "title": "ARPANSA UV Index",
+    "url": "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation",
+    "tags": [
+      "uv",
+      "radiation",
+      "national"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-3",
+    "title": "Live Traffic NSW",
+    "url": "https://www.livetraffic.com/",
+    "tags": [
+      "traffic",
+      "nsw"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-4",
+    "title": "VicTraffic",
+    "url": "https://traffic.vicroads.vic.gov.au/",
+    "tags": [
+      "traffic",
+      "vic"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-5",
+    "title": "QLD Traffic",
+    "url": "https://qldtraffic.qld.gov.au/",
+    "tags": [
+      "traffic",
+      "qld"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-6",
+    "title": "Emergency WA",
+    "url": "https://www.emergency.wa.gov.au/",
+    "tags": [
+      "emergency",
+      "wa"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-7",
+    "title": "TasALERT",
+    "url": "https://alert.tas.gov.au/",
+    "tags": [
+      "emergency",
+      "tas"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-8",
+    "title": "ESA ACT Incidents",
+    "url": "https://esa.act.gov.au/",
+    "tags": [
+      "emergency",
+      "act"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-9",
+    "title": "Healthdirect Service Finder",
+    "url": "https://www.healthdirect.gov.au/australian-health-services",
+    "tags": [
+      "health",
+      "national"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "id": "shortcut-10",
+    "title": "BYDA 1100 Before You Dig",
+    "url": "https://www.byda.com.au/",
+    "tags": [
+      "utilities",
+      "compliance",
+      "national"
+    ],
+    "group": "Shortcut",
+    "category": "Featured",
+    "description": "Shortcut link",
+    "featured": true
+  },
+  {
+    "title": "Emergency VIC Warnings",
+    "url": "https://emergency.vic.gov.au/respond/",
+    "tags": [
+      "vic",
+      "emergency & hazards"
+    ],
+    "group": "VIC",
+    "category": "Emergency & Hazards",
+    "id": "emergency-vic-warnings-https-emergency-vic-gov-au-respond",
+    "featured": false
+  },
+  {
+    "title": "BOM Victoria Warnings",
+    "url": "https://www.bom.gov.au/vic/warnings/",
+    "tags": [
+      "vic",
+      "emergency & hazards"
+    ],
+    "group": "VIC",
+    "category": "Emergency & Hazards",
+    "id": "bom-victoria-warnings-https-www-bom-gov-au-vic-warnings",
+    "featured": false
+  },
+  {
+    "title": "Vic SES Flood & Storm",
+    "url": "https://www.ses.vic.gov.au/",
+    "tags": [
+      "vic",
+      "emergency & hazards"
+    ],
+    "group": "VIC",
+    "category": "Emergency & Hazards",
+    "id": "vic-ses-flood-storm-https-www-ses-vic-gov-au",
+    "featured": false
+  },
+  {
+    "title": "Public Transport Disruptions",
+    "url": "https://www.ptv.vic.gov.au/footer/about-ptv/digital-products/live-travel-updates/",
+    "tags": [
+      "vic",
+      "traffic & transport"
+    ],
+    "group": "VIC",
+    "category": "Traffic & Transport",
+    "id": "public-transport-disruptions-https-www-ptv-vic-gov-au-footer-about-ptv-digital-products-live-travel-updates",
+    "featured": false
+  },
+  {
+    "title": "AusNet Services Outages",
+    "url": "https://www.ausnetservices.com.au/en/electricity/power-outages/outage-map",
+    "tags": [
+      "vic",
+      "utilities & outages"
+    ],
+    "group": "VIC",
+    "category": "Utilities & Outages",
+    "id": "ausnet-services-outages-https-www-ausnetservices-com-au-en-electricity-power-outages-outage-map",
+    "featured": false
+  },
+  {
+    "title": "Powercor Outages",
+    "url": "https://powercor.com.au/outages/",
+    "tags": [
+      "vic",
+      "utilities & outages"
+    ],
+    "group": "VIC",
+    "category": "Utilities & Outages",
+    "id": "powercor-outages-https-powercor-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "CitiPower Outages",
+    "url": "https://citipower.com.au/outages/",
+    "tags": [
+      "vic",
+      "utilities & outages"
+    ],
+    "group": "VIC",
+    "category": "Utilities & Outages",
+    "id": "citipower-outages-https-citipower-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "United Energy Outages",
+    "url": "https://www.unitedenergy.com.au/outages/",
+    "tags": [
+      "vic",
+      "utilities & outages"
+    ],
+    "group": "VIC",
+    "category": "Utilities & Outages",
+    "id": "united-energy-outages-https-www-unitedenergy-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "Healthdirect Victoria Finder",
+    "url": "https://www.healthdirect.gov.au/australian-health-services/results/vic",
+    "tags": [
+      "vic",
+      "health & services"
+    ],
+    "group": "VIC",
+    "category": "Health & Services",
+    "id": "healthdirect-victoria-finder-https-www-healthdirect-gov-au-australian-health-services-results-vic",
+    "featured": false
+  },
+  {
+    "title": "VicEmergency Relief",
+    "url": "https://www.vic.gov.au/relief-services",
+    "tags": [
+      "vic",
+      "health & services"
+    ],
+    "group": "VIC",
+    "category": "Health & Services",
+    "id": "vicemergency-relief-https-www-vic-gov-au-relief-services",
+    "featured": false
+  },
+  {
+    "title": "Find My Council (VIC)",
+    "url": "https://www.localgovernment.vic.gov.au/councils-and-communities/find-your-local-council",
+    "tags": [
+      "vic",
+      "planning & councils"
+    ],
+    "group": "VIC",
+    "category": "Planning & Councils",
+    "id": "find-my-council-vic-https-www-localgovernment-vic-gov-au-councils-and-communities-find-your-local-council",
+    "featured": false
+  },
+  {
+    "title": "VicSmart Planning",
+    "url": "https://www.planning.vic.gov.au/permits-and-applications/vicsmart",
+    "tags": [
+      "vic",
+      "planning & councils"
+    ],
+    "group": "VIC",
+    "category": "Planning & Councils",
+    "id": "vicsmart-planning-https-www-planning-vic-gov-au-permits-and-applications-vicsmart",
+    "featured": false
+  },
+  {
+    "title": "NSW Incidents & Warnings",
+    "url": "https://www.nsw.gov.au/emergency",
+    "tags": [
+      "nsw",
+      "emergency & hazards"
+    ],
+    "group": "NSW",
+    "category": "Emergency & Hazards",
+    "id": "nsw-incidents-warnings-https-www-nsw-gov-au-emergency",
+    "featured": false
+  },
+  {
+    "title": "BOM New South Wales Warnings",
+    "url": "https://www.bom.gov.au/nsw/warnings/",
+    "tags": [
+      "nsw",
+      "emergency & hazards"
+    ],
+    "group": "NSW",
+    "category": "Emergency & Hazards",
+    "id": "bom-new-south-wales-warnings-https-www-bom-gov-au-nsw-warnings",
+    "featured": false
+  },
+  {
+    "title": "NSW SES Flood & Storm",
+    "url": "https://www.ses.nsw.gov.au/",
+    "tags": [
+      "nsw",
+      "emergency & hazards"
+    ],
+    "group": "NSW",
+    "category": "Emergency & Hazards",
+    "id": "nsw-ses-flood-storm-https-www-ses-nsw-gov-au",
+    "featured": false
+  },
+  {
+    "title": "Transport NSW Service Alerts",
+    "url": "https://transportnsw.info/alerts",
+    "tags": [
+      "nsw",
+      "traffic & transport"
+    ],
+    "group": "NSW",
+    "category": "Traffic & Transport",
+    "id": "transport-nsw-service-alerts-https-transportnsw-info-alerts",
+    "featured": false
+  },
+  {
+    "title": "Ausgrid Outages",
+    "url": "https://www.ausgrid.com.au/Outages",
+    "tags": [
+      "nsw",
+      "utilities & outages"
+    ],
+    "group": "NSW",
+    "category": "Utilities & Outages",
+    "id": "ausgrid-outages-https-www-ausgrid-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "Endeavour Energy Outages",
+    "url": "https://www.endeavourenergy.com.au/outages",
+    "tags": [
+      "nsw",
+      "utilities & outages"
+    ],
+    "group": "NSW",
+    "category": "Utilities & Outages",
+    "id": "endeavour-energy-outages-https-www-endeavourenergy-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "Essential Energy Outages",
+    "url": "https://www.essentialenergy.com.au/outages",
+    "tags": [
+      "nsw",
+      "utilities & outages"
+    ],
+    "group": "NSW",
+    "category": "Utilities & Outages",
+    "id": "essential-energy-outages-https-www-essentialenergy-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "Healthdirect NSW Finder",
+    "url": "https://www.healthdirect.gov.au/australian-health-services/results/nsw",
+    "tags": [
+      "nsw",
+      "health & services"
+    ],
+    "group": "NSW",
+    "category": "Health & Services",
+    "id": "healthdirect-nsw-finder-https-www-healthdirect-gov-au-australian-health-services-results-nsw",
+    "featured": false
+  },
+  {
+    "title": "NSW Health Alerts",
+    "url": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/default.aspx",
+    "tags": [
+      "nsw",
+      "health & services"
+    ],
+    "group": "NSW",
+    "category": "Health & Services",
+    "id": "nsw-health-alerts-https-www-health-nsw-gov-au-infectious-alerts-pages-default-aspx",
+    "featured": false
+  },
+  {
+    "title": "NSW Councils Directory",
+    "url": "https://www.nsw.gov.au/nsw-government/councils",
+    "tags": [
+      "nsw",
+      "planning & councils"
+    ],
+    "group": "NSW",
+    "category": "Planning & Councils",
+    "id": "nsw-councils-directory-https-www-nsw-gov-au-nsw-government-councils",
+    "featured": false
+  },
+  {
+    "title": "NSW Planning Portal",
+    "url": "https://www.planningportal.nsw.gov.au/",
+    "tags": [
+      "nsw",
+      "planning & councils"
+    ],
+    "group": "NSW",
+    "category": "Planning & Councils",
+    "id": "nsw-planning-portal-https-www-planningportal-nsw-gov-au",
+    "featured": false
+  },
+  {
+    "title": "QLD Alerts",
+    "url": "https://www.qld.gov.au/alerts",
+    "tags": [
+      "qld",
+      "emergency & hazards"
+    ],
+    "group": "QLD",
+    "category": "Emergency & Hazards",
+    "id": "qld-alerts-https-www-qld-gov-au-alerts",
+    "featured": false
+  },
+  {
+    "title": "BOM Queensland Warnings",
+    "url": "https://www.bom.gov.au/qld/warnings/",
+    "tags": [
+      "qld",
+      "emergency & hazards"
+    ],
+    "group": "QLD",
+    "category": "Emergency & Hazards",
+    "id": "bom-queensland-warnings-https-www-bom-gov-au-qld-warnings",
+    "featured": false
+  },
+  {
+    "title": "QLD SES",
+    "url": "https://www.qfes.qld.gov.au/prepare",
+    "tags": [
+      "qld",
+      "emergency & hazards"
+    ],
+    "group": "QLD",
+    "category": "Emergency & Hazards",
+    "id": "qld-ses-https-www-qfes-qld-gov-au-prepare",
+    "featured": false
+  },
+  {
+    "title": "TransLink Service Updates",
+    "url": "https://translink.com.au/service-updates",
+    "tags": [
+      "qld",
+      "traffic & transport"
+    ],
+    "group": "QLD",
+    "category": "Traffic & Transport",
+    "id": "translink-service-updates-https-translink-com-au-service-updates",
+    "featured": false
+  },
+  {
+    "title": "Energex Outage Finder",
+    "url": "https://www.energex.com.au/home/power-outages/outage-finder",
+    "tags": [
+      "qld",
+      "utilities & outages"
+    ],
+    "group": "QLD",
+    "category": "Utilities & Outages",
+    "id": "energex-outage-finder-https-www-energex-com-au-home-power-outages-outage-finder",
+    "featured": false
+  },
+  {
+    "title": "Ergon Energy Outages",
+    "url": "https://www.ergon.com.au/network/outages",
+    "tags": [
+      "qld",
+      "utilities & outages"
+    ],
+    "group": "QLD",
+    "category": "Utilities & Outages",
+    "id": "ergon-energy-outages-https-www-ergon-com-au-network-outages",
+    "featured": false
+  },
+  {
+    "title": "Powerlink QLD Network",
+    "url": "https://www.powerlink.com.au/network/data-and-reporting/outage-information",
+    "tags": [
+      "qld",
+      "utilities & outages"
+    ],
+    "group": "QLD",
+    "category": "Utilities & Outages",
+    "id": "powerlink-qld-network-https-www-powerlink-com-au-network-data-and-reporting-outage-information",
+    "featured": false
+  },
+  {
+    "title": "Healthdirect QLD Finder",
+    "url": "https://www.healthdirect.gov.au/australian-health-services/results/qld",
+    "tags": [
+      "qld",
+      "health & services"
+    ],
+    "group": "QLD",
+    "category": "Health & Services",
+    "id": "healthdirect-qld-finder-https-www-healthdirect-gov-au-australian-health-services-results-qld",
+    "featured": false
+  },
+  {
+    "title": "QLD Health Alerts",
+    "url": "https://www.health.qld.gov.au/news-events/doh-media-releases",
+    "tags": [
+      "qld",
+      "health & services"
+    ],
+    "group": "QLD",
+    "category": "Health & Services",
+    "id": "qld-health-alerts-https-www-health-qld-gov-au-news-events-doh-media-releases",
+    "featured": false
+  },
+  {
+    "title": "QLD Local Government Directory",
+    "url": "https://www.dlgrma.qld.gov.au/local-government-directory",
+    "tags": [
+      "qld",
+      "planning & councils"
+    ],
+    "group": "QLD",
+    "category": "Planning & Councils",
+    "id": "qld-local-government-directory-https-www-dlgrma-qld-gov-au-local-government-directory",
+    "featured": false
+  },
+  {
+    "title": "Development.i Planning",
+    "url": "https://developmenti.information.qld.gov.au/",
+    "tags": [
+      "qld",
+      "planning & councils"
+    ],
+    "group": "QLD",
+    "category": "Planning & Councils",
+    "id": "development-i-planning-https-developmenti-information-qld-gov-au",
+    "featured": false
+  },
+  {
+    "title": "Alert SA",
+    "url": "https://alert.sa.gov.au/",
+    "tags": [
+      "sa",
+      "emergency & hazards"
+    ],
+    "group": "SA",
+    "category": "Emergency & Hazards",
+    "id": "alert-sa-https-alert-sa-gov-au",
+    "featured": false
+  },
+  {
+    "title": "BOM South Australia Warnings",
+    "url": "https://www.bom.gov.au/sa/warnings/",
+    "tags": [
+      "sa",
+      "emergency & hazards"
+    ],
+    "group": "SA",
+    "category": "Emergency & Hazards",
+    "id": "bom-south-australia-warnings-https-www-bom-gov-au-sa-warnings",
+    "featured": false
+  },
+  {
+    "title": "SA SES",
+    "url": "https://www.ses.sa.gov.au/",
+    "tags": [
+      "sa",
+      "emergency & hazards"
+    ],
+    "group": "SA",
+    "category": "Emergency & Hazards",
+    "id": "sa-ses-https-www-ses-sa-gov-au",
+    "featured": false
+  },
+  {
+    "title": "Traffic SA",
+    "url": "https://traffic.sa.gov.au/",
+    "tags": [
+      "sa",
+      "traffic & transport"
+    ],
+    "group": "SA",
+    "category": "Traffic & Transport",
+    "id": "traffic-sa-https-traffic-sa-gov-au",
+    "featured": false
+  },
+  {
+    "title": "Adelaide Metro Service Updates",
+    "url": "https://www.adelaidemetro.com.au/about-us/service-updates",
+    "tags": [
+      "sa",
+      "traffic & transport"
+    ],
+    "group": "SA",
+    "category": "Traffic & Transport",
+    "id": "adelaide-metro-service-updates-https-www-adelaidemetro-com-au-about-us-service-updates",
+    "featured": false
+  },
+  {
+    "title": "SA Power Networks Outages",
+    "url": "https://www.sapowernetworks.com.au/outages/",
+    "tags": [
+      "sa",
+      "utilities & outages"
+    ],
+    "group": "SA",
+    "category": "Utilities & Outages",
+    "id": "sa-power-networks-outages-https-www-sapowernetworks-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "Essential Water SA",
+    "url": "https://www.sawater.com.au/outages",
+    "tags": [
+      "sa",
+      "utilities & outages"
+    ],
+    "group": "SA",
+    "category": "Utilities & Outages",
+    "id": "essential-water-sa-https-www-sawater-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "Healthdirect SA Finder",
+    "url": "https://www.healthdirect.gov.au/australian-health-services/results/sa",
+    "tags": [
+      "sa",
+      "health & services"
+    ],
+    "group": "SA",
+    "category": "Health & Services",
+    "id": "healthdirect-sa-finder-https-www-healthdirect-gov-au-australian-health-services-results-sa",
+    "featured": false
+  },
+  {
+    "title": "SA Health Alerts",
+    "url": "https://www.sahealth.sa.gov.au/wps/wcm/connect/Public+Content/SA+Health+Internet/",
+    "tags": [
+      "sa",
+      "health & services"
+    ],
+    "group": "SA",
+    "category": "Health & Services",
+    "id": "sa-health-alerts-https-www-sahealth-sa-gov-au-wps-wcm-connect-public-content-sa-health-internet",
+    "featured": false
+  },
+  {
+    "title": "SA Council Directory",
+    "url": "https://www.lga.sa.gov.au/sa-councils/councils-listing",
+    "tags": [
+      "sa",
+      "planning & councils"
+    ],
+    "group": "SA",
+    "category": "Planning & Councils",
+    "id": "sa-council-directory-https-www-lga-sa-gov-au-sa-councils-councils-listing",
+    "featured": false
+  },
+  {
+    "title": "PlanSA Portal",
+    "url": "https://plan.sa.gov.au/",
+    "tags": [
+      "sa",
+      "planning & councils"
+    ],
+    "group": "SA",
+    "category": "Planning & Councils",
+    "id": "plansa-portal-https-plan-sa-gov-au",
+    "featured": false
+  },
+  {
+    "title": "BOM Western Australia Warnings",
+    "url": "https://www.bom.gov.au/wa/warnings/",
+    "tags": [
+      "wa",
+      "emergency & hazards"
+    ],
+    "group": "WA",
+    "category": "Emergency & Hazards",
+    "id": "bom-western-australia-warnings-https-www-bom-gov-au-wa-warnings",
+    "featured": false
+  },
+  {
+    "title": "DFES Alerts",
+    "url": "https://www.dfes.wa.gov.au/alerts",
+    "tags": [
+      "wa",
+      "emergency & hazards"
+    ],
+    "group": "WA",
+    "category": "Emergency & Hazards",
+    "id": "dfes-alerts-https-www-dfes-wa-gov-au-alerts",
+    "featured": false
+  },
+  {
+    "title": "Main Roads Travel Map",
+    "url": "https://travelmap.mainroads.wa.gov.au/",
+    "tags": [
+      "wa",
+      "traffic & transport"
+    ],
+    "group": "WA",
+    "category": "Traffic & Transport",
+    "id": "main-roads-travel-map-https-travelmap-mainroads-wa-gov-au",
+    "featured": false
+  },
+  {
+    "title": "Transperth Service Updates",
+    "url": "https://www.transperth.wa.gov.au/Service-Updates",
+    "tags": [
+      "wa",
+      "traffic & transport"
+    ],
+    "group": "WA",
+    "category": "Traffic & Transport",
+    "id": "transperth-service-updates-https-www-transperth-wa-gov-au-service-updates",
+    "featured": false
+  },
+  {
+    "title": "Western Power Outages",
+    "url": "https://www.westernpower.com.au/power-outages/",
+    "tags": [
+      "wa",
+      "utilities & outages"
+    ],
+    "group": "WA",
+    "category": "Utilities & Outages",
+    "id": "western-power-outages-https-www-westernpower-com-au-power-outages",
+    "featured": false
+  },
+  {
+    "title": "Water Corporation Alerts",
+    "url": "https://www.watercorporation.com.au/Outages",
+    "tags": [
+      "wa",
+      "utilities & outages"
+    ],
+    "group": "WA",
+    "category": "Utilities & Outages",
+    "id": "water-corporation-alerts-https-www-watercorporation-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "Healthdirect WA Finder",
+    "url": "https://www.healthdirect.gov.au/australian-health-services/results/wa",
+    "tags": [
+      "wa",
+      "health & services"
+    ],
+    "group": "WA",
+    "category": "Health & Services",
+    "id": "healthdirect-wa-finder-https-www-healthdirect-gov-au-australian-health-services-results-wa",
+    "featured": false
+  },
+  {
+    "title": "HealthyWA Alerts",
+    "url": "https://www.healthywa.wa.gov.au/Articles/A_E/Alerts",
+    "tags": [
+      "wa",
+      "health & services"
+    ],
+    "group": "WA",
+    "category": "Health & Services",
+    "id": "healthywa-alerts-https-www-healthywa-wa-gov-au-articles-a-e-alerts",
+    "featured": false
+  },
+  {
+    "title": "WA Local Government Directory",
+    "url": "https://walga.asn.au/about-local-government/council-map",
+    "tags": [
+      "wa",
+      "planning & councils"
+    ],
+    "group": "WA",
+    "category": "Planning & Councils",
+    "id": "wa-local-government-directory-https-walga-asn-au-about-local-government-council-map",
+    "featured": false
+  },
+  {
+    "title": "WA Planning Hub",
+    "url": "https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage",
+    "tags": [
+      "wa",
+      "planning & councils"
+    ],
+    "group": "WA",
+    "category": "Planning & Councils",
+    "id": "wa-planning-hub-https-www-wa-gov-au-organisation-department-of-planning-lands-and-heritage",
+    "featured": false
+  },
+  {
+    "title": "BOM Tasmania Warnings",
+    "url": "https://www.bom.gov.au/tas/warnings/",
+    "tags": [
+      "tas",
+      "emergency & hazards"
+    ],
+    "group": "TAS",
+    "category": "Emergency & Hazards",
+    "id": "bom-tasmania-warnings-https-www-bom-gov-au-tas-warnings",
+    "featured": false
+  },
+  {
+    "title": "Tasmania SES",
+    "url": "https://www.ses.tas.gov.au/",
+    "tags": [
+      "tas",
+      "emergency & hazards"
+    ],
+    "group": "TAS",
+    "category": "Emergency & Hazards",
+    "id": "tasmania-ses-https-www-ses-tas-gov-au",
+    "featured": false
+  },
+  {
+    "title": "Tasmania Police Road Closures",
+    "url": "https://www.police.tas.gov.au/community-alerts/",
+    "tags": [
+      "tas",
+      "traffic & transport"
+    ],
+    "group": "TAS",
+    "category": "Traffic & Transport",
+    "id": "tasmania-police-road-closures-https-www-police-tas-gov-au-community-alerts",
+    "featured": false
+  },
+  {
+    "title": "Metro Tasmania Updates",
+    "url": "https://www.metrotas.com.au/category/service-updates/",
+    "tags": [
+      "tas",
+      "traffic & transport"
+    ],
+    "group": "TAS",
+    "category": "Traffic & Transport",
+    "id": "metro-tasmania-updates-https-www-metrotas-com-au-category-service-updates",
+    "featured": false
+  },
+  {
+    "title": "TasNetworks Outages",
+    "url": "https://www.tasnetworks.com.au/outages",
+    "tags": [
+      "tas",
+      "utilities & outages"
+    ],
+    "group": "TAS",
+    "category": "Utilities & Outages",
+    "id": "tasnetworks-outages-https-www-tasnetworks-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "TasWater Alerts",
+    "url": "https://www.taswater.com.au/outages",
+    "tags": [
+      "tas",
+      "utilities & outages"
+    ],
+    "group": "TAS",
+    "category": "Utilities & Outages",
+    "id": "taswater-alerts-https-www-taswater-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "Healthdirect TAS Finder",
+    "url": "https://www.healthdirect.gov.au/australian-health-services/results/tas",
+    "tags": [
+      "tas",
+      "health & services"
+    ],
+    "group": "TAS",
+    "category": "Health & Services",
+    "id": "healthdirect-tas-finder-https-www-healthdirect-gov-au-australian-health-services-results-tas",
+    "featured": false
+  },
+  {
+    "title": "Public Health Alerts Tasmania",
+    "url": "https://www.health.tas.gov.au/health-topics/public-health",
+    "tags": [
+      "tas",
+      "health & services"
+    ],
+    "group": "TAS",
+    "category": "Health & Services",
+    "id": "public-health-alerts-tasmania-https-www-health-tas-gov-au-health-topics-public-health",
+    "featured": false
+  },
+  {
+    "title": "Tasmania Councils",
+    "url": "https://www.stategrowth.tas.gov.au/local-government/list_of_councils",
+    "tags": [
+      "tas",
+      "planning & councils"
+    ],
+    "group": "TAS",
+    "category": "Planning & Councils",
+    "id": "tasmania-councils-https-www-stategrowth-tas-gov-au-local-government-list-of-councils",
+    "featured": false
+  },
+  {
+    "title": "Tasmanian Planning",
+    "url": "https://planningreform.tas.gov.au/",
+    "tags": [
+      "tas",
+      "planning & councils"
+    ],
+    "group": "TAS",
+    "category": "Planning & Councils",
+    "id": "tasmanian-planning-https-planningreform-tas-gov-au",
+    "featured": false
+  },
+  {
+    "title": "SecureNT",
+    "url": "https://securent.nt.gov.au/",
+    "tags": [
+      "nt",
+      "emergency & hazards"
+    ],
+    "group": "NT",
+    "category": "Emergency & Hazards",
+    "id": "securent-https-securent-nt-gov-au",
+    "featured": false
+  },
+  {
+    "title": "BOM Northern Territory Warnings",
+    "url": "https://www.bom.gov.au/nt/warnings/",
+    "tags": [
+      "nt",
+      "emergency & hazards"
+    ],
+    "group": "NT",
+    "category": "Emergency & Hazards",
+    "id": "bom-northern-territory-warnings-https-www-bom-gov-au-nt-warnings",
+    "featured": false
+  },
+  {
+    "title": "NT Fire & Emergency",
+    "url": "https://pfes.nt.gov.au/emergency-service",
+    "tags": [
+      "nt",
+      "emergency & hazards"
+    ],
+    "group": "NT",
+    "category": "Emergency & Hazards",
+    "id": "nt-fire-emergency-https-pfes-nt-gov-au-emergency-service",
+    "featured": false
+  },
+  {
+    "title": "NT Road Report",
+    "url": "https://roadreport.nt.gov.au/",
+    "tags": [
+      "nt",
+      "traffic & transport"
+    ],
+    "group": "NT",
+    "category": "Traffic & Transport",
+    "id": "nt-road-report-https-roadreport-nt-gov-au",
+    "featured": false
+  },
+  {
+    "title": "Darwin Public Transport",
+    "url": "https://www.nt.gov.au/driving/public-transport-cycling/public-transport-in-the-nt",
+    "tags": [
+      "nt",
+      "traffic & transport"
+    ],
+    "group": "NT",
+    "category": "Traffic & Transport",
+    "id": "darwin-public-transport-https-www-nt-gov-au-driving-public-transport-cycling-public-transport-in-the-nt",
+    "featured": false
+  },
+  {
+    "title": "Power and Water NT Outages",
+    "url": "https://www.powerwater.com.au/customers/power-outages",
+    "tags": [
+      "nt",
+      "utilities & outages"
+    ],
+    "group": "NT",
+    "category": "Utilities & Outages",
+    "id": "power-and-water-nt-outages-https-www-powerwater-com-au-customers-power-outages",
+    "featured": false
+  },
+  {
+    "title": "Jacana Energy Interruptions",
+    "url": "https://www.jacanaenergy.com.au/customer-service/power-outages",
+    "tags": [
+      "nt",
+      "utilities & outages"
+    ],
+    "group": "NT",
+    "category": "Utilities & Outages",
+    "id": "jacana-energy-interruptions-https-www-jacanaenergy-com-au-customer-service-power-outages",
+    "featured": false
+  },
+  {
+    "title": "Healthdirect NT Finder",
+    "url": "https://www.healthdirect.gov.au/australian-health-services/results/nt",
+    "tags": [
+      "nt",
+      "health & services"
+    ],
+    "group": "NT",
+    "category": "Health & Services",
+    "id": "healthdirect-nt-finder-https-www-healthdirect-gov-au-australian-health-services-results-nt",
+    "featured": false
+  },
+  {
+    "title": "NT Health Alerts",
+    "url": "https://health.nt.gov.au/",
+    "tags": [
+      "nt",
+      "health & services"
+    ],
+    "group": "NT",
+    "category": "Health & Services",
+    "id": "nt-health-alerts-https-health-nt-gov-au",
+    "featured": false
+  },
+  {
+    "title": "NT Councils Directory",
+    "url": "https://www.dlghcd.nt.gov.au/local-government/directory",
+    "tags": [
+      "nt",
+      "planning & councils"
+    ],
+    "group": "NT",
+    "category": "Planning & Councils",
+    "id": "nt-councils-directory-https-www-dlghcd-nt-gov-au-local-government-directory",
+    "featured": false
+  },
+  {
+    "title": "NT Planning System",
+    "url": "https://nt.gov.au/property/land-planning-and-development",
+    "tags": [
+      "nt",
+      "planning & councils"
+    ],
+    "group": "NT",
+    "category": "Planning & Councils",
+    "id": "nt-planning-system-https-nt-gov-au-property-land-planning-and-development",
+    "featured": false
+  },
+  {
+    "title": "BOM ACT Warnings",
+    "url": "https://www.bom.gov.au/act/warnings/",
+    "tags": [
+      "act",
+      "emergency & hazards"
+    ],
+    "group": "ACT",
+    "category": "Emergency & Hazards",
+    "id": "bom-act-warnings-https-www-bom-gov-au-act-warnings",
+    "featured": false
+  },
+  {
+    "title": "ACT Health Emergencies",
+    "url": "https://www.health.act.gov.au/public-health-alerts",
+    "tags": [
+      "act",
+      "emergency & hazards"
+    ],
+    "group": "ACT",
+    "category": "Emergency & Hazards",
+    "id": "act-health-emergencies-https-www-health-act-gov-au-public-health-alerts",
+    "featured": false
+  },
+  {
+    "title": "ACT Road Closures",
+    "url": "https://www.cityservices.act.gov.au/roads-and-paths/road-closures",
+    "tags": [
+      "act",
+      "traffic & transport"
+    ],
+    "group": "ACT",
+    "category": "Traffic & Transport",
+    "id": "act-road-closures-https-www-cityservices-act-gov-au-roads-and-paths-road-closures",
+    "featured": false
+  },
+  {
+    "title": "Transport Canberra Alerts",
+    "url": "https://www.transport.act.gov.au/news",
+    "tags": [
+      "act",
+      "traffic & transport"
+    ],
+    "group": "ACT",
+    "category": "Traffic & Transport",
+    "id": "transport-canberra-alerts-https-www-transport-act-gov-au-news",
+    "featured": false
+  },
+  {
+    "title": "Evoenergy Outages",
+    "url": "https://www.evoenergy.com.au/outages",
+    "tags": [
+      "act",
+      "utilities & outages"
+    ],
+    "group": "ACT",
+    "category": "Utilities & Outages",
+    "id": "evoenergy-outages-https-www-evoenergy-com-au-outages",
+    "featured": false
+  },
+  {
+    "title": "Icon Water Outages",
+    "url": "https://www.iconwater.com.au/monitor-and-report/outages.aspx",
+    "tags": [
+      "act",
+      "utilities & outages"
+    ],
+    "group": "ACT",
+    "category": "Utilities & Outages",
+    "id": "icon-water-outages-https-www-iconwater-com-au-monitor-and-report-outages-aspx",
+    "featured": false
+  },
+  {
+    "title": "Healthdirect ACT Finder",
+    "url": "https://www.healthdirect.gov.au/australian-health-services/results/act",
+    "tags": [
+      "act",
+      "health & services"
+    ],
+    "group": "ACT",
+    "category": "Health & Services",
+    "id": "healthdirect-act-finder-https-www-healthdirect-gov-au-australian-health-services-results-act",
+    "featured": false
+  },
+  {
+    "title": "Canberra Connect Services",
+    "url": "https://www.act.gov.au/access-cbr",
+    "tags": [
+      "act",
+      "health & services"
+    ],
+    "group": "ACT",
+    "category": "Health & Services",
+    "id": "canberra-connect-services-https-www-act-gov-au-access-cbr",
+    "featured": false
+  },
+  {
+    "title": "City Services ACT",
+    "url": "https://www.cityservices.act.gov.au/",
+    "tags": [
+      "act",
+      "planning & councils"
+    ],
+    "group": "ACT",
+    "category": "Planning & Councils",
+    "id": "city-services-act-https-www-cityservices-act-gov-au",
+    "featured": false
+  },
+  {
+    "title": "ACT Planning System",
+    "url": "https://www.planning.act.gov.au/",
+    "tags": [
+      "act",
+      "planning & councils"
+    ],
+    "group": "ACT",
+    "category": "Planning & Councils",
+    "id": "act-planning-system-https-www-planning-act-gov-au",
+    "featured": false
+  },
+  {
+    "title": "NBN Network Status",
+    "url": "https://www.nbnco.com.au/support/network-status",
+    "tags": [
+      "telecom status",
+      "national"
+    ],
+    "group": "National",
+    "category": "Telecom status",
+    "id": "nbn-network-status-https-www-nbnco-com-au-support-network-status",
+    "featured": false
+  },
+  {
+    "title": "Telstra Outages",
+    "url": "https://outages.telstra.com/",
+    "tags": [
+      "telecom status",
+      "national"
+    ],
+    "group": "National",
+    "category": "Telecom status",
+    "id": "telstra-outages-https-outages-telstra-com",
+    "featured": false
+  },
+  {
+    "title": "Optus Network Status",
+    "url": "https://www.optus.com.au/about/network/service-status",
+    "tags": [
+      "telecom status",
+      "national"
+    ],
+    "group": "National",
+    "category": "Telecom status",
+    "id": "optus-network-status-https-www-optus-com-au-about-network-service-status",
+    "featured": false
+  },
+  {
+    "title": "Safe Work Australia Model Codes",
+    "url": "https://www.safeworkaustralia.gov.au/resources-publications/model-codes-practice",
+    "tags": [
+      "standards & compliance",
+      "national"
+    ],
+    "group": "National",
+    "category": "Standards & Compliance",
+    "id": "safe-work-australia-model-codes-https-www-safeworkaustralia-gov-au-resources-publications-model-codes-practice",
+    "featured": false
+  },
+  {
+    "title": "ABCB National Construction Code",
+    "url": "https://www.abcb.gov.au/ncc",
+    "tags": [
+      "standards & compliance",
+      "national"
+    ],
+    "group": "National",
+    "category": "Standards & Compliance",
+    "id": "abcb-national-construction-code-https-www-abcb-gov-au-ncc",
+    "featured": false
+  },
+  {
+    "title": "ABCB WaterMark",
+    "url": "https://www.abcb.gov.au/resources/watermark-certification-scheme",
+    "tags": [
+      "standards & compliance",
+      "national"
+    ],
+    "group": "National",
+    "category": "Standards & Compliance",
+    "id": "abcb-watermark-https-www-abcb-gov-au-resources-watermark-certification-scheme",
+    "featured": false
+  },
+  {
+    "title": "Product Safety Australia Recalls",
+    "url": "https://www.productsafety.gov.au/recalls",
+    "tags": [
+      "standards & compliance",
+      "national"
+    ],
+    "group": "National",
+    "category": "Standards & Compliance",
+    "id": "product-safety-australia-recalls-https-www-productsafety-gov-au-recalls",
+    "featured": false
+  },
+  {
+    "title": "JATWC Tsunami Warnings",
+    "url": "https://www.bom.gov.au/tsunami/",
+    "tags": [
+      "geohazards & uv",
+      "national"
+    ],
+    "group": "National",
+    "category": "Geohazards & UV",
+    "id": "jatwc-tsunami-warnings-https-www-bom-gov-au-tsunami",
+    "featured": false
+  },
+  {
+    "title": "Find My Council (National)",
+    "url": "https://www.australia.gov.au/information-and-services/government-and-parliament/local-government",
+    "tags": [
+      "councils & planning",
+      "national"
+    ],
+    "group": "National",
+    "category": "Councils & Planning",
+    "id": "find-my-council-national-https-www-australia-gov-au-information-and-services-government-and-parliament-local-government",
+    "featured": false
+  },
+  {
+    "title": "VIC Planning",
+    "url": "https://www.planning.vic.gov.au/",
+    "tags": [
+      "councils & planning",
+      "national"
+    ],
+    "group": "National",
+    "category": "Councils & Planning",
+    "id": "vic-planning-https-www-planning-vic-gov-au",
+    "featured": false
+  }
+];
+  </script>
+  <script>
+    (function() {
+      const searchInput = document.getElementById('resource-search');
+      const summaryEl = document.getElementById('resource-summary');
+      const featuredSection = document.getElementById('featured-section');
+      const featuredList = document.getElementById('featured-list');
+      const allSection = document.getElementById('all-section');
+      const resourceGrid = document.getElementById('resource-grid');
+      const emptyState = document.getElementById('empty-state');
+      const emptyDataNotice = document.getElementById('resource-empty-global');
+      const toast = document.getElementById('resource-toast');
+      const allCards = [];
+      const savedKey = 'c2c-saved-resources';
+      const MIN_CARDS = 10;
+      let resources = [];
+      let totalCount = 0;
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.style.display = 'block';
+        clearTimeout(showToast.timer);
+        showToast.timer = setTimeout(() => {
+          toast.style.display = 'none';
+        }, 2400);
+      }
+
+      function getSavedSet() {
+        try {
+          return new Set(JSON.parse(localStorage.getItem(savedKey) || '[]'));
+        } catch (error) {
+          console.error(error);
+          return new Set();
+        }
+      }
+
+      function persistSaved(set) {
+        try {
+          localStorage.setItem(savedKey, JSON.stringify(Array.from(set)));
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      function createActionButton(label) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = label;
+        return btn;
+      }
+
+      function createCard(resource) {
+        const li = document.createElement('li');
+        li.className = 'resource-card';
+        li.dataset.section = resource.featured ? 'featured' : 'catalogue';
+        li.dataset.searchText = [
+          resource.title,
+          resource.url,
+          resource.group || '',
+          resource.category || '',
+          (resource.tags || []).join(' ')
+        ].join(' ').toLowerCase();
+        li.setAttribute('data-card', 'true');
+
+        const badge = document.createElement('span');
+        badge.className = 'badge';
+        badge.textContent = resource.group || (resource.featured ? 'Featured' : 'Resource');
+        li.appendChild(badge);
+
+        const heading = document.createElement('h3');
+        heading.textContent = resource.title;
+        li.appendChild(heading);
+
+        const details = resource.description || resource.category;
+        if (details) {
+          const desc = document.createElement('p');
+          desc.textContent = details;
+          li.appendChild(desc);
+        } else if (resource.tags && resource.tags.length) {
+          const desc = document.createElement('p');
+          desc.textContent = resource.tags.join(' • ');
+          li.appendChild(desc);
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+
+        const open = document.createElement('a');
+        open.href = resource.url;
+        open.target = '_blank';
+        open.rel = 'noopener noreferrer';
+        open.textContent = 'Open';
+        open.classList.add('primary');
+        actions.appendChild(open);
+
+        const copy = createActionButton('Copy link');
+        copy.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(resource.url);
+            showToast('Link copied to clipboard');
+          } catch (error) {
+            console.error(error);
+            showToast('Copy failed — open the link and share it manually.');
+          }
+        });
+        actions.appendChild(copy);
+
+        const saveBtn = createActionButton('Save');
+        const saved = getSavedSet();
+        if (saved.has(resource.url)) {
+          saveBtn.classList.add('saved');
+          saveBtn.textContent = 'Saved';
+        }
+        saveBtn.addEventListener('click', () => {
+          const set = getSavedSet();
+          if (set.has(resource.url)) {
+            set.delete(resource.url);
+            saveBtn.classList.remove('saved');
+            saveBtn.textContent = 'Save';
+            showToast('Removed from saved resources');
+          } else {
+            set.add(resource.url);
+            saveBtn.classList.add('saved');
+            saveBtn.textContent = 'Saved';
+            showToast('Saved for this browser');
+          }
+          persistSaved(set);
+        });
+        actions.appendChild(saveBtn);
+
+        li.appendChild(actions);
+        return li;
+      }
+
+      function updateVisibility(query) {
+        if (!totalCount) {
+          if (summaryEl) summaryEl.textContent = '';
+          if (emptyState) emptyState.style.display = 'none';
+          if (featuredSection) featuredSection.style.display = 'none';
+          if (allSection) allSection.style.display = 'none';
+          return;
+        }
+
+        const q = (query || '').trim().toLowerCase();
+        let visibleCount = 0;
+        let featuredVisible = 0;
+
+        allCards.forEach(card => {
+          const match = !q || card.dataset.searchText.includes(q);
+          card.style.display = match ? '' : 'none';
+          if (match) {
+            visibleCount += 1;
+            if (card.dataset.section === 'featured') {
+              featuredVisible += 1;
+            }
+          }
+        });
+
+        if (featuredSection) featuredSection.style.display = featuredVisible ? '' : 'none';
+        if (allSection) {
+          const catalogueVisible = visibleCount - featuredVisible;
+          allSection.style.display = catalogueVisible ? '' : 'none';
+        }
+        if (emptyState) emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        if (summaryEl) {
+          const label = visibleCount === 1 ? 'resource' : 'resources';
+          summaryEl.textContent = `Showing ${visibleCount} of ${totalCount} ${label}`;
+        }
+      }
+
+      function normaliseResource(item) {
+        if (!item) return null;
+        const title = (item.title || '').trim();
+        const url = (item.url || '').trim();
+        if (!title || !url) return null;
+        return {
+          id: item.id || url,
+          title,
+          url,
+          tags: Array.isArray(item.tags) ? item.tags.filter(Boolean) : [],
+          group: item.group || '',
+          category: item.category || '',
+          description: item.description || '',
+          featured: Boolean(item.featured)
+        };
+      }
+
+      function normaliseList(list) {
+        if (!Array.isArray(list)) return [];
+        return list.map(normaliseResource).filter(Boolean);
+      }
+
+      function mergeResources(base, extra) {
+        const map = new Map();
+        base.forEach(resource => {
+          const key = (resource.url || resource.id || '').toLowerCase();
+          if (!key) return;
+          map.set(key, { ...resource });
+        });
+        extra.forEach(resource => {
+          if (!resource) return;
+          const key = (resource.url || resource.id || '').toLowerCase();
+          if (!key) return;
+          if (map.has(key)) {
+            const existing = map.get(key);
+            existing.featured = existing.featured || resource.featured;
+            if (!existing.description && resource.description) existing.description = resource.description;
+            if (!existing.group && resource.group) existing.group = resource.group;
+            if (!existing.category && resource.category) existing.category = resource.category;
+            const combinedTags = new Set([...(existing.tags || []), ...(resource.tags || [])]);
+            existing.tags = Array.from(combinedTags);
+            map.set(key, existing);
+          } else {
+            map.set(key, { ...resource });
+          }
+        });
+        return Array.from(map.values());
+      }
+
+      function flattenFromJson(payload) {
+        if (!payload || typeof payload !== 'object') return [];
+        const flattened = [];
+        const shortcuts = Array.isArray(payload.shortcuts) ? payload.shortcuts : [];
+        shortcuts.forEach((shortcut, index) => {
+          flattened.push(normaliseResource({
+            id: shortcut && (shortcut.id || `shortcut-${index}`),
+            title: shortcut && shortcut.label,
+            url: shortcut && shortcut.url,
+            tags: shortcut && shortcut.tags,
+            group: 'Shortcut',
+            category: 'Featured',
+            description: 'Shortcut link',
+            featured: true
+          }));
+        });
+
+        const byState = payload.by_state || {};
+        Object.entries(byState).forEach(([state, categories]) => {
+          Object.entries(categories || {}).forEach(([category, entries]) => {
+            (entries || []).forEach(entry => {
+              if (!Array.isArray(entry) || entry.length < 2) return;
+              const [title, url] = entry;
+              flattened.push(normaliseResource({
+                title,
+                url,
+                tags: [state, category],
+                group: state,
+                category
+              }));
+            });
+          });
+        });
+
+        const otherCategories = payload.other_categories || {};
+        Object.entries(otherCategories).forEach(([category, entries]) => {
+          (entries || []).forEach(entry => {
+            if (!Array.isArray(entry) || entry.length < 2) return;
+            const [title, url] = entry;
+            flattened.push(normaliseResource({
+              title,
+              url,
+              tags: [category, 'national'],
+              group: 'National',
+              category
+            }));
+          });
+        });
+
+        return flattened.filter(Boolean);
+      }
+
+      function verifyCardCount() {
+        if (!emptyDataNotice) return;
+        const cardCount = document.querySelectorAll('[data-card]').length;
+        if (cardCount > MIN_CARDS) {
+          emptyDataNotice.hidden = true;
+          return;
+        }
+        emptyDataNotice.hidden = false;
+        emptyDataNotice.textContent = 'No resources available yet.';
+        if (featuredSection) featuredSection.style.display = 'none';
+        if (allSection) allSection.style.display = 'none';
+        if (summaryEl) summaryEl.textContent = '';
+        if (emptyState) emptyState.style.display = 'none';
+      }
+
+      function rebuildCards(list) {
+        featuredList.innerHTML = '';
+        resourceGrid.innerHTML = '';
+        allCards.length = 0;
+        totalCount = Array.isArray(list) ? list.length : 0;
+
+        if (totalCount === 0) {
+          if (emptyDataNotice) emptyDataNotice.hidden = false;
+          if (summaryEl) summaryEl.textContent = '';
+          if (featuredSection) featuredSection.style.display = 'none';
+          if (allSection) allSection.style.display = 'none';
+          if (emptyState) emptyState.style.display = 'none';
+          verifyCardCount();
+          return;
+        }
+
+        if (emptyDataNotice) emptyDataNotice.hidden = true;
+
+        list.forEach(resource => {
+          const card = createCard(resource);
+          allCards.push(card);
+          if (resource.featured) {
+            featuredList.appendChild(card);
+          } else {
+            resourceGrid.appendChild(card);
+          }
+        });
+
+        if (featuredSection) featuredSection.style.display = featuredList.children.length ? '' : 'none';
+        if (allSection) allSection.style.display = resourceGrid.children.length ? '' : 'none';
+        verifyCardCount();
+      }
+
+      function readHashQuery() {
+        const hash = location.hash.startsWith('#') ? location.hash.slice(1) : location.hash;
+        if (!hash) return '';
+        const params = new URLSearchParams(hash);
+        return (params.get('q') || '').trim();
+      }
+
+      function writeHashQuery(value) {
+        const hash = location.hash.startsWith('#') ? location.hash.slice(1) : location.hash;
+        const params = new URLSearchParams(hash);
+        if (value) {
+          params.set('q', value);
+        } else {
+          params.delete('q');
+        }
+        const nextHash = params.toString();
+        const nextUrl = nextHash ? `${location.pathname}${location.search}#${nextHash}` : `${location.pathname}${location.search}`;
+        history.replaceState(null, '', nextUrl);
+      }
+
+      const builtIn = normaliseList(window.C2C_RESOURCES || []);
+      const initialQuery = readHashQuery();
+      if (searchInput && initialQuery) {
+        searchInput.value = initialQuery;
+      }
+
+      resources = mergeResources([], builtIn);
+      rebuildCards(resources);
+      updateVisibility(initialQuery || '');
+
+      try {
+        fetch('/data/resources.json', { cache: 'no-store' })
+          .then(resp => resp.ok ? resp.json() : Promise.reject(new Error(`HTTP ${resp.status}`)))
+          .then(payload => {
+            const extra = flattenFromJson(payload);
+            if (extra.length) {
+              resources = mergeResources(resources, normaliseList(extra));
+              rebuildCards(resources);
+              updateVisibility(searchInput ? searchInput.value : '');
+            }
+          })
+          .catch(error => {
+            console.warn('Resource JSON fallback triggered', error);
+          });
+      } catch (error) {
+        console.warn('Resource JSON fetch unavailable', error);
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', event => {
+          const value = event.target.value || '';
+          writeHashQuery(value.trim());
+          updateVisibility(value);
+        });
+      }
+
+      window.addEventListener('hashchange', () => {
+        const next = readHashQuery();
+        if (searchInput && next !== searchInput.value) {
+          searchInput.value = next;
+        }
+        updateVisibility(next);
+      });
+    })();
+  </script>
+</body>
+</html>

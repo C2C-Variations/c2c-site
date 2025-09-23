@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>C2C Variations — Pricing</title>
+  <meta name="description" content="Choose a C2C plan. Solo, Crew, or Business. Monthly or yearly with GST handled by Stripe.">
+  <link rel="icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="canonical" href="https://www.c2cvariations.com.au/pricing">
+  <link rel="preload" href="site-mobile.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="site-mobile.css?v=8"></noscript>
+  <link rel="stylesheet" href="assets/site-nav.css?v=1">
+  <link rel="stylesheet" href="assets/nav-cta.hotfix.css?v=9">
+  <link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
+  <style>
+    :root{--bg:#000;--card:#0b0b0b;--muted:#bdbdbd;--text:#fff;--outline:#222;--orange:#ff7a00;--wa:#25D366}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .site-header{position:sticky;top:0;background:rgba(0,0,0,.9);border-bottom:1px solid var(--outline);backdrop-filter:blur(8px);z-index:50}
+    .nav-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand img.icon{width:56px;height:56px;border-radius:10px;display:block}
+    .nav{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .nav a{color:#fff;text-decoration:none;opacity:.9}
+    .nav a:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:12px 18px;font-weight:800;text-decoration:none;cursor:pointer;border:1px solid var(--outline);transition:transform .12s ease, box-shadow .12s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,122,0,.18)}
+    .btn-primary{background:var(--orange);color:#000;border-color:var(--orange)}
+    .btn-outline{background:transparent;color:var(--orange);border-color:var(--orange)}
+    .btn-wa{background:var(--wa);color:#000;border-color:var(--wa)}
+    .hero{margin:12px 0 0;color:#e9e9e9}
+    h1{margin:12px 0 8px;font-size:44px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:18px}
+    .plan{background:var(--card);border:1px solid var(--outline);border-radius:16px;padding:18px;display:flex;flex-direction:column;min-height:100%}
+    .plan h3{margin:0 0 4px}
+    .price{font-size:28px;margin:6px 0 12px}
+    .features{flex:1}
+    .features ul{margin:0 0 6px 18px;padding:0;color:#e7e7e7}
+    .actions{display:grid;gap:10px;margin-top:10px}
+    .pill{display:inline-block;background:#111;border:1px solid #222;padding:4px 10px;border-radius:999px;font-size:.8rem;color:#cfcfcf;margin-bottom:8px}
+    footer{padding:30px 0;color:#a7a7a7;border-top:1px solid var(--outline);margin-top:34px}
+    footer a{color:#ff8a3d;text-decoration:none}
+    /* mobile menu */
+    
+    
+    
+  </style>
+  <meta name="c2c-fixpack" content="on">
+  <style>
+    a[href^='https://buy.stripe.com']{position:relative;z-index:9999;pointer-events:auto !important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+    .backdrop,.overlay,.modal-backdrop,.menu-backdrop,.click-shield{pointer-events:none !important}
+  </style>
+</head>
+<body>
+<header class="site-header" data-nav-root>
+  <div class="container nav-row">
+    <a class="brand" href="./index.html" aria-label="C2C Variations home">
+      <img class="icon" src="./assets/logo-icon.jpg" alt="C2C icon">
+    </a>
+    <button class="nav-hamburger" type="button" data-nav-toggle aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
+      <span class="nav-hamburger-bar"></span>
+      <span class="nav-hamburger-bar"></span>
+      <span class="nav-hamburger-bar"></span>
+    </button>
+    <nav class="nav site-nav" id="main-nav" role="navigation" aria-label="Main" data-nav-menu>
+      <a href="./index.html">Home</a>
+      <a href="./pricing.html">Pricing</a>
+      <a href="./about.html">About</a>
+      <a href="./docs.html">Docs</a>
+        <a href="/resources.html">Resources</a>
+      <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+      <button type="button" id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
+    </nav>
+  </div>
+</header>
+
+
+<main class="container">
+  <h1>Pick your plan</h1>
+  <p class="hero">Monthly or yearly. GST handled at checkout by Stripe.</p>
+
+  <div class="grid">
+    <!-- SOLO -->
+    <article class="plan">
+      <span class="pill">Solo</span>
+      <h3>Solo Plan</h3>
+      <div class="price">A$29 <small>/mo + GST</small></div>
+      <div class="features">
+        <ul>
+          <li>For individual tradies</li>
+          <li>Unlimited variations, quotes & compliance docs</li>
+        </ul>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://buy.stripe.com/28EdRagGJ7HE8WV1WK3VC08">Get started (monthly)</a>
+        <a class="btn btn-outline" href="https://buy.stripe.com/8x27sMcqt6DA3CB7h43VC09">Pay yearly &amp; save 10%</a>
+      </div>
+    </article>
+
+    <!-- CREW -->
+    <article class="plan">
+      <span class="pill">Crew</span>
+      <h3>Crew Plan</h3>
+      <div class="price">A$79 <small>/mo + GST</small></div>
+      <div class="features">
+        <ul>
+          <li>Up to 5 users</li>
+          <li>Shared templates & history</li>
+          <li>All Solo features</li>
+        </ul>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://buy.stripe.com/eVq6oI3TXgea6ON9pc3VC0a">Get started (monthly)</a>
+        <a class="btn btn-outline" href="https://buy.stripe.com/9B68wQ0HL5zw7SR30O3VC0b">Pay yearly &amp; save 10%</a>
+      </div>
+    </article>
+
+    <!-- BUSINESS -->
+    <article class="plan">
+      <span class="pill">Business</span>
+      <h3>Business Plan</h3>
+      <div class="price">A$199 <small>/mo + GST</small></div>
+      <div class="features">
+        <ul>
+          <li>Up to 15 users</li>
+          <li>Full access to all C2C tools</li>
+          <li>Priority responses</li>
+        </ul>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://buy.stripe.com/eVqaEYbmp3rofljeJw3VC0c">Get started (monthly)</a>
+        <a class="btn btn-outline" href="https://buy.stripe.com/14AbJ2bmpgea8WV8l83VC0d">Pay yearly &amp; save 10%</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="" role="contentinfo">
+  <div class="container" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+    <span>© C2C Variations</span>
+    <span class="footer-links">
+      <a href="/resources">Resources</a> •
+      <a href="/privacy">Privacy</a> •
+      <a href="/terms">Terms</a>
+    </span>
+  </div>
+</footer>
+
+<!-- Chat UI (no change) -->
+<div id="c2c-chat-overlay" hidden></div>
+<div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
+  <header class="c2c-chat-header">
+    <strong>C2C Chat</strong>
+    <button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
+  </header>
+  <div class="c2c-chat-body">
+    <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
+    <p>
+      <a class="c2c-chat-link" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">Chat on WhatsApp</a><br>
+      <a class="c2c-chat-link" href="mailto:info@c2cvariations.com.au">info@c2cvariations.com.au</a>
+    </p>
+  </div>
+</div>
+<script src="assets/stripe-links.js?v=1" defer></script>
+<script src="assets/site-nav.js?v=1" defer></script>
+  <script src="assets/chatbot.v6.js?v=1" defer></script>
+
+
+</body>
+</html>
