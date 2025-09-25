@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>C2C Variations — Resources</title>
   <meta name="description" content="Browse featured government, council and compliance resources. Filter everything in real time and keep your search in the URL for easy sharing.">
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests;">
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/site-mobile.css?v=8">
-  <link rel="stylesheet" href="/assets/site-nav.css?v=1">
+  <link rel="stylesheet" href="/assets/css/site-header.css?v=1">
   <link rel="stylesheet" href="/assets/nav-cta.hotfix.css?v=9">
   <link rel="stylesheet" href="/assets/chatbot.v6.css?v=1">
   <link rel="stylesheet" href="/assets/css/resources.css?v=1">
@@ -27,11 +25,11 @@
         <span class="nav-hamburger-bar"></span>
       </button>
       <nav class="nav site-nav" id="main-nav" role="navigation" aria-label="Main" data-nav-menu>
-        <a href="/index.html">Home</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/about.html">About</a>
-        <a href="/docs.html">Docs</a>
-        <a href="/resources.html" aria-current="page">Resources</a>
+        <a href="/index.html" rel="nav">Home</a>
+        <a href="/pricing.html" rel="nav">Pricing</a>
+        <a href="/about.html" rel="nav">About</a>
+        <a href="/docs.html" rel="nav">Docs</a>
+        <a href="/resources.html" rel="nav" aria-current="page">Resources</a>
         <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
         <button type="button" id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
       </nav>
@@ -61,7 +59,7 @@
       <div id="resources-all" class="cards"></div>
     </section>
 
-  <script src="/assets/site-nav.js?v=1" defer></script>
+  <script defer src="/assets/js/site-header.js?v=1"></script>
   <script src="/assets/chatbot.v6.js" defer></script>
   <script src="/assets/js/resources.data.js" defer></script>
   <script src="/assets/js/resources.hub.js" defer></script>
