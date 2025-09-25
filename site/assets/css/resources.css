@@ -1,0 +1,212 @@
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      background: #050505;
+      color: #f5f5f5;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 64px) 24px 96px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 16px;
+      margin-bottom: clamp(32px, 5vw, 56px);
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(255, 153, 102, 0.12);
+      color: #ffb48c;
+      border: 1px solid rgba(255, 153, 102, 0.4);
+      width: max-content;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 6vw, 3.8rem);
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 680px;
+      color: #d7d7d7;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      display: grid;
+      gap: 32px;
+      margin-top: clamp(24px, 4vw, 48px);
+    }
+
+    .search {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    #resources-search {
+      flex: 1 1 260px;
+      min-width: 220px;
+      padding: 14px 16px;
+      font-size: 1rem;
+      border-radius: 14px;
+      border: 1px solid #2a2a2a;
+      background: #0f0f0f;
+      color: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #resources-search:focus {
+      outline: none;
+      border-color: rgba(255, 153, 102, 0.75);
+      box-shadow: 0 0 0 3px rgba(255, 153, 102, 0.2);
+    }
+
+    #resources-counter {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #cfcfcf;
+    }
+
+    .cards {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .res-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #0b0b0b;
+      border: 1px solid #1f1f1f;
+      border-radius: 18px;
+      padding: 20px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .res-card:hover,
+    .res-card:focus-within {
+      border-color: rgba(255, 153, 102, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .res-card__title {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .res-card__link {
+      color: #fdfdfd;
+      text-decoration: none;
+    }
+
+    .res-card__link:hover,
+    .res-card__link:focus {
+      text-decoration: underline;
+    }
+
+    .res-card__summary {
+      margin: 0;
+      color: #b9b9b9;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .res-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .res-card__tags li {
+      background: #181818;
+      border: 1px solid #2f2f2f;
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .res-card__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .res-card__actions button {
+      flex: 1 1 100px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid #2a2a2a;
+      background: #111;
+      color: #fdfdfd;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    .res-card__actions button:hover,
+    .res-card__actions button:focus {
+      border-color: rgba(255, 153, 102, 0.65);
+      background: #171717;
+      outline: none;
+    }
+
+    .res-card__actions .js-open {
+      background: linear-gradient(135deg, rgba(255, 153, 102, 0.2), rgba(255, 94, 58, 0.25));
+      border: 1px solid rgba(255, 153, 102, 0.5);
+    }
+
+    @media (max-width: 720px) {
+      .res-card__actions button {
+        flex: 1 1 100%;
+      }
+
+      main {
+        padding-inline: 16px;
+      }
+    }
