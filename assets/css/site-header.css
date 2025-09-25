@@ -142,3 +142,12 @@ a[rel="nav"].is-active {
   font-weight: bold;
   text-decoration: underline;
 }
+
+html.scroll-lock, body.scroll-lock { overflow: hidden; }
+
+.c2c-ctx {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #aaa;
+}
+
