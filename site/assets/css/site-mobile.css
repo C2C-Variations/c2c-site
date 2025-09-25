@@ -1,0 +1,323 @@
+/* FINAL: Desktop grid override, always last */
+@media (min-width: 601px) {
+  .cards, .partners, .testimonials, .how {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 16px !important;
+    align-items: initial !important;
+    justify-items: initial !important;
+  }
+  .how {
+    grid-template-columns: 1.1fr .9fr !important;
+    align-items: center !important;
+    margin: 30px 0 !important;
+  }
+}
+/* FINAL: Mobile payment button clickability, always last */
+@media (max-width: 600px) {
+  .btn, .btn-primary, .compact-btn {
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+    position: relative !important;
+    cursor: pointer !important;
+  }
+}
+/* --- Strictly mobile-only overrides --- */
+@media (max-width: 600px) {
+  .cards,
+  .partners,
+  .testimonials,
+  .how {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+  .cards .card,
+  .partners .card,
+  .testimonials .card,
+  .how .card {
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+  .partners img,
+  .testimonials img {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  .how > div {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+  /* --- Force payment buttons to be clickable on mobile --- */
+  .btn, .btn-primary, .compact-btn {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 1000 !important;
+  }
+}
+
+/* --- Force desktop grid with high specificity and !important --- */
+@media (min-width: 601px) {
+  .cards, .partners, .testimonials, .how {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 16px !important;
+    align-items: initial !important;
+    justify-items: initial !important;
+  }
+  .how {
+    grid-template-columns: 1.1fr .9fr !important;
+    align-items: center !important;
+    margin: 30px 0 !important;
+  }
+}
+/* --- Restore desktop grid for homepage --- */
+.cards, .partners, .testimonials, .how {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.how {
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  margin: 30px 0;
+}
+
+/* --- Strictly mobile-only overrides --- */
+@media (max-width: 600px) {
+  .cards,
+  .partners,
+  .testimonials,
+  .how {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+  .cards .card,
+  .partners .card,
+  .testimonials .card,
+  .how .card {
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+  .partners img,
+  .testimonials img {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  .how > div {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+  /* --- Force payment buttons to be clickable on mobile --- */
+  .btn, .btn-primary, .compact-btn {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+}
+:root{
+  --bg:#000; --fg:#fff; --muted:#a7a7a7; --card:#0b0b0b; --line:#222; --accent:#ff8a3d; --wa:#25D366;
+}
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ margin:0; background:var(--bg); color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  padding-top:env(safe-area-inset-top); padding-bottom:env(safe-area-inset-bottom);
+}
+.container{ max-width:1100px; margin:0 auto; padding:20px;}
+h1,h2,h3{ letter-spacing:-.02em; margin:10px 0 8px;}
+h1{ font-weight:800; font-size:clamp(32px, 5vw, 56px);}
+h2{ font-weight:800; font-size:clamp(22px, 3.2vw, 28px);}
+.muted{ color:var(--muted);}
+.card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px;}
+.grid{ display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+a{ color:var(--accent); text-decoration:none;}
+a:focus,a:hover{ text-decoration:underline;}
+button,.btn,a{ -webkit-tap-highlight-color: rgba(255,255,255,.05); min-height:44px;}
+img{ max-width:100%; height:auto;}
+@media (max-width:768px){
+  .container{ padding:16px;}
+}
+/* Patch: shrink yearly buttons */
+.card .cta a {
+  width: auto;
+  min-width: 140px;
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+/* ===== C2C HOTFIX v8 — header vs content CTAs ===== */
+:root { --c2c-orange:#FF7A00; }
+
+/* Header pills ONLY */
+header a.btn-wa,
+header #c2c-chat-cta,
+.site-header a.btn-wa,
+.site-header #c2c-chat-cta,
+#site-nav a.btn-wa,
+#site-nav #c2c-chat-cta{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height:46px !important;
+  padding:0 18px !important;
+  border-radius:999px !important;
+  font-weight:800 !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  box-shadow:0 4px 16px rgba(0,0,0,.28) !important;
+}
+header a.btn-wa,
+.site-header a.btn-wa,
+#site-nav a.btn-wa{
+  background:#25D366 !important; /* WA green */
+  color:#fff !important;
+}
+header #c2c-chat-cta,
+.site-header #c2c-chat-cta,
+#site-nav #c2c-chat-cta{
+  background:var(--c2c-orange) !important;
+  color:#fff !important;
+  cursor:pointer !important;
+}
+
+/* Content & footer buttons — compact (never giant) */
+main a.btn-wa,
+main #c2c-chat-cta,
+.content a.btn-wa,
+.content #c2c-chat-cta,
+footer a.btn-wa,
+footer #c2c-chat-cta,
+main .btn,
+.content .btn,
+footer .btn{
+  display:inline-block !important;
+  width:auto !important;
+  min-width:unset !important;
+  height:auto !important;
+  padding:10px 14px !important;
+  border-radius:10px !important;
+  font-weight:700 !important;
+  font-size:14px !important;
+  box-shadow:none !important;
+}
+
+/* Kill any rogue full-width rule */
+.btn, .btn-primary, .btn-wa, #c2c-chat-cta { width:auto !important; }
+
+/* Pricing: keep CTAs compact & centered under each card */
+.plan-card .btn,
+.plan-card .btn-wa{
+  width:auto !important;
+  display:inline-block !important;
+  margin:0 auto !important;
+}
+
+/* Responsive header sizing */
+@media (max-width:900px){
+  header a.btn-wa, header #c2c-chat-cta,
+  .site-header a.btn-wa, .site-header #c2c-chat-cta{
+    height:42px !important; padding:0 14px !important; font-size:15px !important;
+  }
+}
+@media (max-width:600px){
+  header a.btn-wa, header #c2c-chat-cta,
+  .site-header a.btn-wa, .site-header #c2c-chat-cta{
+    height:38px !important; padding:0 12px !important; font-size:14px !important;
+  }
+}
+/* ===== end HOTFIX v8 ===== */
+
+/* CTA spacing and alignment for mobile */
+@media (max-width: 600px) {
+  header .btn,
+  header .btn-wa,
+  header #c2c-chat-cta,
+  .site-header .btn,
+  .site-header .btn-wa,
+  .site-header #c2c-chat-cta {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    min-width: 44px !important;
+    width: auto !important;
+    max-width: 100%;
+    display: inline-flex !important;
+  }
+  main .btn,
+  main .btn-wa,
+  main #c2c-chat-cta,
+  .content .btn,
+  .content .btn-wa,
+  .content #c2c-chat-cta {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    min-width: 44px !important;
+    width: 100% !important;
+    max-width: 100%;
+    display: block !important;
+    text-align: center !important;
+  }
+  .footer .btn,
+  .footer .btn-wa,
+  .footer #c2c-chat-cta {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    min-width: 44px !important;
+    width: 100% !important;
+    max-width: 100%;
+    display: block !important;
+    text-align: center !important;
+  }
+
+  /* Mobile grid/card layout fixes (strictly mobile only) */
+  @media (max-width: 600px) {
+    .cards,
+    .partners,
+    .testimonials,
+    .how {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 18px !important;
+      align-items: stretch !important;
+    }
+    .cards .card,
+    .partners .card,
+    .testimonials .card,
+    .how .card {
+      min-width: 0 !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+    }
+    .partners img,
+    .testimonials img {
+      max-width: 100% !important;
+      height: auto !important;
+      margin: 0 auto !important;
+      display: block !important;
+    }
+    .how > div {
+      width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+    }
+  }
+}
