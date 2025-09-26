@@ -4,6 +4,9 @@ export default {
     const ct = res.headers.get("content-type") || "";
     if (!ct.includes("text/html")) return res;
 
+    const url = new URL(request.url);
+    const pathname = url.pathname;
+    if (pathname.startsWith('/resources') || pathname.startsWith('/site/resources')) return res;
     const css = `:root{--c2c-orange:#FF7A00}
 a[href^="https://buy.stripe.com"]{position:relative;z-index:9999;pointer-events:auto !important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .backdrop,.overlay,.modal-backdrop,.menu-backdrop,.click-shield{pointer-events:none !important}
