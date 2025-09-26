@@ -63,6 +63,7 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
   }
 
   function setupDOM() {
+    console.log("C2C Resources: setupDOM start");
     if (elements.allContainer) {
       elements.allContainer.innerHTML = "";
       const wrapper = document.createElement("div");
@@ -183,6 +184,7 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
   }
 
   function apply(resetLimits) {
+    console.log("C2C Resources: apply rendering", Array.isArray(state?.all) ? state.all.length : 0, "resetLimits=", !!resetLimits);
     const query = (state.q || "").trim().toLowerCase();
     const queryChanged = query !== state.lastQuery;
     state.lastQuery = query;
