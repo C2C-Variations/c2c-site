@@ -25,6 +25,20 @@ else {
     "Utilities & Outages",
     "Other",
   ];
+  function groupByRegionCategory(items) {
+    const map = {};
+    for (const it of items || []) {
+      const regions = Array.isArray(it?.regions) && it.regions.length ? it.regions : ['NAT'];
+      const category = it?.category || 'Other';
+      for (const region of regions) {
+        map[region] ??= {};
+        map[region][category] ??= [];
+        map[region][category].push(it);
+      }
+    }
+    return map;
+  }
+
   function isDocItem(it){
     const t = (it.title||"").toLowerCase();
     const u = (it.url||it.href||"").toLowerCase();
