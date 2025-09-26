@@ -1,3 +1,5 @@
+console.info("C2C Resources BOOT");
+console.log("C2C Resources: dataset URL =", document.getElementById("resources-app")?.dataset?.source);
 (function () {
   "use strict";
 
@@ -461,3 +463,5 @@
     init();
   }
 })();
+
+
