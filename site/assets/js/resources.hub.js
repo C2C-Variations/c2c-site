@@ -72,6 +72,35 @@ else {
       regionChips: new Map(),
     };
 
+    state.geo = state.geo ?? null;
+    state.activeRegions = state.activeRegions ?? [];
+
+    function requestGeo() {
+      if (!navigator.geolocation) {
+        console.warn("Geolocation not supported");
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          state.geo = { lat: position.coords.latitude, lng: position.coords.longitude };
+          console.log("C2C Resources: geo", state.geo);
+          apply();
+        },
+        error => console.warn("C2C Resources: geo denied", error),
+        { enableHighAccuracy: true, timeout: 10000 }
+      );
+    }
+
+    function resolveUrl(item) {
+      const template = item.urlTemplate || item.url || item.href || "#";
+      if (!item.urlTemplate || !state.geo) return template;
+      const code = state.activeRegions.length === 1 ? state.activeRegions[0] : "NAT";
+      return template
+        .replace("{lat}", state.geo.lat)
+        .replace("{lng}", state.geo.lng)
+        .replace("{state}", code);
+    }
+
     const renderConfig = new Map();
     let badgeRegistry = new Map();
     let linkReport = new Map();
@@ -121,7 +150,7 @@ else {
         geoBtn.type = "button";
         geoBtn.className = "c2c-chip";
         geoBtn.textContent = "Use my location";
-        geoBtn.addEventListener("click", requestGeo);
+        geoBtn.addEventListener("click", () => requestGeo());
         toolbar.appendChild(geoBtn);
         const row = document.createElement("div");
         row.className = "c2c-chip-row";
@@ -316,6 +345,7 @@ else {
         const hasActive = state.activeRegions.length > 0;
         state.regionChips.forEach((btn, code) => {
           const active = hasActive ? state.activeRegions.includes(code) : code === 'ALL';
+          btn.classList.toggle('active', active);
           btn.classList.toggle('is-active', active);
           btn.setAttribute('aria-pressed', String(active));
         });
