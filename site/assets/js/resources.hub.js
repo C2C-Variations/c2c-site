@@ -189,8 +189,51 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
     return item.searchText.includes(query);
   }
 
+  function renderBucketsSimple(out, items) {
+    // group by item.bucket (string) with "Featured" first, then alpha
+    const groups = new Map();
+    for (const it of (items || [])) {
+      const b = (it.bucket || "Other").trim();
+      if (!groups.has(b)) groups.set(b, []);
+      groups.get(b).push(it);
+    }
+    const order = ["Featured", ...[...groups.keys()].filter(x => x !== "Featured").sort((a, b) => a.localeCompare(b))];
+
+    // build clean, CSP-safe markup
+    const esc = s => String(s || "").replace(/[&<>"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
+    let html = `<div class="c2c-groups">`;
+    for (const g of order) {
+      const arr = groups.get(g) || [];
+      html += `
+      <section class="c2c-group" data-bucket="${esc(g)}">
+        <button class="c2c-accordion" aria-expanded="true">
+          <span class="c2c-group-title">${esc(g)}</span>
+          <span class="c2c-count">${arr.length}</span>
+        </button>
+        <ul class="c2c-cards">` +
+        arr.map(x => `<li class="c2c-card">
+            <a class="c2c-card-link" href="${esc(x.url || x.href || '#')}" rel="noopener" target="_blank">${esc(x.title || x.name || 'Untitled')}</a>
+            ${x.tags && x.tags.length ? `<div class="c2c-tags">${x.tags.map(esc).join(", ")}</div>` : ""}
+          </li>`).join("") +
+        `</ul>
+      </section>`;
+    }
+    html += `</div>`;
+    out.innerHTML = html;
+
+    // basic accordion behaviour (no inline styles)
+    out.querySelectorAll(".c2c-accordion").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const sec = btn.closest(".c2c-group");
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!expanded));
+        const list = sec.querySelector(".c2c-cards");
+        if (list) list.hidden = expanded;
+      }, { once: false });
+    });
+  }
+
   function apply(resetLimits) {
-    const __out = document.getElementById("c2c-buckets") || document.getElementById("resources-app");
     console.log("C2C Resources: apply rendering", Array.isArray(state?.all) ? state.all.length : 0, "resetLimits=", !!resetLimits);
     const query = (state.q || "").trim().toLowerCase();
     const queryChanged = query !== state.lastQuery;
@@ -222,15 +265,11 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
 
     if (elements.counter) {
       elements.counter.textContent = `Showing ${filtered.length} of ${state.all.length} resources`;
-    }
+    }
+    const __out = document.getElementById("c2c-buckets") || document.getElementById("resources-app");
     if (__out && (!__out.innerHTML || __out.innerHTML.trim() === "")) {
-      __out.innerHTML = `<ul style="padding:16px;list-style:none;margin:0;">${
-        (Array.isArray(state.all) ? state.all : []).slice(0, 60)
-          .map(x => `<li style="margin:6px 0;border-bottom:1px solid #333;padding:6px 0;">
-        ${x.title || x.name || "Untitled"}${x.tags ? ` - <small>${(x.tags || []).join(", ")}</small>` : ""}
-      </li>`).join("")
-      }</ul>`;
-      console.warn("C2C Resources: fallback list render used");
+      renderBucketsSimple(__out, Array.isArray(state.all) ? state.all : []);
+      console.warn("C2C Resources: simple grouped renderer used");
     }
   }
 
