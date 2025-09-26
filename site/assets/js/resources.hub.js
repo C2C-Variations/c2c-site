@@ -1,3 +1,4 @@
+console.info("C2C Resources BOOT");
 (function () {
   "use strict";
 
@@ -461,3 +462,4 @@
     init();
   }
 })();
+
