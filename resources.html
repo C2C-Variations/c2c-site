@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="/assets/css/resources.css?v=7">
   <script defer src="/assets/js/site-header.js?v=4"></script>
   <script defer src="/assets/js/site-enhancements.js?v=7"></script>
-  <script defer src="/assets/js/resources.hub.js?v=7"></script>
+  <script defer src="/assets/js/resources.hub.js?v=10"></script>
+  <script defer src="/site/assets/js/resources.hub.js?v=10"></script>
 </head>
 <body>
   <header id="site-header"></header>
@@ -19,11 +20,16 @@
       <p>Government warnings, council tools, and compliance references — grouped, searchable, and link-health checked.</p>
     </section>
     <div id="resources-app"
-         data-source="/assets/data/resources.json"
-         data-linkreport="/assets/data/resources.linkreport.json">
+      data-source="/assets/data/resources.json"
+      data-source-fallback="/site/assets/data/resources.json"
+      data-linkreport="/assets/data/resources.linkreport.json"
+      data-linkreport-fallback="/site/assets/data/resources.linkreport.json">
       <noscript>Turn on JavaScript to view the resource hub.</noscript>
     </div>
   </main>
   <footer id="site-footer"></footer>
 </body>
 </html>
+
+
+
