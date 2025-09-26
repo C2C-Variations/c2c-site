@@ -2,6 +2,19 @@ if (window.__c2c_hub_loaded__) { console.info("C2C Resources: already loaded"); 
 else {
   window.__c2c_hub_loaded__ = true;
 
+  const C2C_DOC_EXTS = new Set([".pdf",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".odt",".rtf"]);
+  const C2C_DOC_TAGS = new Set(["doc","docs","document","documents","template","templates","form","forms"]);
+  function isDocItem(it){
+    const t = (it.title||"").toLowerCase();
+    const u = (it.url||it.href||"").toLowerCase();
+    const tags = (it.tags||[]).map(x=>String(x).toLowerCase());
+    if (tags.some(x => C2C_DOC_TAGS.has(x))) return true;
+    if (/\b(template|form|document|pack|kit)\b/.test(t)) return true;
+    for (const ext of C2C_DOC_EXTS){ if (u.endsWith(ext)) return true; }
+    if (u.includes("/docs/")) return true;
+    return false;
+  }
+
   console.info("C2C Resources BOOT");
   async function fetchJSON(u){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status+" "+u);return r.json();}
   console.log("C2C Resources: dataset URL =", document.getElementById("resources-app")?.dataset?.source);
@@ -475,6 +488,12 @@ else {
         }
       }
       console.info("C2C Resources: dataset size =", DATA.length);
+
+      const before = Array.isArray(DATA) ? DATA.length : 0;
+
+      DATA = (Array.isArray(DATA) ? DATA : []).filter(it => !isDocItem(it));
+
+      console.info("C2C Resources: docs removed =", before - DATA.length, "remaining =", DATA.length);
 
       state.all = prepareResources(Array.isArray(DATA) ? DATA : []);
       console.info("C2C Resources: state.all =", state.all.length);
