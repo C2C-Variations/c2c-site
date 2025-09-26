@@ -63,6 +63,12 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
   }
 
   function setupDOM() {
+    const __m = document.getElementById("resources-app");
+    if (__m && !__m.querySelector("#c2c-buckets")) {
+      __m.insertAdjacentHTML("beforeend",
+        `<div id="c2c-buckets" class="c2c-buckets"></div>`);
+      console.log("C2C Resources: injected #c2c-buckets");
+    }
     console.log("C2C Resources: setupDOM start");
     if (elements.allContainer) {
       elements.allContainer.innerHTML = "";
@@ -184,6 +190,7 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
   }
 
   function apply(resetLimits) {
+    const __out = document.getElementById("c2c-buckets") || document.getElementById("resources-app");
     console.log("C2C Resources: apply rendering", Array.isArray(state?.all) ? state.all.length : 0, "resetLimits=", !!resetLimits);
     const query = (state.q || "").trim().toLowerCase();
     const queryChanged = query !== state.lastQuery;
@@ -215,6 +222,15 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
 
     if (elements.counter) {
       elements.counter.textContent = `Showing ${filtered.length} of ${state.all.length} resources`;
+    }
+    if (__out && (!__out.innerHTML || __out.innerHTML.trim() === "")) {
+      __out.innerHTML = `<ul style="padding:16px;list-style:none;margin:0;">${
+        (Array.isArray(state.all) ? state.all : []).slice(0, 60)
+          .map(x => `<li style="margin:6px 0;border-bottom:1px solid #333;padding:6px 0;">
+        ${x.title || x.name || "Untitled"}${x.tags ? ` - <small>${(x.tags || []).join(", ")}</small>` : ""}
+      </li>`).join("")
+      }</ul>`;
+      console.warn("C2C Resources: fallback list render used");
     }
   }
 
@@ -500,4 +516,5 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
     init();
   }
 })();
+
 
