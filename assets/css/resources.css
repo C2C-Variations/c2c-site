@@ -355,3 +355,10 @@
 .c2c-card-link:hover{text-decoration:underline}
 .c2c-tags{opacity:.7;font-size:.85em;margin-top:6px}
 
+
+.c2c-chip-row{display:flex;flex-wrap:wrap;gap:6px}
+.c2c-chip.is-active{background:#1f4ad0;color:#fff;border-color:#1f4ad0}
+.c2c-region-body{padding:12px}
+.c2c-category-title{display:flex;align-items:center;gap:6px;margin:0 0 8px 0;font-size:1rem}
+.c2c-empty{margin:16px;font-style:italic;opacity:.8}
+

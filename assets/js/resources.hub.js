@@ -4,6 +4,27 @@ else {
 
   const C2C_DOC_EXTS = new Set([".pdf",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".odt",".rtf"]);
   const C2C_DOC_TAGS = new Set(["doc","docs","document","documents","template","templates","form","forms"]);
+  const REGION_ORDER = ["NAT","VIC","NSW","QLD","SA","WA","TAS","NT","ACT"];
+  const REGION_LABEL = {
+    NAT: "National",
+    VIC: "Victoria",
+    NSW: "New South Wales",
+    QLD: "Queensland",
+    SA: "South Australia",
+    WA: "Western Australia",
+    TAS: "Tasmania",
+    NT: "Northern Territory",
+    ACT: "Australian Capital Territory",
+  };
+  const CAT_ORDER = [
+    "Emergency & Alerts",
+    "Health & Services",
+    "Planning & Councils",
+    "Traffic & Transport",
+    "Safety",
+    "Utilities & Outages",
+    "Other",
+  ];
   function isDocItem(it){
     const t = (it.title||"").toLowerCase();
     const u = (it.url||it.href||"").toLowerCase();
@@ -46,6 +67,9 @@ else {
       all: [],
       q: "",
       lastQuery: "",
+      geo: null,
+      activeRegions: [],
+      regionChips: new Map(),
     };
 
     const renderConfig = new Map();
@@ -81,11 +105,52 @@ else {
 
     function setupDOM() {
       const mount = document.getElementById("resources-app");
-      if (mount && !mount.querySelector("#c2c-buckets")) {
-        mount.insertAdjacentHTML("beforeend", `<div id="c2c-buckets" class="c2c-buckets"></div>`);
+      if (!mount) return;
+      if (!mount.querySelector("#c2c-buckets")) {
+        mount.insertAdjacentHTML("beforeend", '<div id="c2c-buckets" class="c2c-buckets"></div>');
         console.log("C2C Resources: injected #c2c-buckets");
       }
+      const root = mount.querySelector("#c2c-buckets");
+      if (!root) return;
       console.log("C2C Resources: setupDOM start");
+      if (!root.querySelector(".c2c-toolbar")) {
+        state.regionChips = new Map();
+        const toolbar = document.createElement("div");
+        toolbar.className = "c2c-toolbar";
+        const geoBtn = document.createElement("button");
+        geoBtn.type = "button";
+        geoBtn.className = "c2c-chip";
+        geoBtn.textContent = "Use my location";
+        geoBtn.addEventListener("click", requestGeo);
+        toolbar.appendChild(geoBtn);
+        const row = document.createElement("div");
+        row.className = "c2c-chip-row";
+        const makeChip = (code, label) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "c2c-chip";
+          btn.dataset.region = code;
+          btn.textContent = label;
+          btn.setAttribute("aria-pressed", "false");
+          btn.addEventListener("click", () => {
+            state.activeRegions = code === "ALL" ? [] : [code];
+            apply();
+          });
+          state.regionChips.set(code, btn);
+          return btn;
+        };
+        row.appendChild(makeChip("ALL", "All"));
+        for (const region of REGION_ORDER) {
+          row.appendChild(makeChip(region, REGION_LABEL[region] || region));
+        }
+        toolbar.appendChild(row);
+        root.prepend(toolbar);
+      } else {
+        state.regionChips = new Map();
+        root.querySelectorAll(".c2c-chip[data-region]").forEach(btn => {
+          state.regionChips.set(btn.dataset.region || "", btn);
+        });
+      }
     }
 
     function createGroup(parent, bucket) {
@@ -170,45 +235,154 @@ else {
     }
 
     function renderBucketsSimple(out, items) {
-      // group by item.bucket (string) with "Featured" first, then alpha
-      const groups = new Map();
-      for (const it of (items || [])) {
-        const b = (it.bucket || "Other").trim();
-        if (!groups.has(b)) groups.set(b, []);
-        groups.get(b).push(it);
+      if (!out) return;
+      const esc = value => String(value ?? '').replace(/[&<>\"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
+      const grouped = groupByRegionCategory(items || []);
+      const regionOrder = [...REGION_ORDER, ...Object.keys(grouped).filter(key => !REGION_ORDER.includes(key)).sort((a, b) => a.localeCompare(b))];
+      const orderedRegions = regionOrder.filter(region => grouped[region]);
+      let html = '<div class=\"c2c-groups\">';
+      if (!orderedRegions.length) {
+        html += '<p class=\"c2c-empty\">No resources matched your filters.</p>';
+      } else {
+        for (const region of orderedRegions) {
+          const categories = grouped[region] || {};
+          const total = Object.values(categories).reduce((sum, list) => sum + list.length, 0);
+          const label = REGION_LABEL[region] || region;
+          html += `<section class=\"c2c-group\" data-region=\"${esc(region)}\">` +
+            `<button class=\"c2c-accordion\" aria-expanded=\"true\">` +
+              `<span class=\"c2c-group-title\">${esc(label)}</span>` +
+              `<span class=\"c2c-count\">${total}</span>` +
+            `</button>` +
+            `<div class=\"c2c-region-body\">`;
+          const categoryOrder = [...CAT_ORDER, ...Object.keys(categories).filter(cat => !CAT_ORDER.includes(cat)).sort((a, b) => a.localeCompare(b))];
+          const seen = new Set();
+          for (const category of categoryOrder) {
+            if (seen.has(category)) continue;
+            seen.add(category);
+            const list = categories[category];
+            if (!list || !list.length) continue;
+            html += `<section class=\"c2c-category\" data-category=\"${esc(category)}\">` +
+              `<h3 class=\"c2c-category-title\">${esc(category)}<span class=\"c2c-badge\">${list.length}</span></h3>` +
+              '<ul class=\"c2c-cards\">' +
+              list.map(item => {
+                const link = resolveUrl(item);
+                return `<li class=\"c2c-card\">` +
+                  `<a class=\"c2c-card-link\" href=\"${esc(link)}\" rel=\"noopener\" target=\"_blank\">${esc(item.title || item.name || 'Untitled')}</a>` +
+                  `${item.tags && item.tags.length ? `<div class=\"c2c-tags\">${item.tags.map(esc).join(', ')}</div>` : ''}` +
+                `</li>`;
+              }).join('') +
+              '</ul>' +
+            '</section>';
+          }
+          html += '</div></section>';
+        }
       }
-      const order = ["Featured", ...[...groups.keys()].filter(x => x !== "Featured").sort((a, b) => a.localeCompare(b))];
-
-      // build clean, CSP-safe markup
-      const esc = s => String(s || "").replace(/[&<>"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
-      let html = `<div class="c2c-groups">`;
-      for (const g of order) {
-        const arr = groups.get(g) || [];
-        html += `
-        <section class="c2c-group" data-bucket="${esc(g)}">
-          <button class="c2c-accordion" aria-expanded="true">
-            <span class="c2c-group-title">${esc(g)}</span>
-            <span class="c2c-count">${arr.length}</span>
-          </button>
-          <ul class="c2c-cards">` +
-          arr.map(x => `<li class="c2c-card">
-              <a class="c2c-card-link" href="${esc(x.url || x.href || '#')}" rel="noopener" target="_blank">${esc(x.title || x.name || 'Untitled')}</a>
-              ${x.tags && x.tags.length ? `<div class="c2c-tags">${x.tags.map(esc).join(", ")}</div>` : ""}
-            </li>`).join("") +
-          `</ul>
-        </section>`;
-      }
-      html += `</div>`;
+      html += '</div>';
       out.innerHTML = html;
+      out.querySelectorAll('.c2c-accordion').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const section = btn.closest('.c2c-group');
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          const body = section.querySelector('.c2c-region-body');
+          if (body) body.hidden = expanded;
+        }, { once: false });
+      });
+    }
 
-      // basic accordion behaviour (no inline styles)
-      out.querySelectorAll(".c2c-accordion").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const sec = btn.closest(".c2c-group");
-          const expanded = btn.getAttribute("aria-expanded") === "true";
-          btn.setAttribute("aria-expanded", String(!expanded));
-          const list = sec.querySelector(".c2c-cards");
-          if (list) list.hidden = expanded;
+    function apply(resetLimits) {
+      const out = document.getElementById("c2c-buckets") || document.getElementById("resources-app");
+      console.log("C2C Resources: apply rendering", Array.isArray(state?.all) ? state.all.length : 0, "resetLimits=", !!resetLimits);
+      const query = (state.q || "").trim().toLowerCase();
+      const queryChanged = query !== state.lastQuery;
+      state.lastQuery = query;
+
+      badgeRegistry = new Map();
+
+      let filtered = state.all.filter(item => matchesItem(item, query));
+      if (state.activeRegions.length) {
+        const allowed = new Set(state.activeRegions);
+        filtered = filtered.filter(item => {
+          const regions = Array.isArray(item.regions) && item.regions.length ? item.regions : ['NAT'];
+          return regions.some(region => allowed.has(region));
+        });
+      }
+
+      if (elements.counter) {
+        elements.counter.textContent = `Showing ${filtered.length} of ${state.all.length} resources`;
+      }
+
+      if (state.regionChips instanceof Map) {
+        const hasActive = state.activeRegions.length > 0;
+        state.regionChips.forEach((btn, code) => {
+          const active = hasActive ? state.activeRegions.includes(code) : code === 'ALL';
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', String(active));
+        });
+      }
+
+      if (out) {
+        renderBucketsSimple(out, filtered);
+      }
+
+      if (out && (!out.innerHTML || out.innerHTML.trim() === '')) {
+        renderBucketsSimple(out, Array.isArray(state.all) ? state.all : []);
+        console.warn('C2C Resources: simple grouped renderer used');
+      }
+    }
+
+    function renderBucketsSimple(out, items) {
+      if (!out) return;
+      const esc = value => String(value ?? '').replace(/[&<>\"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
+      const grouped = groupByRegionCategory(items || []);
+      const regionOrder = [...REGION_ORDER, ...Object.keys(grouped).filter(key => !REGION_ORDER.includes(key)).sort((a, b) => a.localeCompare(b))];
+      const orderedRegions = regionOrder.filter(region => grouped[region]);
+      let html = '<div class=\"c2c-groups\">';
+      if (!orderedRegions.length) {
+        html += '<p class=\"c2c-empty\">No resources matched your filters.</p>';
+      } else {
+        for (const region of orderedRegions) {
+          const categories = grouped[region] || {};
+          const total = Object.values(categories).reduce((sum, list) => sum + list.length, 0);
+          const label = REGION_LABEL[region] || region;
+          html += `<section class=\"c2c-group\" data-region=\"${esc(region)}\">` +
+            `<button class=\"c2c-accordion\" aria-expanded=\"true\">` +
+              `<span class=\"c2c-group-title\">${esc(label)}</span>` +
+              `<span class=\"c2c-count\">${total}</span>` +
+            `</button>` +
+            `<div class=\"c2c-region-body\">`;
+          const categoryOrder = [...CAT_ORDER, ...Object.keys(categories).filter(cat => !CAT_ORDER.includes(cat)).sort((a, b) => a.localeCompare(b))];
+          const seen = new Set();
+          for (const category of categoryOrder) {
+            if (seen.has(category)) continue;
+            seen.add(category);
+            const list = categories[category];
+            if (!list || !list.length) continue;
+            html += `<section class=\"c2c-category\" data-category=\"${esc(category)}\">` +
+              `<h3 class=\"c2c-category-title\">${esc(category)}<span class=\"c2c-badge\">${list.length}</span></h3>` +
+              '<ul class=\"c2c-cards\">' +
+              list.map(item => {
+                const link = resolveUrl(item);
+                return `<li class=\"c2c-card\">` +
+                  `<a class=\"c2c-card-link\" href=\"${esc(link)}\" rel=\"noopener\" target=\"_blank\">${esc(item.title || item.name || 'Untitled')}</a>` +
+                  `${item.tags && item.tags.length ? `<div class=\"c2c-tags\">${item.tags.map(esc).join(', ')}</div>` : ''}` +
+                `</li>`;
+              }).join('') +
+              '</ul>' +
+            '</section>';
+          }
+          html += '</div></section>';
+        }
+      }
+      html += '</div>';
+      out.innerHTML = html;
+      out.querySelectorAll('.c2c-accordion').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const section = btn.closest('.c2c-group');
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          const body = section.querySelector('.c2c-region-body');
+          if (body) body.hidden = expanded;
         }, { once: false });
       });
     }
