@@ -1,4 +1,5 @@
 console.info("C2C Resources BOOT");
+async function fetchJSON(u){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status+" "+u);return r.json();}
 console.log("C2C Resources: dataset URL =", document.getElementById("resources-app")?.dataset?.source);
 (function () {
   "use strict";
@@ -448,8 +449,42 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
     return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
   }
 
-  function init() {
-    const source = Array.isArray(window.C2C_RESOURCES) ? window.C2C_RESOURCES : [];
+  async function init() {
+    const mount = document.getElementById("resources-app");
+    const ds = mount?.dataset?.source, ds2 = mount?.dataset?.sourceFallback;
+
+    let DATA = (typeof window !== "undefined" && Array.isArray(window.C2C_RESOURCES)) ? window.C2C_RESOURCES : null;
+    if (!DATA) {
+      try {
+        console.info("C2C Resources: fetching dataset", ds, "fallback", ds2);
+        try { DATA = await fetchJSON(ds); }
+        catch (e) { console.warn("primary dataset failed", e); DATA = ds2 ? await fetchJSON(ds2) : []; }
+      } catch (e) {
+        console.error("dataset fetch failed (both)", e);
+        mount.innerHTML = '<p class="error">Resource list temporarily unavailable.</p>';
+        return;
+      }
+    }
+    console.info("C2C Resources: dataset size =", DATA.length);
+
+    // Wire DATA into existing pipeline (state → setupDOM → apply)
+    if (typeof state === "undefined") { window.state = {}; }
+    state.all = Array.isArray(DATA) ? DATA : [];
+    console.info("C2C Resources: state.all =", state.all.length);
+
+    // Initialise DOM once, then run renderer
+    if (typeof setupDOM === "function" && !window.__c2c_dom_ready__) {
+      setupDOM();
+      window.__c2c_dom_ready__ = true;
+    }
+    if (typeof apply === "function") {
+      apply();
+    } else {
+      const m = document.getElementById("resources-app");
+      if (m) m.innerHTML = '<p class="error">Renderer apply() missing.</p>';
+    }
+
+    const source = Array.isArray(DATA) ? DATA : [];
     state.all = prepareResources(source);
     setupDOM();
     bindEvents();
@@ -463,5 +498,4 @@ console.log("C2C Resources: dataset URL =", document.getElementById("resources-a
     init();
   }
 })();
-
 
