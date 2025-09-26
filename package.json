@@ -5,6 +5,7 @@
   "scripts": {
     "linkcheck": "node ./tools/linkcheck.mjs",
     "linkcheck:save": "node ./tools/linkcheck.mjs --save",
-    "update-buckets": "node ./tools/update-buckets.mjs"
+    "update-buckets": "node ./tools/update-buckets.mjs",
+    "crawl": "node tools/spider.mjs https://www.c2cvariations.com.au/"
   }
 }
