@@ -1,0 +1,10 @@
+{
+  "name": "c2c-site",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "linkcheck": "node ./tools/linkcheck.mjs",
+    "linkcheck:save": "node ./tools/linkcheck.mjs --save"
+  }
+}
+

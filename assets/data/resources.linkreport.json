@@ -1,0 +1,788 @@
+{
+  "checkedAt": "2025-09-26T07:40:17.842Z",
+  "summary": {
+    "total": 111,
+    "ok": 54,
+    "fail": 57,
+    "redirects": 15
+  },
+  "results": [
+    {
+      "id": "var-template",
+      "status": 404,
+      "finalUrl": "https://www.c2cvariations.com.au/docs/variation-template.pdf",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "swms-basic",
+      "status": 404,
+      "finalUrl": "https://www.c2cvariations.com.au/docs/swms-basic.docx",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "gst-calculator",
+      "status": 404,
+      "finalUrl": "https://www.c2cvariations.com.au/tools/gst.html",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "quote-reply",
+      "status": 404,
+      "finalUrl": "https://www.c2cvariations.com.au/docs/quote-reply.txt",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-0",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/australia/warnings/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-1",
+      "status": 200,
+      "finalUrl": "https://earthquakes.ga.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-2",
+      "status": 404,
+      "finalUrl": "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-3",
+      "status": 200,
+      "finalUrl": "https://www.livetraffic.com/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-4",
+      "status": 200,
+      "finalUrl": "https://traffic.transport.vic.gov.au/",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "shortcut-5",
+      "status": 200,
+      "finalUrl": "https://qldtraffic.qld.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-6",
+      "status": 200,
+      "finalUrl": "https://www.emergency.wa.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-7",
+      "status": 200,
+      "finalUrl": "https://alert.tas.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-8",
+      "status": 200,
+      "finalUrl": "https://esa.act.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-9",
+      "status": 200,
+      "finalUrl": "https://www.healthdirect.gov.au/australian-health-services",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "shortcut-10",
+      "status": 200,
+      "finalUrl": "https://www.byda.com.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "emergency-vic-warnings-https-emergency-vic-gov-au-respond",
+      "status": 200,
+      "finalUrl": "https://emergency.vic.gov.au/respond/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "bom-victoria-warnings-https-www-bom-gov-au-vic-warnings",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/vic/warnings/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "vic-ses-flood-storm-https-www-ses-vic-gov-au",
+      "status": 200,
+      "finalUrl": "https://www.ses.vic.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "public-transport-disruptions-https-www-ptv-vic-gov-au-footer-about-ptv-digital-products-live-travel-updates",
+      "status": 404,
+      "finalUrl": "https://www.ptv.vic.gov.au/footer/about-ptv/digital-products/live-travel-updates/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "ausnet-services-outages-https-www-ausnetservices-com-au-en-electricity-power-outages-outage-map",
+      "status": 404,
+      "finalUrl": "https://www.ausnetservices.com.au/en/electricity/power-outages/outage-map",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "powercor-outages-https-powercor-com-au-outages",
+      "status": 200,
+      "finalUrl": "https://www.powercor.com.au/power-outages-and-emergencies/",
+      "error": null,
+      "redirects": 3
+    },
+    {
+      "id": "citipower-outages-https-citipower-com-au-outages",
+      "status": 200,
+      "finalUrl": "https://www.citipower.com.au/power-outages-and-emergencies/",
+      "error": null,
+      "redirects": 3
+    },
+    {
+      "id": "united-energy-outages-https-www-unitedenergy-com-au-outages",
+      "status": 404,
+      "finalUrl": "https://www.unitedenergy.com.au/outages/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "healthdirect-victoria-finder-https-www-healthdirect-gov-au-australian-health-services-results-vic",
+      "status": 500,
+      "finalUrl": "https://www.healthdirect.gov.au/australian-health-services/results/vic",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "vicemergency-relief-https-www-vic-gov-au-relief-services",
+      "status": 404,
+      "finalUrl": "https://www.vic.gov.au/relief-services",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "find-my-council-vic-https-www-localgovernment-vic-gov-au-councils-and-communities-find-your-local-council",
+      "status": 404,
+      "finalUrl": "https://www.localgovernment.vic.gov.au/councils-and-communities/find-your-local-council",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "vicsmart-planning-https-www-planning-vic-gov-au-permits-and-applications-vicsmart",
+      "status": 200,
+      "finalUrl": "https://www.planning.vic.gov.au/guides-and-resources/guides/all-guides/vicsmart-permits",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "nsw-incidents-warnings-https-www-nsw-gov-au-emergency",
+      "status": 200,
+      "finalUrl": "https://www.nsw.gov.au/emergency",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "bom-new-south-wales-warnings-https-www-bom-gov-au-nsw-warnings",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/nsw/warnings/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "nsw-ses-flood-storm-https-www-ses-nsw-gov-au",
+      "status": 200,
+      "finalUrl": "https://www.ses.nsw.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "transport-nsw-service-alerts-https-transportnsw-info-alerts",
+      "status": 200,
+      "finalUrl": "https://transportnsw.info/alerts",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "ausgrid-outages-https-www-ausgrid-com-au-outages",
+      "status": 200,
+      "finalUrl": "https://www.ausgrid.com.au/Outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "endeavour-energy-outages-https-www-endeavourenergy-com-au-outages",
+      "status": 200,
+      "finalUrl": "https://www.endeavourenergy.com.au/outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "essential-energy-outages-https-www-essentialenergy-com-au-outages",
+      "status": 403,
+      "finalUrl": "https://www.essentialenergy.com.au/outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "healthdirect-nsw-finder-https-www-healthdirect-gov-au-australian-health-services-results-nsw",
+      "status": 500,
+      "finalUrl": "https://www.healthdirect.gov.au/australian-health-services/results/nsw",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "nsw-health-alerts-https-www-health-nsw-gov-au-infectious-alerts-pages-default-aspx",
+      "status": 200,
+      "finalUrl": "https://www.health.nsw.gov.au/Infectious/alerts/Pages/default.aspx",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "nsw-councils-directory-https-www-nsw-gov-au-nsw-government-councils",
+      "status": 404,
+      "finalUrl": "https://www.nsw.gov.au/nsw-government/councils",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "nsw-planning-portal-https-www-planningportal-nsw-gov-au",
+      "status": 200,
+      "finalUrl": "https://www.planningportal.nsw.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "qld-alerts-https-www-qld-gov-au-alerts",
+      "status": 200,
+      "finalUrl": "https://www.qld.gov.au/alerts",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "bom-queensland-warnings-https-www-bom-gov-au-qld-warnings",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/qld/warnings/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "qld-ses-https-www-qfes-qld-gov-au-prepare",
+      "status": 200,
+      "finalUrl": "https://www.qfes.qld.gov.au/prepare",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "translink-service-updates-https-translink-com-au-service-updates",
+      "status": 200,
+      "finalUrl": "https://translink.com.au/service-updates",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "energex-outage-finder-https-www-energex-com-au-home-power-outages-outage-finder",
+      "status": 200,
+      "finalUrl": "https://www.energex.com.au/outages/outage-finder",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "ergon-energy-outages-https-www-ergon-com-au-network-outages",
+      "status": 200,
+      "finalUrl": "https://www.ergon.com.au/network/outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "powerlink-qld-network-https-www-powerlink-com-au-network-data-and-reporting-outage-information",
+      "status": 404,
+      "finalUrl": "https://www.powerlink.com.au/network/data-and-reporting/outage-information",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "healthdirect-qld-finder-https-www-healthdirect-gov-au-australian-health-services-results-qld",
+      "status": 500,
+      "finalUrl": "https://www.healthdirect.gov.au/australian-health-services/results/qld",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "qld-health-alerts-https-www-health-qld-gov-au-news-events-doh-media-releases",
+      "status": 403,
+      "finalUrl": "https://www.health.qld.gov.au/news-events/doh-media-releases",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "qld-local-government-directory-https-www-dlgrma-qld-gov-au-local-government-directory",
+      "status": 200,
+      "finalUrl": "https://www.localgovernment.qld.gov.au/for-the-community/local-government-directory",
+      "error": null,
+      "redirects": 3
+    },
+    {
+      "id": "development-i-planning-https-developmenti-information-qld-gov-au",
+      "status": null,
+      "finalUrl": "https://developmenti.information.qld.gov.au/",
+      "error": "TypeError",
+      "redirects": 0
+    },
+    {
+      "id": "alert-sa-https-alert-sa-gov-au",
+      "status": 200,
+      "finalUrl": "https://alert.sa.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "bom-south-australia-warnings-https-www-bom-gov-au-sa-warnings",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/sa/warnings/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "sa-ses-https-www-ses-sa-gov-au",
+      "status": 200,
+      "finalUrl": "https://www.ses.sa.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "traffic-sa-https-traffic-sa-gov-au",
+      "status": 403,
+      "finalUrl": "https://traffic.sa.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "adelaide-metro-service-updates-https-www-adelaidemetro-com-au-about-us-service-updates",
+      "status": 403,
+      "finalUrl": "https://www.adelaidemetro.com.au/about-us/service-updates",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "sa-power-networks-outages-https-www-sapowernetworks-com-au-outages",
+      "status": 200,
+      "finalUrl": "https://www.sapowernetworks.com.au/outages/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "essential-water-sa-https-www-sawater-com-au-outages",
+      "status": 404,
+      "finalUrl": "https://www.sawater.com.au/outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "healthdirect-sa-finder-https-www-healthdirect-gov-au-australian-health-services-results-sa",
+      "status": 500,
+      "finalUrl": "https://www.healthdirect.gov.au/australian-health-services/results/sa",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "sa-health-alerts-https-www-sahealth-sa-gov-au-wps-wcm-connect-public-content-sa-health-internet",
+      "status": 403,
+      "finalUrl": "https://www.sahealth.sa.gov.au/wps/wcm/connect/Public+Content/SA+Health+Internet/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "sa-council-directory-https-www-lga-sa-gov-au-sa-councils-councils-listing",
+      "status": 403,
+      "finalUrl": "https://www.lga.sa.gov.au/sa-councils/councils-listing",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "plansa-portal-https-plan-sa-gov-au",
+      "status": 403,
+      "finalUrl": "https://plan.sa.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "bom-western-australia-warnings-https-www-bom-gov-au-wa-warnings",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/wa/warnings/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "dfes-alerts-https-www-dfes-wa-gov-au-alerts",
+      "status": 404,
+      "finalUrl": "https://www.dfes.wa.gov.au/alerts",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "main-roads-travel-map-https-travelmap-mainroads-wa-gov-au",
+      "status": 200,
+      "finalUrl": "https://www.mainroads.wa.gov.au/travelmap/",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "transperth-service-updates-https-www-transperth-wa-gov-au-service-updates",
+      "status": 200,
+      "finalUrl": "https://www.transperth.wa.gov.au/Service-Updates",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "western-power-outages-https-www-westernpower-com-au-power-outages",
+      "status": 404,
+      "finalUrl": "https://www.westernpower.com.au/power-outages/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "water-corporation-alerts-https-www-watercorporation-com-au-outages",
+      "status": 200,
+      "finalUrl": "https://www.watercorporation.com.au/Outages-and-works?utm_campaign=vanity-bau&utm_medium=paid+offline&utm_source=offline&utm_source_platform=manual",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "healthdirect-wa-finder-https-www-healthdirect-gov-au-australian-health-services-results-wa",
+      "status": 500,
+      "finalUrl": "https://www.healthdirect.gov.au/australian-health-services/results/wa",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "healthywa-alerts-https-www-healthywa-wa-gov-au-articles-a-e-alerts",
+      "status": 200,
+      "finalUrl": "https://www.healthywa.wa.gov.au/404?item=%2farticles%2fa_e%2falerts&user=extranet%5cAnonymous&site=healthywa",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "wa-local-government-directory-https-walga-asn-au-about-local-government-council-map",
+      "status": 404,
+      "finalUrl": "https://walga.asn.au/about-local-government/council-map",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "wa-planning-hub-https-www-wa-gov-au-organisation-department-of-planning-lands-and-heritage",
+      "status": 200,
+      "finalUrl": "https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "bom-tasmania-warnings-https-www-bom-gov-au-tas-warnings",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/tas/warnings/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "tasmania-ses-https-www-ses-tas-gov-au",
+      "status": 200,
+      "finalUrl": "https://www.ses.tas.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "tasmania-police-road-closures-https-www-police-tas-gov-au-community-alerts",
+      "status": 200,
+      "finalUrl": "https://www.police.tas.gov.au/community-alerts/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "metro-tasmania-updates-https-www-metrotas-com-au-category-service-updates",
+      "status": 404,
+      "finalUrl": "https://www.metrotas.com.au/category/service-updates/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "tasnetworks-outages-https-www-tasnetworks-com-au-outages",
+      "status": 200,
+      "finalUrl": "https://www.tasnetworks.com.au/outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "taswater-alerts-https-www-taswater-com-au-outages",
+      "status": 404,
+      "finalUrl": "https://www.taswater.com.au/outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "healthdirect-tas-finder-https-www-healthdirect-gov-au-australian-health-services-results-tas",
+      "status": 500,
+      "finalUrl": "https://www.healthdirect.gov.au/australian-health-services/results/tas",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "public-health-alerts-tasmania-https-www-health-tas-gov-au-health-topics-public-health",
+      "status": 403,
+      "finalUrl": "https://www.health.tas.gov.au/health-topics/public-health",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "tasmania-councils-https-www-stategrowth-tas-gov-au-local-government-list-of-councils",
+      "status": 404,
+      "finalUrl": "https://www.stategrowth.tas.gov.au/local-government/list_of_councils",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "tasmanian-planning-https-planningreform-tas-gov-au",
+      "status": 404,
+      "finalUrl": "https://planningreform.tas.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "securent-https-securent-nt-gov-au",
+      "status": 200,
+      "finalUrl": "https://securent.nt.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "bom-northern-territory-warnings-https-www-bom-gov-au-nt-warnings",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/nt/warnings/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "nt-fire-emergency-https-pfes-nt-gov-au-emergency-service",
+      "status": 200,
+      "finalUrl": "https://pfes.nt.gov.au/emergency-service",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "nt-road-report-https-roadreport-nt-gov-au",
+      "status": 200,
+      "finalUrl": "https://roadreport.nt.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "darwin-public-transport-https-www-nt-gov-au-driving-public-transport-cycling-public-transport-in-the-nt",
+      "status": 200,
+      "finalUrl": "https://nt.gov.au/",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "power-and-water-nt-outages-https-www-powerwater-com-au-customers-power-outages",
+      "status": 404,
+      "finalUrl": "https://www.powerwater.com.au/customers/power-outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "jacana-energy-interruptions-https-www-jacanaenergy-com-au-customer-service-power-outages",
+      "status": 404,
+      "finalUrl": "https://www.jacanaenergy.com.au/customer-service/power-outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "healthdirect-nt-finder-https-www-healthdirect-gov-au-australian-health-services-results-nt",
+      "status": 500,
+      "finalUrl": "https://www.healthdirect.gov.au/australian-health-services/results/nt",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "nt-health-alerts-https-health-nt-gov-au",
+      "status": 200,
+      "finalUrl": "https://health.nt.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "nt-councils-directory-https-www-dlghcd-nt-gov-au-local-government-directory",
+      "status": null,
+      "finalUrl": "https://www.dlghcd.nt.gov.au/local-government/directory",
+      "error": "TypeError",
+      "redirects": 0
+    },
+    {
+      "id": "nt-planning-system-https-nt-gov-au-property-land-planning-and-development",
+      "status": 200,
+      "finalUrl": "https://nt.gov.au/property/land-planning-and-development",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "bom-act-warnings-https-www-bom-gov-au-act-warnings",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/act/warnings/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "act-health-emergencies-https-www-health-act-gov-au-public-health-alerts",
+      "status": 404,
+      "finalUrl": "https://www.health.act.gov.au/public-health-alerts",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "act-road-closures-https-www-cityservices-act-gov-au-roads-and-paths-road-closures",
+      "status": 404,
+      "finalUrl": "https://www.cityservices.act.gov.au/roads-and-paths/road-closures",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "transport-canberra-alerts-https-www-transport-act-gov-au-news",
+      "status": 200,
+      "finalUrl": "https://www.transport.act.gov.au/news",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "evoenergy-outages-https-www-evoenergy-com-au-outages",
+      "status": 404,
+      "finalUrl": "https://www.evoenergy.com.au/outages",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "icon-water-outages-https-www-iconwater-com-au-monitor-and-report-outages-aspx",
+      "status": 404,
+      "finalUrl": "https://www.iconwater.com.au/monitor-and-report/outages",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "healthdirect-act-finder-https-www-healthdirect-gov-au-australian-health-services-results-act",
+      "status": 500,
+      "finalUrl": "https://www.healthdirect.gov.au/australian-health-services/results/act",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "canberra-connect-services-https-www-act-gov-au-access-cbr",
+      "status": 404,
+      "finalUrl": "https://www.act.gov.au/access-cbr",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "city-services-act-https-www-cityservices-act-gov-au",
+      "status": 200,
+      "finalUrl": "https://www.cityservices.act.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "act-planning-system-https-www-planning-act-gov-au",
+      "status": 200,
+      "finalUrl": "https://www.planning.act.gov.au/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "nbn-network-status-https-www-nbnco-com-au-support-network-status",
+      "status": 200,
+      "finalUrl": "https://www.nbnco.com.au/support/network-status",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "telstra-outages-https-outages-telstra-com",
+      "status": 200,
+      "finalUrl": "https://www.telstra.com.au/outages",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "optus-network-status-https-www-optus-com-au-about-network-service-status",
+      "status": null,
+      "finalUrl": "https://www.optus.com.au/about/network/service-status",
+      "error": "TIMEOUT",
+      "redirects": 0
+    },
+    {
+      "id": "safe-work-australia-model-codes-https-www-safeworkaustralia-gov-au-resources-publications-model-codes-practice",
+      "status": 404,
+      "finalUrl": "https://www.safeworkaustralia.gov.au/resources-publications/model-codes-practice",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "abcb-national-construction-code-https-www-abcb-gov-au-ncc",
+      "status": 200,
+      "finalUrl": "https://www.abcb.gov.au/404-page-not-found",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "abcb-watermark-https-www-abcb-gov-au-resources-watermark-certification-scheme",
+      "status": 200,
+      "finalUrl": "https://www.abcb.gov.au/404-page-not-found",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "product-safety-australia-recalls-https-www-productsafety-gov-au-recalls",
+      "status": 200,
+      "finalUrl": "https://www.productsafety.gov.au/recalls",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "jatwc-tsunami-warnings-https-www-bom-gov-au-tsunami",
+      "status": 403,
+      "finalUrl": "https://www.bom.gov.au/tsunami/",
+      "error": null,
+      "redirects": 0
+    },
+    {
+      "id": "find-my-council-national-https-www-australia-gov-au-information-and-services-government-and-parliament-local-government",
+      "status": 200,
+      "finalUrl": "https://my.gov.au/en/services?redirectFrom=australia.gov.au",
+      "error": null,
+      "redirects": 1
+    },
+    {
+      "id": "vic-planning-https-www-planning-vic-gov-au",
+      "status": 200,
+      "finalUrl": "https://www.planning.vic.gov.au/",
+      "error": null,
+      "redirects": 0
+    }
+  ]
+}

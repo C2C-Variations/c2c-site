@@ -210,3 +210,132 @@
         padding-inline: 16px;
       }
     }
+
+.res-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.res-group {
+  border: 1px solid #1f1f1f;
+  border-radius: 18px;
+  background: #080808;
+  overflow: hidden;
+}
+
+.res-group__head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: transparent;
+  color: inherit;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+}
+
+.res-group__head::after {
+  content: ';
+  border-style: solid;
+  border-width: 6px 5px 0 5px;
+  border-color: #f5f5f5 transparent transparent transparent;
+  transition: transform 0.2s ease;
+}
+
+.res-group__head[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.res-group__title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.res-group__count {
+  font-size: 0.9rem;
+  color: #b5b5b5;
+}
+
+.res-group__body {
+  padding: 20px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.res-group__load {
+  margin: 0 20px 20px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 153, 102, 0.4);
+  background: rgba(255, 153, 102, 0.12);
+  color: #ffb48c;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.res-group__load:hover,
+.res-group__load:focus {
+  background: rgba(255, 153, 102, 0.2);
+  border-color: rgba(255, 153, 102, 0.6);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .res-group__head {
+    position: sticky;
+    top: 72px;
+    z-index: 30;
+    background: rgba(8, 8, 8, 0.96);
+    backdrop-filter: blur(12px);
+  }
+}
+
+.res-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.res-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.res-card__badge-icon {
+  font-size: 0.85rem;
+}
+
+.res-card__badge.badge-ok {
+  color: #4caf50;
+}
+
+.res-card__badge.badge-warn {
+  color: #ffb74d;
+}
+
+.res-card__badge.badge-fail {
+  color: #ef5350;
+}
+
+.res-card__badge.badge-pending {
+  color: #999;
+}
+
+.badge-label {
+  font-size: 0.75rem;
+  color: #cfcfcf;
+}
+

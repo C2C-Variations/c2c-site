@@ -13,7 +13,8 @@ window.C2C_RESOURCES = [
     "category": "Documents",
     "description": "Editable variation templates for Victorian projects.",
     "featured": true,
-    "summary": "Editable variation templates for Victorian projects."
+    "summary": "Editable variation templates for Victorian projects.",
+    "bucket": "Featured"
   },
   {
     "id": "swms-basic",
@@ -27,7 +28,8 @@ window.C2C_RESOURCES = [
     "group": "Template",
     "category": "Safety",
     "featured": true,
-    "summary": "Safety"
+    "summary": "Safety",
+    "bucket": "Featured"
   },
   {
     "id": "gst-calculator",
@@ -40,7 +42,8 @@ window.C2C_RESOURCES = [
     "group": "Tool",
     "category": "Pricing",
     "featured": true,
-    "summary": "Pricing"
+    "summary": "Pricing",
+    "bucket": "Featured"
   },
   {
     "id": "quote-reply",
@@ -53,7 +56,8 @@ window.C2C_RESOURCES = [
     "group": "Template",
     "category": "Messaging",
     "featured": true,
-    "summary": "Messaging"
+    "summary": "Messaging",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-0",
@@ -68,7 +72,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-1",
@@ -83,7 +88,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-2",
@@ -98,7 +104,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-3",
@@ -112,7 +119,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-4",
@@ -126,7 +134,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-5",
@@ -140,7 +149,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-6",
@@ -154,7 +164,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-7",
@@ -168,7 +179,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-8",
@@ -182,7 +194,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-9",
@@ -196,7 +209,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "id": "shortcut-10",
@@ -211,7 +225,8 @@ window.C2C_RESOURCES = [
     "category": "Featured",
     "description": "Shortcut link",
     "featured": true,
-    "summary": "Shortcut link"
+    "summary": "Shortcut link",
+    "bucket": "Featured"
   },
   {
     "title": "Emergency VIC Warnings",
@@ -224,7 +239,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "emergency-vic-warnings-https-emergency-vic-gov-au-respond",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "BOM Victoria Warnings",
@@ -237,7 +253,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "bom-victoria-warnings-https-www-bom-gov-au-vic-warnings",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Vic SES Flood & Storm",
@@ -250,7 +267,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "vic-ses-flood-storm-https-www-ses-vic-gov-au",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Public Transport Disruptions",
@@ -263,7 +281,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "public-transport-disruptions-https-www-ptv-vic-gov-au-footer-about-ptv-digital-products-live-travel-updates",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "AusNet Services Outages",
@@ -276,7 +295,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "ausnet-services-outages-https-www-ausnetservices-com-au-en-electricity-power-outages-outage-map",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Powercor Outages",
@@ -289,7 +309,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "powercor-outages-https-powercor-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "CitiPower Outages",
@@ -302,7 +323,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "citipower-outages-https-citipower-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "United Energy Outages",
@@ -315,7 +337,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "united-energy-outages-https-www-unitedenergy-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Healthdirect Victoria Finder",
@@ -328,7 +351,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "healthdirect-victoria-finder-https-www-healthdirect-gov-au-australian-health-services-results-vic",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Health & Services"
   },
   {
     "title": "VicEmergency Relief",
@@ -341,7 +365,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "vicemergency-relief-https-www-vic-gov-au-relief-services",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Find My Council (VIC)",
@@ -354,7 +379,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "find-my-council-vic-https-www-localgovernment-vic-gov-au-councils-and-communities-find-your-local-council",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "VicSmart Planning",
@@ -367,7 +393,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "vicsmart-planning-https-www-planning-vic-gov-au-permits-and-applications-vicsmart",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "NSW Incidents & Warnings",
@@ -380,7 +407,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "nsw-incidents-warnings-https-www-nsw-gov-au-emergency",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "BOM New South Wales Warnings",
@@ -393,7 +421,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "bom-new-south-wales-warnings-https-www-bom-gov-au-nsw-warnings",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "NSW SES Flood & Storm",
@@ -406,7 +435,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "nsw-ses-flood-storm-https-www-ses-nsw-gov-au",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Transport NSW Service Alerts",
@@ -419,7 +449,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "transport-nsw-service-alerts-https-transportnsw-info-alerts",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Ausgrid Outages",
@@ -432,7 +463,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "ausgrid-outages-https-www-ausgrid-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Endeavour Energy Outages",
@@ -445,7 +477,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "endeavour-energy-outages-https-www-endeavourenergy-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Essential Energy Outages",
@@ -458,7 +491,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "essential-energy-outages-https-www-essentialenergy-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Healthdirect NSW Finder",
@@ -471,7 +505,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "healthdirect-nsw-finder-https-www-healthdirect-gov-au-australian-health-services-results-nsw",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Health & Services"
   },
   {
     "title": "NSW Health Alerts",
@@ -484,7 +519,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "nsw-health-alerts-https-www-health-nsw-gov-au-infectious-alerts-pages-default-aspx",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "NSW Councils Directory",
@@ -497,7 +533,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "nsw-councils-directory-https-www-nsw-gov-au-nsw-government-councils",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "NSW Planning Portal",
@@ -510,7 +547,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "nsw-planning-portal-https-www-planningportal-nsw-gov-au",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "QLD Alerts",
@@ -523,7 +561,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "qld-alerts-https-www-qld-gov-au-alerts",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "BOM Queensland Warnings",
@@ -536,7 +575,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "bom-queensland-warnings-https-www-bom-gov-au-qld-warnings",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "QLD SES",
@@ -549,7 +589,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "qld-ses-https-www-qfes-qld-gov-au-prepare",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "TransLink Service Updates",
@@ -562,7 +603,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "translink-service-updates-https-translink-com-au-service-updates",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "Energex Outage Finder",
@@ -575,7 +617,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "energex-outage-finder-https-www-energex-com-au-home-power-outages-outage-finder",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Ergon Energy Outages",
@@ -588,7 +631,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "ergon-energy-outages-https-www-ergon-com-au-network-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Powerlink QLD Network",
@@ -601,7 +645,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "powerlink-qld-network-https-www-powerlink-com-au-network-data-and-reporting-outage-information",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Healthdirect QLD Finder",
@@ -614,7 +659,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "healthdirect-qld-finder-https-www-healthdirect-gov-au-australian-health-services-results-qld",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Health & Services"
   },
   {
     "title": "QLD Health Alerts",
@@ -627,7 +673,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "qld-health-alerts-https-www-health-qld-gov-au-news-events-doh-media-releases",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "QLD Local Government Directory",
@@ -640,7 +687,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "qld-local-government-directory-https-www-dlgrma-qld-gov-au-local-government-directory",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "Development.i Planning",
@@ -653,7 +701,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "development-i-planning-https-developmenti-information-qld-gov-au",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "Alert SA",
@@ -666,7 +715,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "alert-sa-https-alert-sa-gov-au",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "BOM South Australia Warnings",
@@ -679,7 +729,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "bom-south-australia-warnings-https-www-bom-gov-au-sa-warnings",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "SA SES",
@@ -692,7 +743,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "sa-ses-https-www-ses-sa-gov-au",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Traffic SA",
@@ -705,7 +757,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "traffic-sa-https-traffic-sa-gov-au",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "Adelaide Metro Service Updates",
@@ -718,7 +771,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "adelaide-metro-service-updates-https-www-adelaidemetro-com-au-about-us-service-updates",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "SA Power Networks Outages",
@@ -731,7 +785,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "sa-power-networks-outages-https-www-sapowernetworks-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Essential Water SA",
@@ -744,7 +799,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "essential-water-sa-https-www-sawater-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Healthdirect SA Finder",
@@ -757,7 +813,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "healthdirect-sa-finder-https-www-healthdirect-gov-au-australian-health-services-results-sa",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Health & Services"
   },
   {
     "title": "SA Health Alerts",
@@ -770,7 +827,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "sa-health-alerts-https-www-sahealth-sa-gov-au-wps-wcm-connect-public-content-sa-health-internet",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "SA Council Directory",
@@ -783,7 +841,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "sa-council-directory-https-www-lga-sa-gov-au-sa-councils-councils-listing",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "PlanSA Portal",
@@ -796,7 +855,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "plansa-portal-https-plan-sa-gov-au",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "BOM Western Australia Warnings",
@@ -809,7 +869,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "bom-western-australia-warnings-https-www-bom-gov-au-wa-warnings",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "DFES Alerts",
@@ -822,7 +883,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "dfes-alerts-https-www-dfes-wa-gov-au-alerts",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Main Roads Travel Map",
@@ -835,7 +897,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "main-roads-travel-map-https-travelmap-mainroads-wa-gov-au",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "Transperth Service Updates",
@@ -848,7 +911,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "transperth-service-updates-https-www-transperth-wa-gov-au-service-updates",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "Western Power Outages",
@@ -861,7 +925,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "western-power-outages-https-www-westernpower-com-au-power-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Water Corporation Alerts",
@@ -874,7 +939,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "water-corporation-alerts-https-www-watercorporation-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Healthdirect WA Finder",
@@ -887,7 +953,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "healthdirect-wa-finder-https-www-healthdirect-gov-au-australian-health-services-results-wa",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Health & Services"
   },
   {
     "title": "HealthyWA Alerts",
@@ -900,7 +967,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "healthywa-alerts-https-www-healthywa-wa-gov-au-articles-a-e-alerts",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "WA Local Government Directory",
@@ -913,7 +981,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "wa-local-government-directory-https-walga-asn-au-about-local-government-council-map",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "WA Planning Hub",
@@ -926,7 +995,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "wa-planning-hub-https-www-wa-gov-au-organisation-department-of-planning-lands-and-heritage",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "BOM Tasmania Warnings",
@@ -939,7 +1009,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "bom-tasmania-warnings-https-www-bom-gov-au-tas-warnings",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Tasmania SES",
@@ -952,7 +1023,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "tasmania-ses-https-www-ses-tas-gov-au",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Tasmania Police Road Closures",
@@ -965,7 +1037,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "tasmania-police-road-closures-https-www-police-tas-gov-au-community-alerts",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "Metro Tasmania Updates",
@@ -978,7 +1051,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "metro-tasmania-updates-https-www-metrotas-com-au-category-service-updates",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "TasNetworks Outages",
@@ -991,7 +1065,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "tasnetworks-outages-https-www-tasnetworks-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "TasWater Alerts",
@@ -1004,7 +1079,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "taswater-alerts-https-www-taswater-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Healthdirect TAS Finder",
@@ -1017,7 +1093,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "healthdirect-tas-finder-https-www-healthdirect-gov-au-australian-health-services-results-tas",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Health & Services"
   },
   {
     "title": "Public Health Alerts Tasmania",
@@ -1030,7 +1107,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "public-health-alerts-tasmania-https-www-health-tas-gov-au-health-topics-public-health",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Tasmania Councils",
@@ -1043,7 +1121,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "tasmania-councils-https-www-stategrowth-tas-gov-au-local-government-list-of-councils",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "Tasmanian Planning",
@@ -1056,7 +1135,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "tasmanian-planning-https-planningreform-tas-gov-au",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "SecureNT",
@@ -1069,7 +1149,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "securent-https-securent-nt-gov-au",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "BOM Northern Territory Warnings",
@@ -1082,7 +1163,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "bom-northern-territory-warnings-https-www-bom-gov-au-nt-warnings",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "NT Fire & Emergency",
@@ -1095,7 +1177,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "nt-fire-emergency-https-pfes-nt-gov-au-emergency-service",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "NT Road Report",
@@ -1108,7 +1191,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "nt-road-report-https-roadreport-nt-gov-au",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "Darwin Public Transport",
@@ -1121,7 +1205,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "darwin-public-transport-https-www-nt-gov-au-driving-public-transport-cycling-public-transport-in-the-nt",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "Power and Water NT Outages",
@@ -1134,7 +1219,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "power-and-water-nt-outages-https-www-powerwater-com-au-customers-power-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Jacana Energy Interruptions",
@@ -1147,7 +1233,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "jacana-energy-interruptions-https-www-jacanaenergy-com-au-customer-service-power-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Healthdirect NT Finder",
@@ -1160,7 +1247,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "healthdirect-nt-finder-https-www-healthdirect-gov-au-australian-health-services-results-nt",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Health & Services"
   },
   {
     "title": "NT Health Alerts",
@@ -1173,7 +1261,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "nt-health-alerts-https-health-nt-gov-au",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "NT Councils Directory",
@@ -1186,7 +1275,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "nt-councils-directory-https-www-dlghcd-nt-gov-au-local-government-directory",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "NT Planning System",
@@ -1199,7 +1289,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "nt-planning-system-https-nt-gov-au-property-land-planning-and-development",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "BOM ACT Warnings",
@@ -1212,7 +1303,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "bom-act-warnings-https-www-bom-gov-au-act-warnings",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "ACT Health Emergencies",
@@ -1225,7 +1317,8 @@ window.C2C_RESOURCES = [
     "category": "Emergency & Hazards",
     "id": "act-health-emergencies-https-www-health-act-gov-au-public-health-alerts",
     "featured": false,
-    "summary": "Emergency & Hazards"
+    "summary": "Emergency & Hazards",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "ACT Road Closures",
@@ -1238,7 +1331,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "act-road-closures-https-www-cityservices-act-gov-au-roads-and-paths-road-closures",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Traffic & Transport"
   },
   {
     "title": "Transport Canberra Alerts",
@@ -1251,7 +1345,8 @@ window.C2C_RESOURCES = [
     "category": "Traffic & Transport",
     "id": "transport-canberra-alerts-https-www-transport-act-gov-au-news",
     "featured": false,
-    "summary": "Traffic & Transport"
+    "summary": "Traffic & Transport",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Evoenergy Outages",
@@ -1264,7 +1359,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "evoenergy-outages-https-www-evoenergy-com-au-outages",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Icon Water Outages",
@@ -1277,7 +1373,8 @@ window.C2C_RESOURCES = [
     "category": "Utilities & Outages",
     "id": "icon-water-outages-https-www-iconwater-com-au-monitor-and-report-outages-aspx",
     "featured": false,
-    "summary": "Utilities & Outages"
+    "summary": "Utilities & Outages",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Healthdirect ACT Finder",
@@ -1290,7 +1387,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "healthdirect-act-finder-https-www-healthdirect-gov-au-australian-health-services-results-act",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Health & Services"
   },
   {
     "title": "Canberra Connect Services",
@@ -1303,7 +1401,8 @@ window.C2C_RESOURCES = [
     "category": "Health & Services",
     "id": "canberra-connect-services-https-www-act-gov-au-access-cbr",
     "featured": false,
-    "summary": "Health & Services"
+    "summary": "Health & Services",
+    "bucket": "Health & Services"
   },
   {
     "title": "City Services ACT",
@@ -1316,7 +1415,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "city-services-act-https-www-cityservices-act-gov-au",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "ACT Planning System",
@@ -1329,7 +1429,8 @@ window.C2C_RESOURCES = [
     "category": "Planning & Councils",
     "id": "act-planning-system-https-www-planning-act-gov-au",
     "featured": false,
-    "summary": "Planning & Councils"
+    "summary": "Planning & Councils",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "NBN Network Status",
@@ -1342,7 +1443,8 @@ window.C2C_RESOURCES = [
     "category": "Telecom status",
     "id": "nbn-network-status-https-www-nbnco-com-au-support-network-status",
     "featured": false,
-    "summary": "Telecom status"
+    "summary": "Telecom status",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Telstra Outages",
@@ -1355,7 +1457,8 @@ window.C2C_RESOURCES = [
     "category": "Telecom status",
     "id": "telstra-outages-https-outages-telstra-com",
     "featured": false,
-    "summary": "Telecom status"
+    "summary": "Telecom status",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Optus Network Status",
@@ -1368,7 +1471,8 @@ window.C2C_RESOURCES = [
     "category": "Telecom status",
     "id": "optus-network-status-https-www-optus-com-au-about-network-service-status",
     "featured": false,
-    "summary": "Telecom status"
+    "summary": "Telecom status",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Safe Work Australia Model Codes",
@@ -1381,7 +1485,8 @@ window.C2C_RESOURCES = [
     "category": "Standards & Compliance",
     "id": "safe-work-australia-model-codes-https-www-safeworkaustralia-gov-au-resources-publications-model-codes-practice",
     "featured": false,
-    "summary": "Standards & Compliance"
+    "summary": "Standards & Compliance",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "ABCB National Construction Code",
@@ -1394,7 +1499,8 @@ window.C2C_RESOURCES = [
     "category": "Standards & Compliance",
     "id": "abcb-national-construction-code-https-www-abcb-gov-au-ncc",
     "featured": false,
-    "summary": "Standards & Compliance"
+    "summary": "Standards & Compliance",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "ABCB WaterMark",
@@ -1407,7 +1513,8 @@ window.C2C_RESOURCES = [
     "category": "Standards & Compliance",
     "id": "abcb-watermark-https-www-abcb-gov-au-resources-watermark-certification-scheme",
     "featured": false,
-    "summary": "Standards & Compliance"
+    "summary": "Standards & Compliance",
+    "bucket": "Utilities & Outages"
   },
   {
     "title": "Product Safety Australia Recalls",
@@ -1420,7 +1527,8 @@ window.C2C_RESOURCES = [
     "category": "Standards & Compliance",
     "id": "product-safety-australia-recalls-https-www-productsafety-gov-au-recalls",
     "featured": false,
-    "summary": "Standards & Compliance"
+    "summary": "Standards & Compliance",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "JATWC Tsunami Warnings",
@@ -1433,7 +1541,8 @@ window.C2C_RESOURCES = [
     "category": "Geohazards & UV",
     "id": "jatwc-tsunami-warnings-https-www-bom-gov-au-tsunami",
     "featured": false,
-    "summary": "Geohazards & UV"
+    "summary": "Geohazards & UV",
+    "bucket": "Emergency & Alerts"
   },
   {
     "title": "Find My Council (National)",
@@ -1446,7 +1555,8 @@ window.C2C_RESOURCES = [
     "category": "Councils & Planning",
     "id": "find-my-council-national-https-www-australia-gov-au-information-and-services-government-and-parliament-local-government",
     "featured": false,
-    "summary": "Councils & Planning"
+    "summary": "Councils & Planning",
+    "bucket": "Planning & Councils"
   },
   {
     "title": "VIC Planning",
@@ -1459,7 +1569,8 @@ window.C2C_RESOURCES = [
     "category": "Councils & Planning",
     "id": "vic-planning-https-www-planning-vic-gov-au",
     "featured": false,
-    "summary": "Councils & Planning"
+    "summary": "Councils & Planning",
+    "bucket": "Planning & Councils"
   }
 ];
 window.C2C_BUILD = window.C2C_BUILD || {};
