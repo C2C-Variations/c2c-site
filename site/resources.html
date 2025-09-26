@@ -1,72 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>C2C Variations — Resources</title>
-  <meta name="description" content="Browse featured government, council and compliance resources. Filter everything in real time and keep your search in the URL for easy sharing.">
-  <link rel="icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site-mobile.css?v=8">
-  <link rel="stylesheet" href="/assets/css/site-header.css?v=5">
-  <link rel="stylesheet" href="/assets/nav-cta.hotfix.css?v=9">
-  <link rel="stylesheet" href="/assets/chatbot.v6.css?v=1">
-  <link rel="stylesheet" href="/assets/css/resources.css?v=2">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resources — C2C</title>
+  <link rel="stylesheet" href="/assets/css/site-header.css?v=7">
+  <link rel="stylesheet" href="/assets/css/resources.css?v=7">
+  <script defer src="/assets/js/site-header.js?v=4"></script>
+  <script defer src="/assets/js/site-enhancements.js?v=7"></script>
+  <script defer src="/assets/js/resources.hub.js?v=7"></script>
 </head>
 <body>
-  <header class="site-header" data-nav-root>
-    <div class="container nav-row">
-      <a class="brand" href="/index.html" aria-label="C2C Variations home">
-        <img class="icon" src="/assets/logo-icon.jpg" alt="C2C icon">
-      </a>
-      <button class="nav-hamburger" type="button" data-nav-toggle aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
-        <span class="nav-hamburger-bar"></span>
-        <span class="nav-hamburger-bar"></span>
-        <span class="nav-hamburger-bar"></span>
-      </button>
-      <nav class="nav site-nav" id="main-nav" role="navigation" aria-label="Main" data-nav-menu>
-        <a href="/index.html" rel="nav">Home</a>
-        <a href="/pricing.html" rel="nav">Pricing</a>
-        <a href="/about.html" rel="nav">About</a>
-        <a href="/docs.html" rel="nav">Docs</a>
-        <a href="/resources.html" rel="nav" aria-current="page">Resources</a>
-        <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
-        <button type="button" id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
-      </nav>
+  <header id="site-header"></header>
+  <main class="container">
+    <section class="page-intro">
+      <span class="eyebrow">Resource hub</span>
+      <h1>Resources</h1>
+      <p>Government warnings, council tools, and compliance references — grouped, searchable, and link-health checked.</p>
+    </section>
+    <div id="resources-app"
+         data-source="/assets/data/resources.json"
+         data-linkreport="/assets/data/resources.linkreport.json">
+      <noscript>Turn on JavaScript to view the resource hub.</noscript>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <span class="hero-label">Resource hub</span>
-      <h1>Resources — 2025-09-23 17:30:24 936b72f</h1>
-      <p>Featured government warnings, council tools and compliance references — filtered in real time so field teams and schedulers can open, copy or save the links they need without breaking stride.</p>
-    </section>
   </main>
-
-
-    <section class="wrap">
-      <div class="search">
-        <label for="resources-search" class="sr-only">Search resources</label>
-        <input id="resources-search" type="search" placeholder="Search by name, topic or region">
-        <span id="resources-counter" aria-live="polite"></span>
-      </div>
-
-      <h2>Featured</h2>
-      <div id="resources-featured" class="cards"></div>
-
-      <h2>All resources</h2>
-      <div id="resources-all"></div>
-    </section>
-
-  <script defer src="/assets/js/site-header.js?v=4"></script>
-  <script defer src="/assets/js/site-enhancements.js?v=1"></script>
-  <script src="/assets/chatbot.v6.js?v=3" defer></script>
-  <script src="/assets/js/resources.data.js?v=2" defer></script>
-  <script src="/assets/js/resources.hub.js?v=2" defer></script>
+  <footer id="site-footer"></footer>
 </body>
 </html>
-
-
-
-

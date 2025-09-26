@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "linkcheck": "node ./tools/linkcheck.mjs",
-    "linkcheck:save": "node ./tools/linkcheck.mjs --save"
+    "linkcheck:save": "node ./tools/linkcheck.mjs --save",
+    "update-buckets": "node ./tools/update-buckets.mjs"
   }
 }
-

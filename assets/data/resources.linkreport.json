@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2025-09-26T09:17:09.269Z",
+  "checkedAt": "2025-09-26T09:36:30.121Z",
   "summary": {
     "total": 111,
-    "ok": 54,
-    "fail": 57,
+    "ok": 53,
+    "fail": 58,
     "redirects": 15
   },
   "results": [
@@ -562,9 +562,9 @@
     },
     {
       "id": "tasmanian-planning-https-planningreform-tas-gov-au",
-      "status": null,
+      "status": 404,
       "finalUrl": "https://planningreform.tas.gov.au/",
-      "error": "TypeError",
+      "error": null,
       "redirects": 0
     },
     {
@@ -590,9 +590,9 @@
     },
     {
       "id": "nt-road-report-https-roadreport-nt-gov-au",
-      "status": 200,
+      "status": null,
       "finalUrl": "https://roadreport.nt.gov.au/",
-      "error": null,
+      "error": "TIMEOUT",
       "redirects": 0
     },
     {
@@ -660,9 +660,9 @@
     },
     {
       "id": "act-road-closures-https-www-cityservices-act-gov-au-roads-and-paths-road-closures",
-      "status": 404,
+      "status": null,
       "finalUrl": "https://www.cityservices.act.gov.au/roads-and-paths/road-closures",
-      "error": null,
+      "error": "TIMEOUT",
       "redirects": 0
     },
     {
