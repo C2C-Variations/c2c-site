@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2025-09-26T07:40:17.842Z",
+  "checkedAt": "2025-09-26T09:17:09.269Z",
   "summary": {
     "total": 111,
     "ok": 54,
@@ -150,9 +150,9 @@
     {
       "id": "powercor-outages-https-powercor-com-au-outages",
       "status": 200,
-      "finalUrl": "https://www.powercor.com.au/power-outages-and-emergencies/",
+      "finalUrl": "https://powercor.com.au/power-outages-and-emergencies/",
       "error": null,
-      "redirects": 3
+      "redirects": 2
     },
     {
       "id": "citipower-outages-https-citipower-com-au-outages",
@@ -562,9 +562,9 @@
     },
     {
       "id": "tasmanian-planning-https-planningreform-tas-gov-au",
-      "status": 404,
+      "status": null,
       "finalUrl": "https://planningreform.tas.gov.au/",
-      "error": null,
+      "error": "TypeError",
       "redirects": 0
     },
     {
