@@ -1,9 +1,21 @@
-/* C2C simple spider – zero dependencies, Node >= 18 */
 import fs from "fs";
 import path from "path";
 import { setTimeout as sleep } from "timers/promises";
 
-const START = process.argv[2] || "https://www.c2cvariations.com.au/";
+const DEFAULT_START = "https://www.c2cvariations.com.au/";
+const args = process.argv.slice(2);
+let start = DEFAULT_START;
+let label = null;
+
+for (const arg of args) {
+  if (/^https?:/i.test(arg)) {
+    start = arg;
+  } else if (!label) {
+    label = arg;
+  }
+}
+
+const START = start;
 const ORIGIN = new URL(START).origin;
 const MAX_PAGES = 2000;
 const RATE_MS = 150;
@@ -11,9 +23,9 @@ const UA = "C2CSpider/1.0 (+https://www.c2cvariations.com.au/)";
 
 const seen = new Set();
 const queue = [START];
-const pages = [];           // {url,status,contentType,title,links}
-const assets = new Set();   // static files
-const docs = [];            // downloadable docs
+const pages = [];
+const assets = new Set();
+const docs = [];
 
 const DOC_EXTS = [".pdf",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".csv",".rtf",".odt"];
 
@@ -44,7 +56,9 @@ while(queue.length && pages.length<MAX_PAGES){
 }
 
 const stamp=new Date().toISOString().replace(/[:.]/g,"-").slice(0,19);
-const outDir=path.join("audits",`crawl-${stamp}`); fs.mkdirSync(outDir,{recursive:true});
+const outName = label ? label : `crawl-${stamp}`;
+const outDir=path.join("audits", outName);
+fs.mkdirSync(outDir,{recursive:true});
 fs.writeFileSync(path.join(outDir,"sitemap.csv"),["url,status,contentType,title",...pages.map(p=>`"${p.url}",${p.status},"${p.contentType||""}","${(p.title||"").replace(/"/g,'""')}"`)].join("\n"));
 fs.writeFileSync(path.join(outDir,"assets.csv"),["url",...assets].join("\n"));
 fs.writeFileSync(path.join(outDir,"docs.csv"),["url,ext,sourcePage",...docs.map(d=>`"${d.url}",${d.ext},"${d.sourcePage}"`)].join("\n"));

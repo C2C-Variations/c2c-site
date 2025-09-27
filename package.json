@@ -6,6 +6,9 @@
     "linkcheck": "node ./tools/linkcheck.mjs",
     "linkcheck:save": "node ./tools/linkcheck.mjs --save",
     "update-buckets": "node ./tools/update-buckets.mjs",
-    "crawl": "node tools/spider.mjs https://www.c2cvariations.com.au/"
+    "crawl": "node tools/spider.mjs https://www.c2cvariations.com.au/",
+    "audit:pre": "node tools/spider.mjs out-pre",
+    "audit:post": "node tools/spider.mjs out-post",
+    "validate": "node tools/validate.mjs"
   }
 }

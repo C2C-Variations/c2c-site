@@ -14,15 +14,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Docs done. Jobs won. | C2C Variations">
   <meta name="twitter:description" content="Lock scope changes, clear approvals, and time-stamped PDFs. Same-day setup across Australia.">
-  <link rel="preload" href="site-mobile.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="site-mobile.css?v=8"></noscript>
-  <link rel="stylesheet" href="assets/site-nav.css?v=1">
   <link rel="icon" href="./favicon.ico">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <meta name="theme-color" content="#000000">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
-    <link rel="stylesheet" href="assets/nav-cta.hotfix.css?v=9">
+  <link rel="stylesheet" href="/assets/css/site-mobile.css?v=8">
+  <noscript><link rel="stylesheet" href="/assets/css/site-mobile.css?v=8"></noscript>
+  <link rel="stylesheet" href="assets/nav-cta.hotfix.css?v=9">
+<link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
 
   <!-- Cloudflare Web Analytics (enable when token is issued)
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"TODO-CF-ANALYTICS-TOKEN"}'></script>
@@ -30,7 +29,9 @@
   <link rel="stylesheet" href="/assets/css/site-header.css?v=5">
   <link rel="stylesheet" href="/assets/css/resources.css?v=15">
   <script defer src="/assets/js/site-enhancements.js?v=7"></script>
+<link rel="preload" href="site-mobile.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
+
 <body>
 <header id="c2c-header" class="c2c-header">
   <div class="c2c-wrap">
@@ -49,7 +50,7 @@
   </div>
 </header>
 
-  <main class="c2c-main testimonials">
+<main class="c2c-main container">
 <a class="link" href="./index.html">← Back to homepage</a>
 <h1>Testimonials</h1>
 <p class="muted">These quotes are placeholders for launch — we’ll swap real quotes as they come in.</p>
@@ -60,42 +61,17 @@
   <div class="quote"><p>“Setup took less than an hour and we’ve never looked back.”</p><div class="name">— Electrical Crew, Sydney</div></div>
   <div class="quote"><p>“Clients sign off on scope. No more ‘I thought it included…’ nonsense.”</p><div class="name">— Renovation Lead, Adelaide</div></div>
 </div>
-  </main>
-  <footer class="footer">
+</main>
+<footer class="footer">
     <div class="container footer-links-row">
       <span>© C2C Variations</span>
-      <span class="footer-links"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/resources">Resources</a><a href="https://www.c2cvariations.com.au/testimonials" aria-current="page">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
+      <span class="footer-links"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/resources">Resources</a><a href="https://www.c2cvariations.com.au/testimonials">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
     </div>
-  <style>
-    @media (max-width: 600px) {
-      .footer-links-row {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 10px !important;
-      }
-      .footer-links {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 10px 0 !important;
-        flex-direction: column !important;
-        width: 100%;
-      }
-      .footer-links a {
-        padding: 10px 0 !important;
-        font-size: 1.1rem !important;
-        display: block !important;
-        width: 100%;
-      }
-    }
-  </style>
-  </footer>
+</footer>
 
-  <div id="c2c-chat-overlay" hidden></div>
+<div id="c2c-chat-overlay" hidden></div>
   <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
-    <header class="c2c-chat-header">
-      <strong>C2C Chat</strong>
-      <button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
-    </header>
+    
     <div class="c2c-chat-body">
       <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
       <p>
