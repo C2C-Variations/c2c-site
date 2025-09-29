@@ -26,9 +26,9 @@
   <!-- Cloudflare Web Analytics (enable when token is issued)
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"TODO-CF-ANALYTICS-TOKEN"}'></script>
   -->
-  <link rel="stylesheet" href="/assets/css/site-header.css?v=5">
-  <link rel="stylesheet" href="/assets/css/resources.css?v=15">
-  <script defer src="/assets/js/site-enhancements.js?v=7"></script>
+  <link rel="stylesheet" href="/assets/css/site-header.css?v=6">
+  <link rel="stylesheet" href="/assets/css/resources.css?v=16">
+  <script defer src="/assets/js/site-enhancements.js?v=8"></script>
 <style>
     :root{--bg:#000;--fg:#fff;--muted:#a7a7a7;--card:#0d0d0f;--line:#222;--accent:#ff8a3d;--wa:#25D366;}
     html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
@@ -48,22 +48,7 @@
 </head>
 
 <body>
-<header id="c2c-header" class="c2c-header">
-  <div class="c2c-wrap">
-    <a class="c2c-logo" href="/"><span>C2C</span> Variations</a>
-    <nav class="c2c-nav" aria-label="Main">
-      <a href="/pricing.html">Pricing</a>
-      <a href="/resources.html">Resources</a>
-      <a href="/docs.html">Docs</a>
-      <a href="/about.html">About</a>
-    </nav>
-    <div class="c2c-cta">
-      <a class="btn whats" href="https://wa.me/61400000000?text=Hi%20C2C%20team" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn chat" href="/chat.html">Chat with C2C</a>
-    </div>
-    <button id="c2c-nav-toggle" class="c2c-burger" aria-label="Menu" aria-expanded="false">☰</button>
-  </div>
-</header>
+<!--#include virtual="/_includes/site-header.html" -->
 
 <main class="c2c-main container">
 <div class="wrap">
@@ -125,10 +110,19 @@
   </div>
 </main>
 <footer class="footer">
-    <div class="container footer-links-row">
-      <span>© C2C Variations</span>
-      <span class="footer-links"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/resources">Resources</a><a href="https://www.c2cvariations.com.au/testimonials">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
-    </div>
+  <div class="container footer-links-row">
+    <span>&amp;copy; C2C Variations</span>
+    <span class="footer-links">
+      <a href="/pricing.html">Pricing</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/about.html">About</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/testimonials.html">Testimonials</a>
+      <a href="/partners.html">Partners</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </span>
+  </div>
 </footer>
 
 <script src="assets/site-nav.js?v=1" defer></script>
@@ -155,3 +149,4 @@
 </script>
 </body>
 </html>
+

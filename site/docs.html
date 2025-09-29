@@ -15,60 +15,45 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Docs done. Jobs won. | C2C Variations">
 <meta name="twitter:description" content="Lock scope changes, clear approvals, and time-stamped PDFs. Same-day setup across Australia.">
+  <style>
+    :root{--bg:#000;--fg:#fff;--muted:#a7a7a7;--card:#0d0d0f;--line:#222;--accent:#ff8a3d;--wa:#25D366;}
+    html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-top:env(safe-area-inset-top);} 
+    .docs-wrap{max-width:1100px;margin:0 auto;padding:32px 20px 96px;display:grid;gap:32px;}
+    .docs-head{display:grid;gap:12px;}
+    .docs-head .eyebrow{text-transform:uppercase;letter-spacing:0.18em;font-size:0.75rem;color:var(--accent);}
+    .docs-head h1{font-weight:800;font-size:clamp(32px,5vw,52px);margin:0;}
+    .docs-head .muted{color:var(--muted);max-width:640px;}
+    .docs-groups{display:grid;gap:18px;}
+    .docs-group{border:1px solid rgba(255,255,255,0.08);border-radius:18px;background:rgba(8,8,8,0.88);overflow:hidden;}
+    .docs-group__toggle{width:100%;padding:18px 22px;border:0;background:transparent;color:inherit;display:flex;align-items:center;gap:16px;font-weight:700;font-size:1.15rem;letter-spacing:0.01em;cursor:pointer;text-align:left;}
+    .docs-group__toggle:focus{outline:2px solid #ff8a3d;outline-offset:-4px;}
+    .docs-label{font-size:1.2rem;}
+    .docs-count{margin-left:auto;font-size:0.9rem;color:#c6c6c6;}
+    .docs-icon{width:12px;height:12px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform 0.2s ease;}
+    .docs-group.is-open .docs-icon{transform:rotate(-135deg);}
+    .docs-group__body{display:grid;gap:16px;padding:0 22px 22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .docs-group:not(.is-open) .docs-group__body{display:none;}
+    .doc-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:12px;min-height:190px;}
+    .doc-card h3{margin:0;font-size:1.2rem;font-weight:700;}
+    .doc-card p{margin:0;color:var(--muted);line-height:1.6;}
+    .doc-card .btn{align-self:flex-start;}
+    @media (max-width:768px){.docs-wrap{padding:24px 16px 72px;}.docs-group__body{padding:0 16px 18px;grid-template-columns:1fr;}}
+  </style>
 <link rel="preload" href="site-mobile.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="site-mobile.css?v=8"></noscript>
 <link rel="stylesheet" href="assets/site-nav.css?v=1">
-<style>
-    :root{--bg:#000;--fg:#fff;--muted:#a7a7a7;--card:#0d0d0f;--line:#222;--accent:#ff8a3d;--wa:#25D366;}
-    html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility; padding-top:env(safe-area-inset-top);}
-    .wrap{max-width:1100px;margin:0 auto;padding:20px;}
-    h1{font-weight:800;font-size:clamp(32px,5vw,56px);margin:10px 0 8px;}
-    h2{font-weight:800;color:var(--accent);margin:16px 0 8px;}
-    .muted{color:var(--muted);}
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:800;text-decoration:none;min-height:44px;}
-    .btn-wa{background:var(--wa);color:#0b321a;}
-    @media (max-width:768px){.wrap{padding:16px;}}
-  </style>
-<style>
-/* Ensure Docs Hub buttons are clickable */
-.docs a, .doc a, .card a {
-  pointer-events: auto !important;
-  position: relative;
-  z-index: 2;
-}
-</style>
-  <link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
+<link rel="stylesheet" href="assets/chatbot.v6.css?v=1">
 
   <!-- Cloudflare Web Analytics (enable when token is issued)
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"TODO-CF-ANALYTICS-TOKEN"}'></script>
   -->
+  <link rel="stylesheet" href="/assets/css/site-header.css?v=6">
+  <link rel="stylesheet" href="/assets/css/resources.css?v=16">
+  <script defer src="/assets/js/site-enhancements.js?v=8"></script>
 </head>
 <body>
-<header class="site-header" data-nav-root>
-  <div class="container nav-row">
-    <a class="brand" href="./index.html" aria-label="C2C Variations home">
-      <img class="icon" src="./assets/logo-icon.jpg" alt="C2C icon">
-    </a>
-    <button class="nav-hamburger" type="button" data-nav-toggle aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
-      <span class="nav-hamburger-bar"></span>
-      <span class="nav-hamburger-bar"></span>
-      <span class="nav-hamburger-bar"></span>
-    </button>
-    <nav class="nav site-nav" id="main-nav" role="navigation" aria-label="Main" data-nav-menu>
-      <a href="./index.html">Home</a>
-      <a href="./pricing.html">Pricing</a>
-      <a href="./about.html">About</a>
-      <a href="./docs.html" aria-current="page">Docs</a>
-        <a href="/resources.html">Resources</a>
-      <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
-      <button type="button" id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
-    </nav>
-  </div>
-</header>
+<!--#include virtual="/_includes/site-header.html" -->
 
 <div class="wrap">
 <h1>Docs Hub</h1>
@@ -169,33 +154,20 @@
     </div>
   </div>
   <footer class="footer">
-    <div class="container footer-links-row">
-      <span>© C2C Variations</span>
-      <span class="footer-links"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/resources">Resources</a><a href="https://www.c2cvariations.com.au/testimonials">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
-    </div>
-  <style>
-    @media (max-width: 600px) {
-      .footer-links-row {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 10px !important;
-      }
-      .footer-links {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 10px 0 !important;
-        flex-direction: column !important;
-        width: 100%;
-      }
-      .footer-links a {
-        padding: 10px 0 !important;
-        font-size: 1.1rem !important;
-        display: block !important;
-        width: 100%;
-      }
-    }
-  </style>
-  </footer>
+  <div class="container footer-links-row">
+    <span>&amp;copy; C2C Variations</span>
+    <span class="footer-links">
+      <a href="/pricing.html">Pricing</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/about.html">About</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/testimonials.html">Testimonials</a>
+      <a href="/partners.html">Partners</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </span>
+  </div>
+</footer>
   <script src="assets/site-nav.js?v=1" defer></script>
   <script src="assets/chatbot.v6.js?v=1" defer></script>
 <script type="application/ld+json">

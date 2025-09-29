@@ -363,3 +363,29 @@
 .c2c-category-title{display:flex;align-items:center;gap:6px;margin:0 0 8px 0;font-size:1rem}
 .c2c-empty{margin:16px;font-style:italic;opacity:.8}
 
+
+/* resources hub v20 */
+.resources-root{display:flex;flex-direction:column;gap:24px;margin-top:32px;}
+.resources-toolbar{display:flex;flex-direction:column;gap:16px;}
+.resource-chip-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.resource-chip{border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);color:#f5f5f5;border-radius:999px;padding:10px 18px;font-weight:600;font-size:0.95rem;cursor:pointer;transition:background 0.2s ease,border-color 0.2s ease,transform 0.2s ease;}
+.resource-chip:hover,.resource-chip:focus{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.3);outline:none;}
+.resource-chip.is-active{background:#1f4ad0;border-color:#1f4ad0;}
+.resource-chip--action{background:rgba(255,138,61,0.16);border-color:rgba(255,138,61,0.4);color:#ffb48c;}
+.resource-chip--action.is-busy::after{content:'...';margin-left:8px;}
+.resource-counter{margin:0;font-size:0.95rem;color:#bdbdbd;font-weight:600;}
+.resource-groups{display:grid;gap:28px;}
+.resource-category{display:grid;gap:16px;}
+.resource-category__title{margin:0;font-size:1.4rem;font-weight:700;letter-spacing:0.01em;}
+.resource-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+.resource-card{display:grid;gap:10px;padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,0.08);background:rgba(10,10,10,0.92);color:inherit;text-decoration:none;transition:transform 0.2s ease,border-color 0.2s ease;}
+.resource-card:hover,.resource-card:focus{transform:translateY(-2px);border-color:rgba(255,138,61,0.6);outline:none;}
+.resource-card h3{margin:0;font-size:1.15rem;font-weight:700;}
+.resource-card__meta{margin:0;color:#b7b7b7;line-height:1.5;}
+.resource-card__region{font-size:0.85rem;font-weight:600;color:#9ac2ff;background:rgba(26,92,255,0.18);border-radius:999px;padding:4px 10px;width:max-content;}
+.resource-card__cta{margin-top:auto;font-size:0.85rem;font-weight:600;color:#ffb48c;}
+.resource-empty{padding:24px;border:1px dashed rgba(255,255,255,0.25);border-radius:14px;color:#c7c7c7;text-align:center;font-style:italic;}
+@media (max-width:720px){
+  .resource-chip-row{gap:8px;}
+  .resource-grid{grid-template-columns:1fr;}
+}

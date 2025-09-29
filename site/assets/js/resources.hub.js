@@ -1,740 +1,415 @@
-if (window.__c2c_hub_loaded__) { console.info("C2C Resources: already loaded"); }
-else {
-  window.__c2c_hub_loaded__ = true;
+(function(){
+  if (window.__C2C_RESOURCES_HUB__) {
+    console.info('C2C Resources: already loaded');
+    return;
+  }
+  window.__C2C_RESOURCES_HUB__ = true;
 
-  const C2C_DOC_EXTS = new Set([".pdf",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".odt",".rtf"]);
-  const C2C_DOC_TAGS = new Set(["doc","docs","document","documents","template","templates","form","forms"]);
-  const REGION_ORDER = ["NAT","VIC","NSW","QLD","SA","WA","TAS","NT","ACT"];
-  const REGION_LABEL = {
-    NAT: "National",
-    VIC: "Victoria",
-    NSW: "New South Wales",
-    QLD: "Queensland",
-    SA: "South Australia",
-    WA: "Western Australia",
-    TAS: "Tasmania",
-    NT: "Northern Territory",
-    ACT: "Australian Capital Territory",
+  const REGION_ORDER = ['all','national','vic','nsw','qld','sa','wa','tas','nt','act'];
+  const REGION_META = {
+    all: { label: 'All' },
+    national: { label: 'National', synonyms: ['national','australia','aus'] },
+    vic: { label: 'VIC', full: 'Victoria', synonyms: ['vic','victoria'], coord: [-37.8136, 144.9631] },
+    nsw: { label: 'NSW', full: 'New South Wales', synonyms: ['nsw','new south wales'], coord: [-33.8688, 151.2093] },
+    qld: { label: 'QLD', full: 'Queensland', synonyms: ['qld','queensland'], coord: [-27.4698, 153.0251] },
+    sa:  { label: 'SA',  full: 'South Australia', synonyms: ['sa','south australia'], coord: [-34.9285, 138.6007] },
+    wa:  { label: 'WA',  full: 'Western Australia', synonyms: ['wa','western australia'], coord: [-31.9523, 115.8613] },
+    tas: { label: 'TAS', full: 'Tasmania', synonyms: ['tas','tasmania'], coord: [-42.8821, 147.3272] },
+    nt:  { label: 'NT',  full: 'Northern Territory', synonyms: ['nt','northern territory','darwin'], coord: [-12.4634, 130.8456] },
+    act: { label: 'ACT', full: 'Australian Capital Territory', synonyms: ['act','canberra','australian capital territory'], coord: [-35.2809, 149.1300] }
   };
-  const CAT_ORDER = [
-    "Emergency & Alerts",
-    "Health & Services",
-    "Planning & Councils",
-    "Traffic & Transport",
-    "Safety",
-    "Utilities & Outages",
-    "Other",
-  ];
-  function groupByRegionCategory(items) {
-    const map = {};
-    for (const it of items || []) {
-      const regions = Array.isArray(it?.regions) && it.regions.length ? it.regions : ['NAT'];
-      const category = it?.category || 'Other';
-      for (const region of regions) {
-        map[region] ??= {};
-        map[region][category] ??= [];
-        map[region][category].push(it);
-      }
-    }
-    return map;
+
+  const DOC_WORDS = ['doc','docs','document','documents','template','templates','form','forms','pack','kit'];
+  const DOC_EXTS = ['.pdf','.doc','.docx','.xls','.xlsx','.ppt','.pptx','.rtf'];
+
+  const regionLookup = buildRegionLookup();
+  const state = {
+    host: null,
+    counter: null,
+    chips: new Map(),
+    results: null,
+    empty: null,
+    activeRegion: 'all',
+    all: []
+  };
+
+  console.info('C2C Resources BOOT');
+
+  function buildRegionLookup(){
+    const lookup = new Map();
+    REGION_ORDER.forEach(id => {
+      const meta = REGION_META[id];
+      if (!meta) return;
+      if (meta.label) lookup.set(meta.label.toLowerCase(), id);
+      if (meta.full) lookup.set(meta.full.toLowerCase(), id);
+      (meta.synonyms || []).forEach(name => lookup.set(String(name).toLowerCase(), id));
+    });
+    return lookup;
   }
 
-  function isDocItem(it){
-    const t = (it.title||"").toLowerCase();
-    const u = (it.url||it.href||"").toLowerCase();
-    const tags = (it.tags||[]).map(x=>String(x).toLowerCase());
-    if (tags.some(x => C2C_DOC_TAGS.has(x))) return true;
-    if (/\b(template|form|document|pack|kit)\b/.test(t)) return true;
-    for (const ext of C2C_DOC_EXTS){ if (u.endsWith(ext)) return true; }
-    if (u.includes("/docs/")) return true;
+  function normalise(value){
+    return String(value || '').trim().toLowerCase();
+  }
+
+  function detectRegions(item){
+    const matches = new Set();
+    const tags = Array.isArray(item.tags) ? item.tags.map(normalise) : [];
+    tags.forEach(tag => {
+      const mapped = regionLookup.get(tag);
+      if (mapped) matches.add(mapped);
+    });
+
+    const regionField = Array.isArray(item.regions) ? item.regions : (item.region ? [item.region] : []);
+    regionField.map(normalise).forEach(token => {
+      const mapped = regionLookup.get(token);
+      if (mapped) matches.add(mapped);
+    });
+
+    const title = normalise(item.title);
+    const subtitle = normalise(item.subtitle || item.summary || '');
+    const url = normalise(item.url || item.href || '');
+
+    REGION_ORDER.forEach(id => {
+      if (id === 'all') return;
+      const meta = REGION_META[id];
+      const candidates = (meta.synonyms || []);
+      if (!candidates.length) return;
+      const pattern = new RegExp('\\b(' + candidates.map(escapeRegExp).join('|') + ')\\b', 'i');
+      if (pattern.test(title) || pattern.test(subtitle) || pattern.test(url)) {
+        matches.add(id);
+      }
+    });
+
+    if (!matches.size) {
+      matches.add('national');
+    }
+
+    return Array.from(matches);
+  }
+
+  function escapeRegExp(input){
+    return String(input).replace(/[.*+?^${}()|[\\]\\]/g, '\\$&');
+  }
+
+  function isDocItem(item){
+    const title = normalise(item.title);
+    const subtitle = normalise(item.subtitle || item.summary || '');
+    const url = normalise(item.url || item.href || '');
+    const tags = Array.isArray(item.tags) ? item.tags.map(normalise) : [];
+
+    if (DOC_WORDS.some(word => title.includes(word) || subtitle.includes(word))) return true;
+    if (DOC_WORDS.some(word => tags.includes(word))) return true;
+    if (DOC_EXTS.some(ext => url.endsWith(ext))) return true;
+    if (/\b(doc|docs|document|template)s?\b/.test(url)) return true;
     return false;
   }
 
-  console.info("C2C Resources BOOT");
-  async function fetchJSON(u){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status+" "+u);return r.json();}
-  console.log("C2C Resources: dataset URL =", document.getElementById("resources-app")?.dataset?.source);
-  (function () {
-    "use strict";
+  function prepareItems(list){
+    return list.map((item, index) => {
+      const result = Object.assign({}, item);
+      result.title = result.title || 'Untitled resource';
+      result.url = result.url || result.href || '#';
+      result.subtitle = result.subtitle || result.summary || '';
+      result.category = (result.category || result.bucket || 'Other').trim() || 'Other';
+      result.tags = Array.isArray(result.tags) ? result.tags.filter(Boolean) : [];
+      result.__regions = detectRegions(result);
+      result.__regionLabels = result.__regions
+        .filter(id => id !== 'all')
+        .map(id => REGION_META[id]?.label || REGION_META[id]?.full || id.toUpperCase());
+      result.__id = result.id || `resource-${index}`;
+      return result;
+    });
+  }
 
-    const DEFAULT_LIMIT = 60;
-    const GENERAL_BUCKET = "General Tools";
-    const BUCKETS = [
-      { key: "Featured", label: "Featured", defaultOpen: true, featured: true },
-      { key: "Emergency & Alerts", label: "Emergency & Alerts", defaultOpen: true },
-      { key: "Traffic & Transport", label: "Traffic & Transport", defaultOpen: false },
-      { key: "Utilities & Outages", label: "Utilities & Outages", defaultOpen: false },
-      { key: "Planning & Councils", label: "Planning & Councils", defaultOpen: false },
-      { key: "Health & Services", label: "Health & Services", defaultOpen: false },
-      { key: "General Tools", label: "General Tools", defaultOpen: false }
-    ];
+  function findNearestRegion(lat, lon){
+    let bestId = 'national';
+    let bestDistance = Number.POSITIVE_INFINITY;
+    REGION_ORDER.forEach(id => {
+      if (id === 'all' || id === 'national') return;
+      const meta = REGION_META[id];
+      if (!meta || !meta.coord) return;
+      const distance = haversine(lat, lon, meta.coord[0], meta.coord[1]);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestId = id;
+      }
+    });
+    return bestId;
+  }
 
-    const elements = {
-      search: document.getElementById("resources-search"),
-      counter: document.getElementById("resources-counter"),
-      featuredContainer: document.getElementById("resources-featured"),
-      allContainer: document.getElementById("resources-all"),
-    };
+  function haversine(lat1, lon1, lat2, lon2){
+    const toRad = deg => deg * Math.PI / 180;
+    const R = 6371;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
 
-    const featuredHeading = elements.featuredContainer && elements.featuredContainer.previousElementSibling;
+  function buildDOM(host){
+    console.info('C2C Resources: setupDOM start');
+    host.classList.add('resources-root');
+    host.innerHTML = '';
 
-    const state = {
-      all: [],
-      q: "",
-      lastQuery: "",
-      geo: null,
-      activeRegions: [],
-      regionChips: new Map(),
-    };
+    const toolbar = document.createElement('div');
+    toolbar.className = 'resources-toolbar';
 
-    state.geo = state.geo ?? null;
-    state.activeRegions = state.activeRegions ?? [];
+    const chipsRow = document.createElement('div');
+    chipsRow.className = 'resource-chip-row';
 
-    function requestGeo() {
-      if (!navigator.geolocation) {
-        console.warn("Geolocation not supported");
+    const geoBtn = document.createElement('button');
+    geoBtn.type = 'button';
+    geoBtn.className = 'resource-chip resource-chip--action';
+    geoBtn.dataset.action = 'geo';
+    geoBtn.textContent = 'Use my location';
+    chipsRow.appendChild(geoBtn);
+
+    REGION_ORDER.forEach(id => {
+      const meta = REGION_META[id];
+      if (!meta) return;
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'resource-chip';
+      chip.dataset.region = id;
+      chip.textContent = meta.label || meta.full || id.toUpperCase();
+      chip.setAttribute('aria-pressed', 'false');
+      chipsRow.appendChild(chip);
+      state.chips.set(id, chip);
+    });
+
+    const counter = document.createElement('p');
+    counter.className = 'resource-counter';
+    counter.textContent = 'Loading resources…';
+
+    toolbar.appendChild(chipsRow);
+    toolbar.appendChild(counter);
+
+    const results = document.createElement('div');
+    results.className = 'resource-groups';
+
+    const empty = document.createElement('div');
+    empty.className = 'resource-empty';
+    empty.textContent = 'No resources match this region yet. Try selecting All or National.';
+    empty.hidden = true;
+
+    host.appendChild(toolbar);
+    host.appendChild(results);
+    host.appendChild(empty);
+
+    state.host = host;
+    state.counter = counter;
+    state.results = results;
+    state.empty = empty;
+
+    if (state.chips.has('all')) {
+      const allChip = state.chips.get('all');
+      allChip.classList.add('is-active');
+      allChip.setAttribute('aria-pressed', 'true');
+    }
+
+    chipsRow.addEventListener('click', function(event){
+      const chip = event.target.closest('.resource-chip');
+      if (!chip) return;
+      if (chip.dataset.action === 'geo') {
+        requestGeo(chip);
         return;
       }
-      navigator.geolocation.getCurrentPosition(
-        position => {
-          state.geo = { lat: position.coords.latitude, lng: position.coords.longitude };
-          console.log("C2C Resources: geo", state.geo);
-          apply();
-        },
-        error => console.warn("C2C Resources: geo denied", error),
-        { enableHighAccuracy: true, timeout: 10000 }
-      );
-    }
-
-    function resolveUrl(item) {
-      const template = item.urlTemplate || item.url || item.href || "#";
-      if (!item.urlTemplate || !state.geo) return template;
-      const code = state.activeRegions.length === 1 ? state.activeRegions[0] : "NAT";
-      return template
-        .replace("{lat}", state.geo.lat)
-        .replace("{lng}", state.geo.lng)
-        .replace("{state}", code);
-    }
-
-    const renderConfig = new Map();
-    let badgeRegistry = new Map();
-    let linkReport = new Map();
-    let linkReportCheckedAt = null;
-
-    function absoluteUrl(url) {
-      try {
-        if (!url) return "";
-        if (/^https?:/i.test(url)) return new URL(url).toString();
-        return new URL(url, "https://www.c2cvariations.com.au").toString();
-      } catch (error) {
-        return "";
+      const region = chip.dataset.region;
+      if (region) {
+        setRegion(region);
       }
-    }
+    });
+  }
 
-    function prepareResources(list) {
-      return list.map(item => {
-        const clone = { ...item };
-        const bucket = clone.featured ? "Featured" : (clone.bucket || GENERAL_BUCKET);
-        clone.bucket = bucket;
-        clone.absoluteUrl = absoluteUrl(clone.url);
-        clone.host = clone.absoluteUrl ? new URL(clone.absoluteUrl).host : "";
-        const textBits = [clone.title, clone.summary, clone.description, clone.bucket, clone.group, clone.category, clone.url];
-        if (Array.isArray(clone.tags)) {
-          textBits.push(clone.tags.join(" "));
-        }
-        clone.searchText = textBits.filter(Boolean).join(" ").toLowerCase();
-        return clone;
-      });
-    }
+  function setRegion(id){
+    if (!state.chips.has(id)) return;
+    if (state.activeRegion === id) return;
+    state.activeRegion = id;
+    state.chips.forEach((chip, key) => {
+      const active = key === id;
+      chip.classList.toggle('is-active', active);
+      chip.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    render(false);
+  }
 
-    function setupDOM() {
-      const mount = document.getElementById("resources-app");
-      if (!mount) return;
-      if (!mount.querySelector("#c2c-buckets")) {
-        mount.insertAdjacentHTML("beforeend", '<div id="c2c-buckets" class="c2c-buckets"></div>');
-        console.log("C2C Resources: injected #c2c-buckets");
-      }
-      const root = mount.querySelector("#c2c-buckets");
-      if (!root) return;
-      console.log("C2C Resources: setupDOM start");
-      if (!root.querySelector(".c2c-toolbar")) {
-        state.regionChips = new Map();
-        const toolbar = document.createElement("div");
-        toolbar.className = "c2c-toolbar";
-        const geoBtn = document.createElement("button");
-        geoBtn.type = "button";
-        geoBtn.className = "c2c-chip";
-        geoBtn.textContent = "Use my location";
-        geoBtn.addEventListener("click", () => requestGeo());
-        toolbar.appendChild(geoBtn);
-        const row = document.createElement("div");
-        row.className = "c2c-chip-row";
-        const makeChip = (code, label) => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "c2c-chip";
-          btn.dataset.region = code;
-          btn.textContent = label;
-          btn.setAttribute("aria-pressed", "false");
-          btn.addEventListener("click", () => {
-            state.activeRegions = code === "ALL" ? [] : [code];
-            apply();
-          });
-          state.regionChips.set(code, btn);
-          return btn;
-        };
-        row.appendChild(makeChip("ALL", "All"));
-        for (const region of REGION_ORDER) {
-          row.appendChild(makeChip(region, REGION_LABEL[region] || region));
-        }
-        toolbar.appendChild(row);
-        root.prepend(toolbar);
-      } else {
-        state.regionChips = new Map();
-        root.querySelectorAll(".c2c-chip[data-region]").forEach(btn => {
-          state.regionChips.set(btn.dataset.region || "", btn);
+  function requestGeo(button){
+    if (!navigator.geolocation) {
+      console.warn('C2C Resources: geolocation unavailable');
+      button.disabled = true;
+      return;
+    }
+    console.info('C2C Resources: geo request');
+    button.disabled = true;
+    button.classList.add('is-busy');
+    navigator.geolocation.getCurrentPosition(function(position){
+      const { latitude, longitude } = position.coords;
+      console.info('C2C Resources: geo success', latitude, longitude);
+      const region = findNearestRegion(latitude, longitude);
+      if (region) {
+        state.activeRegion = region;
+        state.chips.forEach((chip, key) => {
+          const active = key === region;
+          chip.classList.toggle('is-active', active);
+          chip.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
+        render(false);
       }
+      button.disabled = false;
+      button.classList.remove('is-busy');
+    }, function(error){
+      console.warn('C2C Resources: geo denied', error && error.message ? error.message : error);
+      button.disabled = false;
+      button.classList.remove('is-busy');
+    }, { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 });
+  }
+
+  function filterByRegion(items, regionId){
+    if (regionId === 'all') return items;
+    return items.filter(item => item.__regions.includes(regionId) || item.__regions.includes('national'));
+  }
+
+  function render(reset){
+    if (!state.results) return;
+    const visible = filterByRegion(state.all, state.activeRegion);
+    state.counter.textContent = `Showing ${visible.length} of ${state.all.length} resources`;
+    state.results.innerHTML = '';
+
+    if (!visible.length) {
+      state.empty.hidden = false;
+      console.info(`C2C Resources: apply rendering ${visible.length} resetLimits=${reset === false ? 'false' : 'true'}`);
+      return;
     }
 
-    function createGroup(parent, bucket) {
-      const section = document.createElement("section");
-      section.className = "res-group";
+    state.empty.hidden = true;
 
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "res-group__head";
-      button.id = `grp-head-${slug(bucket.key)}`;
-      button.setAttribute("aria-expanded", bucket.defaultOpen ? "true" : "false");
+    const byCategory = new Map();
+    visible.forEach(item => {
+      const key = item.category || 'Other';
+      if (!byCategory.has(key)) {
+        byCategory.set(key, []);
+      }
+      byCategory.get(key).push(item);
+    });
 
-      const titleWrap = document.createElement("span");
-      titleWrap.className = "res-group__title";
-      const labelEl = document.createElement("span");
-      labelEl.className = "res-group__label";
-      labelEl.textContent = bucket.label;
-      const countEl = document.createElement("span");
-      countEl.className = "res-group__count";
-      countEl.textContent = "(0)";
-      titleWrap.append(labelEl, countEl);
-      button.appendChild(titleWrap);
+    Array.from(byCategory.keys()).sort((a, b) => a.localeCompare(b)).forEach(category => {
+      const section = document.createElement('section');
+      section.className = 'resource-category';
 
-      const body = document.createElement("div");
-      body.className = "res-group__body";
-      body.id = `grp-${slug(bucket.key)}`;
-      body.setAttribute("role", "region");
-      body.setAttribute("aria-labelledby", button.id);
-      body.hidden = !bucket.defaultOpen;
+      const heading = document.createElement('h2');
+      heading.className = 'resource-category__title';
+      heading.textContent = category;
+      section.appendChild(heading);
 
-      const loadMore = document.createElement("button");
-      loadMore.type = "button";
-      loadMore.className = "res-group__load";
-      loadMore.hidden = true;
-      loadMore.addEventListener("click", () => {
-        const cfg = renderConfig.get(bucket.key);
-        if (!cfg) return;
-        cfg.limit = Math.min(cfg.limit + DEFAULT_LIMIT, cfg.currentItems.length);
-        renderBucket(bucket.key, cfg.currentItems, false);
+      const grid = document.createElement('div');
+      grid.className = 'resource-grid';
+
+      byCategory.get(category).forEach(item => {
+        const card = document.createElement('a');
+        card.className = 'resource-card';
+        card.href = item.url;
+        card.target = '_blank';
+        card.rel = 'noopener';
+
+        const title = document.createElement('h3');
+        title.textContent = item.title;
+        card.appendChild(title);
+
+        if (item.subtitle) {
+          const blurb = document.createElement('p');
+          blurb.className = 'resource-card__meta';
+          blurb.textContent = item.subtitle;
+          card.appendChild(blurb);
+        } else if (item.tags && item.tags.length) {
+          const blurb = document.createElement('p');
+          blurb.className = 'resource-card__meta';
+          blurb.textContent = item.tags.join(', ');
+          card.appendChild(blurb);
+        }
+
+        if (state.activeRegion === 'all' && item.__regionLabels.length) {
+          const badge = document.createElement('span');
+          badge.className = 'resource-card__region';
+          badge.textContent = item.__regionLabels.join(', ');
+          card.appendChild(badge);
+        }
+
+        const cta = document.createElement('span');
+        cta.className = 'resource-card__cta';
+        cta.textContent = 'Open resource';
+        card.appendChild(cta);
+
+        grid.appendChild(card);
       });
 
-      button.addEventListener("click", () => toggleGroup(bucket.key));
+      section.appendChild(grid);
+      state.results.appendChild(section);
+    });
 
-      section.append(button, body, loadMore);
-      parent.appendChild(section);
+    console.info(`C2C Resources: apply rendering ${visible.length} resetLimits=${reset === false ? 'false' : 'true'}`);
+  }
 
-      return {
-        key: bucket.key,
-        label: bucket.label,
-        button,
-        body,
-        loadMore,
-        section,
-        countEl,
-        limit: DEFAULT_LIMIT,
-        currentItems: [],
-        defaultOpen: bucket.defaultOpen,
-        alwaysExpanded: false,
-      };
+  function toArray(payload){
+    if (Array.isArray(payload)) return payload;
+    if (payload && Array.isArray(payload.items)) return payload.items;
+    return [];
+  }
+
+  async function fetchJSON(url){
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} for ${url}`);
     }
+    return response.json();
+  }
 
-    function bindEvents() {
-      if (elements.search) {
-        elements.search.addEventListener("input", event => {
-          state.q = event.target.value || "";
-          apply(true);
-        });
-      }
+  async function loadData(host){
+    const primary = host.dataset.source || '/assets/data/resources.json';
+    const fallback = host.dataset.sourceFallback || '/site/assets/data/resources.json';
+
+    try {
+      const payload = await fetchJSON(primary);
+      return toArray(payload);
+    } catch (primaryError) {
+      console.warn('C2C Resources: primary fetch failed', primaryError);
+      if (!fallback || fallback === primary) throw primaryError;
+      const payload = await fetchJSON(fallback);
+      return toArray(payload);
     }
+  }
 
-    function toggleGroup(key) {
-      const config = renderConfig.get(key);
-      if (!config || config.alwaysExpanded) return;
-      const expanded = config.button.getAttribute("aria-expanded") === "true";
-      config.button.setAttribute("aria-expanded", expanded ? "false" : "true");
-      config.body.hidden = expanded;
-    }
+  async function boot(){
+    const host = document.getElementById('resources-app');
+    if (!host) return;
 
-    function matchesItem(item, query) {
-      if (!query) return true;
-      return item.searchText.includes(query);
-    }
+    buildDOM(host);
 
-    function renderBucketsSimple(out, items) {
-      if (!out) return;
-      const esc = value => String(value ?? '').replace(/[&<>\"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
-      const grouped = groupByRegionCategory(items || []);
-      const regionOrder = [...REGION_ORDER, ...Object.keys(grouped).filter(key => !REGION_ORDER.includes(key)).sort((a, b) => a.localeCompare(b))];
-      const orderedRegions = regionOrder.filter(region => grouped[region]);
-      let html = '<div class=\"c2c-groups\">';
-      if (!orderedRegions.length) {
-        html += '<p class=\"c2c-empty\">No resources matched your filters.</p>';
-      } else {
-        for (const region of orderedRegions) {
-          const categories = grouped[region] || {};
-          const total = Object.values(categories).reduce((sum, list) => sum + list.length, 0);
-          const label = REGION_LABEL[region] || region;
-          html += `<section class=\"c2c-group\" data-region=\"${esc(region)}\">` +
-            `<button class=\"c2c-accordion\" aria-expanded=\"true\">` +
-              `<span class=\"c2c-group-title\">${esc(label)}</span>` +
-              `<span class=\"c2c-count\">${total}</span>` +
-            `</button>` +
-            `<div class=\"c2c-region-body\">`;
-          const categoryOrder = [...CAT_ORDER, ...Object.keys(categories).filter(cat => !CAT_ORDER.includes(cat)).sort((a, b) => a.localeCompare(b))];
-          const seen = new Set();
-          for (const category of categoryOrder) {
-            if (seen.has(category)) continue;
-            seen.add(category);
-            const list = categories[category];
-            if (!list || !list.length) continue;
-            html += `<section class=\"c2c-category\" data-category=\"${esc(category)}\">` +
-              `<h3 class=\"c2c-category-title\">${esc(category)}<span class=\"c2c-badge\">${list.length}</span></h3>` +
-              '<ul class=\"c2c-cards\">' +
-              list.map(item => {
-                const link = resolveUrl(item);
-                return `<li class=\"c2c-card\">` +
-                  `<a class=\"c2c-card-link\" href=\"${esc(link)}\" rel=\"noopener\" target=\"_blank\">${esc(item.title || item.name || 'Untitled')}</a>` +
-                  `${item.tags && item.tags.length ? `<div class=\"c2c-tags\">${item.tags.map(esc).join(', ')}</div>` : ''}` +
-                `</li>`;
-              }).join('') +
-              '</ul>' +
-            '</section>';
-          }
-          html += '</div></section>';
-        }
-      }
-      html += '</div>';
-      out.innerHTML = html;
-      out.querySelectorAll('.c2c-accordion').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const section = btn.closest('.c2c-group');
-          const expanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!expanded));
-          const body = section.querySelector('.c2c-region-body');
-          if (body) body.hidden = expanded;
-        }, { once: false });
+    try {
+      const data = await loadData(host);
+      console.info('C2C Resources: dataset size =', data.length);
+      const filtered = data.filter(item => !isDocItem(item));
+      console.info(`C2C Resources: docs removed = ${data.length - filtered.length} remaining = ${filtered.length}`);
+      state.all = prepareItems(filtered);
+      state.chips.forEach((chip, key) => {
+        const active = key === state.activeRegion;
+        chip.classList.toggle('is-active', active);
+        chip.setAttribute('aria-pressed', active ? 'true' : 'false');
       });
-    }
-
-    function apply(resetLimits) {
-      const out = document.getElementById("c2c-buckets") || document.getElementById("resources-app");
-      console.log("C2C Resources: apply rendering", Array.isArray(state?.all) ? state.all.length : 0, "resetLimits=", !!resetLimits);
-      const query = (state.q || "").trim().toLowerCase();
-      const queryChanged = query !== state.lastQuery;
-      state.lastQuery = query;
-
-      badgeRegistry = new Map();
-
-      let filtered = state.all.filter(item => matchesItem(item, query));
-      if (state.activeRegions.length) {
-        const allowed = new Set(state.activeRegions);
-        filtered = filtered.filter(item => {
-          const regions = Array.isArray(item.regions) && item.regions.length ? item.regions : ['NAT'];
-          return regions.some(region => allowed.has(region));
-        });
-      }
-
-      if (elements.counter) {
-        elements.counter.textContent = `Showing ${filtered.length} of ${state.all.length} resources`;
-      }
-
-      if (state.regionChips instanceof Map) {
-        const hasActive = state.activeRegions.length > 0;
-        state.regionChips.forEach((btn, code) => {
-          const active = hasActive ? state.activeRegions.includes(code) : code === 'ALL';
-          btn.classList.toggle('active', active);
-          btn.classList.toggle('is-active', active);
-          btn.setAttribute('aria-pressed', String(active));
-        });
-      }
-
-      if (out) {
-        renderBucketsSimple(out, filtered);
-      }
-
-      if (out && (!out.innerHTML || out.innerHTML.trim() === '')) {
-        renderBucketsSimple(out, Array.isArray(state.all) ? state.all : []);
-        console.warn('C2C Resources: simple grouped renderer used');
+      render(true);
+    } catch (error) {
+      console.error('C2C Resources: failed to load dataset', error);
+      state.counter.textContent = 'Resources temporarily unavailable. Try again soon.';
+      if (state.empty) {
+        state.empty.hidden = false;
+        state.empty.textContent = 'Resources temporarily unavailable. Try again soon.';
       }
     }
+  }
 
-    function renderBucketsSimple(out, items) {
-      if (!out) return;
-      const esc = value => String(value ?? '').replace(/[&<>\"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
-      const grouped = groupByRegionCategory(items || []);
-      const regionOrder = [...REGION_ORDER, ...Object.keys(grouped).filter(key => !REGION_ORDER.includes(key)).sort((a, b) => a.localeCompare(b))];
-      const orderedRegions = regionOrder.filter(region => grouped[region]);
-      let html = '<div class=\"c2c-groups\">';
-      if (!orderedRegions.length) {
-        html += '<p class=\"c2c-empty\">No resources matched your filters.</p>';
-      } else {
-        for (const region of orderedRegions) {
-          const categories = grouped[region] || {};
-          const total = Object.values(categories).reduce((sum, list) => sum + list.length, 0);
-          const label = REGION_LABEL[region] || region;
-          html += `<section class=\"c2c-group\" data-region=\"${esc(region)}\">` +
-            `<button class=\"c2c-accordion\" aria-expanded=\"true\">` +
-              `<span class=\"c2c-group-title\">${esc(label)}</span>` +
-              `<span class=\"c2c-count\">${total}</span>` +
-            `</button>` +
-            `<div class=\"c2c-region-body\">`;
-          const categoryOrder = [...CAT_ORDER, ...Object.keys(categories).filter(cat => !CAT_ORDER.includes(cat)).sort((a, b) => a.localeCompare(b))];
-          const seen = new Set();
-          for (const category of categoryOrder) {
-            if (seen.has(category)) continue;
-            seen.add(category);
-            const list = categories[category];
-            if (!list || !list.length) continue;
-            html += `<section class=\"c2c-category\" data-category=\"${esc(category)}\">` +
-              `<h3 class=\"c2c-category-title\">${esc(category)}<span class=\"c2c-badge\">${list.length}</span></h3>` +
-              '<ul class=\"c2c-cards\">' +
-              list.map(item => {
-                const link = resolveUrl(item);
-                return `<li class=\"c2c-card\">` +
-                  `<a class=\"c2c-card-link\" href=\"${esc(link)}\" rel=\"noopener\" target=\"_blank\">${esc(item.title || item.name || 'Untitled')}</a>` +
-                  `${item.tags && item.tags.length ? `<div class=\"c2c-tags\">${item.tags.map(esc).join(', ')}</div>` : ''}` +
-                `</li>`;
-              }).join('') +
-              '</ul>' +
-            '</section>';
-          }
-          html += '</div></section>';
-        }
-      }
-      html += '</div>';
-      out.innerHTML = html;
-      out.querySelectorAll('.c2c-accordion').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const section = btn.closest('.c2c-group');
-          const expanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!expanded));
-          const body = section.querySelector('.c2c-region-body');
-          if (body) body.hidden = expanded;
-        }, { once: false });
-      });
-    }
-
-    function apply(resetLimits) {
-      const out = document.getElementById("c2c-buckets") || document.getElementById("resources-app");
-      console.log("C2C Resources: apply rendering", Array.isArray(state?.all) ? state.all.length : 0, "resetLimits=", !!resetLimits);
-      const query = (state.q || "").trim().toLowerCase();
-      const queryChanged = query !== state.lastQuery;
-      state.lastQuery = query;
-
-      badgeRegistry = new Map();
-
-      const filtered = state.all.filter(item => matchesItem(item, query));
-
-      if (elements.counter) {
-        elements.counter.textContent = `Showing ${filtered.length} of ${state.all.length} resources`;
-      }
-
-      if (out) {
-        renderBucketsSimple(out, filtered);
-      }
-
-      if (out && (!out.innerHTML || out.innerHTML.trim() === "")) {
-        renderBucketsSimple(out, Array.isArray(state.all) ? state.all : []);
-        console.warn("C2C Resources: simple grouped renderer used");
-      }
-    }
-
-    function renderBucket(key, items, resetLimit) {
-      const config = renderConfig.get(key);
-      if (!config) return;
-
-      config.currentItems = items;
-
-      if (resetLimit) {
-        config.limit = DEFAULT_LIMIT;
-      }
-
-      const limit = config.alwaysExpanded ? Math.min(config.limit, items.length) : Math.min(config.limit, items.length);
-
-      if (config.body) {
-        config.body.innerHTML = "";
-      }
-      if (config.container) {
-        config.container.innerHTML = "";
-      }
-
-      const target = config.body || config.container;
-      if (target) {
-        const fragment = document.createDocumentFragment();
-        items.slice(0, limit || items.length).forEach(item => {
-          const cardEl = createCard(item);
-          fragment.appendChild(cardEl);
-        });
-        target.appendChild(fragment);
-      }
-
-      const remaining = Math.max(items.length - (limit || items.length), 0);
-      if (config.loadMore) {
-        if (remaining > 0) {
-          config.loadMore.hidden = false;
-          config.loadMore.textContent = `Load more (${remaining})`;
-        } else {
-          config.loadMore.hidden = true;
-        }
-      }
-
-      if (config.countEl) {
-        config.countEl.textContent = `(${items.length})`;
-      }
-      if (config.heading) {
-        config.heading.textContent = items.length ? `Featured (${items.length})` : "Featured";
-        config.heading.style.display = items.length ? "" : "none";
-      }
-
-      if (config.section) {
-        config.section.style.display = items.length ? "" : "none";
-      }
-      if (config.section) {
-        config.section.style.display = items.length ? "" : "none";
-      } else if (config.container && config.alwaysExpanded) {
-        config.container.style.display = items.length ? "" : "none";
-      }
-    }
-
-    function createCard(item) {
-      const card = document.createElement("article");
-      card.className = "res-card";
-      card.dataset.id = item.id;
-
-      const body = document.createElement("div");
-      body.className = "res-card__body";
-
-      const titleRow = document.createElement("div");
-      titleRow.className = "res-card__title-row";
-
-      const badge = createBadge(item);
-      registerBadge(item, badge);
-      titleRow.appendChild(badge);
-
-      const title = document.createElement("h3");
-      title.className = "res-card__title";
-      const link = document.createElement("a");
-      link.className = "res-card__link";
-      link.href = item.url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = item.title;
-      title.appendChild(link);
-      titleRow.appendChild(title);
-
-      body.appendChild(titleRow);
-
-      if (item.summary) {
-        const summary = document.createElement("p");
-        summary.className = "res-card__summary";
-        summary.textContent = item.summary;
-        body.appendChild(summary);
-      }
-
-      if (Array.isArray(item.tags) && item.tags.length) {
-        const list = document.createElement("ul");
-        list.className = "res-card__tags";
-        item.tags.forEach(tag => {
-          const li = document.createElement("li");
-          li.textContent = tag;
-          list.appendChild(li);
-        });
-        body.appendChild(list);
-      }
-
-      const actions = document.createElement("div");
-      actions.className = "res-card__actions";
-
-      const openButton = document.createElement("button");
-      openButton.type = "button";
-      openButton.className = "js-open";
-      openButton.textContent = "Open";
-      openButton.addEventListener("click", () => {
-        window.open(item.url, "_blank", "noopener,noreferrer");
-      });
-
-      const copyButton = document.createElement("button");
-      copyButton.type = "button";
-      copyButton.className = "js-copy";
-      copyButton.textContent = "Copy link";
-      copyButton.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(absoluteUrl(item.url));
-          copyButton.textContent = "Copied!";
-          setTimeout(() => {
-            copyButton.textContent = "Copy link";
-          }, 1200);
-        } catch (error) {
-          console.error(error);
-        }
-      });
-
-      const saveButton = document.createElement("button");
-      saveButton.type = "button";
-      saveButton.className = "js-save";
-      saveButton.textContent = "★ Save";
-      saveButton.addEventListener("click", () => {
-        try {
-          const key = "c2c_saved";
-          const set = new Set(JSON.parse(localStorage.getItem(key) || "[]"));
-          if (set.has(item.id || item.url)) {
-            set.delete(item.id || item.url);
-            saveButton.textContent = "★ Save";
-          } else {
-            set.add(item.id || item.url);
-            saveButton.textContent = "Saved";
-          }
-          localStorage.setItem(key, JSON.stringify([...set]));
-        } catch (error) {
-          console.error(error);
-        }
-      });
-
-      actions.append(openButton, copyButton, saveButton);
-      body.appendChild(actions);
-      card.appendChild(body);
-
-      return card;
-    }
-
-    function createBadge() {
-      const badge = document.createElement("span");
-      badge.className = "res-card__badge badge-pending";
-      const icon = document.createElement("span");
-      icon.className = "res-card__badge-icon";
-      icon.textContent = "●";
-      const sr = document.createElement("span");
-      sr.className = "sr-only";
-      sr.textContent = "Link status pending";
-      badge.append(icon, sr);
-      return badge;
-    }
-
-    function registerBadge(item, badgeEl) {
-      badgeRegistry.set(item.id, { item, element: badgeEl });
-      applyBadge(item, badgeEl);
-    }
-
-    function applyBadge(item, badgeEl) {
-      const entry = linkReport.get(item.id);
-      let statusClass = "badge-pending";
-      let srText = "Link status pending";
-      let title = "Link check pending";
-
-      if (entry) {
-        if (entry.error || !entry.status || entry.status >= 400) {
-          statusClass = "badge-fail";
-          srText = "Link currently failing";
-          title = `Last check ${linkReportCheckedAt || ''} • ${entry.error || `HTTP ${entry.status}`}`.trim();
-        } else {
-          const finalHost = entry.finalUrl ? new URL(entry.finalUrl).host : item.host;
-          const hostChanged = finalHost !== item.host;
-          if (entry.redirects > 0 || hostChanged) {
-            statusClass = "badge-warn";
-            srText = hostChanged ? "Link redirects to another domain" : "Link redirects";
-            title = `Last check ${linkReportCheckedAt || ''} • Redirects: ${entry.redirects}${hostChanged ? ` • Final host: ${finalHost}` : ''}`.trim();
-          } else {
-            statusClass = "badge-ok";
-            srText = "Link healthy";
-            title = `Last check ${linkReportCheckedAt || ''} • HTTP ${entry.status}`.trim();
-          }
-        }
-      }
-
-      badgeEl.className = `res-card__badge ${statusClass}`;
-      badgeEl.setAttribute("title", title);
-      const sr = badgeEl.querySelector(".sr-only");
-      if (sr) sr.textContent = srText;
-    }
-
-    function refreshBadges() {
-      badgeRegistry.forEach(record => {
-        applyBadge(record.item, record.element);
-      });
-    }
-
-    function loadLinkReport() {
-      fetch("/assets/data/resources.linkreport.json", { cache: "no-store" })
-        .then(res => (res.ok ? res.json() : null))
-        .then(data => {
-          if (!data || !Array.isArray(data.results)) return;
-          linkReportCheckedAt = data.checkedAt || null;
-          linkReport = new Map();
-          data.results.forEach(entry => {
-            linkReport.set(entry.id, entry);
-          });
-          refreshBadges();
-        })
-        .catch(() => {});
-    }
-
-    function slug(value) {
-      return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-    }
-
-    async function init() {
-      const mount = document.getElementById("resources-app");
-      const ds = mount?.dataset?.source, ds2 = mount?.dataset?.sourceFallback;
-
-      let DATA = (typeof window !== "undefined" && Array.isArray(window.C2C_RESOURCES)) ? window.C2C_RESOURCES : null;
-      if (!DATA) {
-        try {
-          console.info("C2C Resources: fetching dataset", ds, "fallback", ds2);
-          try { DATA = await fetchJSON(ds); }
-          catch (e) { console.warn("primary dataset failed", e); DATA = ds2 ? await fetchJSON(ds2) : []; }
-        } catch (e) {
-          console.error("dataset fetch failed (both)", e);
-          if (mount) mount.innerHTML = '<p class="error">Resource list temporarily unavailable.</p>';
-          return;
-        }
-      }
-      console.info("C2C Resources: dataset size =", DATA.length);
-
-      const before = Array.isArray(DATA) ? DATA.length : 0;
-
-      DATA = (Array.isArray(DATA) ? DATA : []).filter(it => !isDocItem(it));
-
-      console.info("C2C Resources: docs removed =", before - DATA.length, "remaining =", DATA.length);
-
-      state.all = prepareResources(Array.isArray(DATA) ? DATA : []);
-      console.info("C2C Resources: state.all =", state.all.length);
-
-      if (!window.__c2c_dom_ready__) {
-        setupDOM();
-        bindEvents();
-        window.__c2c_dom_ready__ = true;
-      } else {
-        setupDOM();
-      }
-
-      apply(true);
-      loadLinkReport();
-    }
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", init);
-    } else {
-      init();
-    }
-  })();
-
-
-
-}
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
+  }
+})();

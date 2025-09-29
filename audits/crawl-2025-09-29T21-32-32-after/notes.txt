@@ -1,0 +1,4 @@
+Updated pages and shared header include
+- Header now injected via <!--#include virtual="/_includes/site-header.html" --> across index.html, pricing.html, resources.html, docs.html, about.html, testimonials.html, partners.html, privacy.html, terms.html.
+- Resources hub rebuilt with region chips, safe fetch fallback, and empty state message.
+- Docs hub restructured into Core, Safety, Regulatory & Client groups with accessible toggles.

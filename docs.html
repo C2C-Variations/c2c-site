@@ -26,143 +26,195 @@
   <!-- Cloudflare Web Analytics (enable when token is issued)
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"TODO-CF-ANALYTICS-TOKEN"}'></script>
   -->
-  <link rel="stylesheet" href="/assets/css/site-header.css?v=5">
-  <link rel="stylesheet" href="/assets/css/resources.css?v=15">
-  <script defer src="/assets/js/site-enhancements.js?v=7"></script>
-<style>
+  <link rel="stylesheet" href="/assets/css/site-header.css?v=6">
+  <link rel="stylesheet" href="/assets/css/resources.css?v=16">
+  <script defer src="/assets/js/site-enhancements.js?v=8"></script>
+  <style>
     :root{--bg:#000;--fg:#fff;--muted:#a7a7a7;--card:#0d0d0f;--line:#222;--accent:#ff8a3d;--wa:#25D366;}
     html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility; padding-top:env(safe-area-inset-top);}
-    .wrap{max-width:1100px;margin:0 auto;padding:20px;}
-    h1{font-weight:800;font-size:clamp(32px,5vw,56px);margin:10px 0 8px;}
-    h2{font-weight:800;color:var(--accent);margin:16px 0 8px;}
-    .muted{color:var(--muted);}
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:800;text-decoration:none;min-height:44px;}
-    .btn-wa{background:var(--wa);color:#0b321a;}
-    @media (max-width:768px){.wrap{padding:16px;}}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-top:env(safe-area-inset-top);} 
+    .docs-wrap{max-width:1100px;margin:0 auto;padding:32px 20px 96px;display:grid;gap:32px;}
+    .docs-head{display:grid;gap:12px;}
+    .docs-head .eyebrow{text-transform:uppercase;letter-spacing:0.18em;font-size:0.75rem;color:var(--accent);}
+    .docs-head h1{font-weight:800;font-size:clamp(32px,5vw,52px);margin:0;}
+    .docs-head .muted{color:var(--muted);max-width:640px;}
+    .docs-groups{display:grid;gap:18px;}
+    .docs-group{border:1px solid rgba(255,255,255,0.08);border-radius:18px;background:rgba(8,8,8,0.88);overflow:hidden;}
+    .docs-group__toggle{width:100%;padding:18px 22px;border:0;background:transparent;color:inherit;display:flex;align-items:center;gap:16px;font-weight:700;font-size:1.15rem;letter-spacing:0.01em;cursor:pointer;text-align:left;}
+    .docs-group__toggle:focus{outline:2px solid #ff8a3d;outline-offset:-4px;}
+    .docs-label{font-size:1.2rem;}
+    .docs-count{margin-left:auto;font-size:0.9rem;color:#c6c6c6;}
+    .docs-icon{width:12px;height:12px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform 0.2s ease;}
+    .docs-group.is-open .docs-icon{transform:rotate(-135deg);}
+    .docs-group__body{display:grid;gap:16px;padding:0 22px 22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .docs-group:not(.is-open) .docs-group__body{display:none;}
+    .doc-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:12px;min-height:190px;}
+    .doc-card h3{margin:0;font-size:1.2rem;font-weight:700;}
+    .doc-card p{margin:0;color:var(--muted);line-height:1.6;}
+    .doc-card .btn{align-self:flex-start;}
+    @media (max-width:768px){.docs-wrap{padding:24px 16px 72px;}.docs-group__body{padding:0 16px 18px;grid-template-columns:1fr;}}
   </style>
-<style>
-/* Ensure Docs Hub buttons are clickable */
-.docs a, .doc a, .card a {
-  pointer-events: auto !important;
-  position: relative;
-  z-index: 2;
-}
-</style>
 <link rel="preload" href="site-mobile.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 
 <body>
-<header id="c2c-header" class="c2c-header">
-  <div class="c2c-wrap">
-    <a class="c2c-logo" href="/"><span>C2C</span> Variations</a>
-    <nav class="c2c-nav" aria-label="Main">
-      <a href="/pricing.html">Pricing</a>
-      <a href="/resources.html">Resources</a>
-      <a href="/docs.html">Docs</a>
-      <a href="/about.html">About</a>
-    </nav>
-    <div class="c2c-cta">
-      <a class="btn whats" href="https://wa.me/61400000000?text=Hi%20C2C%20team" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn chat" href="/chat.html">Chat with C2C</a>
-    </div>
-    <button id="c2c-nav-toggle" class="c2c-burger" aria-label="Menu" aria-expanded="false">☰</button>
-  </div>
-</header>
+<!--#include virtual="/_includes/site-header.html" -->
 
 <main class="c2c-main container">
-<div class="wrap">
-<h1>Docs Hub</h1>
-<p class="muted">Tap a group to open. WhatsApp-first today — generators later.</p>
-<section class="groups" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:14px;">
-<details class="group" style="background:#0f0f10;border:1px solid #1f1f21;border-radius:18px;padding:6px 16px;">
-<summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;list-style:none;padding:18px 4px;">
-<span style="font-weight:800;font-size:28px;color:#ff8a3d">Core Docs</span>
-<span style="color:#ff8a3d;font-size:24px">+</span>
-</summary>
-<div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:0 0 16px 0;">
-<div class="card"><h3>Variation</h3><p class="muted">Lock scope changes with approval first.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Variation%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Scope%20%5B%20%5D%20Price%20%5B%20%5D%20Site%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Variation%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Scope%20%5B%20%5D%20Price%20%5B%20%5D%20Site%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Variation</h3><p class="muted">Lock scope changes with approval first.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Quote</h3><p class="muted">Professional quote with your logo/ABN.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Quote%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Scope%20%5B%20%5D%20Budget%20%5B%20%5D%20Site%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Quote%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Scope%20%5B%20%5D%20Budget%20%5B%20%5D%20Site%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Quote</h3><p class="muted">Professional quote with your logo/ABN.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Subcontractor Agreement</h3><p class="muted">Keep subbie relationships clear.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Subcontractor%20Agreement%3A%20Business%20%5B%20%5D%20ABN%20%5B%20%5D%20Rate%20%5B%20%5D%20Scope%20%5B%20%5D%20Site%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Subcontractor%20Agreement%3A%20Business%20%5B%20%5D%20ABN%20%5B%20%5D%20Rate%20%5B%20%5D%20Scope%20%5B%20%5D%20Site%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Subcontractor Agreement</h3><p class="muted">Keep subbie relationships clear.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Invoice / Payment Claim</h3><p class="muted">GST-correct payment docs.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Payment%20Claim%3A%20Client%20%5B%20%5D%20PO%20%5B%20%5D%20Amount%20%5B%20%5D%20Due%20%5B%20%5D%20Site%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Payment%20Claim%3A%20Client%20%5B%20%5D%20PO%20%5B%20%5D%20Amount%20%5B%20%5D%20Due%20%5B%20%5D%20Site%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Invoice / Payment Claim</h3><p class="muted">GST-correct payment docs.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-</div>
-</details>
-<details class="group" style="background:#0f0f10;border:1px solid #1f1f21;border-radius:18px;padding:6px 16px;">
-<summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;list-style:none;padding:18px 4px;">
-<span style="font-weight:800;font-size:28px;color:#ff8a3d">Safety Docs</span>
-<span style="color:#ff8a3d;font-size:24px">+</span>
-</summary>
-<div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:0 0 16px 0;">
-<div class="card"><h3>SWMS</h3><p class="muted">Trade-specific SWMS.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20SWMS%3A%20Task%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D%20Risks%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20SWMS%3A%20Task%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D%20Risks%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>SWMS</h3><p class="muted">Trade-specific SWMS.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>JSA / Take 5</h3><p class="muted">Quick risk assessment.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20JSA%2FTake%205%3A%20Task%20%5B%20%5D%20Site%20%5B%20%5D%20Crew%20%5B%20%5D%20Date%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20JSA%2FTake%205%3A%20Task%20%5B%20%5D%20Site%20%5B%20%5D%20Crew%20%5B%20%5D%20Date%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>JSA / Take 5</h3><p class="muted">Quick risk assessment.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Toolbox Talk</h3><p class="muted">Record toolbox discussions.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Toolbox%20Talk%3A%20Topic%20%5B%20%5D%20Crew%20%5B%20%5D%20Date%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Toolbox%20Talk%3A%20Topic%20%5B%20%5D%20Crew%20%5B%20%5D%20Date%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Toolbox Talk</h3><p class="muted">Record toolbox discussions.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Incident Report</h3><p class="muted">Incidents &amp; near misses.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Incident%2FNear-Miss%3A%20What%20%5B%20%5D%20Where%20%5B%20%5D%20Who%20%5B%20%5D%20When%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Incident%2FNear-Miss%3A%20What%20%5B%20%5D%20Where%20%5B%20%5D%20Who%20%5B%20%5D%20When%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Incident Report</h3><p class="muted">Incidents &amp; near misses.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Plant Pre-Start</h3><p class="muted">Plant/equipment checklist.</p><a class="btn" style="background:#2a2a2a;color:#8a8a8a;cursor:not-allowed">Generate online (coming soon)</a></div>
-</div>
-</details>
-<details class="group" style="background:#0f0f10;border:1px solid #1f1f21;border-radius:18px;padding:6px 16px;">
-<summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;list-style:none;padding:18px 4px;">
-<span style="font-weight:800;font-size:28px;color:#ff8a3d">Regulatory / Permits</span>
-<span style="color:#ff8a3d;font-size:24px">+</span>
-</summary>
-<div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:0 0 16px 0;">
-<div class="card"><h3>Compliance Certificate</h3><p class="muted">Plumbing/Electrical compliance.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Compliance%20Certificate%3A%20Please%20help%20me%20create%20this%20document.&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Compliance%20Certificate%3A%20Please%20help%20me%20create%20this%20document." rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Compliance Certificate</h3><p class="muted">Plumbing/Electrical compliance.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Hot Works Permit</h3><p class="muted">Fire risk jobs sign-off.</p><a class="btn" style="background:#2a2a2a;color:#8a8a8a;cursor:not-allowed">Generate online (coming soon)</a></div>
-<div class="card"><h3>Confined Space Permit</h3><p class="muted">Required permit for entry.</p><a class="btn" style="background:#2a2a2a;color:#8a8a8a;cursor:not-allowed">Generate online (coming soon)</a></div>
-<div class="card"><h3>Working at Heights Permit</h3><p class="muted">Permit for elevated work.</p><a class="btn" style="background:#2a2a2a;color:#8a8a8a;cursor:not-allowed">Generate online (coming soon)</a></div>
-<div class="card"><h3>Asbestos Removal Plan</h3><p class="muted">Control steps documented.</p><a class="btn" style="background:#2a2a2a;color:#8a8a8a;cursor:not-allowed">Generate online (coming soon)</a></div>
-</div>
-</details>
-<details class="group" style="background:#0f0f10;border:1px solid #1f1f21;border-radius:18px;padding:6px 16px;">
-<summary style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;list-style:none;padding:18px 4px;">
-<span style="font-weight:800;font-size:28px;color:#ff8a3d">Client &amp; Warranty Docs</span>
-<span style="color:#ff8a3d;font-size:24px">+</span>
-</summary>
-<div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:0 0 16px 0;">
-<div class="card"><h3>Handover Report</h3><p class="muted">Completion &amp; client sign-off.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Handover%20Report%3A%20Client%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D%20Notes%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Handover%20Report%3A%20Client%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D%20Notes%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Handover Report</h3><p class="muted">Completion &amp; client sign-off.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Post-Job Checklist</h3><p class="muted">Final checks &amp; approvals.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Post-Job%20Checklist%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Post-Job%20Checklist%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Post-Job Checklist</h3><p class="muted">Final checks &amp; approvals.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Warranty Claim</h3><p class="muted">Warranty process.</p><a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Warranty%20Claim%3A%20Client%20%5B%20%5D%20Product%20%5B%20%5D%20Issue%20%5B%20%5D%20Install%20Date%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Warranty%20Claim%3A%20Client%20%5B%20%5D%20Product%20%5B%20%5D%20Issue%20%5B%20%5D%20Install%20Date%20%5B%20%5D" rel="noopener" target="_blank">Request via WhatsApp</a></div>
-<div class="card"><h3>Warranty Claim</h3><p class="muted">Warranty process.</p><a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a></div>
-<div class="card"><h3>Service Schedule</h3><p class="muted">Maintenance planning.</p><a class="btn" style="background:#2a2a2a;color:#8a8a8a;cursor:not-allowed">Generate online (coming soon)</a></div>
-<div class="card"><h3>Handover Pack</h3><p class="muted">Client manuals &amp; pack.</p><a class="btn" style="background:#2a2a2a;color:#8a8a8a;cursor:not-allowed">Generate online (coming soon)</a></div>
-</div>
-</details>
-</section>
-</div>
-<script>
-(function(){
-  function isMobile(){
-    return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
-  }
-  document.addEventListener('click', function(e){
-    var a = e.target.closest('a[data-mobile-href]');
-    if (!a) return;
-    if (isMobile()) {
-      a.setAttribute('href', a.getAttribute('data-mobile-href'));
+  <div class="docs-wrap">
+    <section class="docs-head">
+      <span class="eyebrow">Docs hub</span>
+      <h1>Docs Hub</h1>
+      <p class="muted">Tap a group to open. WhatsApp-first today - generators later.</p>
+    </section>
+
+    <section class="docs-groups" data-docs-groups>
+      <article class="docs-group is-open">
+        <button class="docs-group__toggle" type="button" aria-expanded="true" aria-controls="docs-core" data-docs-toggle="docs-core">
+          <span class="docs-label">Core</span>
+          <span class="docs-count">4 templates</span>
+          <span class="docs-icon" aria-hidden="true"></span>
+        </button>
+        <div class="docs-group__body" id="docs-core">
+          <div class="doc-card">
+            <h3>Variation</h3>
+            <p>Lock scope changes before tools hit the job.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Variation%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Scope%20%5B%20%5D%20Price%20%5B%20%5D%20Site%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Variation%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Scope%20%5B%20%5D%20Price%20%5B%20%5D%20Site%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Quote</h3>
+            <p>Professional quote with your logo and ABN.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Quote%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Scope%20%5B%20%5D%20Budget%20%5B%20%5D%20Site%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Quote%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Scope%20%5B%20%5D%20Budget%20%5B%20%5D%20Site%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Subcontractor Agreement</h3>
+            <p>Lock in scope, rates, and ABN before your crew starts.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Subcontractor%20Agreement%3A%20Business%20%5B%20%5D%20ABN%20%5B%20%5D%20Rate%20%5B%20%5D%20Scope%20%5B%20%5D%20Site%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Subcontractor%20Agreement%3A%20Business%20%5B%20%5D%20ABN%20%5B%20%5D%20Rate%20%5B%20%5D%20Scope%20%5B%20%5D%20Site%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Invoice / Payment Claim</h3>
+            <p>GST-correct claims and invoices ready to send.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Payment%20Claim%3A%20Client%20%5B%20%5D%20PO%20%5B%20%5D%20Amount%20%5B%20%5D%20Due%20%5B%20%5D%20Site%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Payment%20Claim%3A%20Client%20%5B%20%5D%20PO%20%5B%20%5D%20Amount%20%5B%20%5D%20Due%20%5B%20%5D%20Site%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="docs-group">
+        <button class="docs-group__toggle" type="button" aria-expanded="false" aria-controls="docs-safety" data-docs-toggle="docs-safety">
+          <span class="docs-label">Safety</span>
+          <span class="docs-count">4 templates</span>
+          <span class="docs-icon" aria-hidden="true"></span>
+        </button>
+        <div class="docs-group__body" id="docs-safety">
+          <div class="doc-card">
+            <h3>SWMS</h3>
+            <p>Trade-specific safe work method statement.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20SWMS%3A%20Task%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D%20Risks%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20SWMS%3A%20Task%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D%20Risks%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>JSA / Take 5</h3>
+            <p>Quick pre-start risk assessment.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20JSA%2FTake%205%3A%20Task%20%5B%20%5D%20Site%20%5B%20%5D%20Crew%20%5B%20%5D%20Date%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20JSA%2FTake%205%3A%20Task%20%5B%20%5D%20Site%20%5B%20%5D%20Crew%20%5B%20%5D%20Date%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Toolbox Talk</h3>
+            <p>Capture toolbox meetings and attendance.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Toolbox%20Talk%3A%20Topic%20%5B%20%5D%20Crew%20%5B%20%5D%20Date%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Toolbox%20Talk%3A%20Topic%20%5B%20%5D%20Crew%20%5B%20%5D%20Date%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Incident Report</h3>
+            <p>Log incidents and near misses with photos.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Incident%2FNear-Miss%3A%20What%20%5B%20%5D%20Where%20%5B%20%5D%20Who%20%5B%20%5D%20When%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Incident%2FNear-Miss%3A%20What%20%5B%20%5D%20Where%20%5B%20%5D%20Who%20%5B%20%5D%20When%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="docs-group">
+        <button class="docs-group__toggle" type="button" aria-expanded="false" aria-controls="docs-regulatory" data-docs-toggle="docs-regulatory">
+          <span class="docs-label">Regulatory &amp; permits</span>
+          <span class="docs-count">3 templates</span>
+          <span class="docs-icon" aria-hidden="true"></span>
+        </button>
+        <div class="docs-group__body" id="docs-regulatory">
+          <div class="doc-card">
+            <h3>Compliance Certificate</h3>
+            <p>Electrical and plumbing certificates on demand.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Compliance%20Certificate%3A%20Please%20help%20me%20create%20this%20document.&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Compliance%20Certificate%3A%20Please%20help%20me%20create%20this%20document." target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Hot Works Permit</h3>
+            <p>Checklist and sign-off for heat and spark work.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Hot%20Works%20Permit%3A%20Job%20%5B%20%5D%20Location%20%5B%20%5D%20Supervisor%20%5B%20%5D%20Start%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Hot%20Works%20Permit%3A%20Job%20%5B%20%5D%20Location%20%5B%20%5D%20Supervisor%20%5B%20%5D%20Start%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Confined Space Permit</h3>
+            <p>Control atmospheric testing and entry approvals.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Confined%20Space%20Permit%3A%20Space%20%5B%20%5D%20Hazards%20%5B%20%5D%20Attendants%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Confined%20Space%20Permit%3A%20Space%20%5B%20%5D%20Hazards%20%5B%20%5D%20Attendants%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="docs-group">
+        <button class="docs-group__toggle" type="button" aria-expanded="false" aria-controls="docs-client" data-docs-toggle="docs-client">
+          <span class="docs-label">Client &amp; warranty</span>
+          <span class="docs-count">4 templates</span>
+          <span class="docs-icon" aria-hidden="true"></span>
+        </button>
+        <div class="docs-group__body" id="docs-client">
+          <div class="doc-card">
+            <h3>Handover Report</h3>
+            <p>Completion checklist and client sign-off.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Handover%20Report%3A%20Client%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D%20Notes%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Handover%20Report%3A%20Client%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D%20Notes%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Post-Job Checklist</h3>
+            <p>Final QA, photos, and client confirmation.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Post-Job%20Checklist%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Post-Job%20Checklist%3A%20Client%20%5B%20%5D%20Job%20%5B%20%5D%20Site%20%5B%20%5D%20Date%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Warranty Claim</h3>
+            <p>Document issues and outcomes with timestamps.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Warranty%20Claim%3A%20Client%20%5B%20%5D%20Product%20%5B%20%5D%20Issue%20%5B%20%5D%20Install%20Date%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Warranty%20Claim%3A%20Client%20%5B%20%5D%20Product%20%5B%20%5D%20Issue%20%5B%20%5D%20Install%20Date%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+          <div class="doc-card">
+            <h3>Service Schedule</h3>
+            <p>Plan recurring maintenance visits and reminders.</p>
+            <a class="btn btn-wa" data-mobile-href="https://api.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Service%20Schedule%3A%20Client%20%5B%20%5D%20Asset%20%5B%20%5D%20Frequency%20%5B%20%5D%20Notes%20%5B%20%5D&amp;app_absent=0" href="https://web.whatsapp.com/send?phone=61466873332&amp;text=C2C%20%E2%80%94%20Service%20Schedule%3A%20Client%20%5B%20%5D%20Asset%20%5B%20%5D%20Frequency%20%5B%20%5D%20Notes%20%5B%20%5D" target="_blank" rel="noopener">Request via WhatsApp</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <script>
+  (function(){
+    function isMobile(){
+      return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
     }
-  }, true);
-})();
-</script>
+    document.querySelectorAll('[data-docs-toggle]').forEach(function(button){
+      var group = button.closest('.docs-group');
+      button.addEventListener('click', function(){
+        var expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        if(group){
+          group.classList.toggle('is-open', !expanded);
+        }
+      });
+    });
+    document.addEventListener('click', function(event){
+      var link = event.target && event.target.closest('a[data-mobile-href]');
+      if(!link) return;
+      if(isMobile()){
+        link.setAttribute('href', link.getAttribute('data-mobile-href'));
+      }
+    }, true);
+  })();
+  </script>
 
   <div id="c2c-chat-overlay" hidden></div>
   <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
-    
     <div class="c2c-chat-body">
-      <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
+      <p class="c2c-chat-intro">Live chat is being switched on. Ping us on WhatsApp or email and we'll jump in.</p>
       <p>
         <a class="c2c-chat-link" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">Chat on WhatsApp</a><br>
         <a class="c2c-chat-link" href="mailto:info@c2cvariations.com.au">info@c2cvariations.com.au</a>
@@ -171,10 +223,19 @@
   </div>
 </main>
 <footer class="footer">
-    <div class="container footer-links-row">
-      <span>© C2C Variations</span>
-      <span class="footer-links"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/resources">Resources</a><a href="https://www.c2cvariations.com.au/testimonials">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
-    </div>
+  <div class="container footer-links-row">
+    <span>&amp;copy; C2C Variations</span>
+    <span class="footer-links">
+      <a href="/pricing.html">Pricing</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/about.html">About</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/testimonials.html">Testimonials</a>
+      <a href="/partners.html">Partners</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </span>
+  </div>
 </footer>
 
 <script src="assets/site-nav.js?v=1" defer></script>
@@ -201,3 +262,4 @@
 </script>
 </body>
 </html>
+
