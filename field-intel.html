@@ -3,9 +3,10 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="/assets/css/tokens.css?v=1">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>C2C Variations â€” Field Intel</title>
+  <title>C2C Variations Ã¢â‚¬â€ Field Intel</title>
   <meta name="description" content="Official Australian emergency, traffic, health, council and compliance resources grouped by state and category.">
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -257,9 +258,31 @@
 <link rel="stylesheet" href="/assets/css/site-header.v3.css?v=2">
 
 <script defer src="/assets/js/site-enhancements.v3.js?v=2"></script>
+<script defer src="/assets/js/site-nav.js?v=2"></script>
 </head>
 <body>
-{% include site-header.html %}
+<header class=""c2c-header"">
+  <div class=""wrap"">
+    <a class=""logo"" href=""/""><img src=""/assets/logo.png"" alt=""C2C Variations"" width=""132"" height=""32""/></a>
+    <button id=""nav-burger"" aria-expanded=""false"" aria-controls=""site-nav"" aria-label=""Menu"">Ã¢ËœÂ°</button>
+    <nav id=""site-nav"" hidden>
+      <a href=""/pricing.html"">Pricing</a>
+      <a href=""/docs.html"">Docs</a>
+      <a href=""/resources.html"">Resources</a>
+      <a href=""/about.html"">About</a>
+      <a class=""cta wa"" href=""https://wa.me/61XXXXXXXXX"">WhatsApp</a>
+      <a class=""cta chat"" href=""/chat.html"">Chat</a>
+    </nav>
+  </div>
+</header>
+<script>
+(function(){
+  const b=document.getElementById('nav-burger'), n=document.getElementById('site-nav');
+  if(!b||!n) return;
+  b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', String(!open)); n.hidden=open;});
+})();
+</script>
 <main>
     <section class="hero">
       <span class="hero-label">Resource hub</span>
@@ -289,7 +312,7 @@
         <h2 id="other-heading">National &amp; industry tools</h2>
         <div class="other-groups" id="other-groups"></div>
       </div>
-      <p class="empty-state" id="empty-state" aria-live="assertive">No resources match your search yet. Try another term such as â€œoutageâ€, â€œcouncilâ€ or â€œUVâ€.</p>
+      <p class="empty-state" id="empty-state" aria-live="assertive">No resources match your search yet. Try another term such as Ã¢â‚¬Å“outageÃ¢â‚¬Â, Ã¢â‚¬Å“councilÃ¢â‚¬Â or Ã¢â‚¬Å“UVÃ¢â‚¬Â.</p>
     </section>
   </main>
 
@@ -446,10 +469,10 @@
             const resourceLabel = totalResources === 1 ? 'resource' : 'resources';
             if (q) {
               const categoryLabel = visibleCategories === 1 ? 'category' : 'categories';
-              summaryEl.textContent = `Showing ${matchCount} of ${totalResources} ${resourceLabel} â€¢ ${visibleCategories} ${categoryLabel}`;
+              summaryEl.textContent = `Showing ${matchCount} of ${totalResources} ${resourceLabel} Ã¢â‚¬Â¢ ${visibleCategories} ${categoryLabel}`;
             } else {
               const categoryLabel = totalCategories === 1 ? 'category' : 'categories';
-              summaryEl.textContent = `${totalResources} ${resourceLabel} â€¢ ${totalCategories} ${categoryLabel}`;
+              summaryEl.textContent = `${totalResources} ${resourceLabel} Ã¢â‚¬Â¢ ${totalCategories} ${categoryLabel}`;
             }
           } else {
             summaryEl.textContent = '';
@@ -499,7 +522,19 @@
         }
       });
     })();
-  </script>{% include site-footer.html %}
+  </script><footer class=""c2c-footer"">
+  <div class=""wrap"">
+    <nav class=""footer-links"">
+      <a href=""/pricing.html"">Pricing</a>
+      <a href=""/docs.html"">Docs</a>
+      <a href=""/resources.html"">Resources</a>
+      <a href=""/about.html"">About</a>
+      <a href=""/privacy.html"">Privacy</a>
+      <a href=""/terms.html"">Terms</a>
+    </nav>
+    <p class=""fine"">Ã‚Â© C2C Variations</p>
+  </div>
+</footer>
 </body>
 </html>
 

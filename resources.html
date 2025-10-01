@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Resources â€” C2C</title>
+  <title>Resources Ã¢â‚¬â€ C2C</title>
   <script defer src="/assets/js/site-header.js?v=4"></script>
   <script defer src="/assets/js/resources.hub.v22.js?v=21"></script>
   <link rel="stylesheet" href="/assets/css/site-header.v3.css?v=2">
@@ -13,12 +13,33 @@
   <script defer src="/assets/js/site-enhancements.v3.js?v=2"></script>
 <link rel="stylesheet" href="/assets/css/tokens.css?v=1"><link rel="stylesheet" href="/assets/css/site-header.v3.css?v=3"><script src="/assets/js/site-nav.js?v=2" defer></script></head>
 <body>
-{% include site-header.html %}
+<header class=""c2c-header"">
+  <div class=""wrap"">
+    <a class=""logo"" href=""/""><img src=""/assets/logo.png"" alt=""C2C Variations"" width=""132"" height=""32""/></a>
+    <button id=""nav-burger"" aria-expanded=""false"" aria-controls=""site-nav"" aria-label=""Menu"">Ã¢ËœÂ°</button>
+    <nav id=""site-nav"" hidden>
+      <a href=""/pricing.html"">Pricing</a>
+      <a href=""/docs.html"">Docs</a>
+      <a href=""/resources.html"">Resources</a>
+      <a href=""/about.html"">About</a>
+      <a class=""cta wa"" href=""https://wa.me/61XXXXXXXXX"">WhatsApp</a>
+      <a class=""cta chat"" href=""/chat.html"">Chat</a>
+    </nav>
+  </div>
+</header>
+<script>
+(function(){
+  const b=document.getElementById('nav-burger'), n=document.getElementById('site-nav');
+  if(!b||!n) return;
+  b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', String(!open)); n.hidden=open;});
+})();
+</script>
 <main class="container">
     <section class="page-intro">
       <span class="eyebrow">Resource hub</span>
       <h1>Resources</h1>
-      <p>Government warnings, council tools, and compliance references â€” grouped, searchable, and link-health checked.</p>
+      <p>Government warnings, council tools, and compliance references Ã¢â‚¬â€ grouped, searchable, and link-health checked.</p>
     </section>
     <div id="resources-app"
       data-source="/assets/data/resources.json"
@@ -27,7 +48,19 @@
       data-linkreport-fallback="/site/assets/data/resources.linkreport.json">
       <noscript>Turn on JavaScript to view the resource hub.</noscript>
     </div>
-  </main><link rel="stylesheet" href="/assets/css/resources.chips.css?v=1"><script src="/assets/js/resources.hub.v23.js?v=1" defer></script>{% include site-footer.html %}
+  </main><link rel="stylesheet" href="/assets/css/resources.chips.css?v=1"><script src="/assets/js/resources.hub.v23.js?v=1" defer></script><footer class=""c2c-footer"">
+  <div class=""wrap"">
+    <nav class=""footer-links"">
+      <a href=""/pricing.html"">Pricing</a>
+      <a href=""/docs.html"">Docs</a>
+      <a href=""/resources.html"">Resources</a>
+      <a href=""/about.html"">About</a>
+      <a href=""/privacy.html"">Privacy</a>
+      <a href=""/terms.html"">Terms</a>
+    </nav>
+    <p class=""fine"">Ã‚Â© C2C Variations</p>
+  </div>
+</footer>
 </body>
 </html>
 

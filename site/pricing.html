@@ -3,9 +3,10 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="/assets/css/tokens.css?v=1">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>C2C Variations â€” Pricing</title>
+  <title>C2C Variations Ã¢â‚¬â€ Pricing</title>
   <meta name="description" content="Choose a C2C plan. Solo, Crew, or Business. Monthly or yearly with GST handled by Stripe.">
   <link rel="icon" href="./favicon.ico">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
@@ -53,9 +54,32 @@
     a[href^='https://buy.stripe.com']{position:relative;z-index:9999;pointer-events:auto !important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     .backdrop,.overlay,.modal-backdrop,.menu-backdrop,.click-shield{pointer-events:none !important}
   </style>
+<link rel="stylesheet" href="/assets/css/site-header.v3.css?v=3">
+<script defer src="/assets/js/site-nav.js?v=2"></script>
 </head>
 <body>
-{% include site-header.html %}
+<header class=""c2c-header"">
+  <div class=""wrap"">
+    <a class=""logo"" href=""/""><img src=""/assets/logo.png"" alt=""C2C Variations"" width=""132"" height=""32""/></a>
+    <button id=""nav-burger"" aria-expanded=""false"" aria-controls=""site-nav"" aria-label=""Menu"">Ã¢ËœÂ°</button>
+    <nav id=""site-nav"" hidden>
+      <a href=""/pricing.html"">Pricing</a>
+      <a href=""/docs.html"">Docs</a>
+      <a href=""/resources.html"">Resources</a>
+      <a href=""/about.html"">About</a>
+      <a class=""cta wa"" href=""https://wa.me/61XXXXXXXXX"">WhatsApp</a>
+      <a class=""cta chat"" href=""/chat.html"">Chat</a>
+    </nav>
+  </div>
+</header>
+<script>
+(function(){
+  const b=document.getElementById('nav-burger'), n=document.getElementById('site-nav');
+  if(!b||!n) return;
+  b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', String(!open)); n.hidden=open;});
+})();
+</script>
 <main class="container">
   <h1>Pick your plan</h1>
   <p class="hero">Monthly or yearly. GST handled at checkout by Stripe.</p>
@@ -117,7 +141,7 @@
 </main><!-- Chat UI (no change) -->
 <div id="c2c-chat-overlay" hidden></div>
 <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat"><div class="c2c-chat-body">
-    <p class="c2c-chat-intro">ðŸ‘‹ Live chat is being switched on. Ping us on WhatsApp or email and weâ€™ll jump in.</p>
+    <p class="c2c-chat-intro">Ã°Å¸â€˜â€¹ Live chat is being switched on. Ping us on WhatsApp or email and weÃ¢â‚¬â„¢ll jump in.</p>
     <p>
       <a class="c2c-chat-link" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">Chat on WhatsApp</a><br>
       <a class="c2c-chat-link" href="mailto:info@c2cvariations.com.au">info@c2cvariations.com.au</a>
@@ -126,7 +150,19 @@
 </div>
 <script src="assets/stripe-links.js?v=1" defer></script>
 <script src="assets/site-nav.js?v=1" defer></script>
-  <script src="assets/chatbot.v6.js?v=1" defer></script>{% include site-footer.html %}
+  <script src="assets/chatbot.v6.js?v=1" defer></script><footer class=""c2c-footer"">
+  <div class=""wrap"">
+    <nav class=""footer-links"">
+      <a href=""/pricing.html"">Pricing</a>
+      <a href=""/docs.html"">Docs</a>
+      <a href=""/resources.html"">Resources</a>
+      <a href=""/about.html"">About</a>
+      <a href=""/privacy.html"">Privacy</a>
+      <a href=""/terms.html"">Terms</a>
+    </nav>
+    <p class=""fine"">Ã‚Â© C2C Variations</p>
+  </div>
+</footer>
 </body>
 </html>
 

@@ -3,9 +3,10 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="/assets/css/tokens.css?v=1">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Docs done. Jobs won. Lock scope changes, clear approvals, and time-stamped PDFs. C2C Variations â€” national coverage and same-day setup.">
+  <meta name="description" content="Docs done. Jobs won. Lock scope changes, clear approvals, and time-stamped PDFs. C2C Variations Ã¢â‚¬â€ national coverage and same-day setup.">
   <link rel="canonical" href="https://www.c2cvariations.com.au/terms">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="C2C Variations">
@@ -40,16 +41,39 @@
   <!-- Cloudflare Web Analytics (enable when token is issued)
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"TODO-CF-ANALYTICS-TOKEN"}'></script>
   -->
+<link rel="stylesheet" href="/assets/css/site-header.v3.css?v=3">
+<script defer src="/assets/js/site-nav.js?v=2"></script>
 </head>
 <body>
-{% include site-header.html %}
+<header class=""c2c-header"">
+  <div class=""wrap"">
+    <a class=""logo"" href=""/""><img src=""/assets/logo.png"" alt=""C2C Variations"" width=""132"" height=""32""/></a>
+    <button id=""nav-burger"" aria-expanded=""false"" aria-controls=""site-nav"" aria-label=""Menu"">Ã¢ËœÂ°</button>
+    <nav id=""site-nav"" hidden>
+      <a href=""/pricing.html"">Pricing</a>
+      <a href=""/docs.html"">Docs</a>
+      <a href=""/resources.html"">Resources</a>
+      <a href=""/about.html"">About</a>
+      <a class=""cta wa"" href=""https://wa.me/61XXXXXXXXX"">WhatsApp</a>
+      <a class=""cta chat"" href=""/chat.html"">Chat</a>
+    </nav>
+  </div>
+</header>
+<script>
+(function(){
+  const b=document.getElementById('nav-burger'), n=document.getElementById('site-nav');
+  if(!b||!n) return;
+  b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded', String(!open)); n.hidden=open;});
+})();
+</script>
 <div class="wrap">
     <h1>Terms of Service</h1>
 <!-- C2C:TERMS:START -->
 <div class="card">
   <p><strong>Last updated:</strong> September 13, 2025</p>
   <h2>1. Who we are</h2>
-  <p>C2C Variations (â€œC2Câ€, â€œweâ€, â€œusâ€) provides tools to generate business and safety documentation for trades in Australia.</p>
+  <p>C2C Variations (Ã¢â‚¬Å“C2CÃ¢â‚¬Â, Ã¢â‚¬Å“weÃ¢â‚¬Â, Ã¢â‚¬Å“usÃ¢â‚¬Â) provides tools to generate business and safety documentation for trades in Australia.</p>
   <h2>2. Your agreement</h2>
   <p>By using our site or services, you agree to these Terms and our Privacy Policy.</p>
   <h2>3. Service description</h2>
@@ -64,12 +88,12 @@
   <p>You can cancel at any time; refunds follow Australian Consumer Law and any posted refund policy.</p>
   <h2>8. Documents & responsibility</h2>
   <p>Generated documents are produced from inputs you provide. You are responsible for verifying accuracy, legal suitability, and compliance with applicable laws, standards and client requirements.</p>
-  <h2>9. Thirdâ€‘party services</h2>
+  <h2>9. ThirdÃ¢â‚¬â€˜party services</h2>
   <p>We rely on third parties (e.g., WhatsApp, Stripe). Their terms and privacy policies apply when using their services through C2C.</p>
   <h2>10. Limitations & disclaimers</h2>
   <p>To the extent permitted by law, C2C is not liable for indirect or consequential loss. Total liability capped at fees paid in the preceding 12 months.</p>
   <h2>11. Changes</h2>
-  <p>We may modify the service or these Terms. If changes are material, weâ€™ll take reasonable steps to notify you.</p>
+  <p>We may modify the service or these Terms. If changes are material, weÃ¢â‚¬â„¢ll take reasonable steps to notify you.</p>
   <h2>12. Governing law</h2>
   <p>These Terms are governed by the laws of Victoria, Australia. Disputes heard in courts of Victoria.</p>
   <h2>13. Contact</h2>
@@ -80,7 +104,7 @@
 
   <div id="c2c-chat-overlay" hidden></div>
   <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat"><div class="c2c-chat-body">
-      <p class="c2c-chat-intro">ðŸ‘‹ Live chat is being switched on. Ping us on WhatsApp or email and weâ€™ll jump in.</p>
+      <p class="c2c-chat-intro">Ã°Å¸â€˜â€¹ Live chat is being switched on. Ping us on WhatsApp or email and weÃ¢â‚¬â„¢ll jump in.</p>
       <p>
         <a class="c2c-chat-link" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up." target="_blank" rel="noopener">Chat on WhatsApp</a><br>
         <a class="c2c-chat-link" href="mailto:info@c2cvariations.com.au">info@c2cvariations.com.au</a>
@@ -95,7 +119,7 @@
   "name": "C2C Variations",
   "url": "https://www.c2cvariations.com.au/",
   "logo": "https://www.c2cvariations.com.au/assets/logo-icon.jpg",
-  "description": "Docs done. Jobs won. Lock scope changes, clear approvals, and time-stamped PDFs. C2C Variations â€” national coverage and same-day setup.",
+  "description": "Docs done. Jobs won. Lock scope changes, clear approvals, and time-stamped PDFs. C2C Variations Ã¢â‚¬â€ national coverage and same-day setup.",
   "contactPoint": [{
     "@type": "ContactPoint",
     "telephone": "+61-466-873-332",
@@ -107,7 +131,19 @@
     "https://wa.me/61466873332"
   ]
 }
-</script>{% include site-footer.html %}
+</script><footer class=""c2c-footer"">
+  <div class=""wrap"">
+    <nav class=""footer-links"">
+      <a href=""/pricing.html"">Pricing</a>
+      <a href=""/docs.html"">Docs</a>
+      <a href=""/resources.html"">Resources</a>
+      <a href=""/about.html"">About</a>
+      <a href=""/privacy.html"">Privacy</a>
+      <a href=""/terms.html"">Terms</a>
+    </nav>
+    <p class=""fine"">Ã‚Â© C2C Variations</p>
+  </div>
+</footer>
 </body>
 </html>
 
