@@ -257,27 +257,7 @@
 <script defer src="/assets/js/site-enhancements.v3.js?v=2"></script>
 </head>
 <body>
-  <header class="site-header" data-nav-root>
-    <div class="container nav-row">
-      <a class="brand" href="/index.html" aria-label="C2C Variations home">
-        <img class="icon" src="/assets/logo-icon.jpg" alt="C2C icon">
-      </a>
-      <button class="nav-hamburger" type="button" data-nav-toggle aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
-        <span class="nav-hamburger-bar"></span>
-        <span class="nav-hamburger-bar"></span>
-        <span class="nav-hamburger-bar"></span>
-      </button>
-      <nav class="nav site-nav" id="main-nav" role="navigation" aria-label="Main" data-nav-menu>
-        <a href="/index.html">Home</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/about.html">About</a>
-        <a href="/docs.html">Docs</a>
-        <a href="/resources.html">Resources</a>
-        <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
-        <button type="button" id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
-      </nav>
-    </div>
-  </header>
+  {% include site-header.html %}
   <main>
     <section class="hero">
       <span class="hero-label">Resource hub</span>
@@ -531,3 +511,5 @@
 
 
 
+
+{% include site-footer.html %}

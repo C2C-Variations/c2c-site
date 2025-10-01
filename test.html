@@ -14,12 +14,7 @@
 
 <div id="c2c-chat-overlay" hidden></div>
 <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
-	<header class="c2c-chat-header">
-  <script defer src="/assets/js/site-enhancements.v3.js?v=2"></script>
-  <link rel="stylesheet" href="/assets/css/site-header.v3.css?v=2">
-		<strong>C2C Chat</strong>
-		<button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
-	</header>
+	{% include site-header.html %}
 	<div class="c2c-chat-body">
 		<p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
 		<p>
@@ -32,3 +27,5 @@
 
 
 
+
+{% include site-footer.html %}

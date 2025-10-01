@@ -40,27 +40,7 @@
   -->
 </head>
 <body>
-<header class="site-header" data-nav-root>
-  <div class="container nav-row">
-    <a class="brand" href="./index.html" aria-label="C2C Variations home">
-      <img class="icon" src="./assets/logo-icon.jpg" alt="C2C icon">
-    </a>
-    <button class="nav-hamburger" type="button" data-nav-toggle aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
-      <span class="nav-hamburger-bar"></span>
-      <span class="nav-hamburger-bar"></span>
-      <span class="nav-hamburger-bar"></span>
-    </button>
-    <nav class="nav site-nav" id="main-nav" role="navigation" aria-label="Main" data-nav-menu>
-      <a href="./index.html">Home</a>
-      <a href="./pricing.html">Pricing</a>
-      <a href="./about.html">About</a>
-      <a href="./docs.html">Docs</a>
-        <a href="/resources.html">Resources</a>
-      <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
-      <button type="button" id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
-    </nav>
-  </div>
-</header>
+{% include site-header.html %}
 
 
   <div class="wrap">
@@ -111,10 +91,7 @@
 
   <div id="c2c-chat-overlay" hidden></div>
   <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
-    <header class="c2c-chat-header">
-      <strong>C2C Chat</strong>
-      <button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
-    </header>
+    {% include site-header.html %}
     <div class="c2c-chat-body">
       <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
       <p>
@@ -123,34 +100,7 @@
       </p>
     </div>
   </div>
-  <footer class="footer">
-    <div class="container footer-links-row">
-      <span>© C2C Variations</span>
-      <span class="footer-links"><a href="https://www.c2cvariations.com.au/pricing">See plans</a><a href="https://www.c2cvariations.com.au/about">About</a><a href="https://www.c2cvariations.com.au/resources">Resources</a><a href="https://www.c2cvariations.com.au/testimonials">Testimonials</a><a href="https://www.c2cvariations.com.au/partners">Partners</a><a href="https://www.c2cvariations.com.au/privacy">Privacy</a><a href="https://www.c2cvariations.com.au/terms">Terms</a></span>
-    </div>
-  <style>
-    @media (max-width: 600px) {
-      .footer-links-row {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 10px !important;
-      }
-      .footer-links {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 10px 0 !important;
-        flex-direction: column !important;
-        width: 100%;
-      }
-      .footer-links a {
-        padding: 10px 0 !important;
-        font-size: 1.1rem !important;
-        display: block !important;
-        width: 100%;
-      }
-    }
-  </style>
-  </footer>
+  {% include site-footer.html %}
   <script src="assets/site-nav.js?v=1" defer></script>
   <script src="assets/chatbot.v6.js?v=1" defer></script>
 <script type="application/ld+json">
@@ -175,3 +125,4 @@
 </script>
 </body>
 </html>
+

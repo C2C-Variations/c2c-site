@@ -53,27 +53,7 @@
   </style>
 </head>
 <body>
-<header class="site-header" data-nav-root>
-  <div class="container nav-row">
-    <a class="brand" href="./index.html" aria-label="C2C Variations home">
-      <img class="icon" src="./assets/logo-icon.jpg" alt="C2C icon">
-    </a>
-    <button class="nav-hamburger" type="button" data-nav-toggle aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
-      <span class="nav-hamburger-bar"></span>
-      <span class="nav-hamburger-bar"></span>
-      <span class="nav-hamburger-bar"></span>
-    </button>
-    <nav class="nav site-nav" id="main-nav" role="navigation" aria-label="Main" data-nav-menu>
-      <a href="./index.html">Home</a>
-      <a href="./pricing.html">Pricing</a>
-      <a href="./about.html">About</a>
-      <a href="./docs.html">Docs</a>
-        <a href="/resources.html">Resources</a>
-      <a class="btn btn-wa" href="https://wa.me/61466873332?text=Hi%20C2C%2C%20keen%20to%20get%20set%20up.&utm_source=site&utm_medium=button&utm_campaign=whatsapp" target="_blank" rel="noopener">WhatsApp</a>
-      <button type="button" id="c2c-chat-cta" class="c2c-chat-cta" aria-controls="c2c-chatbot-container" aria-expanded="false">💬 Chat with C2C</button>
-    </nav>
-  </div>
-</header>
+{% include site-header.html %}
 
 
 <main class="container">
@@ -136,24 +116,12 @@
   </div>
 </main>
 
-<footer class="" role="contentinfo">
-  <div class="container" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <span>© C2C Variations</span>
-    <span class="footer-links">
-      <a href="/resources">Resources</a> •
-      <a href="/privacy">Privacy</a> •
-      <a href="/terms">Terms</a>
-    </span>
-  </div>
-</footer>
+{% include site-footer.html %}
 
 <!-- Chat UI (no change) -->
 <div id="c2c-chat-overlay" hidden></div>
 <div id="c2c-chatbot-container" hidden role="dialog" aria-modal="true" aria-label="C2C Chat">
-  <header class="c2c-chat-header">
-    <strong>C2C Chat</strong>
-    <button type="button" class="c2c-chat-close" aria-label="Close chat">✕</button>
-  </header>
+  {% include site-header.html %}
   <div class="c2c-chat-body">
     <p class="c2c-chat-intro">👋 Live chat is being switched on. Ping us on WhatsApp or email and we’ll jump in.</p>
     <p>
@@ -169,3 +137,4 @@
 
 </body>
 </html>
+
