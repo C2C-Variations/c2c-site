@@ -1,0 +1,8 @@
+:root{
+  --brand-orange:#FF6A00;
+  --brand-black:#0A0A0A;
+  --font-sans:ui-sans-serif,system-ui,""Segoe UI"",Roboto,Arial;
+  --fs-hero:clamp(28px,4vw,40px);
+  --fs-h1:28px; --fs-h2:22px; --fs-body:16px;
+  --radius:12px; --space:16px;
+}
