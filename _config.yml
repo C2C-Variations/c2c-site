@@ -1,10 +1,3 @@
-﻿title: C2C Variations
-description: Docs done. Jobs won.
+﻿theme: null
 markdown: kramdown
-theme: null
-exclude:
-  - node_modules
-  - vendor
-  - README.md
-  - Gemfile
-  - Gemfile.lock
+plugins: []
