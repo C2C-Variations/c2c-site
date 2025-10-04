@@ -1,3 +1,9 @@
-﻿theme: null
-markdown: kramdown
-plugins: []
+﻿title: C2C Variations
+url: https://www.c2cvariations.com.au
+baseurl: ""        # keep empty for apex + www
+plugins: []        # no custom plugins
+exclude:
+  - node_modules
+  - README.md
+  - .github
+  - .gitignore
